@@ -62,9 +62,7 @@ Route::prefix('categorias_palavras')->group(function () {
     Route::delete('{id}', 'App\Http\Controllers\CategoriaPalavraController@destroy')->name('categoria_palavradelete');
 });
 
-Route::get('jogo', function () {
-    return view('conexo');
-});
+Route::get('conexo', '@JogoController')->name('jogo');
 
 
 // Route::prefix('')->group(function () {

@@ -20,16 +20,16 @@ class CategoriaController extends Controller {
     public function create() {
         $categoria = new Categoria();
 
-        return view('Categoria', [
-            'Categoria' => $categoria
+        return view('categoria', [
+            'categoria' => $categoria
         ]);
     }
 
     public function edit($id) {
         $categoria = Categoria::find($id);
 
-        return view('Categoria', [
-            'Categoria' => $categoria
+        return view('categoria', [
+            'categoria' => $categoria
         ]);
     }
 
@@ -41,13 +41,15 @@ class CategoriaController extends Controller {
         ];
 
         $validator = Validator::make($request->all(), [
-            'nome' => 'required'
+            'nome' => 'required',
+            'disciplina_id' => 'required'
         ], $messages);
 
         if ($validator->fails()) return redirect()->route('categorianovo')->withErrors($validator)->withInput();
         else {
             $categoria = new Categoria();
             $categoria->nome = $request->input('nome');
+            $categoria->disciplina_id = $request->input('disciplina_id');
             $categoria->save();
 
             return redirect()->route('categorias');
@@ -56,13 +58,15 @@ class CategoriaController extends Controller {
 
     public function update($id, Request $request) {
         $validator = Validator::make($request->all(), [
-            'nome' => 'required'
+            'nome' => 'required',
+            'disciplina_id' => 'required'
         ]);
 
         if ($validator->fails()) return redirect()->route('categoriasnovo')->withErrors($validator)->withInput();
         else {
             $categoria = Categoria::find($id);
             $categoria->nome = $request->input('nome');
+            $categoria->disciplina_id = $request->input('disciplina_id');
             $categoria->save();
 
             return redirect()->route('categorias');

@@ -1,5 +1,21 @@
-@extends('layout')
-@section('content')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conexo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="./favicon.svg">
+</head>
+
+<body class="bg-slate-900 text-zinc-50">
+    <div class="flex flex-col justifycenter items-center h-screen w-screen">
+        <!-- @yield('content') -->
+
+    </div>
+</body>
+
 
 <h1 class="text-5xl font-bold inline-flex flex-col gap-x-2 justify-center items-center mt-10">
     <svg width="50" height="50" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,4 +35,7 @@
     <a href="" class="bg-blue-500 rounded-lg py-2 px-3">Jogar</a>
 </div>
 
-@endsection
+
+@vite(['resources/js/app.js'])
+
+</html>
