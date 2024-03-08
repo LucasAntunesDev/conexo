@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('conexo');
+    // return view('inicio');
 });
+
+// Route::get('jogo', function () {
+//     return view('conexo');
+// });
 
 Route::prefix('professores')->group(function () {
     Route::get('/', 'App\Http\ProfessorController@index')->name('professores');
@@ -44,6 +50,10 @@ Route::prefix('categorias')->group(function () {
     Route::delete('{id}', 'App\Http\Controllers\CategoriaController@destroy')->name('categoriadelete');
 });
 
+// Route::get('/categorias', function () {
+//     return view('categorias');
+// });
+
 Route::prefix('palavras')->group(function () {
     Route::get('/', 'App\Http\Controllers\PalavraController@index')->name('palavras');
     Route::get('novo', 'App\Http\Controllers\PalavraController@create')->name('palavranovo');
@@ -62,7 +72,7 @@ Route::prefix('categorias_palavras')->group(function () {
     Route::delete('{id}', 'App\Http\Controllers\CategoriaPalavraController@destroy')->name('categoria_palavradelete');
 });
 
-Route::get('conexo', '@JogoController')->name('jogo');
+// Route::get('conexo', '@JogoController')->name('jogo');
 
 
 // Route::prefix('')->group(function () {
