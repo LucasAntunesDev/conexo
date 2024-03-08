@@ -9,8 +9,8 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li>
                     <div class="flex items-center">
-                        <a href="{{ route('palavras') }}" class="ms-1 text-sm font-medium 
-                        hover:text-blue-500 md:ms-2">Palavras</a>
+                        <a href="{{ route('disciplinas') }}" class="ms-1 text-sm font-medium 
+                        hover:text-blue-500 md:ms-2">disciplinas</a>
                     </div>
                 </li>
                 <li aria-current="page">
@@ -25,7 +25,7 @@
         </nav>
 
         <h1 class="font-bold text-4xl text-blue-500 mb-4">
-            Gerenciar palavra
+            Gerenciar disciplina
         </h1>
 
         @if($errors->any())
@@ -48,20 +48,27 @@
         </div>
         @endif
 
-        @if($palavra->id)
-        <form action="{{ route('palavraupdate', ['id' =>$palavra->id]) }}" method="POST">
+        @if($disciplina->id)
+        <form action="{{ route('disciplinaaupdate', ['id' =>$disciplina->id]) }}" method="POST">
             <input type="hidden" name="_method" value="PUT">
             @else
-            <form action="{{ route('palavrainsert') }}" method="POST">
+            <form action="{{ route('disciplinainsert') }}" method="POST">
                 @endif
                 {{ csrf_field()}}
 
                 <fieldset class="flex flex-col items-center p-10 w-[40rem]">
-                    <input type="hidden" name="id" value='{{ $palavra->id }}'>
+                    <input type="hidden" name="id" value='{{ $disciplina->id }}'>
 
                     <div class="flex flex-col gap-y-1">
                         <label for="nome" class="label">Nome</label>
-                        <input type="text" id="nome" name="nome" value='{{ $palavra->nome }}' class="rounded-md 
+                        <input type="text" id="nome" name="nome" value='{{ $disciplina->nome }}' class="rounded-md 
+                    border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
+                    focus:ring-2 focus:ring-inset focus:ring-blue-400 outline-none bg-slate-800">
+                    </div>
+
+                    <div class="flex flex-col gap-y-1">
+                        <label for="professor_id" class="label">Professor</label>
+                        <input type="text" id="professor_id" name="professor_id" value='{{ $disciplina->professor_id }}' class="rounded-md 
                     border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
                     focus:ring-2 focus:ring-inset focus:ring-blue-400 outline-none bg-slate-800">
                     </div>
@@ -69,7 +76,7 @@
                 </fieldset>
 
                 <div class="flex items-center gap-x-2 justify-center">
-                    <a href="{{ route('palavras') }}" class="btn outlined">
+                    <a href="{{ route('disciplinas') }}" class="btn outlined">
                         Cancelar
                     </a>
 
