@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +15,10 @@ use App\Http\Controllers\CategoriaController;
 
 Route::get('/', function () {
     return view('conexo');
-    // return view('inicio');
 });
 
-// Route::get('jogo', function () {
-//     return view('conexo');
-// });
-
 Route::prefix('professores')->group(function () {
-    Route::get('/', 'App\Http\ProfessorController@index')->name('professores');
+    Route::get('/', 'App\Http\Controllers\ProfessorController@index')->name('professores');
     Route::get('novo', 'App\Http\Controllers\ProfessorController@create')->name('professornovo');
     Route::get('{id}', 'App\Http\Controllers\ProfessorController@edit')->name('professorform');
     Route::post('/', 'App\Http\Controllers\ProfessorController@store')->name('professorinsert');
