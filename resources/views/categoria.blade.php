@@ -61,14 +61,14 @@
 
                     <div class="flex flex-col gap-y-1">
                         <label for="nome" class="label">Nome</label>
-                        <input type="nome" id="nome" name="nome" value='{{ $categoria->nome }}' class="rounded-md 
+                        <input type="text" id="nome" name="nome" value='{{ $categoria->nome }}' class="rounded-md 
                     border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
                     focus:ring-2 focus:ring-inset focus:ring-blue-400 outline-none bg-slate-800">
                     </div>
 
                     <div class="flex flex-col gap-y-1">
                         <label for="disciplina_id" class="label">Disciplina</label>
-                        <input type="disciplina_id" id="disciplina_id" name="disciplina_id" value='{{ $categoria->disciplina_id }}' class="rounded-md 
+                        <input type="text" id="disciplina_id" name="disciplina_id" value='{{ $categoria->disciplina_id }}' class="rounded-md 
                     border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
                     focus:ring-2 focus:ring-inset focus:ring-blue-400 outline-none bg-slate-800">
                     </div>
