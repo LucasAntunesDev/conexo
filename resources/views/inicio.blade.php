@@ -37,7 +37,7 @@
         <div class="flex border border-zinc-50 bg-slate-800 rounded-md w-fit h-fit p-4 gap-x-4 items-center">
             <span class="font-bold">Jogo diário</span>
             <span>{{date('d/m/Y')}}</span>
-            <a href="" class="bg-blue-500 rounded-lg py-2 px-3">Jogar</a>
+            <a href="{{ route('diario')}}" class="bg-blue-500 rounded-lg py-2 px-3">Jogar</a>
         </div>
     </div>
 </body>
