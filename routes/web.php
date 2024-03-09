@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('conexo');
+    return view('inicio');
 });
+
+Route::get('diario', function () {
+    return view('conexo');
+})->name('diario');
 
 Route::prefix('professores')->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfessorController@index')->name('professores');
