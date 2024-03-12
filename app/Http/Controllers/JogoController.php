@@ -13,9 +13,23 @@ class JogoController extends Controller {
     public function index() {
         $jogos = Jogo::all();
 
-        return view('jogos', [
-            'jogos' => $jogos
-        ]);
+        $resultados = DB::select("
+        SELECT c1.id AS categoria_id_1, c2.id AS categoria_id_2
+        FROM categorias AS c1
+        JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
+        JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
+        JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
+        GROUP BY c1.id, c2.id
+        HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
+        ORDER BY RAND()
+        LIMIT 2
+        ");
+        
+        return response()->json($resultados);
+
+        // return view('jogos', [
+        //     'jogos' => $jogos
+        // ]);
     }
 
     public function create() {
@@ -34,7 +48,26 @@ class JogoController extends Controller {
         ]);
     }
 
-    public function store(Request $request) {
+    // public function store(Request $request) {
+    public function store() {
+        $resultados = DB::select("
+        SELECT c1.id AS categoria_id_1, c2.id AS categoria_id_2
+        FROM categorias AS c1
+        JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
+        JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
+        JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
+        GROUP BY c1.id, c2.id
+        HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
+        ORDER BY RAND()
+        LIMIT 2
+        ");
+
+        foreach ($resultados as $resultado) {
+            $jogo = new Jogo();
+            $jogo->categorias_ids = $resultado->categoria_id_1 . ',' . $resultado->categoria_id_2;
+            $jogo->data = now();
+            $jogo->save();
+        }
 
         // $messages = [
         //     'nome.required' => 'O campo título deve ser preenchido',
@@ -58,26 +91,26 @@ class JogoController extends Controller {
     }
 
     public function storeCategoriasSorteadas() {
-        $resultados = $categorias = DB::select("
-    SELECT c1.id AS categoria_id_1, c2.id AS categoria_id_2
-    FROM categorias AS c1
-    JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
-    JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
-    JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
-    GROUP BY c1.id, c2.id
-    HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
-    ORDER BY RAND()
-    LIMIT 2
-");
+        // $resultados = $categorias = DB::select("
+        // SELECT c1.id AS categoria_id_1, c2.id AS categoria_id_2
+        // FROM categorias AS c1
+        // JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
+        // JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
+        // JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
+        // GROUP BY c1.id, c2.id
+        // HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
+        // ORDER BY RAND()
+        // LIMIT 2
+        // ");
 
-        foreach ($resultados as $resultado) {
-            $jogo = new Jogo();
-            $jogo->categorias_ids = $resultado->categoria_id_1 . ',' . $resultado->categoria_id_2;
-            $jogo->data = now();
-            $jogo->save();
-        }
+        // foreach ($resultados as $resultado) {
+        //     $jogo = new Jogo();
+        //     $jogo->categorias_ids = $resultado->categoria_id_1 . ',' . $resultado->categoria_id_2;
+        //     $jogo->data = now();
+        //     $jogo->save();
+        // }
 
-        return redirect()->route('diario');
+        // return redirect()->route('diario');
     }
 
 

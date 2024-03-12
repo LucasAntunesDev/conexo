@@ -21,6 +21,15 @@ Route::get('diario', function () {
     return view('conexo');
 })->name('diario');
 
+Route::prefix('jogos')->group(function () {
+    // Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogos');
+    Route::get('', 'App\Http\Controllers\JogoController@storeCategoriasSorteadas')->name('jogos');
+    // Route::get('{id}', 'App\Http\Controllers\ProfessorController@edit')->name('professorform');
+    // Route::post('/', 'App\Http\Controllers\ProfessorController@store')->name('professorinsert');
+    // Route::put('{id}', 'App\Http\Controllers\ProfessorController@update')->name('professorupdate');
+    // Route::delete('{id}', 'App\Http\Controllers\ProfessorController@destroy')->name('professordelete');
+});
+
 Route::prefix('professores')->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfessorController@index')->name('professores');
     Route::get('novo', 'App\Http\Controllers\ProfessorController@create')->name('professornovo');

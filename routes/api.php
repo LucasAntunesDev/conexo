@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/diario', 'App\Http\Controllers\JogoController@index');
+
+Route::get('/', function () {
+    return response()->json([
+        'response' => true
+    ]);
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
