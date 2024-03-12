@@ -22,7 +22,7 @@ Route::get('diario', function () {
 })->name('diario');
 
 Route::prefix('jogos')->group(function () {
-    // Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogos');
+    Route::get('/', 'App\Http\Controllers\JogoController@index')->name('diario');
     Route::get('', 'App\Http\Controllers\JogoController@storeCategoriasSorteadas')->name('jogos');
     // Route::get('{id}', 'App\Http\Controllers\ProfessorController@edit')->name('professorform');
     // Route::post('/', 'App\Http\Controllers\ProfessorController@store')->name('professorinsert');

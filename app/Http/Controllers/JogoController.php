@@ -7,11 +7,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Jogo;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class JogoController extends Controller {
 
     public function index() {
         $jogos = Jogo::all();
+
+        $response = Http::get('http://localhost/conexo/public/api/diario');
+        $data = $response->json();
 
         $resultados = DB::select("
         SELECT c1.id AS categoria_id_1, c2.id AS categoria_id_2
@@ -24,12 +28,12 @@ class JogoController extends Controller {
         ORDER BY RAND()
         LIMIT 2
         ");
-        
+
         return response()->json($resultados);
 
         // return view('jogos', [
         //     'jogos' => $jogos
-        // ]);
+        // ], $data);
     }
 
     public function create() {
