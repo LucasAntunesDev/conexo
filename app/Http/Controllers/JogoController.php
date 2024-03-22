@@ -7,23 +7,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Jogo;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Http;
 
-class JogoController extends Controller {
+class JogoController extends Controller
+{
 
     public function index() {
         $jogos = Jogo::all();
 
-        $response = Http::get('http://localhost/conexo/public/api/diario');
-        $data = $response->json();
-
         $resultados = DB::select("
-        SELECT c1.id AS categoria_id_1, c2.id AS categoria_id_2
+        SELECT c1.id AS categoria_id_1, c1.id AS categoria_nome_1, c2.id AS categoria_id_2, c1.nome AS categoria_nome_1
         FROM categorias AS c1
         JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
         JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
         JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
-        GROUP BY c1.id, c2.id
+        GROUP BY c1.id, c1.nome, c2.id, c2.nome
         HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
         ORDER BY RAND()
         LIMIT 2
@@ -33,7 +30,7 @@ class JogoController extends Controller {
 
         // return view('jogos', [
         //     'jogos' => $jogos
-        // ], $data);
+        // ]);
     }
 
     public function create() {
@@ -54,7 +51,7 @@ class JogoController extends Controller {
 
     // public function store(Request $request) {
     public function store() {
-        $resultados = DB::select("
+        $categorias_ids = DB::select("
         SELECT c1.id AS categoria_id_1, c2.id AS categoria_id_2
         FROM categorias AS c1
         JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
@@ -66,12 +63,26 @@ class JogoController extends Controller {
         LIMIT 2
         ");
 
-        foreach ($resultados as $resultado) {
-            $jogo = new Jogo();
-            $jogo->categorias_ids = $resultado->categoria_id_1 . ',' . $resultado->categoria_id_2;
-            $jogo->data = now();
-            $jogo->save();
-        }
+        var_dump($categorias_ids);
+
+        $resultados = DB::select("
+        SELECT c1.id AS categoria_id_1, c1.nome as categoria_1_nome, c2.id AS categoria_id_2, c2.nome as categoria_2_nome
+        FROM categorias AS c1
+        JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
+        JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
+        JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
+        GROUP BY c1.id, c2.id
+        HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
+        ORDER BY RAND()
+        LIMIT 2
+        ");
+
+        // foreach ($resultados as $resultado) {
+        //     $jogo = new Jogo();
+        //     $jogo->categorias_ids = $resultado->categoria_id_1 . ',' . $resultado->categoria_id_2;
+        //     $jogo->data = now();
+        //     $jogo->save();
+        // }
 
         // $messages = [
         //     'nome.required' => 'O campo título deve ser preenchido',
