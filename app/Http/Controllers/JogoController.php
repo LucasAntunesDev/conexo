@@ -15,17 +15,30 @@ class JogoController extends Controller
         $jogos = Jogo::all();
 
         $resultados = DB::select("
-        SELECT c1.id AS categoria_id_1, c1.id AS categoria_nome_1, c2.id AS categoria_id_2, c1.nome AS categoria_nome_1
-        FROM categorias AS c1
-        JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
-        JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
-        JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
-        GROUP BY c1.id, c1.nome, c2.id, c2.nome
-        HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
+                SELECT p.nome
+        FROM (
+            SELECT c1.id AS categoria_id_1, c1.nome AS categoria_nome_1, c2.id AS categoria_id_2, c2.nome AS categoria_nome_2
+            FROM categorias AS c1
+            JOIN categorias_palavras AS cp1 ON c1.id = cp1.categoria_id
+            JOIN categorias_palavras AS cp2 ON cp1.palavra_id = cp2.palavra_id
+            JOIN categorias AS c2 ON cp2.categoria_id = c2.id AND c1.id < c2.id
+            GROUP BY c1.id, c1.nome, c2.id, c2.nome
+            HAVING COUNT(DISTINCT cp1.palavra_id) >= 1
+            ORDER BY RAND()
+            LIMIT 2
+        ) AS categorias_selecionadas
+        JOIN categorias_palavras AS cp ON categorias_selecionadas.categoria_id_1 = cp.categoria_id OR categorias_selecionadas.categoria_id_2 = cp.categoria_id
+        JOIN palavras AS p ON cp.palavra_id = p.id
+        GROUP BY cp.categoria_id
         ORDER BY RAND()
-        LIMIT 2
+        LIMIT 4
+
         ");
 
+        // $teste = DB::select("select palavras.nome from palavras where palavras.id in (select palavras.id from categrias_palavras and categorias_palavras.id = ". $resultados .")");
+
+
+        // return response()->json($teste);
         return response()->json($resultados);
 
         // return view('jogos', [
