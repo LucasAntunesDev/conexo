@@ -16,10 +16,11 @@ const criarTabuleiro = (max = 16) => {
     return tab;
 };
 
-const teste = fetch('http://localhost/conexo/public/api/diario').then(response => response.json()).
+// const teste = fetch('http://localhost/conexo/public/api/diario').then(response => response.json()).
+const req = fetch('http://127.0.0.1:8000/api/diario').then(response => response.json()).
 then(data => console.log(data)).
 catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
-console.log(teste)
+console.log(req)
 
 const grupos = [
     {

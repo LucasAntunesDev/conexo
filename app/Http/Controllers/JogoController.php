@@ -39,13 +39,27 @@ class JogoController extends Controller
             SELECT id FROM CATEGORIAS;
         ");
 
+        $ids_selecionados = DB::select("
+            SELECT id FROM CATEGORIAS ORDER BY RAND() LIMIT 4;
+        ");
+
         $categorias_id = [];
-        for($i = 0; $i < 3; $i++){
+        for($i = 0; $i < 4; $i++){
             $categorias_id[$i] = rand(0, count($ids));
         };
 
+        // $ids_to_string = (implode(",", $ids_selecionados));
+
+        $categorias = DB::select("
+            SELECT id FROM CATEGORIAS
+            where id in (". $categorias_id[0] .", ". $categorias_id[1] .", ". $categorias_id[2].", ". $categorias_id[3]  ." )
+        ");
+
+        $palavras = DB::select(" SELECT nome FROM palavras
+         ORDER BY RAND() LIMIT 16");
+
         // return response()->json($teste);
-        return response()->json([$categorias_id, $ids, $resultados]);
+        return response()->json([$palavras, $categorias, $categorias_id]);
 
         // return view('jogos', [
         //     'jogos' => $jogos

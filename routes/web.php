@@ -21,6 +21,8 @@ Route::get('diario', function () {
     return view('conexo');
 })->name('diario');
 
+// Route::get('/diario', 'App\Http\Controllers\JogoController@index');
+
 Route::prefix('jogos')->group(function () {
     Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogo');
     Route::get('', 'App\Http\Controllers\JogoController@storeCategoriasSorteadas')->name('jogos');
