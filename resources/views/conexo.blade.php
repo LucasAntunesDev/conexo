@@ -33,10 +33,20 @@
 </div>
 <span id="grupos" class="flex flex-col gap-y-1"></span>
 
-<main id="tabuleiro" class="grid grid-cols-4 gap-2 min-w-6/12 m-auto text-uppercase"></main>
+
+<main id="tabuleiro" class="grid grid-cols-4 gap-2 min-w-6/12 m-auto text-uppercase">
+
+    @foreach ($resultados as $resultado)
+        <button type="button" class="bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase">
+            {{ $resultado->Palavra }}
+        </button>  
+    @endforeach
+
+</main>
+
 </body>
 @endsection
 
 @section('scripts')
-@vite(['resources/js/app.js'])
+<!-- @vite(['resources/js/app.js']) -->
 @endsection

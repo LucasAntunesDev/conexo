@@ -17,9 +17,27 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+// Route::get('diario', function () {
+//     return view('conexo');
+// })->name('diario');
+
+
 Route::get('diario', function () {
-    return view('conexo');
+    $resultados = DB::select("SELECT
+    categorias_palavras.id,
+    categorias.nome as 'Categoria',
+    palavras.nome as 'Palavra'
+    FROM
+        categorias_palavras
+        join categorias on categorias_palavras.categoria_id = categorias.id
+        join palavras on categorias_palavras.palavra_id = palavras.id
+    ORDER BY RAND()
+    LIMIT  16;"); 
+    return view('conexo')->with('resultados', $resultados);
 })->name('diario');
+
+
+// Route::get('/', 'App\Http\Controllers\JogoController@teste')->name('diario');
 
 Route::prefix('jogos')->group(function () {
     Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogo');
