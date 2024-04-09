@@ -61,7 +61,7 @@ _Aqui está uma explicação passo a passo de como instalar e, posteriormente, u
     ```
 5. Crie as migrations
     ```
-    php artisan key:generate
+    php artisan migrate
     ```
 6. Crie as seeders
     ```
