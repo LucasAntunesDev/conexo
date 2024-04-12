@@ -38,10 +38,21 @@
     {{-- <pre>
         {{ var_dump($resultados) }}
     </pre> --}}
+    <script>
+        function verficarJogo(e) {
+            console.log(e.innerHTML);
+        }
+        </script>
+
+
+
+
+
         @foreach ($resultados as $indice =>$palavra)
-        <button type="button" class="bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase">
-            {{ $palavra->nome }}
-        </button>  
+            <button type="button" class="{{ $palavras->categorias }} bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase" 
+            onClick="verficarJogo(this)"> 
+                {{ $palavra->nome }}
+            </button>  
     @endforeach
 
 </main>
@@ -50,5 +61,5 @@
 @endsection
 
 @section('scripts')
-<!-- @vite(['resources/js/app.js']) -->
+@vite(['resources/js/app.js'])
 @endsection

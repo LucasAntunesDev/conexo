@@ -1,116 +1,118 @@
-const dataAtual = document.querySelector('#dataAtual')
-dataAtual.innerHTML = new Date(Date.now()).toLocaleString().split(',')[0];
+// alert('teste')
 
-const criarTabuleiro = (max = 16) => {
-    const tab = [];
+// const dataAtual = document.querySelector('#dataAtual')
+// dataAtual.innerHTML = new Date(Date.now()).toLocaleString().split(',')[0];
 
-    let k = 0;
-    while (k < max) {
-        const n = Math.ceil(Math.random() * (max / 2));
-        if (tab.filter((x) => x === n).length >= 2) continue;
+// const criarTabuleiro = (max = 16) => {
+//     const tab = [];
 
-        tab.push(n);
-        k++;
-    }
+//     let k = 0;
+//     while (k < max) {
+//         const n = Math.ceil(Math.random() * (max / 2));
+//         if (tab.filter((x) => x === n).length >= 2) continue;
 
-    return tab;
-};
+//         tab.push(n);
+//         k++;
+//     }
 
-const teste = fetch('http://localhost/conexo/public/api/diario').then(response => response.json()).
-then(data => console.log(data)).
-catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
-console.log(teste)
+//     return tab;
+// };
 
-const grupos = [
-    {
-        numero: 3,
-        tema: "Advérbios de lugar",
-        palavras: ["lá", "ali", "aqui", "acolá"],
-    },
-    {
-        numero: 2,
-        tema: "Fontes de energia",
-        palavras: ["vento", "sol", "carvão", "água"],
-    },
-    {
-        numero: 4,
-        tema: "Participantes num processo judicial",
-        palavras: ["ré", "juíza", "testemunha", "autora"],
-    },
-    { numero: 1, tema: "Notas musicais", palavras: ["dó", "mi", "si", "fá"] },
-]
+// const teste = fetch('http://localhost/conexo/public/api/diario').then(response => response.json()).
+// then(data => console.log(data)).
+// catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
+// console.log(teste)
 
-let todasPalavras = grupos[0].palavras.concat(grupos[1].palavras).concat(grupos[2].palavras).concat(grupos[3].palavras)
-todasPalavras = todasPalavras.sort()
+// const grupos = [
+//     {
+//         numero: 3,
+//         tema: "Advérbios de lugar",
+//         palavras: ["lá", "ali", "aqui", "acolá"],
+//     },
+//     {
+//         numero: 2,
+//         tema: "Fontes de energia",
+//         palavras: ["vento", "sol", "carvão", "água"],
+//     },
+//     {
+//         numero: 4,
+//         tema: "Participantes num processo judicial",
+//         palavras: ["ré", "juíza", "testemunha", "autora"],
+//     },
+//     { numero: 1, tema: "Notas musicais", palavras: ["dó", "mi", "si", "fá"] },
+// ]
 
-let placar = [];
-let trancarJogo = false;
+// let todasPalavras = grupos[0].palavras.concat(grupos[1].palavras).concat(grupos[2].palavras).concat(grupos[3].palavras)
+// todasPalavras = todasPalavras.sort()
 
-let jogadas = []
+// let placar = [];
+// let trancarJogo = false;
 
-const tentativas = []
+// let jogadas = []
 
-let tentativa = {
-    selecionado: jogadas
-}
+// const tentativas = []
 
-const tab = criarTabuleiro();
-const div = document.getElementById("tabuleiro");
+// let tentativa = {
+//     selecionado: jogadas
+// }
 
-const verificarJogadas = (grupos, jogadas) => {
-    let numeroAcertosElement = document.querySelector('#numeroAcertos')
-    numeroAcertos = parseInt(numeroAcertosElement.innerHTML)
-    const gruposAcertados = document.querySelector('#grupos')
+// const tab = criarTabuleiro();
+// const div = document.getElementById("tabuleiro");
 
-    for (const grupo of grupos) {
-        const palavrasGrupo = grupo.palavras;
-        const todasPresentes = jogadas.every(jogada => palavrasGrupo.includes(jogada));
+// const verificarJogadas = (grupos, jogadas) => {
+//     let numeroAcertosElement = document.querySelector('#numeroAcertos')
+//     numeroAcertos = parseInt(numeroAcertosElement.innerHTML)
+//     const gruposAcertados = document.querySelector('#grupos')
 
-        if (todasPresentes) {
-            console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.tema}" (Grupo ${grupo.numero}).`);
-            numeroAcertos++
-            numeroAcertosElement.innerHTML = numeroAcertos
-            gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase"><b>${grupo.tema}</b>: ${jogadas} </span>`
+//     for (const grupo of grupos) {
+//         const palavrasGrupo = grupo.palavras;
+//         const todasPresentes = jogadas.every(jogada => palavrasGrupo.includes(jogada));
 
-        } else { console.log('Não!!') }
-    }
-    console.log(numeroAcertos)
-    if (numeroAcertos === 4) {
-        document.querySelector('#tabuleiro').setAttribute('class', 'hidden')
-        document.querySelector('#acertou').setAttribute('class', 'bg-slate-800 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex')
-        document.querySelector('#acertouNumeroTentativas').innerHTML = document.querySelector('#numeroTentativas').innerHTML
-        console.log(document.querySelector('numeroTentativas').innerHTML)
-        // alert('Você venceu!! =D')
-    }
-}
+//         if (todasPresentes) {
+//             console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.tema}" (Grupo ${grupo.numero}).`);
+//             numeroAcertos++
+//             numeroAcertosElement.innerHTML = numeroAcertos
+//             gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase"><b>${grupo.tema}</b>: ${jogadas} </span>`
 
-for (let i = 0; i < 16; i++) {
-    const btn = document.createElement("button");
-    btn.setAttribute("type", "button");
-    btn.setAttribute("class", "bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase");
-    btn.innerHTML = todasPalavras[i];
-    btn.addEventListener("click", () => {
-        if (jogadas.some((j) => j === btn)) return;
+//         } else { console.log('Não!!') }
+//     }
+//     console.log(numeroAcertos)
+//     if (numeroAcertos === 4) {
+//         document.querySelector('#tabuleiro').setAttribute('class', 'hidden')
+//         document.querySelector('#acertou').setAttribute('class', 'bg-slate-800 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex')
+//         document.querySelector('#acertouNumeroTentativas').innerHTML = document.querySelector('#numeroTentativas').innerHTML
+//         console.log(document.querySelector('numeroTentativas').innerHTML)
+//         // alert('Você venceu!! =D')
+//     }
+// }
 
-        jogadas.push(btn.innerHTML)
+// for (let i = 0; i < 16; i++) {
+//     const btn = document.createElement("button");
+//     btn.setAttribute("type", "button");
+//     btn.setAttribute("class", "bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase");
+//     btn.innerHTML = todasPalavras[i];
+//     btn.addEventListener("click", () => {
+//         if (jogadas.some((j) => j === btn)) return;
 
-        if (jogadas.length === 4) {
-            let numeroTentativasElement = document.querySelector('#numeroTentativas')
-            let numeroTentativas = parseInt(document.querySelector('#numeroTentativas').innerHTML)
-            numeroTentativas++
-            numeroTentativasElement.innerHTML = numeroTentativas
+//         jogadas.push(btn.innerHTML)
 
-            tentativa = {
-                selecionado: jogadas
-            }
+//         if (jogadas.length === 4) {
+//             let numeroTentativasElement = document.querySelector('#numeroTentativas')
+//             let numeroTentativas = parseInt(document.querySelector('#numeroTentativas').innerHTML)
+//             numeroTentativas++
+//             numeroTentativasElement.innerHTML = numeroTentativas
 
-            tentativas.push(tentativa)
+//             tentativa = {
+//                 selecionado: jogadas
+//             }
 
-            verificarJogadas(grupos, jogadas)
+//             tentativas.push(tentativa)
 
-            jogadas = []
-        }
+//             verificarJogadas(grupos, jogadas)
 
-    });
-    div.appendChild(btn);
-}
+//             jogadas = []
+//         }
+
+//     });
+//     div.appendChild(btn);
+// }
