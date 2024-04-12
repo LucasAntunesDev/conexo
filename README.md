@@ -69,7 +69,7 @@ _Aqui está uma explicação passo a passo de como instalar e, posteriormente, u
     ```
 7. Rode o servidor
     ```
-    npm run dev
+    php artisan serve
     ```
 
 <p align="right">(<a href="#readme-top">Voltar ao topo</a>)</p>
