@@ -35,10 +35,12 @@
 
 
 <main id="tabuleiro" class="grid grid-cols-4 gap-2 min-w-6/12 m-auto text-uppercase">
-
-    @foreach ($resultados as $resultado)
+    {{-- <pre>
+        {{ var_dump($resultados) }}
+    </pre> --}}
+        @foreach ($resultados as $indice =>$palavra)
         <button type="button" class="bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase">
-            {{ $resultado->Palavra }}
+            {{ $palavra->nome }}
         </button>  
     @endforeach
 

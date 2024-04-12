@@ -22,20 +22,56 @@ Route::get('/', function () {
 // })->name('diario');
 
 
+#Route::get('/diario', 'App\Http\Controllers\JogoController@index')->name('diario');
+
 Route::get('diario', function () {
-    $resultados = DB::select("SELECT
-    categorias_palavras.id,
-    categorias.nome as 'Categoria',
-    palavras.nome as 'Palavra'
-    FROM
-        categorias_palavras
-        join categorias on categorias_palavras.categoria_id = categorias.id
-        join palavras on categorias_palavras.palavra_id = palavras.id
-    ORDER BY RAND()
-    LIMIT  16;"); 
+    $resultados = "SELECT
+    *
+FROM
+    (
+        SELECT
+            c.nome,
+            cp.palavra_id,
+            cp.categoria_id
+        FROM
+            categorias c
+            INNER JOIN categorias_palavras cp on c.id = cp.categoria_id
+            INNER JOIN (
+                SELECT
+                    p.id
+                FROM
+                    `palavras` p
+                    INNER join categorias_palavras cp on p.id = cp.palavra_id
+                GROUP by
+                    p.id,
+                    p.nome
+                HAVING
+                    count(p.id) > 1
+                order by
+                    rand ()
+                limit
+                    2
+            ) as t ON cp.palavra_id = t.id
+    ) as t
+    JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
+    JOIN palavras p on cp.palavra_id = p.id";
+
     return view('conexo')->with('resultados', $resultados);
+
+    // $resultados1 = DB::select($query); 
+    // $resultados2 = DB::select($query); 
+    // $resultados3 = DB::select($query); 
+    // $resultados4 = DB::select($query);
+
+    // return view('conexo')->with('resultados', [$query])
+    
+    // return view('conexo')->with('resultados', [$resultados1,
+    // $resultados2,
+    // $resultados3,
+    // $resultados4,]);
 })->name('diario');
 
+Route::get('/diario', 'App\Http\Controllers\JogoController@index')->name('diario');
 
 // Route::get('/', 'App\Http\Controllers\JogoController@teste')->name('diario');
 
@@ -88,14 +124,14 @@ Route::prefix('palavras')->group(function () {
     Route::delete('{id}', 'App\Http\Controllers\PalavraController@destroy')->name('palavradelete');
 });
 
-Route::prefix('categorias_palavras')->group(function () {
-    Route::get('/', 'App\Http\Controllers\CategoriaPalavraController@index')->name('categorias_palavras');
-    Route::get('novo', 'App\Http\Controllers\CategoriaPalavraController@create')->name('categoria_palavranovo');
-    Route::get('{id}', 'App\Http\Controllers\CategoriaPalavraController@edit')->name('categoria_palavraform');
-    Route::post('/', 'App\Http\Controllers\CategoriaPalavraController@store')->name('categoria_palavrainsert');
-    Route::put('{id}', 'App\Http\Controllers\CategoriaPalavraController@update')->name('categoria_palavraupdate');
-    Route::delete('{id}', 'App\Http\Controllers\CategoriaPalavraController@destroy')->name('categoria_palavradelete');
-});
+// Route::prefix('categorias_palavras')->group(function () {
+//     Route::get('/', 'App\Http\Controllers\CategoriasPalavrasController@index')->name('categorias_palavras');
+//     Route::get('novo', 'App\Http\Controllers\CategoriasPalavrasController@create')->name('categoria_palavranovo');
+//     Route::get('{id}', 'App\Http\Controllers\CategoriasPalavrasController@edit')->name('categoria_palavraform');
+//     Route::post('/', 'App\Http\Controllers\CategoriasPalavrasController@store')->name('categoria_palavrainsert');
+//     Route::put('{id}', 'App\Http\Controllers\CategoriasPalavrasController@update')->name('categoria_palavraupdate');
+//     Route::delete('{id}', 'App\Http\Controllers\CategoriasPalavrasController@destroy')->name('categoria_palavradelete');
+// });
 
 // Route::get('conexo', '@JogoController')->name('jogo');
 

@@ -12,81 +12,99 @@ class JogoController extends Controller
 {
 
     public function index() {
-        $jogos = Jogo::all();
+        // $jogos = Jogo::all();
 
         $resultados = DB::select("
+        SELECT
+        *
+    FROM
+        (
             SELECT
-            categorias_palavras.id,
-            categorias.nome as 'Categoria',
-            palavras.nome as 'Palavra'
+                c.nome,
+                cp.palavra_id,
+                cp.categoria_id
             FROM
-                categorias_palavras
-                join categorias on categorias_palavras.categoria_id = categorias.id
-                join palavras on categorias_palavras.palavra_id = palavras.id
-            ORDER BY RAND()
-            LIMIT  16;
-            
-
+                categorias c
+                INNER JOIN categorias_palavras cp on c.id = cp.categoria_id
+                INNER JOIN (
+                    SELECT
+                        p.id
+                    FROM
+                        `palavras` p
+                        INNER join categorias_palavras cp on p.id = cp.palavra_id
+                    GROUP by
+                        p.id,
+                        p.nome
+                    HAVING
+                        count(p.id) > 1
+                    order by
+                        rand ()
+                    limit
+                        2
+                ) as t ON cp.palavra_id = t.id limit 16
+        ) as t
+        JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
+        JOIN palavras p on cp.palavra_id < p.id
+        limit 16;
         ");
-
-        $ids = DB::select("
-            SELECT id FROM CATEGORIAS;
-        ");
-
-        $categorias_id = [];
-        for($i = 0; $i < 3; $i++){
-            $categorias_id[$i] = rand(0, count($ids));
-        };
-
-        return response()->json($resultados);
-        // return response()->json([$categorias_id, $ids, $resultados]);
-
-        // return view('jogos', [
-        //     'jogos' => $jogos
-        // ]);
-    }
-
-    public function teste() {
-        $jogos = Jogo::all();
-
-        $resultados = DB::select("
-            SELECT
-            categorias_palavras.id,
-            categorias.nome as 'Categoria',
-            palavras.nome as 'Palavra'
-            FROM
-                categorias_palavras
-                join categorias on categorias_palavras.categoria_id = categorias.id
-                join palavras on categorias_palavras.palavra_id = palavras.id
-            ORDER BY RAND()
-            LIMIT  16;
-            
-
-        ");
-
-        return view('conexo')->with('resultados', $resultados);
-
-
-        $ids = DB::select("
-            SELECT id FROM CATEGORIAS;
-        ");
-
-        $categorias_id = [];
-        for($i = 0; $i < 3; $i++){
-            $categorias_id[$i] = rand(0, count($ids));
-        };
         
-        return view('jogos', [
-                'resultados' => $resultados
-            ]);
+        #retorna json
         // return response()->json($resultados);
-        // return response()->json([$categorias_id, $ids, $resultados]);
 
-        // return view('jogos', [
-        //     'jogos' => $jogos
-        // ]);
+        return  view('conexo')->with('resultados', $resultados);
+
+        // $query = "select nome from palavras order by rand() limit 4;";
+
+        // $resultados1 = DB::select($query); 
+        // $resultados2 = DB::select($query); 
+        // $resultados3 = DB::select($query); 
+        // $resultados4 = DB::select($query);
+
+
+        // return response()->json([$resultados1,
+        // $resultados2,
+        // $resultados3,
+        // $resultados4,]);
+
     }
 
+    public function api() {
+        $resultados = DB::select("
+        SELECT *
+        FROM
+            (
+                SELECT
+                    c.nome,
+                    cp.palavra_id,
+                    cp.categoria_id
+                FROM
+                    categorias c
+                    INNER JOIN categorias_palavras cp on c.id = cp.categoria_id
+                    INNER JOIN (
+                        SELECT
+                            p.id
+                        FROM
+                            `palavras` p
+                            INNER join categorias_palavras cp on p.id = cp.palavra_id
+                        GROUP by
+                            p.id,
+                            p.nome
+                        HAVING
+                            count(p.id) > 1
+                        order by
+                            rand ()
+                        limit
+                            2
+                    ) as t ON cp.palavra_id = t.id
+            ) as t
+            JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
+            JOIN palavras p on cp.palavra_id < p.id
+            limit 16;
+        ");
+        
+        #retorna json
+        return response()->json($resultados);
+    }
     public function create() {
         $jogo = new Jogo();
 

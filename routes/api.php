@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/diario', 'App\Http\Controllers\JogoController@index');
+Route::get('/diario', 'App\Http\Controllers\JogoController@api');
 
 Route::get('/', function () {
     return response()->json([
