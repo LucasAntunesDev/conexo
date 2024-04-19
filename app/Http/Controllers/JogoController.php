@@ -13,11 +13,10 @@ class JogoController extends Controller
 
     public function index() {
         // $jogos = Jogo::all();
-
+        
+        // return view('conexo')->with('resultados', $resultados);
         $resultados = DB::select("
-        SELECT
-        *
-    FROM
+        SELECT * FROM
         (
             SELECT
                 c.nome,
@@ -42,16 +41,16 @@ class JogoController extends Controller
                     limit
                         2
                 ) as t ON cp.palavra_id = t.id limit 16
-        ) as t
-        JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
-        JOIN palavras p on cp.palavra_id < p.id
-        limit 16;
+            ) as t
+            JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
+            JOIN palavras p on cp.palavra_id < p.id
+            limit 16;
         ");
-        
+
         #retorna json
         // return response()->json($resultados);
 
-        return  view('conexo')->with('resultados', $resultados);
+        return view('conexo')->with('resultados', $resultados);
 
         // $query = "select nome from palavras order by rand() limit 4;";
 
@@ -69,6 +68,13 @@ class JogoController extends Controller
     }
 
     public function api() {
+        // $query = DB::table('palavras')->where('nome', 'sol')->first();
+        // $query = DB::table('palavras')->get();
+        $query = DB::table('categorias')->inRandomOrder()->limit(5)->get();
+        // return json()->$resultados->id;
+        return response()->json($query);
+
+        
         $resultados = DB::select("
         SELECT *
         FROM
@@ -101,7 +107,7 @@ class JogoController extends Controller
             JOIN palavras p on cp.palavra_id < p.id
             limit 16;
         ");
-        
+
         #retorna json
         return response()->json($resultados);
     }
