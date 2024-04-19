@@ -67,7 +67,9 @@ class JogoController extends Controller
 
     }
 
-    public function api() {
+    // public function 
+
+    public function getCategorias() {
         // $query = DB::table('palavras')->where('nome', 'sol')->first();
         // $query = DB::table('palavras')->get();
         #$categorias = DB::table('categorias')->join('categorias_palavras', 'categorias.id', '=', 'categorias_palavras.palavra_id')->join('palavras', 'categorias_palavras.palavra_id', '=', 'palavras.id')->inRandomOrder()->limit(4)->get();

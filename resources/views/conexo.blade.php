@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<h1 class="text-blue-500 text-5xl font-bold inline-flex gap-x-2 mt-auto">
+<h1 class="text-blue-500 text-5xl font-bold inline-flex gap-palavrasDescobertas-2 mt-auto">
     <svg width="50" height="50" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M2.25 15.9029C2.25 8.36262 8.36262 2.25 15.9029 2.25H176.097C183.637 2.25 189.75 8.36262 189.75 15.9029V37.2925C189.75 39.8059 187.712 41.8434 185.199 41.8434H6.80097C4.28754 41.8434 2.25 39.8059 2.25 37.2925V15.9029Z"
@@ -25,7 +25,7 @@
         Você conseguiu em <span id="acertouNumeroTentativas"></span> tentativas.
     </p>
 
-    <span class="bg-sky-500 font-semibold rounded-lg p-3 w-fit inline-flex gap-x-2
+    <span class="bg-sky-500 font-semibold rounded-lg p-3 w-fit inline-flex gap-palavrasDescobertas-2
             hover:bg-sky-600 hover:cursor-pointer mx-auto">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             class="stroke-zinc-50 size-6">
@@ -43,7 +43,7 @@
     <span class="capitalize">acertos: <span class="font-bold" id="numeroAcertos">0</span></span>
     <span class="capitalize">tentativas: <span class="font-bold" id="numeroTentativas">0</span></span>
 </div>
-<span id="grupos" class="flex flex-col gap-y-1"></span>
+<span id="grupos" class="flex flex-col gap-conatdorGruposAcertados-1"></span>
 
 
 <main id="tabuleiro" class="grid grid-cols-4 gap-2 min-w-6/12 m-auto text-uppercase">
@@ -53,8 +53,7 @@
         {{ var_dump($resultados) }}
     </pre> --}}
     <script>
-    
-    const teste = fetch('localhost:8000/public/api/diario').then(response => response.json()).
+        const teste = fetch('localhost:8000/public/api/diario').then(response => response.json()).
     then(data => console.log(data)).
     catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
     console.log(teste)
@@ -65,7 +64,8 @@
             console.log(res)
         }
 
-        let x = 0
+        let palavrasDescobertas = 0
+        let conatdorGruposAcertados = 0
 
         /*const trancarJogo = () => {
             const btns = console.log(document.querySelectorAll('button')) 
@@ -79,23 +79,29 @@
         const verficarJogo = (e) => {
             const teste = document.querySelector('#teste')
             const gruposDescobertos = []
-            console.log(e.innerHTML)
+            // console.log(e.innerHTML)
             teste.innerHTML = teste.innerHTML + e.innerHTML
-            x += 1
-            console.log(x)
+            palavrasDescobertas += 1
+            // console.log(palavrasDescobertas)
 
             // if(gruposDescobertos.length == 3) trancarJogo
 
-            if (x == 4) {
+            if (palavrasDescobertas == 4) {
                 teste.innerHTML =  teste.innerHTML + '<br>'
                 // trancarJogo(gruposDescobertos)
                 gruposDescobertos.push([teste.innerHTML])
-                teste.innerHTML =  ''
+                // teste.innerHTML =  ''
                 console.log(gruposDescobertos)
+                conatdorGruposAcertados += 1
             } 
             //  else{ teste.innerHTML}
-            x =  x == 4 ? 0  : x
-            // x = 4 ? trancarJogo : ''
+            if(conatdorGruposAcertados >= 4) {
+                document.querySelector('#tabuleiro').setAttribute('class', 'invisible')
+                alert ('Fim de jogo')
+            }
+
+            palavrasDescobertas =  palavrasDescobertas == 4 ? 0  : palavrasDescobertas
+            // palavrasDescobertas = 4 ? trancarJogo : ''
         }
 
         // verificarJogo(e)
