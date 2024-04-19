@@ -70,9 +70,16 @@ class JogoController extends Controller
     public function api() {
         // $query = DB::table('palavras')->where('nome', 'sol')->first();
         // $query = DB::table('palavras')->get();
-        $query = DB::table('categorias')->inRandomOrder()->limit(5)->get();
+        #$categorias = DB::table('categorias')->join('categorias_palavras', 'categorias.id', '=', 'categorias_palavras.palavra_id')->join('palavras', 'categorias_palavras.palavra_id', '=', 'palavras.id')->inRandomOrder()->limit(4)->get();
+
+        $categorias = DB::table('jogos')->where('id', '1')->get();
+        // $categorias = DB::table('categorias')->inRandomOrder()->limit(4)->get();
         // return json()->$resultados->id;
-        return response()->json($query);
+        // echo '<pre>';
+        // return var_dump($categorias[0]->categoria_1_id);
+        $categorias = [$categorias[0]->categoria_1_id, $categorias[0]->categoria_2_id, $categorias[0]->categoria_3_id, $categorias[0]->categoria_4_id];
+        return response()->json($categorias);
+        // return response()->json($categorias);
 
         
         $resultados = DB::select("
