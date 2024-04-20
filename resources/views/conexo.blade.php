@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<h1 class="text-blue-500 text-5xl font-bold inline-flex gap-palavrasDescobertas-2 mt-auto">
+<h1 class="text-violet-500 text-5xl font-bold inline-flex gap-palavrasDescobertas-2 mt-auto">
     <svg width="50" height="50" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M2.25 15.9029C2.25 8.36262 8.36262 2.25 15.9029 2.25H176.097C183.637 2.25 189.75 8.36262 189.75 15.9029V37.2925C189.75 39.8059 187.712 41.8434 185.199 41.8434H6.80097C4.28754 41.8434 2.25 39.8059 2.25 37.2925V15.9029Z"
@@ -25,8 +25,8 @@
         Você conseguiu em <span id="acertouNumeroTentativas"></span> tentativas.
     </p>
 
-    <span class="bg-sky-500 font-semibold rounded-lg p-3 w-fit inline-flex gap-palavrasDescobertas-2
-            hover:bg-sky-600 hover:cursor-pointer mx-auto">
+    <span class="bg-violet-500 font-semibold rounded-lg p-3 w-fit inline-flex gap-palavrasDescobertas-2
+            hover:bg-violet-600 hover:cursor-pointer mx-auto">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             class="stroke-zinc-50 size-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -113,11 +113,12 @@
 
     @foreach ($resultados as $indice =>$palavra)
     {{-- <button type="button"
-        class="{{ $palavra->categorias }} bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase"
-        --}} <button type="button"
-        class="bg-slate-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase"
+        class="{{ $palavra->categorias }} bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase"
+        --}} 
+        <button type="button"
+        class="bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase hidden"
         onClick="verficarJogo(this)">
-        {{ $palavra->nome }}
+        {{-- {{ $palavra->nome }} --}}
     </button>
     @endforeach
 

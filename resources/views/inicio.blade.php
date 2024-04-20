@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="./favicon.svg">
 </head>
 
-<body class="bg-slate-900 text-zinc-50">
+<body class=" text-neutral-700">
     <div class="flex flex-col justify-center items-center h-screen w-screen">
         @yield('content')
         @include('includes.header')
@@ -34,10 +34,10 @@
         
         <span class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em comum</span>
         
-        <div class="flex border border-zinc-50 bg-slate-800 rounded-md w-fit h-fit p-4 gap-x-4 items-center">
+        <div class="flex border border-zinc-50 bg-violet-100 rounded-md w-fit h-fit p-4 gap-x-4 items-center">
             <span class="font-bold">Jogo diário</span>
             <span>{{date('d/m/Y')}}</span>
-            <a href="{{ route('diario')}}" class="bg-blue-500 rounded-lg py-2 px-3">Jogar</a>
+            <a href="{{ route('diario')}}" class="bg-violet-500 rounded-lg py-2 px-3">Jogar</a>
         </div>
     </div>
 </body>
