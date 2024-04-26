@@ -1,4 +1,4 @@
-<header class="flex w-screen absolute top-0 h-16 items-center  pl-16 font-semibold z-30">
+<header class="flex w-screen bg-white h-20 items-center  pl-16 font-semibold z-30">
     <nav>
         <ul class="inline-flex gap-x-8 items-center">
             <li>
@@ -21,19 +21,19 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('professores') }}" class="hover:text-sky-400 cursor-pointer">Professores</a>
+                <a href="{{ route('professores') }}" class="hover:text-violet-400 cursor-pointer">Professores</a>
             </li>
             <span> / </span>
             <li>
-                <a href="{{ route('disciplinas') }}" class="hover:text-sky-400 cursor-pointer">Disciplinas</a>
+                <a href="{{ route('disciplinas') }}" class="hover:text-violet-400 cursor-pointer">Disciplinas</a>
             </li>
             <span> / </span>
             <li>
-                <a href="{{ route('categorias') }}" class="hover:text-sky-400 cursor-pointer">Categorias</a>
+                <a href="{{ route('categorias') }}" class="hover:text-violet-400 cursor-pointer">Categorias</a>
             </li>
             <span> / </span>
             <li>
-                <a href="{{ route('palavras') }}" class="hover:text-sky-400 cursor-pointer">Palavras</a>
+                <a href="{{ route('palavras') }}" class="hover:text-violet-400 cursor-pointer">Palavras</a>
             </li>
         </ul>
     </nav>

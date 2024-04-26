@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Jogo;
+#////////
+use App\Models\Categoria;
+use App\Models\CategoriaPalavra;
+use App\Models\Palavra;
+#////////
 use App\Http\Controllers\Controller;
+// use CategoriaController;
 
-class JogoController extends Controller
-{
+class JogoController extends Controller {
 
     public function index() {
         // $jogos = Jogo::all();
-        
+
         // return view('conexo')->with('resultados', $resultados);
         $resultados = DB::select("
         SELECT * FROM
@@ -67,6 +72,89 @@ class JogoController extends Controller
 
     }
 
+    public function api() {
+
+        // Obtenha todas as categorias da tabela "categorias"
+        $categorias = Categoria::all();
+
+        // Obtenha todos os jogos da tabela "jogos"
+        $jogos = Jogo::all();
+
+        // Itere sobre cada jogo
+        foreach ($jogos as $jogo) {
+            // Gere IDs de categorias aleatórias (você pode ajustar o intervalo conforme necessário)
+            $categorias_ids = $categorias->pluck('id')->random(4);
+
+            // Atualize o jogo com os IDs de categoria aleatórios
+            $jogo->update([
+                'categoria_1_id' => $categorias_ids[0],
+                'categoria_2_id' => $categorias_ids[1],
+                'categoria_3_id' => $categorias_ids[2],
+                'categoria_4_id' => $categorias_ids[3],
+            ]);
+        }
+
+        // Agora, para cada categoria selecionada, selecione 4 palavras aleatórias vinculadas a essa categoria
+        foreach ($categorias_ids as $categoria_id) {
+            $palavras = Palavra::whereHas('categorias', function ($query) use ($categoria_id) {
+                $query->where('categoria_id', $categoria_id);
+            })->inRandomOrder()->limit(4)->get();
+        
+            // Faça algo com as palavras selecionadas (por exemplo, exiba-as)
+            foreach ($palavras as $palavra) {
+                echo $palavra->nome . "<br>";
+            }
+            // echo '<br></br><pre>';
+            // var_dump($palavras);
+        }
+
+        // return response()->json($palavras[0]);
+        // Imprima uma mensagem de sucesso
+        // return "IDs de categoria aleatórios inseridos na tabela 'jogos'.\n";
+        // echo "IDs de categoria aleatórios inseridos na tabela 'jogos'.\n";
+
+        die;
+
+        // $jogos = Jogo::all();
+
+        // return view('conexo')->with('resultados', $resultados);
+        $resultados = DB::select("
+        SELECT * FROM
+        (
+            SELECT
+                c.nome,
+                cp.palavra_id,
+                cp.categoria_id
+            FROM
+                categorias c
+                INNER JOIN categorias_palavras cp on c.id = cp.categoria_id
+                INNER JOIN (
+                    SELECT
+                        p.id
+                    FROM
+                        `palavras` p
+                        INNER join categorias_palavras cp on p.id = cp.palavra_id
+                    GROUP by
+                        p.id,
+                        p.nome
+                    HAVING
+                        count(p.id) > 1
+                    order by
+                        rand ()
+                    limit
+                        2
+                ) as t ON cp.palavra_id = t.id limit 16
+            ) as t
+            JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
+            JOIN palavras p on cp.palavra_id < p.id
+            limit 16;
+        ");
+
+        #retorna json
+        return response()->json($resultados);
+    }
+
+
     // public function 
 
     public function getCategorias() {
@@ -83,7 +171,7 @@ class JogoController extends Controller
         return response()->json($categorias);
         // return response()->json($categorias);
 
-        
+
         $resultados = DB::select("
         SELECT *
         FROM

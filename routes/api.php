@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/diario', 'App\Http\Controllers\JogoController@api');
 Route::get('/categorias', 'App\Http\Controllers\JogoController@getCategorias');
 Route::get('/palavras', 'App\Http\Controllers\JogoController@getPalavras');
 

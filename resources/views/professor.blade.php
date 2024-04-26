@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<body class="bg-slate-900 text-zinc-50">
+<body class=" text-neutral-700">
 
     <div class="flex flex-col justify-center pl-24 items-start gap-2">
 
@@ -10,7 +10,7 @@
                 <li>
                     <div class="flex items-center">
                         <a href="{{ route('professores') }}" class="ms-1 text-sm font-medium 
-                        hover:text-blue-500 md:ms-2">Professores</a>
+                        hover:text-violet-500 md:ms-2">Professores</a>
                     </div>
                 </li>
                 <li aria-current="page">
@@ -24,7 +24,7 @@
             </ol>
         </nav>
 
-        <h1 class="font-bold text-4xl text-blue-500 mb-4">
+        <h1 class="font-bold text-4xl text-violet-500 mb-4">
             Gerenciar professor
         </h1>
 
@@ -63,21 +63,21 @@
                         <label for="nome" class="label">Nome</label>
                         <input type="text" id="nome" name="nome" value='{{ $professor->nome }}' class="rounded-md 
                     border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
-                    focus:ring-2 focus:ring-inset focus:ring-blue-400 outline-none bg-slate-800">
+                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
                     </div>
 
                     <div class="flex flex-col gap-y-1">
                         <label for="login" class="label">Login</label>
                         <input type="text" id="login" name="login" value='{{ $professor->login }}' class="rounded-md 
                     border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
-                    focus:ring-2 focus:ring-inset focus:ring-blue-400 outline-none bg-slate-800">
+                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
                     </div>
 
                     <div class="flex flex-col gap-y-1">
                         <label for="senha" class="label">Senha</label>
                         <input type="text" id="senha" name="senha" value='{{ $professor->senha }}' class="rounded-md 
                     border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
-                    focus:ring-2 focus:ring-inset focus:ring-blue-400 outline-none bg-slate-800">
+                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
                     </div>
 
                 </fieldset>
