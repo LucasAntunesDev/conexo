@@ -16,11 +16,11 @@ const criarTabuleiro = (max = 16) => {
     return tab;
 };
 
-const palavras = fetch('http://localhost/conexo/public/api/diario').then(response => response.json()).
-then(data => console.log(data.map((d) => d.nome))).
+const jogo = fetch('http://localhost:8000/api/diario').then(response => response.json()).
+then(data => console.log(data[0])).
 catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
 
-console.log(palavras)
+console.log(jogo)
 
 const grupos = [
     {
