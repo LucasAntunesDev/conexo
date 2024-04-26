@@ -101,12 +101,15 @@ class JogoController extends Controller {
             $palavras = Palavra::whereHas('categorias', function ($query) use ($categoria_id) {
                 $query->where('categoria_id', $categoria_id);
             })->inRandomOrder()->limit(4)->get();
-        
+
             // Faça algo com as palavras selecionadas (por exemplo, exiba-as)
             foreach ($palavras as $palavra) {
                 // echo $palavra->nome . "<br>";
-                $palavras_selecionadas[] = ['nome' => $palavra->nome,
-                'categoria' => $categorias->find($categoria_id)->nome,];
+                $palavras_selecionadas[] = [
+                    'categoria_id' => $categorias->find($categoria_id)->id,
+                    'nome' => $palavra->nome,
+                    'categoria' => $categorias->find($categoria_id)->nome,
+                ];
             }
             // echo '<br></br><pre>';
             // var_dump($palavras);
