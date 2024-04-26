@@ -94,7 +94,7 @@ class JogoController extends Controller {
             ]);
         }
 
-        $palavrasSelecionadas = [];
+        $palavras_selecionadas = [];
 
         // Agora, para cada categoria selecionada, selecione 4 palavras aleatórias vinculadas a essa categoria
         foreach ($categorias_ids as $categoria_id) {
@@ -105,7 +105,8 @@ class JogoController extends Controller {
             // Faça algo com as palavras selecionadas (por exemplo, exiba-as)
             foreach ($palavras as $palavra) {
                 // echo $palavra->nome . "<br>";
-                $palavrasSelecionadas[] = $palavra->nome;
+                $palavras_selecionadas[] = ['nome' => $palavra->nome,
+                'categoria' => $categorias->find($categoria_id)->nome,];
             }
             // echo '<br></br><pre>';
             // var_dump($palavras);
@@ -113,7 +114,7 @@ class JogoController extends Controller {
 
         $resultado[] = [
             'jogo_id' => $jogo->id,
-            'selected_palavras' => $palavrasSelecionadas,
+            'palavras' => $palavras_selecionadas,
         ];
 
         return response()->json($resultado);
