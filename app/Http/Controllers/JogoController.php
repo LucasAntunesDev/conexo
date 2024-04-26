@@ -94,6 +94,8 @@ class JogoController extends Controller {
             ]);
         }
 
+        $palavrasSelecionadas = [];
+
         // Agora, para cada categoria selecionada, selecione 4 palavras aleatórias vinculadas a essa categoria
         foreach ($categorias_ids as $categoria_id) {
             $palavras = Palavra::whereHas('categorias', function ($query) use ($categoria_id) {
@@ -102,11 +104,19 @@ class JogoController extends Controller {
         
             // Faça algo com as palavras selecionadas (por exemplo, exiba-as)
             foreach ($palavras as $palavra) {
-                echo $palavra->nome . "<br>";
+                // echo $palavra->nome . "<br>";
+                $palavrasSelecionadas[] = $palavra->nome;
             }
             // echo '<br></br><pre>';
             // var_dump($palavras);
         }
+
+        $resultado[] = [
+            'jogo_id' => $jogo->id,
+            'selected_palavras' => $palavrasSelecionadas,
+        ];
+
+        return response()->json($resultado);
 
         // return response()->json($palavras[0]);
         // Imprima uma mensagem de sucesso
