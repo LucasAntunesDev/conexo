@@ -16,33 +16,166 @@ const criarTabuleiro = (max = 16) => {
     return tab;
 };
 
-const jogo = fetch('http://localhost:8000/api/diario').then(response => response.json()).
-then(data => console.log(data[0])).
-catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
+// const jogo = fetch('http://localhost:8000/api/diario').then(response => response.json()).
+// then(data => console.log(data[0])).
+// catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
 
-console.log(jogo)
+// console.log(jogo)
 
-const grupos = [
-    {
-        numero: 3,
-        tema: "Advérbios de lugar",
-        palavras: ["lá", "ali", "aqui", "acolá"],
-    },
-    {
-        numero: 2,
-        tema: "Fontes de energia",
-        palavras: ["vento", "sol", "carvão", "água"],
-    },
-    {
-        numero: 4,
-        tema: "Participantes num processo judicial",
-        palavras: ["ré", "juíza", "testemunha", "autora"],
-    },
-    { numero: 1, tema: "Notas musicais", palavras: ["dó", "mi", "si", "fá"] },
-]
+// const grupos = [
+//     {
+//         numero: 3,
+//         tema: "Advérbios de lugar",
+//         palavras: ["lá", "ali", "aqui", "acolá"],
+//     },
+//     {
+//         numero: 2,
+//         tema: "Fontes de energia",
+//         palavras: ["vento", "sol", "carvão", "água"],
+//     },
+//     {
+//         numero: 4,
+//         tema: "Participantes num processo judicial",
+//         palavras: ["ré", "juíza", "testemunha", "autora"],
+//     },
+//     { numero: 1, tema: "Notas musicais", palavras: ["dó", "mi", "si", "fá"] },
+// ]
 
-let todasPalavras = grupos[0].palavras.concat(grupos[1].palavras).concat(grupos[2].palavras).concat(grupos[3].palavras)
-todasPalavras = todasPalavras.sort()
+// Utilize o método fetch para obter os dados da API
+fetch('http://localhost:8000/api/diario')
+    .then(response => {
+        // Certifique-se de que a resposta está ok e converta-a para JSON
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Algo deu errado na solicitação');
+    })
+    .then(data => {
+        // Crie a constante grupos com os dados obtidos
+        const dadosApi = data
+
+        // Função para reestruturar os dados
+        function reestruturarDados(dados) {
+            // Objeto para armazenar os grupos
+            const grupos = {};
+
+            // Iterar sobre cada item dos dados
+            dados.forEach(item => {
+                item.palavras.forEach(palavra => {
+                    // Se o grupo ainda não foi criado, inicialize-o
+                    if (!grupos[palavra.categoria_id]) {
+                        grupos[palavra.categoria_id] = {
+                            jogo_id: item.jogo_id,
+                            categoria_id: palavra.categoria_id,
+                            palavras: []
+                        };
+                    }
+                    // Adicione a palavra ao grupo correspondente
+                    grupos[palavra.categoria_id].palavras.push(palavra.nome);
+                });
+            });
+
+            // Retornar os valores do objeto 'grupos' como um array
+            return Object.values(grupos);
+        }
+
+        // Chamar a função e armazenar o resultado na constante 'grupos'
+        const grupos = reestruturarDados(dadosApi);
+
+        const todasPalavras = grupos.reduce((acc, grupo) => {
+            // Concatenar o array de palavras do grupo atual ao acumulador
+            return acc.concat(grupo.palavras);
+        }, []);
+        // Exibir o resultado
+        console.log(grupos);
+
+        let placar = [];
+let trancarJogo = false;
+
+let jogadas = []
+
+const tentativas = []
+
+let tentativa = {
+    selecionado: jogadas
+}
+
+const tab = criarTabuleiro();
+const div = document.getElementById("tabuleiro");
+
+const verificarJogadas = (grupos, jogadas) => {
+    let numeroAcertosElement = document.querySelector('#numeroAcertos')
+    numeroAcertos = parseInt(numeroAcertosElement.innerHTML)
+    const gruposAcertados = document.querySelector('#grupos')
+
+    for (const grupo of grupos) {
+        const palavrasGrupo = grupo.palavras;
+        const todasPresentes = jogadas.every(jogada => palavrasGrupo.includes(jogada));
+
+        if (todasPresentes) {
+            console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.tema}" (Grupo ${grupo.numero}).`);
+            numeroAcertos++
+            numeroAcertosElement.innerHTML = numeroAcertos
+            gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase"><b>${grupo.tema}</b>: ${jogadas} </span>`
+
+        } else { console.log('Não!!') }
+    }
+    console.log(numeroAcertos)
+    if (numeroAcertos === 4) {
+        document.querySelector('#tabuleiro').setAttribute('class', 'hidden')
+        document.querySelector('#acertou').setAttribute('class', 'bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex')
+        document.querySelector('#acertouNumeroTentativas').innerHTML = document.querySelector('#numeroTentativas').innerHTML
+        console.log(document.querySelector('numeroTentativas').innerHTML)
+        // alert('Você venceu!! =D')
+    }
+}
+
+for (let i = 0; i < 16; i++) {
+    const btn = document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("class", "bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase");
+    btn.innerHTML = todasPalavras[i];
+    btn.addEventListener("click", () => {
+        if (jogadas.some((j) => j === btn)) return;
+        btn.classList.add('bg-sky-500')
+        jogadas.push(btn.innerHTML)
+
+        if (jogadas.length === 4) {
+            let numeroTentativasElement = document.querySelector('#numeroTentativas')
+            let numeroTentativas = parseInt(document.querySelector('#numeroTentativas').innerHTML)
+            numeroTentativas++
+            numeroTentativasElement.innerHTML = numeroTentativas
+
+            tentativa = {
+                selecionado: jogadas
+            }
+
+            tentativas.push(tentativa)
+
+            verificarJogadas(grupos, jogadas)
+
+            jogadas = []
+
+        }
+
+    });
+
+    console.log(typeof document.querySelectorAll('button')[1])
+    document.querySelectorAll('button')[1].classList.remove('bg-sky-500')
+
+    div.appendChild(btn);
+}
+
+        // let grupos = data
+        // console.log(grupos[0].palavras);
+    })
+    .catch(error => {
+        // Trate erros que possam ocorrer durante a solicitação ou conversão dos dados
+        console.error('Erro ao buscar dados:', error);
+    });
+
+// let todasPalavras = grupos[0].palavras.concat(grupos[1].palavras).concat(grupos[2].palavras).concat(grupos[3].palavras)
+// todasPalavras = todasPalavras.sort()
 
 let placar = [];
 let trancarJogo = false;
