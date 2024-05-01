@@ -114,7 +114,10 @@ fetch("http://localhost:8000/api/diario")
                     console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.categoria}" (Grupo ${grupo.numero}).`);
                     numeroAcertos++;
                     numeroAcertosElement.innerHTML = numeroAcertos;
-                    gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase"><b>${grupo.categoria}</b>: ${jogadas} </span>`;
+                    gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase bg-violet-300;
+                    p-4
+                    rounded-md
+                    mb-2"><b>${grupo.categoria}</b>: ${jogadas} </span>`;
 
                     // Desativar os botões correspondentes às palavras acertadas
                     jogadas.forEach(palavra => {
