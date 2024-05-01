@@ -118,14 +118,10 @@ fetch("http://localhost:8000/api/diario")
 
                     // Desativar os botões correspondentes às palavras acertadas
                     jogadas.forEach(palavra => {
-                        const botoes = document.querySelectorAll('button');
-                        botoes.forEach(botao => {
-                            if (botao.innerHTML === palavra) {
-                                botao.disabled = true; // Desativa o botão
-                                botao.classList.add('opacity-50', 'cursor-not-allowed'); // Adiciona estilos para indicar que o botão está desativado
-                            }
-                        });
-                    });
+                        document.querySelectorAll('button').forEach(botao => {
+                            if (botao.innerHTML === palavra) botao.classList.add('hidden')
+                        })
+                    })
 
                 } else {
                     console.log('Não!!');
@@ -182,6 +178,10 @@ fetch("http://localhost:8000/api/diario")
                     verificarJogadas(grupos, jogadas);
 
                     jogadas = [];
+
+                    document.querySelectorAll('button').forEach(botao => {
+                        if (botao.classList.contains('bg-violet-500')) botao.classList.remove('bg-violet-500')
+                    })
                 }
             });
 
