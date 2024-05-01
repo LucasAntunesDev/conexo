@@ -63,6 +63,3 @@
 @section('scripts')
 @vite(['resources/js/app.js'])
 @endsection
-
-
-insert into palavras (nome) vale=ues
