@@ -1,5 +1,5 @@
 <footer
-    class="flex w-screen bg-white h-fit py-4 items-center pl-16 fixed bottom-0 border-t-[1px] border-neutral-200 gap-x-20">
+    class="flex w-screen bg-white h-fit py-4 items-center pl-16 border-t-[1px] border-neutral-200 gap-x-20 mt-8">
     <a href="{{ route('diario')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
