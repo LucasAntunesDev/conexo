@@ -22,11 +22,6 @@ Route::get('/diario', 'App\Http\Controllers\JogoController@index')->name('diario
 
 Route::prefix('jogos')->group(function () {
     Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogo');
-    Route::get('', 'App\Http\Controllers\JogoController@storeCategoriasSorteadas')->name('jogos');
-    // Route::get('{id}', 'App\Http\Controllers\ProfessorController@edit')->name('professorform');
-    // Route::post('/', 'App\Http\Controllers\ProfessorController@store')->name('professorinsert');
-    // Route::put('{id}', 'App\Http\Controllers\ProfessorController@update')->name('professorupdate');
-    // Route::delete('{id}', 'App\Http\Controllers\ProfessorController@destroy')->name('professordelete');
 });
 
 Route::prefix('professores')->group(function () {
@@ -56,10 +51,6 @@ Route::prefix('categorias')->group(function () {
     Route::delete('{id}', 'App\Http\Controllers\CategoriaController@destroy')->name('categoriadelete');
 });
 
-// Route::get('/categorias', function () {
-//     return view('categorias');
-// });
-
 Route::prefix('palavras')->group(function () {
     Route::get('/', 'App\Http\Controllers\PalavraController@index')->name('palavras');
     Route::get('novo', 'App\Http\Controllers\PalavraController@create')->name('palavranovo');
@@ -68,24 +59,3 @@ Route::prefix('palavras')->group(function () {
     Route::put('{id}', 'App\Http\Controllers\PalavraController@update')->name('palavraupdate');
     Route::delete('{id}', 'App\Http\Controllers\PalavraController@destroy')->name('palavradelete');
 });
-
-// Route::prefix('categorias_palavras')->group(function () {
-//     Route::get('/', 'App\Http\Controllers\CategoriasPalavrasController@index')->name('categorias_palavras');
-//     Route::get('novo', 'App\Http\Controllers\CategoriasPalavrasController@create')->name('categoria_palavranovo');
-//     Route::get('{id}', 'App\Http\Controllers\CategoriasPalavrasController@edit')->name('categoria_palavraform');
-//     Route::post('/', 'App\Http\Controllers\CategoriasPalavrasController@store')->name('categoria_palavrainsert');
-//     Route::put('{id}', 'App\Http\Controllers\CategoriasPalavrasController@update')->name('categoria_palavraupdate');
-//     Route::delete('{id}', 'App\Http\Controllers\CategoriasPalavrasController@destroy')->name('categoria_palavradelete');
-// });
-
-// Route::get('conexo', '@JogoController')->name('jogo');
-
-
-// Route::prefix('')->group(function () {
-//     Route::get('/', 'App\Http\Controllers\CategoryController@index')->name('categorias');
-//     Route::get('novo', 'App\Http\Controllers\CategoryController@create')->name('categorianovo');
-//     Route::get('{id}', 'App\Http\Controllers\CategoryController@edit')->name('categoriaform');
-//     Route::post('/', 'App\Http\Controllers\CategoryController@store')->name('categoriainsert');
-//     Route::put('{id}', 'App\Http\Controllers\CategoryController@update')->name('categoriaupdate');
-//     Route::delete('{id}', 'App\Http\Controllers\CategoryController@destroy')->name('categoriadelete');
-// });
