@@ -53,58 +53,58 @@
         {{ var_dump($resultados) }}
     </pre> --}}
     <script>
-        const teste = fetch('localhost:8000/public/api/diario').then(response => response.json()).
-    then(data => console.log(data)).
-    catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
-    console.log(teste)
+    //     const teste = fetch('localhost:8000/public/api/diario').then(response => response.json()).
+    // then(data => console.log(data)).
+    // catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
+    // console.log(teste)
 
-        async function getApi() {
-            const response = await fetch("localhost:8000/api/diario")
-            const res = await response.json()
-            console.log(res)
-        }
+    //     async function getApi() {
+    //         const response = await fetch("localhost:8000/api/diario")
+    //         const res = await response.json()
+    //         console.log(res)
+    //     }
 
-        let palavrasDescobertas = 0
-        let conatdorGruposAcertados = 0
+    //     let palavrasDescobertas = 0
+    //     let conatdorGruposAcertados = 0
 
-        /*const trancarJogo = () => {
-            const btns = console.log(document.querySelectorAll('button')) 
-            btns.map((btn) => {
-                console.log('innerhtml:' + btn.innerHTML)
-                // grupo.push(btn.innerHTML)
-                // btn.setAttribute('disabled', 'true')
-            })
-        }*/
+    //     /*const trancarJogo = () => {
+    //         const btns = console.log(document.querySelectorAll('button')) 
+    //         btns.map((btn) => {
+    //             console.log('innerhtml:' + btn.innerHTML)
+    //             // grupo.push(btn.innerHTML)
+    //             // btn.setAttribute('disabled', 'true')
+    //         })
+    //     }*/
 
-        const verficarJogo = (e) => {
-            const teste = document.querySelector('#teste')
-            const gruposDescobertos = []
-            // console.log(e.innerHTML)
-            teste.innerHTML = teste.innerHTML + e.innerHTML
-            palavrasDescobertas += 1
-            // console.log(palavrasDescobertas)
+    //     const verficarJogo = (e) => {
+    //         const teste = document.querySelector('#teste')
+    //         const gruposDescobertos = []
+    //         // console.log(e.innerHTML)
+    //         teste.innerHTML = teste.innerHTML + e.innerHTML
+    //         palavrasDescobertas += 1
+    //         // console.log(palavrasDescobertas)
 
-            // if(gruposDescobertos.length == 3) trancarJogo
+    //         // if(gruposDescobertos.length == 3) trancarJogo
 
-            if (palavrasDescobertas == 4) {
-                teste.innerHTML =  teste.innerHTML + '<br>'
-                // trancarJogo(gruposDescobertos)
-                gruposDescobertos.push([teste.innerHTML])
-                // teste.innerHTML =  ''
-                console.log(gruposDescobertos)
-                conatdorGruposAcertados += 1
-            } 
-            //  else{ teste.innerHTML}
-            if(conatdorGruposAcertados >= 4) {
-                document.querySelector('#tabuleiro').setAttribute('class', 'invisible')
-                alert ('Fim de jogo')
-            }
+    //         if (palavrasDescobertas == 4) {
+    //             teste.innerHTML =  teste.innerHTML + '<br>'
+    //             // trancarJogo(gruposDescobertos)
+    //             gruposDescobertos.push([teste.innerHTML])
+    //             // teste.innerHTML =  ''
+    //             console.log(gruposDescobertos)
+    //             conatdorGruposAcertados += 1
+    //         } 
+    //         //  else{ teste.innerHTML}
+    //         if(conatdorGruposAcertados >= 4) {
+    //             document.querySelector('#tabuleiro').setAttribute('class', 'invisible')
+    //             alert ('Fim de jogo')
+    //         }
 
-            palavrasDescobertas =  palavrasDescobertas == 4 ? 0  : palavrasDescobertas
-            // palavrasDescobertas = 4 ? trancarJogo : ''
-        }
+    //         palavrasDescobertas =  palavrasDescobertas == 4 ? 0  : palavrasDescobertas
+    //         // palavrasDescobertas = 4 ? trancarJogo : ''
+    //     }
 
-        // verificarJogo(e)
+    //     // verificarJogo(e)
     </script>
 
 

@@ -17,9 +17,6 @@ use App\Http\Controllers\Controller;
 class JogoController extends Controller {
 
     public function index() {
-        // $jogos = Jogo::all();
-
-        // return view('conexo')->with('resultados', $resultados);
         $resultados = DB::select("
         SELECT * FROM
         (
@@ -52,23 +49,7 @@ class JogoController extends Controller {
             limit 16;
         ");
 
-        #retorna json
-        // return response()->json($resultados);
-
         return view('conexo')->with('resultados', $resultados);
-
-        // $query = "select nome from palavras order by rand() limit 4;";
-
-        // $resultados1 = DB::select($query); 
-        // $resultados2 = DB::select($query); 
-        // $resultados3 = DB::select($query); 
-        // $resultados4 = DB::select($query);
-
-
-        // return response()->json([$resultados1,
-        // $resultados2,
-        // $resultados3,
-        // $resultados4,]);
 
     }
 
@@ -111,8 +92,6 @@ class JogoController extends Controller {
                     'categoria' => $categorias->find($categoria_id)->nome,
                 ];
             }
-            // echo '<br></br><pre>';
-            // var_dump($palavras);
         }
 
         $resultado[] = [
