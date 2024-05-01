@@ -9,8 +9,8 @@
     <link rel="icon" type="image/png" href="./favicon.svg">
 </head>
 
-<body class=" text-neutral-700">
-    <div class="flex flex-col justify-center items-center h-screen w-screen">
+<body class="text-neutral-700">
+    <div class="flex flex-col justify-center items-center min-h-lvh w-screen">
         @yield('content')
 
         <h1 class="text-5xl font-bold inline-flex flex-col gap-x-2 justify-center items-center mt-10">
