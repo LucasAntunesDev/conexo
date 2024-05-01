@@ -42,13 +42,13 @@ Route::prefix('disciplinas')->group(function () {
     Route::delete('{id}', 'App\Http\Controllers\DisciplinaController@destroy')->name('disciplinadelete');
 });
 
-Route::prefix('categorias')->group(function () {
-    Route::get('/', 'App\Http\Controllers\CategoriaController@index')->name('categorias');
-    Route::get('novo', 'App\Http\Controllers\CategoriaController@create')->name('categorianovo');
-    Route::get('{id}', 'App\Http\Controllers\CategoriaController@edit')->name('categoriaform');
-    Route::post('/', 'App\Http\Controllers\CategoriaController@store')->name('categoriainsert');
-    Route::put('{id}', 'App\Http\Controllers\CategoriaController@update')->name('categoriaupdate');
-    Route::delete('{id}', 'App\Http\Controllers\CategoriaController@destroy')->name('categoriadelete');
+Route::prefix('grupos')->group(function () {
+    Route::get('/', 'App\Http\Controllers\GrupoController@index')->name('grupos');
+    Route::get('novo', 'App\Http\Controllers\GrupoController@create')->name('gruponovo');
+    Route::get('{id}', 'App\Http\Controllers\GrupoController@edit')->name('grupoform');
+    Route::post('/', 'App\Http\Controllers\GrupoController@store')->name('grupoinsert');
+    Route::put('{id}', 'App\Http\Controllers\GrupoController@update')->name('grupoupdate');
+    Route::delete('{id}', 'App\Http\Controllers\GrupoController@destroy')->name('grupodelete');
 });
 
 Route::prefix('palavras')->group(function () {

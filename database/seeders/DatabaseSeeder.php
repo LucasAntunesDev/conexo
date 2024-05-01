@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
             PalavrasSeeder::class,
             ProfessoresSeeder::class,
             DisciplinasSeeder::class,
-            CategoriasSeeder::class,
-            CategoriasPalavrasSeeder::class
+            GruposSeeder::class,
+            GruposPalavrasSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

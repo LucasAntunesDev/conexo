@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorias_palavras', function (Blueprint $table) {
+        Schema::create('grupos_palavras', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('categoria_id')->unsigned()->nullable(false); 
+            $table->unsignedBigInteger('grupo_id')->unsigned()->nullable(false); 
             $table->unsignedBigInteger('palavra_id')->unsigned()->nullable(false); 
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onUpdate('cascade');
+            $table->foreign('grupo_id')->references('id')->on('grupos')->onUpdate('cascade');
             $table->foreign('palavra_id')->references('id')->on('palavras')->onUpdate('cascade');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias_palavras');
+        Schema::dropIfExists('grupos_palavras');
     }
 };

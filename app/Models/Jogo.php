@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jogo extends Model {
     protected $fillable = [
-        'categoria_1_id',
-        'categoria_2_id',
-        'categoria_3_id',
-        'categoria_4_id'
+        'grupo_1_id',
+        'grupo_2_id',
+        'grupo_3_id',
+        'grupo_4_id'
     ];
     use HasFactory;
 }

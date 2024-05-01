@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('jogos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('categoria_1_id')->nullable();
-            $table->unsignedBigInteger('categoria_2_id')->nullable();
-            $table->unsignedBigInteger('categoria_3_id')->nullable();
-            $table->unsignedBigInteger('categoria_4_id')->nullable();
+            $table->unsignedBigInteger('grupo_1_id')->nullable();
+            $table->unsignedBigInteger('grupo_2_id')->nullable();
+            $table->unsignedBigInteger('grupo_3_id')->nullable();
+            $table->unsignedBigInteger('grupo_4_id')->nullable();
             $table->date('data');
             $table->timestamps();
         });

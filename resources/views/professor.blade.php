@@ -49,10 +49,10 @@
         @endif
 
         @if($professor->id)
-        <form action="{{ route('categoriaupdate', ['id' =>$professor->id]) }}" method="POST">
+        <form action="{{ route('grupoupdate', ['id' =>$professor->id]) }}" method="POST">
             <input type="hidden" name="_method" value="PUT">
             @else
-            <form action="{{ route('categoriainsert') }}" method="POST">
+            <form action="{{ route('grupoinsert') }}" method="POST">
                 @endif
                 {{ csrf_field()}}
 

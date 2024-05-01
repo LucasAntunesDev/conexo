@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Jogo;
 #////////
-use App\Models\Categoria;
-use App\Models\CategoriaPalavra;
+use App\Models\Grupo;
+use App\Models\GrupoPalavra;
 use App\Models\Palavra;
 #////////
 use App\Http\Controllers\Controller;
-// use CategoriaController;
+// use GrupoController;
 
 class JogoController extends Controller {
 
@@ -22,33 +22,33 @@ class JogoController extends Controller {
 
     public function api() {
 
-        $categorias = Categoria::all();
+        $grupos = Grupo::all();
         $jogos = Jogo::all();
 
         foreach ($jogos as $jogo) {
-            $categorias_ids = $categorias->pluck('id')->random(4);
+            $grupos_ids = $grupos->pluck('id')->random(4);
 
             $jogo->update([
-                'categoria_1_id' => $categorias_ids[0],
-                'categoria_2_id' => $categorias_ids[1],
-                'categoria_3_id' => $categorias_ids[2],
-                'categoria_4_id' => $categorias_ids[3],
+                'grupo_1_id' => $grupos_ids[0],
+                'grupo_2_id' => $grupos_ids[1],
+                'grupo_3_id' => $grupos_ids[2],
+                'grupo_4_id' => $grupos_ids[3],
             ]);
         }
 
         $palavras_selecionadas = [];
 
-        // Agora, para cada categoria selecionada, selecione 4 palavras aleatórias vinculadas a essa categoria
-        foreach ($categorias_ids as $categoria_id) {
-            $palavras = Palavra::whereHas('categorias', function ($query) use ($categoria_id) {
-                $query->where('categoria_id', $categoria_id);
+        // Agora, para cada grupo selecionada, selecione 4 palavras aleatórias vinculadas a essa grupo
+        foreach ($grupos_ids as $grupo_id) {
+            $palavras = Palavra::whereHas('grupos', function ($query) use ($grupo_id) {
+                $query->where('grupo_id', $grupo_id);
             })->inRandomOrder()->limit(4)->get();
 
             foreach ($palavras as $palavra) {
                 $palavras_selecionadas[] = [
-                    'categoria_id' => $categorias->find($categoria_id)->id,
+                    'grupo_id' => $grupos->find($grupo_id)->id,
                     'nome' => $palavra->nome,
-                    'categoria' => $categorias->find($categoria_id)->nome,
+                    'grupo' => $grupos->find($grupo_id)->nome,
                 ];
             }
         }

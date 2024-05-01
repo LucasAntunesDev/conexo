@@ -57,16 +57,16 @@ fetch("http://localhost:8000/api/diario")
             dados.forEach((item) => {
                 item.palavras.forEach((palavra) => {
                     // Se o grupo ainda não foi criado, inicialize-o
-                    if (!grupos[palavra.categoria_id]) {
-                        grupos[palavra.categoria_id] = {
+                    if (!grupos[palavra.grupo_id]) {
+                        grupos[palavra.grupo_id] = {
                             jogo_id: item.jogo_id,
-                            categoria_id: palavra.categoria_id,
-                            categoria: palavra.categoria,
+                            grupo_id: palavra.grupo_id,
+                            grupo: palavra.grupo,
                             palavras: [],
                         };
                     }
                     // Adicione a palavra ao grupo correspondente
-                    grupos[palavra.categoria_id].palavras.push(palavra.nome);
+                    grupos[palavra.grupo_id].palavras.push(palavra.nome);
                 });
             });
 
@@ -111,13 +111,13 @@ fetch("http://localhost:8000/api/diario")
                 const todasPresentes = jogadas.every(jogada => palavrasGrupo.includes(jogada));
 
                 if (todasPresentes) {
-                    console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.categoria}" (Grupo ${grupo.numero}).`);
+                    console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.grupo}" (Grupo ${grupo.numero}).`);
                     numeroAcertos++;
                     numeroAcertosElement.innerHTML = numeroAcertos;
-                    gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase bg-violet-300;
+                    gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase bg-violet-300
                     p-4
                     rounded-md
-                    mb-2"><b>${grupo.categoria}</b>: ${jogadas} </span>`;
+                    mb-2"><b>${grupo.grupo}</b>: ${jogadas} </span>`;
 
                     // Desativar os botões correspondentes às palavras acertadas
                     jogadas.forEach(palavra => {

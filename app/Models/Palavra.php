@@ -9,8 +9,8 @@ class Palavra extends Model
 {
     use HasFactory;
 
-    public function categorias()
+    public function grupos()
     {
-        return $this->belongsToMany(Categoria::class, 'categorias_palavras', 'palavra_id', 'categoria_id');
+        return $this->belongsToMany(Grupo::class, 'grupos_palavras', 'palavra_id', 'grupo_id');
     }
 }

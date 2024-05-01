@@ -12,8 +12,8 @@
         <li>criar, ler, editar e exluir dados (CRUD) dos seguintes módulos: 
         <ul align="left">
             <li>Palavras</li>
-            <li>Categorias (de palavras)</li>
-            <li>Disciplinas (em que cada categoria faz parte)</li>
+            <li>Grupos (de palavras)</li>
+            <li>Disciplinas (em que cada grupo faz parte)</li>
             <li>Professores (que criam jogos de acordo com o tema das disciplinas)</li>
         </ul>
         </li>

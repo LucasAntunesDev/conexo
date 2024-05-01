@@ -9,18 +9,18 @@
             <div class="flex justify-start items-center gap-x-12">
 
                 <h1 class="text-violet-500 text-5xl font-bold inline-flex gap-x-2 mt-4 items-center">
-                    Categorias
+                    Grupos
                 </h1>
 
             </div>
-            <a href="{{ route('categorianovo') }}" class="bg-emerald-500 rounded-md py-1 px-4 focus:bg-slate-50
+            <a href="{{ route('gruponovo') }}" class="bg-emerald-500 rounded-md py-1 px-4 focus:bg-slate-50
             text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 
             focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
             hover:bg-emerald-600 hover:border-emerald-600 self-baseline">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
                 </svg>
-                Adicionar categoria
+                Adicionar grupo
             </a>
 
         </div>
@@ -38,21 +38,21 @@
                 </thead>
 
         <tbody class="text-sm bg-neutral-50/40">
-            @foreach($categorias as $categoria)
+            @foreach($grupos as $grupo)
             <tr class="bg-violet-100 even:bg-violet-200">
                 <td class="pl-2 pr-1 w-fit">
                     <span class="bg-violet-100 py-1 px-2 rounded-md hover:bg-violet-200 text-violet-700
                             hover:cursor-pointer transition duration-300 ease-in-out font-medium text-sm mx-2">
-                        {{ $categoria->id }}
+                        {{ $grupo->id }}
                     </span>
-                    {{ $categoria->nome }}
+                    {{ $grupo->nome }}
                 </td>
-                <td class="pl-2 pr-1 w-fit"> {{ $categoria->professor_id }}</td>
+                <td class="pl-2 pr-1 w-fit"> {{ $grupo->professor_id }}</td>
                 <td class="flex pl-2 pr-1 w-fit py-5 flex-nowrap gap-x-2" scope="col">
-                    <form method="POST" action="{{ route('categoriadelete', ['id'=> $categoria->id]) }}">
+                    <form method="POST" action="{{ route('grupodelete', ['id'=> $grupo->id]) }}">
                         <input type="hidden" name="_method" value="DELETE">
                         {{ csrf_field()}}
-                    <a href="{{ route('categoriaform', ['id' => $categoria->id]) }}" 
+                    <a href="{{ route('grupoform', ['id' => $grupo->id]) }}" 
                         class='bg-emerald-500 rounded-full py-1 px-4 focus:bg-slate-50
                         text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
                         hover:bg-emerald-600 hover:border-emerald-600'>

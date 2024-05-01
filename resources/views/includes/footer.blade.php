@@ -33,7 +33,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('categorias') }}" class="hover:text-violet-600 cursor-pointer">Categorias</a>
+                    <a href="{{ route('grupos') }}" class="hover:text-violet-600 cursor-pointer">Grupos</a>
                 </li>
 
                 <li>
