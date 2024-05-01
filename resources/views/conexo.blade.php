@@ -3,7 +3,7 @@
 
 <div class="w-screen">
 
-    <div id="acertou" class="hidden">
+    <div id="acertou" class="hidden w-fit mx-auto">
         <span class="font-bold mx-auto inline-flex">Parabéns!</span>
         <p>
             Você conseguiu em <span id="acertouNumeroTentativas"></span> tentativas.
