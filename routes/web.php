@@ -17,63 +17,8 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-// Route::get('diario', function () {
-//     return view('conexo');
-// })->name('diario');
-
-
-#Route::get('/diario', 'App\Http\Controllers\JogoController@index')->name('diario');
-
-Route::get('diario', function () {
-    $resultados = "SELECT
-    *
-FROM
-    (
-        SELECT
-            c.nome,
-            cp.palavra_id,
-            cp.categoria_id
-        FROM
-            categorias c
-            INNER JOIN categorias_palavras cp on c.id = cp.categoria_id
-            INNER JOIN (
-                SELECT
-                    p.id
-                FROM
-                    `palavras` p
-                    INNER join categorias_palavras cp on p.id = cp.palavra_id
-                GROUP by
-                    p.id,
-                    p.nome
-                HAVING
-                    count(p.id) > 1
-                order by
-                    rand ()
-                limit
-                    2
-            ) as t ON cp.palavra_id = t.id
-    ) as t
-    JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
-    JOIN palavras p on cp.palavra_id = p.id";
-
-    return view('conexo')->with('resultados', $resultados);
-
-    // $resultados1 = DB::select($query); 
-    // $resultados2 = DB::select($query); 
-    // $resultados3 = DB::select($query); 
-    // $resultados4 = DB::select($query);
-
-    // return view('conexo')->with('resultados', [$query])
-    
-    // return view('conexo')->with('resultados', [$resultados1,
-    // $resultados2,
-    // $resultados3,
-    // $resultados4,]);
-})->name('diario');
-
 Route::get('/diario', 'App\Http\Controllers\JogoController@index')->name('diario');
 
-// Route::get('/', 'App\Http\Controllers\JogoController@teste')->name('diario');
 
 Route::prefix('jogos')->group(function () {
     Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogo');

@@ -48,79 +48,12 @@
 
 <main id="tabuleiro" class="grid grid-cols-4 gap-2 min-w-6/12 m-auto text-uppercase">
 
-    {{--
-    <pre>
-        {{ var_dump($resultados) }}
-    </pre> --}}
-    <script>
-    //     const teste = fetch('localhost:8000/public/api/diario').then(response => response.json()).
-    // then(data => console.log(data)).
-    // catch(error => console.log(`Ocorreu o seguinte erro: ${error}`))
-    // console.log(teste)
-
-    //     async function getApi() {
-    //         const response = await fetch("localhost:8000/api/diario")
-    //         const res = await response.json()
-    //         console.log(res)
-    //     }
-
-    //     let palavrasDescobertas = 0
-    //     let conatdorGruposAcertados = 0
-
-    //     /*const trancarJogo = () => {
-    //         const btns = console.log(document.querySelectorAll('button')) 
-    //         btns.map((btn) => {
-    //             console.log('innerhtml:' + btn.innerHTML)
-    //             // grupo.push(btn.innerHTML)
-    //             // btn.setAttribute('disabled', 'true')
-    //         })
-    //     }*/
-
-    //     const verficarJogo = (e) => {
-    //         const teste = document.querySelector('#teste')
-    //         const gruposDescobertos = []
-    //         // console.log(e.innerHTML)
-    //         teste.innerHTML = teste.innerHTML + e.innerHTML
-    //         palavrasDescobertas += 1
-    //         // console.log(palavrasDescobertas)
-
-    //         // if(gruposDescobertos.length == 3) trancarJogo
-
-    //         if (palavrasDescobertas == 4) {
-    //             teste.innerHTML =  teste.innerHTML + '<br>'
-    //             // trancarJogo(gruposDescobertos)
-    //             gruposDescobertos.push([teste.innerHTML])
-    //             // teste.innerHTML =  ''
-    //             console.log(gruposDescobertos)
-    //             conatdorGruposAcertados += 1
-    //         } 
-    //         //  else{ teste.innerHTML}
-    //         if(conatdorGruposAcertados >= 4) {
-    //             document.querySelector('#tabuleiro').setAttribute('class', 'invisible')
-    //             alert ('Fim de jogo')
-    //         }
-
-    //         palavrasDescobertas =  palavrasDescobertas == 4 ? 0  : palavrasDescobertas
-    //         // palavrasDescobertas = 4 ? trancarJogo : ''
-    //     }
-
-    //     // verificarJogo(e)
-    </script>
-
-
-
-
-
-    @foreach ($resultados as $indice =>$palavra)
-    {{-- <button type="button"
-        class="{{ $palavra->categorias }} bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase"
-        --}} 
+    @for ($i = 0; $i < 16; $i++) 
         <button type="button"
-        class="bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase hidden"
-        onClick="verficarJogo(this)">
-        {{-- {{ $palavra->nome }} --}}
-    </button>
-    @endforeach
+            class="bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase hidden"
+            onClick="verficarJogo(this)">
+        </button>
+    @endfor
 
 </main>
 
@@ -130,3 +63,6 @@
 @section('scripts')
 @vite(['resources/js/app.js'])
 @endsection
+
+
+insert into palavras (nome) vale=ues

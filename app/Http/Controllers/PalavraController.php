@@ -36,20 +36,17 @@ class PalavraController extends Controller {
     public function store(Request $request) {
 
         $messages = [
-            'nome.required' => 'O campo título deve ser preenchido',
-            'disciplina_id.required' => 'O id da disciplina deve ser preenchido'
+            'nome.required' => 'Você deve preencher o campo com alguma palavra'
         ];
 
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
-            'disciplina_id' => 'required'
         ], $messages);
 
         if ($validator->fails()) return redirect()->route('palavranovo')->withErrors($validator)->withInput();
         else {
             $palavra = new Palavra();
             $palavra->nome = $request->input('nome');
-            $palavra->disciplina_id = $request->input('disciplina_id');
             $palavra->save();
 
             return redirect()->route('palavras');

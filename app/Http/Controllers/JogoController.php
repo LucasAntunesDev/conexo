@@ -17,40 +17,7 @@ use App\Http\Controllers\Controller;
 class JogoController extends Controller {
 
     public function index() {
-        $resultados = DB::select("
-        SELECT * FROM
-        (
-            SELECT
-                c.nome,
-                cp.palavra_id,
-                cp.categoria_id
-            FROM
-                categorias c
-                INNER JOIN categorias_palavras cp on c.id = cp.categoria_id
-                INNER JOIN (
-                    SELECT
-                        p.id
-                    FROM
-                        `palavras` p
-                        INNER join categorias_palavras cp on p.id = cp.palavra_id
-                    GROUP by
-                        p.id,
-                        p.nome
-                    HAVING
-                        count(p.id) > 1
-                    order by
-                        rand ()
-                    limit
-                        2
-                ) as t ON cp.palavra_id = t.id limit 16
-            ) as t
-            JOIN categorias_palavras cp on t.categoria_id = cp.categoria_id
-            JOIN palavras p on cp.palavra_id < p.id
-            limit 16;
-        ");
-
-        return view('conexo')->with('resultados', $resultados);
-
+        return view('conexo');
     }
 
     public function api() {
