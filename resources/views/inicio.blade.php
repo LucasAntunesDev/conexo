@@ -12,7 +12,7 @@
 <body class=" text-neutral-700">
     <div class="flex flex-col justify-center items-center h-screen w-screen">
         @yield('content')
-        @include('includes.header')
+        {{-- @include('includes.header') --}}
 
         <h1 class="text-5xl font-bold inline-flex flex-col gap-x-2 justify-center items-center mt-10">
             <svg width="50" height="50" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">

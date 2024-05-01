@@ -5,7 +5,7 @@
 
 <body class=" text-neutral-700">
     <div class="flex flex-col justifycenter items-center h-screen w-screen">
-        @include('includes.header')
+        {{-- @include('includes.header') --}}
     @yield('content')
 
     </div>
