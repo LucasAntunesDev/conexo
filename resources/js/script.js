@@ -139,7 +139,7 @@ fetch("http://localhost:8000/api/diario")
                     .querySelector("#acertou")
                     .setAttribute(
                         "class",
-                        "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex"
+                        "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto"
                     );
                 document.querySelector("#acertouNumeroTentativas").innerHTML =
                     document.querySelector("#numeroTentativas").innerHTML;
