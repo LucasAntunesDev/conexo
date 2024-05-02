@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('palavras', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 255)->nullable(false);
+            $table->string('nome', 255)->nullable(false)->unique();
             $table->timestamps();
         });
     }
