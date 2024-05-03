@@ -17,6 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger('grupo_2_id')->nullable();
             $table->unsignedBigInteger('grupo_3_id')->nullable();
             $table->unsignedBigInteger('grupo_4_id')->nullable();
+            $table->unsignedBigInteger('grupo_1_palavras')->nullable();
+            $table->unsignedBigInteger('grupo_2_palavras')->nullable();
+            $table->unsignedBigInteger('grupo_3_palavras')->nullable();
+            $table->unsignedBigInteger('grupo_4_palavras')->nullable();
             $table->date('data');
             $table->timestamps();
         });
