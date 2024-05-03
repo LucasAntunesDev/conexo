@@ -76,7 +76,8 @@ fetch("http://localhost:8000/api/teste")
         }
 
         // Chamar a função e armazenar o resultado na constante 'grupos'
-        const grupos = reestruturarDados(dadosApi);
+        //const grupos = reestruturarDados(dadosApi);
+        const grupos = data
 
         const todasPalavras = grupos.reduce((acc, grupo) => {
             // Concatenar o array de palavras do grupo atual ao acumulador

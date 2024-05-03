@@ -160,7 +160,7 @@ class JogoController extends Controller {
         $jogoJson = json_encode($jogoFormatado, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
         // Retornando o JSON
-        return $jogoFormatado;
+        return response()->json($jogoFormatado);
 
         $jogo = new Jogo();
 
