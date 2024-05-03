@@ -12,7 +12,6 @@ use App\Models\GrupoPalavra;
 use App\Models\Palavra;
 #////////
 use App\Http\Controllers\Controller;
-// use GrupoController;
 
 class JogoController extends Controller {
 
