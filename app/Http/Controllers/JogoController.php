@@ -21,64 +21,16 @@ class JogoController extends Controller {
     }
 
     public function api() {
-        return;
-        $grupos = Grupo::all();
-        $jogos = Jogo::all();
+        $data = now()->toDateString();
+        $jogo = Jogo::whereDate('data', $data)->first();
 
-        foreach ($jogos as $jogo) {
-            $grupos_ids = $grupos->pluck('id')->random(4);
-
-            $jogo->update([
-                'grupo_1_id' => $grupos_ids[0],
-                'grupo_2_id' => $grupos_ids[1],
-                'grupo_3_id' => $grupos_ids[2],
-                'grupo_4_id' => $grupos_ids[3],
-            ]);
-        }
-
-        $palavras_selecionadas = [];
-
-        // Agora, para cada grupo selecionada, selecione 4 palavras aleatórias vinculadas a essa grupo
-        foreach ($grupos_ids as $grupo_id) {
-            $palavras = Palavra::whereHas('grupos', function ($query) use ($grupo_id) {
-                $query->where('grupo_id', $grupo_id);
-            })->inRandomOrder()->limit(4)->get();
-
-            foreach ($palavras as $palavra) {
-                $palavras_selecionadas[] = [
-                    'grupo_id' => $grupos->find($grupo_id)->id,
-                    'nome' => $palavra->nome,
-                    'grupo' => $grupos->find($grupo_id)->nome,
-                ];
-            }
-        }
-
-        $resultado[] = [
-            'jogo_id' => $jogo->id,
-            'palavras' => $palavras_selecionadas,
-        ];
-
-        return response()->json($resultado);
-    }
-    public function create() {
-        #echo '<pre>';
-        $hoje = now()->toDateString(); // Obtém a data atual no formato 'YYYY-MM-DD'
-        $jogo = Jogo::whereDate('data', $hoje)->first();
-
-        # var_dump($hoje);
-        # echo '<br>';
-        # var_dump($jogo);
-        # echo '<br>';
 
         if (is_null($jogo)) {
             $grupos = Grupo::all();
             $grupos_ids = $grupos->pluck('id')->random(4);
-            #var_dump($grupos_ids);
-            #echo '<br>';
 
             $palavras_selecionadas = [];
 
-            // for ($i = 0; $i <= 4; $i++) {
             foreach ($grupos_ids as $grupo_id) {
                 $palavras = Palavra::whereHas('grupos', function ($query) use ($grupo_id) {
                     $query->where('grupo_id', $grupo_id);
@@ -93,31 +45,18 @@ class JogoController extends Controller {
                 }
             }
 
-            #echo '<h1>Palvras Foreach</h1>';
-
             $todas_palavras = [];
 
             foreach ($palavras_selecionadas as $index => $palavra) {
-                #    var_dump($palavra['nome']);
                 array_push($todas_palavras, $palavra['nome']);
             }
 
-            #echo '<h1>
-            #Palavras agrupadas:
-            #</h1>';
             $grupos_palavras = array_chunk($todas_palavras, 4);
 
             $grupos_palavras = array_map(function ($item) {
                 return implode(", ", $item);
             }, $grupos_palavras);
 
-            print_r($grupos_palavras);
-            // var_dump($todas_palavras);
-            // print_r($palavras_selecionadas);
-
-            // die;
-
-            // Cria um novo jogo com os IDs dos grupos selecionados aleatoriamente
             $jogo = Jogo::create([
                 'grupo_1_id' => $grupos_ids[0],
                 'grupo_2_id' => $grupos_ids[1],
@@ -127,46 +66,31 @@ class JogoController extends Controller {
                 'grupo_2_palavras' => $grupos_palavras[1],
                 'grupo_3_palavras' => $grupos_palavras[2],
                 'grupo_4_palavras' => $grupos_palavras[3],
-                'data' => $hoje,
-                // Defina os outros campos conforme necessário
+                'data' => $data,
             ]);
         }
 
-        // return $jogo;
+        $jogo = $jogo->toArray();
 
-        // Supondo que $jogo já contém os dados do jogo atual
-        $jogoArray = $jogo->toArray();
+        $resposta = [];
 
-        // Estrutura desejada para o JSON
-        $jogoFormatado = [];
-
-        // Adicionando cada grupo e suas palavras ao array formatado
         for ($i = 1; $i <= 4; $i++) {
-            $grupoId = $jogoArray["grupo_{$i}_id"];
-            $palavras = explode(", ", $jogoArray["grupo_{$i}_palavras"]);
+            $grupoId = $jogo["grupo_{$i}_id"];
+            $palavras = explode(", ", $jogo["grupo_{$i}_palavras"]);
 
-            // Obter o nome do grupo baseado no ID (substitua 'NomeDoGrupo' pelo método real para obter o nome)
-            $nomeDoGrupo = Grupo::find($grupoId)->nome; // Substitua por seu método de obtenção do nome do grupo
+            $nomeDoGrupo = Grupo::find($grupoId)->nome;
 
-            $jogoFormatado[] = [
-                'jogo_id' => $jogoArray['id'],
+            $resposta[] = [
+                'jogo_id' => $jogo['id'],
                 'grupo_id' => $grupoId,
                 'grupo' => $nomeDoGrupo,
                 'palavras' => $palavras
             ];
         }
 
-        // Convertendo o array formatado para JSON
-        $jogoJson = json_encode($jogoFormatado, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-        // Retornando o JSON
-        return response()->json($jogoFormatado);
-
-        $jogo = new Jogo();
-
-        return view('jogo', [
-            'jogo' => $jogo
-        ]);
+        return response()->json($resposta);
+    }
+    public function create() {
     }
 
     public function edit($id) {

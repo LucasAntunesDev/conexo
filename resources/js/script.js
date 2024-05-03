@@ -16,77 +16,21 @@ const criarTabuleiro = (max = 16) => {
     return tab;
 };
 
-// const grupos = [
-//     {
-//         numero: 3,
-//         tema: "Advérbios de lugar",
-//         palavras: ["lá", "ali", "aqui", "acolá"],
-//     },
-//     {
-//         numero: 2,
-//         tema: "Fontes de energia",
-//         palavras: ["vento", "sol", "carvão", "água"],
-//     },
-//     {
-//         numero: 4,
-//         tema: "Participantes num processo judicial",
-//         palavras: ["ré", "juíza", "testemunha", "autora"],
-//     },
-//     { numero: 1, tema: "Notas musicais", palavras: ["dó", "mi", "si", "fá"] },
-// ]
-
-// Utilize o método fetch para obter os dados da API
-fetch("http://localhost:8000/api/teste")
-// fetch("http://localhost:8000/api/diario")
+fetch("http://localhost:8000/api/diario")
     .then((response) => {
-        // Certifique-se de que a resposta está ok e converta-a para JSON
         if (response.ok) {
             return response.json();
         }
         throw new Error("Algo deu errado na solicitação");
     })
     .then((data) => {
-        // Crie a constante grupos com os dados obtidos
-        const dadosApi = data;
-
-        // Função para reestruturar os dados
-        function reestruturarDados(dados) {
-            // Objeto para armazenar os grupos
-            const grupos = {};
-
-            // Iterar sobre cada item dos dados
-            dados.forEach((item) => {
-                item.palavras.forEach((palavra) => {
-                    // Se o grupo ainda não foi criado, inicialize-o
-                    if (!grupos[palavra.grupo_id]) {
-                        grupos[palavra.grupo_id] = {
-                            jogo_id: item.jogo_id,
-                            grupo_id: palavra.grupo_id,
-                            grupo: palavra.grupo,
-                            palavras: [],
-                        };
-                    }
-                    // Adicione a palavra ao grupo correspondente
-                    grupos[palavra.grupo_id].palavras.push(palavra.nome);
-                });
-            });
-
-            // Retornar os valores do objeto 'grupos' como um array
-            return Object.values(grupos);
-        }
-
-        // Chamar a função e armazenar o resultado na constante 'grupos'
-        //const grupos = reestruturarDados(dadosApi);
         const grupos = data
 
         const todasPalavras = grupos.reduce((acc, grupo) => {
-            // Concatenar o array de palavras do grupo atual ao acumulador
             const j = acc.concat(grupo.palavras);
             return j.sort();
         }, []);
 
-        // todasPalavras = todasPalavras.sort()
-        // Exibir o resultado
         console.log(grupos);
 
         let placar = [];
@@ -121,7 +65,6 @@ fetch("http://localhost:8000/api/teste")
                     rounded-md
                     mb-2"><b>${grupo.grupo}</b>: ${jogadas} </span>`;
 
-                    // Desativar os botões correspondentes às palavras acertadas
                     jogadas.forEach(palavra => {
                         document.querySelectorAll('button').forEach(botao => {
                             if (botao.innerHTML === palavra) botao.classList.add('hidden')
@@ -148,7 +91,6 @@ fetch("http://localhost:8000/api/teste")
                 console.log(
                     document.querySelector("numeroTentativas").innerHTML
                 );
-                // alert('Você venceu!! =D')
             }
         };
 
@@ -198,10 +140,7 @@ fetch("http://localhost:8000/api/teste")
             div.appendChild(btn);
         }
 
-        // let grupos = data
-        // console.log(grupos[0].palavras);
     })
     .catch((error) => {
-        // Trate erros que possam ocorrer durante a solicitação ou conversão dos dados
         console.error("Erro ao buscar dados:", error);
     });

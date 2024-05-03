@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/diario', 'App\Http\Controllers\JogoController@api');
 
-Route::get('/teste', 'App\Http\Controllers\JogoController@create');
+Route::get('/teste', 'App\Http\Controllers\JogoController@api');
 
 Route::get('/grupos', 'App\Http\Controllers\JogoController@getGrupos');
 Route::get('/palavras', 'App\Http\Controllers\JogoController@getPalavras');
