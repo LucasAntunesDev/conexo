@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
 
-Route::get('/diario', 'App\Http\Controllers\JogoController@index')->name('diario');
+Route::get('/diario', 'App\Http\Controllers\JogoController@jogo')->name('diario');
 
 
 Route::prefix('jogos')->group(function () {
-    Route::get('/todos', 'App\Http\Controllers\JogoController@index')->name('jogo');
+    Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogo');
 });
 
 Route::prefix('professores')->group(function () {
