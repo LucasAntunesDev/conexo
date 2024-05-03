@@ -17,10 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger('grupo_2_id')->nullable();
             $table->unsignedBigInteger('grupo_3_id')->nullable();
             $table->unsignedBigInteger('grupo_4_id')->nullable();
-            $table->unsignedBigInteger('grupo_1_palavras')->nullable();
-            $table->unsignedBigInteger('grupo_2_palavras')->nullable();
-            $table->unsignedBigInteger('grupo_3_palavras')->nullable();
-            $table->unsignedBigInteger('grupo_4_palavras')->nullable();
+            $table->string('grupo_1_palavras', 255)->nullable();
+            $table->string('grupo_2_palavras', 255)->nullable();
+            $table->string('grupo_3_palavras', 255)->nullable();
+            $table->string('grupo_4_palavras', 255)->nullable();
             $table->date('data');
             $table->timestamps();
         });
