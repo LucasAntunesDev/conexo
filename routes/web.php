@@ -21,7 +21,7 @@ Route::get('/diario', 'App\Http\Controllers\JogoController@index')->name('diario
 
 
 Route::prefix('jogos')->group(function () {
-    Route::get('/jogos', 'App\Http\Controllers\JogoController@index')->name('jogo');
+    Route::get('/todos', 'App\Http\Controllers\JogoController@index')->name('jogo');
 });
 
 Route::prefix('professores')->group(function () {
