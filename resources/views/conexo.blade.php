@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<div class="w-screen">
+<div class="w-screen grow">
 
     <div id="acertou" class="hidden">
         <span class="font-bold mx-auto inline-flex">Parabéns!</span>

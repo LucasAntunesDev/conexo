@@ -9,8 +9,8 @@
     <link rel="icon" type="image/png" href="./favicon.ico">
 </head>
 
-<body class="text-neutral-700 max-h-screen">
-    <div class="flex flex-col justify-center items-center min-h-lvh w-screen">
+<body class="text-neutral-700 flex flex-col h-screen">
+    <div class="flex flex-col justify-center items-center w-screen grow">
         @yield('content')
 
         <h1 class="text-5xl font-bold inline-flex flex-col gap-2 justify-center items-center mt-10">
@@ -48,8 +48,8 @@
                   Jogos Anteriores
                 </a>
         </div>
-        @include('includes.footer')
     </div>
+    @include('includes.footer')
 
 </body>
 
