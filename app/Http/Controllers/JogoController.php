@@ -19,8 +19,15 @@ class JogoController extends Controller {
     public function index() {
         $jogos = Jogo::all();
 
+        $datas = Jogo::pluck('data')->map(function ($data) {
+            return $data;
+        });
+
+        $datas = Jogo::select('data')->paginate(16);
+
         return view('jogos', [
-            'jogos' => $jogos
+            'jogos' => $jogos,
+            'datas' => $datas
         ]);
     }
 
@@ -98,6 +105,19 @@ class JogoController extends Controller {
 
         return response()->json($resposta);
     }
+
+    // public function getDatas() {
+    //     $datas = Jogo::pluck('data')->map(function ($data) {
+    //         // return $data->format('d/m/Y');
+    //         return $data;
+    //     });
+
+    //     // $data = now()->toDateString();
+    //     // $jogo = Jogo::whereDate('data', $data)->first();
+    //     return response()->json($datas);
+
+    // }
+
     public function create() {
     }
 
