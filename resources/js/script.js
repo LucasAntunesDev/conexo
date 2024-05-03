@@ -36,7 +36,8 @@ const criarTabuleiro = (max = 16) => {
 // ]
 
 // Utilize o método fetch para obter os dados da API
-fetch("http://localhost:8000/api/diario")
+fetch("http://localhost:8000/api/teste")
+// fetch("http://localhost:8000/api/diario")
     .then((response) => {
         // Certifique-se de que a resposta está ok e converta-a para JSON
         if (response.ok) {

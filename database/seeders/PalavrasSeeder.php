@@ -16,18 +16,22 @@ class PalavrasSeeder extends Seeder {
             ['id' => 2, 'nome' => 'acolá'],
             ['id' => 3, 'nome' => 'ali'],
             ['id' => 4, 'nome' => 'aqui'],
+
             ['id' => 5, 'nome' => 'vento'],
             ['id' => 6, 'nome' => 'sol'],
             ['id' => 7, 'nome' => 'carvão'],
             ['id' => 8, 'nome' => 'água'],
+
             ['id' => 9, 'nome' => 'ré'],
             ['id' => 10, 'nome' => 'juíza'],
             ['id' => 11, 'nome' => 'testemunha'],
             ['id' => 12, 'nome' => 'autora'],
+
             ['id' => 13, 'nome' => 'dó'],
             ['id' => 14, 'nome' => 'mi'],
             ['id' => 15, 'nome' => 'si'],
             ['id' => 16, 'nome' => 'fá'],
+
             ['id' => 17, 'nome' => 'inter'],
             ['id' => 18, 'nome' => 'grêmio'],
             ['id' => 19, 'nome' => 'palmeiras'],
@@ -49,108 +53,134 @@ class PalavrasSeeder extends Seeder {
             ['id' => 35, 'nome' => 'Atlético Goianiense'],
             ['id' => 36, 'nome' => 'Cuiabá'],
             ['id' => 37, 'nome' => 'milan'],
+
             ['id' => 38, 'nome' => 'banrisul'],
             ['id' => 39, 'nome' => 'caixa'],
             ['id' => 40, 'nome' => 'banco do brasil'],
             ['id' => 41, 'nome' => 'nubank'],
             ['id' => 42, 'nome' => 'bradesco'],
             ['id' => 43, 'nome' => 'santander'],
+
             ['id' => 44, 'nome' => 'liceu'],
             ['id' => 45, 'nome' => 'escola'],
             ['id' => 46, 'nome' => 'ginágio'],
             ['id' => 47, 'nome' => 'instituto'],
+
             ['id' => 48, 'nome' => 'traders'],
             ['id' => 49, 'nome' => 'investidores'],
             ['id' => 50, 'nome' => 'contadores'],
             ['id' => 51, 'nome' => 'economistas'],
+
             ['id' => 52, 'nome' => 'merenda'],
             ['id' => 53, 'nome' => 'provisão'],
             ['id' => 54, 'nome' => 'refeição'],
-            ['id' => 55, 'nome' => 'lance'],
+            ['id' => 55, 'nome' => 'lanche'],
+
             ['id' => 56, 'nome' => 'zumbi'],
             ['id' => 57, 'nome' => 'colégio'],
             ['id' => 58, 'nome' => 'bancários'],
             ['id' => 59, 'nome' => 'recreio'],
+
             ['id' => 60, 'nome' => 'Luigi'],
             ['id' => 61, 'nome' => 'Docinho'],
             ['id' => 62, 'nome' => 'Cebolinha'],
             ['id' => 63, 'nome' => 'Link'],
+
             ['id' => 64, 'nome' => 'Orégano'],
             ['id' => 65, 'nome' => 'Sálvia'],
             ['id' => 66, 'nome' => 'Coentro'],
             ['id' => 67, 'nome' => 'Tomilho'],
+
             ['id' => 68, 'nome' => 'E-mail'],
             ['id' => 69, 'nome' => 'Website'],
             ['id' => 70, 'nome' => 'Download'],
             ['id' => 71, 'nome' => 'Stream'],
+
             ['id' => 72, 'nome' => 'Carta'],
             ['id' => 73, 'nome' => 'Telegrama'],
             ['id' => 74, 'nome' => 'Fax'],
             ['id' => 75, 'nome' => 'Bip'],
+
             ['id' => 76, 'nome' => 'Mensal'],
             ['id' => 77, 'nome' => 'Anual'],
             ['id' => 78, 'nome' => 'Semestral'],
             ['id' => 79, 'nome' => 'Semanal'],
+
             ['id' => 80, 'nome' => 'Diário'],
             ['id' => 81, 'nome' => 'Agenda'],
             ['id' => 82, 'nome' => 'Planner'],
             ['id' => 83, 'nome' => 'Bloco'],
+
             ['id' => 84, 'nome' => 'Batom'],
             ['id' => 85, 'nome' => 'Gloss'],
             ['id' => 86, 'nome' => 'Tint'],
             ['id' => 87, 'nome' => 'Bálsamo'],
+            
             ['id' => 88, 'nome' => 'Baile'],
             ['id' => 89, 'nome' => 'Máscara'],
             ['id' => 90, 'nome' => 'Escola'],
             ['id' => 91, 'nome' => 'Marchinha'],
+            
             ['id' => 92, 'nome' => 'Frevo'],
             ['id' => 93, 'nome' => 'Axé'],
             ['id' => 94, 'nome' => 'Bossa'],
             ['id' => 95, 'nome' => 'Pagode'],
+            
             ['id' => 96, 'nome' => 'Imenso'],
             ['id' => 97, 'nome' => 'Colossal'],
             ['id' => 98, 'nome' => 'Titânico'],
             ['id' => 99, 'nome' => 'Monumental'],
+            
             ['id' => 100, 'nome' => 'Frankenstein'],
             ['id' => 101, 'nome' => 'Dom'],
             ['id' => 102, 'nome' => 'Metropolis'],
             ['id' => 103, 'nome' => 'Drácula'],
+            
             ['id' => 104, 'nome' => 'Moinho'],
             ['id' => 105, 'nome' => 'Samba'],
             ['id' => 106, 'nome' => 'Conversa'],
             ['id' => 107, 'nome' => 'Gigante'],
+            
             ['id' => 108, 'nome' => 'Mangueira'],
             ['id' => 109, 'nome' => 'Regador'],
             ['id' => 110, 'nome' => 'Pá'],
             ['id' => 111, 'nome' => 'Tesoura'],
+            
             ['id' => 112, 'nome' => 'Perspicaz'],
             ['id' => 113, 'nome' => 'Esperta'],
             ['id' => 114, 'nome' => 'Astuta'],
             ['id' => 115, 'nome' => 'Hábil'],
+            
             ['id' => 116, 'nome' => 'Beija'],
             ['id' => 117, 'nome' => 'Canário'],
             ['id' => 118, 'nome' => 'Sabiá'],
             ['id' => 119, 'nome' => 'Rouxinol'],
+            
             ['id' => 120, 'nome' => 'Desfile'],
             ['id' => 121, 'nome' => 'Book'],
             ['id' => 122, 'nome' => 'Anúncio'],
             ['id' => 123, 'nome' => 'Evento'],
+            
             ['id' => 124, 'nome' => 'Churrasco'],
             ['id' => 125, 'nome' => 'Chimarrão'],
             ['id' => 126, 'nome' => 'Bombacha'],
             ['id' => 127, 'nome' => 'Carreteiro'],
+            
             ['id' => 128, 'nome' => 'Sorvete'],
             ['id' => 129, 'nome' => 'Picolé'],
             ['id' => 130, 'nome' => 'Shake'],
             ['id' => 131, 'nome' => 'Açaí'],
+            
             ['id' => 132, 'nome' => 'Tiago'],
             ['id' => 133, 'nome' => 'Simão'],
             ['id' => 134, 'nome' => 'André'],
             ['id' => 135, 'nome' => 'Pedro'],
+            
             ['id' => 136, 'nome' => 'Rodrigo'],
             ['id' => 137, 'nome' => 'Palito'],
             ['id' => 138, 'nome' => 'Benson'],
             ['id' => 139, 'nome' => 'Newton'],
+            
             ['id' => 140, 'nome' => 'Bateria'],
             ['id' => 141, 'nome' => 'Comissão'],
             ['id' => 142, 'nome' => 'Evolução'],
@@ -352,38 +382,47 @@ class PalavrasSeeder extends Seeder {
             ['id' => 338, 'nome' => 'cabra'],
             ['id' => 339, 'nome' => 'moleque'],
             ['id' => 340, 'nome' => 'chinelo'],
+            
             ['id' => 341, 'nome' => 'tomada'],
             ['id' => 342, 'nome' => 'conquista'],
             ['id' => 343, 'nome' => 'ocupação'],
             ['id' => 344, 'nome' => 'domínio'],
+            
             ['id' => 345, 'nome' => 'tomada'],
             ['id' => 346, 'nome' => 'conquista'],
             ['id' => 347, 'nome' => 'ocupação'],
             ['id' => 348, 'nome' => 'domínio'],
+            
             ['id' => 349, 'nome' => 'passagem'],
             ['id' => 350, 'nome' => 'hospedagem'],
             ['id' => 351, 'nome' => 'alimentação'],
             ['id' => 352, 'nome' => 'passeios'],
+            
             ['id' => 353, 'nome' => 'plugue'],
             ['id' => 354, 'nome' => 'fio'],
             ['id' => 355, 'nome' => 'soquete'],
             ['id' => 356, 'nome' => 'fusível'],
+            
             ['id' => 357, 'nome' => 'bolacha'],
             ['id' => 358, 'nome' => 'bofetada'],
             ['id' => 359, 'nome' => 'tapa'],
             ['id' => 360, 'nome' => 'safanão'],
+            
             ['id' => 361, 'nome' => 'gramado'],
             ['id' => 362, 'nome' => 'arquibancada'],
             ['id' => 363, 'nome' => 'bilheteria'],
             ['id' => 364, 'nome' => 'vestiário'],
+            
             ['id' => 365, 'nome' => 'biscoito'],
             ['id' => 366, 'nome' => 'pipoca'],
             ['id' => 367, 'nome' => 'sorvete'],
             ['id' => 368, 'nome' => 'jujuba'],
+            
             ['id' => 369, 'nome' => 'petisco'],
             ['id' => 370, 'nome' => 'brinquedo'],
             ['id' => 371, 'nome' => 'coleira'],
             ['id' => 372, 'nome' => 'vasilha'],
+            
             ['id' => 373, 'nome' => 'porto alegre'],
             ['id' => 374, 'nome' => 'caxias'],
             ['id' => 375, 'nome' => 'bento gonçalves'],

@@ -10,7 +10,12 @@ class Jogo extends Model {
         'grupo_1_id',
         'grupo_2_id',
         'grupo_3_id',
-        'grupo_4_id'
+        'grupo_4_id',
+        'grupo_1_palavras',
+        'grupo_2_palavras',
+        'grupo_3_palavras',
+        'grupo_4_palavras',
+        'data'
     ];
     use HasFactory;
 }
