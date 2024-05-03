@@ -17,7 +17,11 @@ use App\Http\Controllers\Controller;
 class JogoController extends Controller {
 
     public function index() {
-        return view('conexo');
+        $jogos = Jogo::all();
+
+        return view('jogos', [
+            'jogos' => $jogos
+        ]);
     }
 
     public function api() {
