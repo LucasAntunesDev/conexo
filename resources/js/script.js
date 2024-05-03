@@ -1,3 +1,18 @@
+if (localStorage.getItem('status') === 'finalizado'){
+
+    document
+            .querySelector("#acertou")
+            .setAttribute(
+                "class",
+                "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto")
+
+    document.querySelector('#tabuleiro').classList.add('hidden')
+}
+// localStorage.setItem("meuGato", "Tom")
+// const statusJogo = 
+// localStorage.getItem("statusJogo")
+// console.log(statusJogo)
+
 const data = document.querySelector("#dataAtual");
 const dataUrl = new URLSearchParams(window.location.search).get('dataJogo');
 data.innerHTML = dataUrl;
@@ -17,7 +32,7 @@ const criarTabuleiro = (max = 16) => {
     return tab;
 };
 
-const dataJogo = new URLSearchParams(window.location.search).get('dataJogo'); 
+const dataJogo = new URLSearchParams(window.location.search).get('dataJogo');
 const url = dataJogo ? `http://localhost:8000/api/diario?dataJogo=${dataJogo}` : 'http://localhost:8000/api/diario';
 
 fetch(url)
@@ -37,8 +52,6 @@ fetch(url)
 
         console.log(grupos);
 
-        let placar = [];
-        let trancarJogo = false;
 
         let jogadas = [];
 
@@ -81,9 +94,12 @@ fetch(url)
             }
             console.log(numeroAcertos);
             if (numeroAcertos === 4) {
+                localStorage.setItem('status', 'finalizado');
+
+
                 document
                     .querySelector("#tabuleiro")
-                    .setAttribute("class", "hidden");
+                    .setAttribute("class", "hidden")
                 document
                     .querySelector("#acertou")
                     .setAttribute(
@@ -135,11 +151,6 @@ fetch(url)
                     })
                 }
             });
-
-            console.log(typeof document.querySelectorAll("button")[1]);
-            document
-                .querySelectorAll("button")[1]
-                .classList.remove("bg-sky-500");
 
             div.appendChild(btn);
         }
