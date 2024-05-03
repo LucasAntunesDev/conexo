@@ -27,7 +27,7 @@
             <div class="mx-auto px-4 w-6/12 my-4 grow">
                 <div class="grid grid-cols-4 gap-4 w-auto justify-items-center mb-4">
                     @foreach ($datas as $data)
-                    <a href="{{ route('diario') }}" target="_blank"
+                    <a href="{{ route('diario', ['dataJogo' => $data->data]) }}" target="_blank"
                         class="text-center bg-violet-200 hover:bg-violet-400 text-violet-800 py-5 px-3 rounded-xl w-fit">
                         {{ $data->data }}
                     </a>

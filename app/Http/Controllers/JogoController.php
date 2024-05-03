@@ -32,11 +32,14 @@ class JogoController extends Controller {
     }
 
     public function jogo() {
+        var_dump($_GET['dataJogo']);
         return view('conexo');
     }
 
     public function api() {
-        $data = now()->toDateString();
+        $data = request()->has('dataJogo') ? request()->get('dataJogo') : now()->toDateString();
+        // var_dump($data);
+        // $data = now()->toDateString();
         $jogo = Jogo::whereDate('data', $data)->first();
 
 

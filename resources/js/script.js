@@ -1,5 +1,6 @@
-const dataAtual = document.querySelector("#dataAtual");
-dataAtual.innerHTML = new Date(Date.now()).toLocaleString().split(",")[0];
+const data = document.querySelector("#dataAtual");
+const dataUrl = new URLSearchParams(window.location.search).get('dataJogo');
+data.innerHTML = dataUrl;
 
 const criarTabuleiro = (max = 16) => {
     const tab = [];
@@ -16,7 +17,10 @@ const criarTabuleiro = (max = 16) => {
     return tab;
 };
 
-fetch("http://localhost:8000/api/diario")
+const dataJogo = new URLSearchParams(window.location.search).get('dataJogo'); 
+const url = dataJogo ? `http://localhost:8000/api/diario?dataJogo=${dataJogo}` : 'http://localhost:8000/api/diario';
+
+fetch(url)
     .then((response) => {
         if (response.ok) {
             return response.json();
