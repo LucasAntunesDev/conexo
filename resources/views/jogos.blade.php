@@ -29,7 +29,7 @@
                     @foreach ($datas as $data)
                     <a href="{{ route('diario', ['dataJogo' => $data->data]) }}" target="_blank"
                         class="text-center bg-violet-200 hover:bg-violet-400 text-violet-800 py-5 px-3 rounded-xl w-fit">
-                        {{ $data->data }}
+                        {{ \Carbon\Carbon::parse($data->data)->format('d/m/Y') }}
                     </a>
                     @if ($loop->iteration % 4 == 0 && !$loop->last)
                 </div>
@@ -42,7 +42,6 @@
     
             <!-- Paginação -->
             <div class="mt-4">
-                {{-- {{ $datas->links('pagination::tailwind') }} --}}
                 {{ $datas->links('vendor.pagination.tailwind') }}
             </div>
 
