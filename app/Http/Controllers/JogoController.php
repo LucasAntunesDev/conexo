@@ -17,8 +17,6 @@ use App\Http\Controllers\Controller;
 class JogoController extends Controller {
 
     public function index() {
-        return view('jogos');
-        
         $jogos = Jogo::all();
 
         return view('jogos', [
