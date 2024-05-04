@@ -1,8 +1,6 @@
 @extends('layout')
 @section('content')
 
-<body class=" text-neutral-700">
-
     <div class="flex flex-col justify-center items-center gap-2">
         <div class="flex justify-around items-center gap-2">
 

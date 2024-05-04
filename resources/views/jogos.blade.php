@@ -1,8 +1,6 @@
 @extends('layout')
 @section('content')
 
-<body class=" text-neutral-700 maz-h-screen">
-
     <div class="flex flex-col">
         <div class="flex my-4 items-center w-6/12 mx-auto justify-between px-3">
             <div class="w-fit flex items-center gap-x-3">

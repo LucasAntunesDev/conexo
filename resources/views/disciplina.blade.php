@@ -1,8 +1,6 @@
 @extends('layout')
 @section('content')
 
-<body class=" text-neutral-700">
-
     <div class="flex flex-col justify-center pl-24 items-start gap-2">
 
         <nav class="flex my-4" aria-label="Breadcrumb">

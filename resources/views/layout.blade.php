@@ -3,7 +3,7 @@
 
 @include('includes.head')
 
-<body class=" text-neutral-700">
+<body class="text-neutral-700">
     <div class="flex flex-col justifycenter items-center h-screen w-screen">
         @yield('content')
         

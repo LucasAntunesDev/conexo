@@ -3,7 +3,6 @@
 
 <div class="w-screen grow">
 
-
     <div class="flex my-4 items-center w-6/12 mx-auto justify-between px-3">
         <div class="w-fit flex items-center gap-x-3">
             <a href="{{ route('inicio')}}" class="inline-block hover:bg-violet-200 rounded-full p-1">
