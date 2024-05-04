@@ -18,11 +18,17 @@ class JogoController extends Controller {
     public function index() {
         $jogos = Jogo::all();
 
-        $datas = Jogo::pluck('data')->map(function ($data) {
-            return $data;
-        });
+        if (isset($_GET['disciplinaId'])) {
+            $disciplina_id = $_GET['disciplinaId'];
 
-        $datas = Jogo::select('data')->paginate(16);
+            $datas = Jogo::join('grupos', 'jogos.grupo_1_id', '=', 'grupos.id')
+                ->where('grupos.disciplina_id', $disciplina_id)
+                ->select('jogos.data')
+                ->paginate(16);
+        } else {
+            $datas = Jogo::select('data')->paginate(16);
+        }
+
 
         return view('jogos', [
             'jogos' => $jogos,
