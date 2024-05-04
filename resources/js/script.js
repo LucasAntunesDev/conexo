@@ -1,21 +1,11 @@
-if (localStorage.getItem('status') === 'finalizado'){
+const dadosLocalStorage = JSON.parse(localStorage.getItem('conexoJogoStatus'))
 
-    document
-            .querySelector("#acertou")
-            .setAttribute(
-                "class",
-                "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto")
+// console.log(dadosLocalStorage.grupoId == 20)
+// console.log(dadosLocalStorage)
 
-    document.querySelector('#tabuleiro').classList.add('hidden')
-}
-// localStorage.setItem("meuGato", "Tom")
-// const statusJogo = 
-// localStorage.getItem("statusJogo")
-// console.log(statusJogo)
-
-const data = document.querySelector("#dataAtual");
-const dataUrl = new URLSearchParams(window.location.search).get('dataJogo');
-data.innerHTML = dataUrl;
+const data = document.querySelector("#dataAtual")
+const dataUrl = new URLSearchParams(window.location.search).get('dataJogo')
+data.innerHTML = dataUrl
 
 const criarTabuleiro = (max = 16) => {
     const tab = [];
@@ -31,6 +21,10 @@ const criarTabuleiro = (max = 16) => {
 
     return tab;
 };
+
+// const trancarJogo = () => {
+//     document.querySelector('#tabuleiro').classList.add(hidden)
+// }
 
 const dataJogo = new URLSearchParams(window.location.search).get('dataJogo');
 const url = dataJogo ? `http://localhost:8000/api/diario?dataJogo=${dataJogo}` : 'http://localhost:8000/api/diario';
@@ -50,7 +44,28 @@ fetch(url)
             return j.sort();
         }, []);
 
+        if (dadosLocalStorage.grupoId === grupos[0].jogo_id && dadosLocalStorage.finalizado === true) {
+            // return
+            // document
+            //     .querySelector("#acertou")
+            //     .setAttribute(
+            //         "class",
+            //         "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto")
+
+            // document
+            //     .querySelector("#tabuleiro")
+            //     .setAttribute(
+            //         "class",
+            //         "hidden")
+
+        }
+
         console.log(grupos);
+
+        console.log(dadosLocalStorage.grupoId)
+        console.log(grupos[0].grupo_id)
+        // console.log(dadosLocalStorage.grupoId === grupos[0].jogo_id)
+        console.log(dadosLocalStorage.finalizado === true)
 
 
         let jogadas = [];
@@ -70,17 +85,22 @@ fetch(url)
             const gruposAcertados = document.querySelector('#grupos');
 
             for (const grupo of grupos) {
-                const palavrasGrupo = grupo.palavras;
-                const todasPresentes = jogadas.every(jogada => palavrasGrupo.includes(jogada));
+                const palavrasGrupo = grupo.palavras
+                const todasPresentes = jogadas.every(jogada => palavrasGrupo.includes(jogada))
 
                 if (todasPresentes) {
-                    console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.grupo}" (Grupo ${grupo.numero}).`);
+                    console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.grupo}" (Grupo ${grupo.numero}).`)
                     numeroAcertos++;
                     numeroAcertosElement.innerHTML = numeroAcertos;
-                    gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} <span class="uppercase bg-violet-300
-                    p-4
-                    rounded-md
-                    mb-2"><b>${grupo.grupo}</b>: ${jogadas} </span>`;
+                    gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} 
+                    <div class="flex flex-col uppercase bg-violet-300 px-4 py-6 rounded-md mb-2">
+                        <span class="text-center font-bold">
+                            ${grupo.grupo}
+                        </span>
+                        <span class="text-center">
+                        ${jogadas}
+                        </span>
+                    </div>`
 
                     jogadas.forEach(palavra => {
                         document.querySelectorAll('button').forEach(botao => {
@@ -94,18 +114,23 @@ fetch(url)
             }
             console.log(numeroAcertos);
             if (numeroAcertos === 4) {
-                localStorage.setItem('status', 'finalizado');
+                let jogoDados = {
+                    grupoId: grupos[0].jogo_id,
+                    finalizado: true
+                }
+
+                localStorage.setItem('conexoJogoStatus', JSON.stringify(jogoDados))
 
 
-                document
-                    .querySelector("#tabuleiro")
-                    .setAttribute("class", "hidden")
-                document
-                    .querySelector("#acertou")
-                    .setAttribute(
-                        "class",
-                        "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto"
-                    );
+                // document
+                //     .querySelector("#tabuleiro")
+                //     .setAttribute("class", "hidden")
+                // document
+                //     .querySelector("#acertou")
+                //     .setAttribute(
+                //         "class",
+                //         "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto"
+                //     );
                 document.querySelector("#acertouNumeroTentativas").innerHTML =
                     document.querySelector("#numeroTentativas").innerHTML;
                 console.log(
@@ -125,6 +150,7 @@ fetch(url)
             btn.addEventListener("click", () => {
                 if (jogadas.some((j) => j === btn)) return;
                 btn.classList.add("bg-violet-500");
+                btn.disabled = true
                 jogadas.push(btn.innerHTML);
 
                 if (jogadas.length === 4) {
@@ -147,12 +173,16 @@ fetch(url)
                     jogadas = [];
 
                     document.querySelectorAll('button').forEach(botao => {
-                        if (botao.classList.contains('bg-violet-500')) botao.classList.remove('bg-violet-500')
+                        botao.disabled = false
+                        if (botao.classList.contains('bg-violet-500')) {
+                            
+                            botao.classList.remove('bg-violet-500')
+                        }
                     })
                 }
             });
 
-            div.appendChild(btn);
+            div.appendChild(btn)
         }
 
     })
