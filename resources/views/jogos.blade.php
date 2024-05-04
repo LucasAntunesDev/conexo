@@ -24,6 +24,30 @@
         <main class="flex flex-col gap-2 w-screen justify-center items-center grow">
             <h3 class="mx-auto font-semibold text-xl">Todos os jogos</h3>
 
+            {{-- <form action="{{ route('diario', ['dataJogo' => $data->data]) }}" class="flex items-center gap-4">
+                <input type="number" name="disciplina" id="disciplina" class="rounded bg-violet-100 p-2 outline-none">
+                <button class="bg-emerald-600 rounded-full px-4 py-3 text-zinc-50">Procurar</button>
+            </form> --}}
+            <form action="{{route('filtroDisciplina')}}" class="flex items-center gap-4">
+                {{-- <label class="text-violet-500 font-bold" for="disciplina">
+                    Disciplinas
+                </label> --}}
+                <div class="flex gap-x-4 items-center w-8/12 flex-wrap mx-auto">
+                    {{-- <select name="disciplina" id="disciplina" class="bg-violet-100 rounded-xl px-4 py-3"> --}}
+                        @foreach($disciplinas as $disciplina)
+                        <div value="{{$disciplina->id}}" class="flex flex-col gap-4">
+                            {{-- <a href="{{''. $disciplina->id}}" {{$disciplina->nome}}></a> --}}
+                            <a href="{{ route('jogos', ['disciplinaId' => $disciplina->id]) }}" class="bg-violet-500 rounded-lg p-3 text-violet-100"> {{$disciplina->nome}}</a>
+                            <br>
+                        </div>
+                        @endforeach
+                    {{-- </select> --}}
+                </div>
+                {{-- <button class="bg-emerald-600 rounded-full px-4 py-3 text-zinc-50">Procurar</button> --}}
+            </form>
+           
+
+
             <div class="mx-auto px-4 w-6/12 my-4 grow">
                 <div class="grid grid-cols-4 gap-4 w-auto justify-items-center mb-4">
                     @foreach ($datas as $data)
@@ -38,14 +62,14 @@
                     @endforeach
                 </div>
             </div>
-    
-    
+
+
             <!-- Paginação -->
             <div class="mt-4">
                 {{ $datas->links('vendor.pagination.tailwind') }}
             </div>
 
-            
+
         </main>
     </div>
 

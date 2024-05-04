@@ -10,6 +10,7 @@ use App\Models\Jogo;
 use App\Models\Grupo;
 use App\Models\GrupoPalavra;
 use App\Models\Palavra;
+use App\Models\Disciplina;
 #////////
 use App\Http\Controllers\Controller;
 
@@ -17,6 +18,8 @@ class JogoController extends Controller {
 
     public function index() {
         $jogos = Jogo::all();
+
+        $disciplinas = Disciplina::all();
 
         if (isset($_GET['disciplinaId'])) {
             $disciplina_id = $_GET['disciplinaId'];
@@ -32,7 +35,8 @@ class JogoController extends Controller {
 
         return view('jogos', [
             'jogos' => $jogos,
-            'datas' => $datas
+            'datas' => $datas,
+            'disciplinas' => $disciplinas
         ]);
     }
 
