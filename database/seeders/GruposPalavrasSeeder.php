@@ -12,603 +12,252 @@ class GruposPalavrasSeeder extends Seeder {
      */
     public function run(): void {
         DB::table('grupos_palavras')->insert([
-            #Advérbios de Lugar
-            ['grupo_id' => 1, 'palavra_id' => 1],
-            ['grupo_id' => 1, 'palavra_id' => 2],
-            ['grupo_id' => 1, 'palavra_id' => 3],
-            ['grupo_id' => 1, 'palavra_id' => 4],
-
-            #Fontes de Energia
-            ['grupo_id' => 2, 'palavra_id' => 5],
-            ['grupo_id' => 2, 'palavra_id' => 6],
-            ['grupo_id' => 2, 'palavra_id' => 7],
-            ['grupo_id' => 2, 'palavra_id' => 8],
-
-            #Participantes num processo judicial
-            ['grupo_id' => 3, 'palavra_id' => ''],
-            ['grupo_id' => 3, 'palavra_id' => ''],
-            ['grupo_id' => 3, 'palavra_id' => ''],
-            ['grupo_id' => 3, 'palavra_id' => ''],
-
-            #Notas Musicais
-            ['grupo_id' => 4, 'palavra_id' => ''],
-            ['grupo_id' => 4, 'palavra_id' => ''],
-            ['grupo_id' => 4, 'palavra_id' => ''],
-            ['grupo_id' => 4, 'palavra_id' => ''],
-
-
-            #Times de Futebol
-            ['grupo_id' => 5, 'palavra_id' => ''],
-            ['grupo_id' => 5, 'palavra_id' => ''],
-            ['grupo_id' => 5, 'palavra_id' => ''],
-            ['grupo_id' => 5, 'palavra_id' => ''],
-
-
-            #Bancos
-            ['grupo_id' => 6, 'palavra_id' => ''],
-            ['grupo_id' => 6, 'palavra_id' => ''],
-            ['grupo_id' => 6, 'palavra_id' => ''],
-            ['grupo_id' => 6, 'palavra_id' => ''],
-
-
-            #Estabelecimentos educacionais
-            ['grupo_id' => 7, 'palavra_id' => ''],
-            ['grupo_id' => 7, 'palavra_id' => ''],
-            ['grupo_id' => 7, 'palavra_id' => ''],
-            ['grupo_id' => 7, 'palavra_id' => ''],
-
-
-            #Cargos no mercado financeiro
-            ['grupo_id' => 8, 'palavra_id' => ''],
-            ['grupo_id' => 8, 'palavra_id' => ''],
-            ['grupo_id' => 8, 'palavra_id' => ''],
-            ['grupo_id' => 8, 'palavra_id' => ''],
-
-
-            #Comida
-            ['grupo_id' => 9, 'palavra_id' => ''],
-            ['grupo_id' => 9, 'palavra_id' => ''],
-            ['grupo_id' => 9, 'palavra_id' => ''],
-            ['grupo_id' => 9, 'palavra_id' => ''],
-
-
-            #Bairros do Rio de Janeiro
-            ['grupo_id' => 10, 'palavra_id' => ''],
-            ['grupo_id' => 10, 'palavra_id' => ''],
-            ['grupo_id' => 10, 'palavra_id' => ''],
-            ['grupo_id' => 10, 'palavra_id' => ''],
-
-
-            #Tempero
-            ['grupo_id' => 11, 'palavra_id' => ''],
-            ['grupo_id' => 11, 'palavra_id' => ''],
-            ['grupo_id' => 11, 'palavra_id' => ''],
-            ['grupo_id' => 11, 'palavra_id' => ''],
-
-
-            #Interne
-            ['grupo_id' => 12, 'palavra_id' => ''],
-            ['grupo_id' => 12, 'palavra_id' => ''],
-            ['grupo_id' => 12, 'palavra_id' => ''],
-            ['grupo_id' => 12, 'palavra_id' => ''],
-
-
-            #Meios de comunicação obsoleto
-            ['grupo_id' => 13, 'palavra_id' => ''],
-            ['grupo_id' => 13, 'palavra_id' => ''],
-            ['grupo_id' => 13, 'palavra_id' => ''],
-            ['grupo_id' => 13, 'palavra_id' => ''],
-
-
-            #Adjetivos relativos a freqênci
-            ['grupo_id' => 14, 'palavra_id' => ''],
-            ['grupo_id' => 14, 'palavra_id' => ''],
-            ['grupo_id' => 14, 'palavra_id' => ''],
-            ['grupo_id' => 14, 'palavra_id' => ''],
-
-
-            #Itens de papelari
-            ['grupo_id' => 15, 'palavra_id' => ''],
-            ['grupo_id' => 15, 'palavra_id' => ''],
-            ['grupo_id' => 15, 'palavra_id' => ''],
-            ['grupo_id' => 15, 'palavra_id' => ''],
-
-
-            #Cosméticos labiais
-            ['grupo_id' => 16, 'palavra_id' => ''],
-            ['grupo_id' => 16, 'palavra_id' => ''],
-            ['grupo_id' => 16, 'palavra_id' => ''],
-            ['grupo_id' => 16, 'palavra_id' => ''],
-
-
-            #Carnaval
-            ['grupo_id' => 17, 'palavra_id' => ''],
-            ['grupo_id' => 17, 'palavra_id' => ''],
-            ['grupo_id' => 17, 'palavra_id' => ''],
-            ['grupo_id' => 17, 'palavra_id' => ''],
-
-
-            #Ritmos musicais
-            ['grupo_id' => 18, 'palavra_id' => ''],
-            ['grupo_id' => 18, 'palavra_id' => ''],
-            ['grupo_id' => 18, 'palavra_id' => ''],
-            ['grupo_id' => 18, 'palavra_id' => ''],
-
-
-            #Enorme
-            ['grupo_id' => 19, 'palavra_id' => ''],
-            ['grupo_id' => 19, 'palavra_id' => ''],
-            ['grupo_id' => 19, 'palavra_id' => ''],
-            ['grupo_id' => 19, 'palavra_id' => ''],
-
-
-            #Clássicos literário
-            ['grupo_id' => 20, 'palavra_id' => ''],
-            ['grupo_id' => 20, 'palavra_id' => ''],
-            ['grupo_id' => 20, 'palavra_id' => ''],
-            ['grupo_id' => 20, 'palavra_id' => ''],
-
-
-            #Roda (de) __
-            ['grupo_id' => 21, 'palavra_id' => ''],
-            ['grupo_id' => 21, 'palavra_id' => ''],
-            ['grupo_id' => 21, 'palavra_id' => ''],
-            ['grupo_id' => 21, 'palavra_id' => ''],
-
-
-            #Usados no jardi
-            ['grupo_id' => 22, 'palavra_id' => ''],
-            ['grupo_id' => 22, 'palavra_id' => ''],
-            ['grupo_id' => 22, 'palavra_id' => ''],
-            ['grupo_id' => 22, 'palavra_id' => ''],
-
-
-            #Inteligent
-            ['grupo_id' => 23, 'palavra_id' => ''],
-            ['grupo_id' => 23, 'palavra_id' => ''],
-            ['grupo_id' => 23, 'palavra_id' => ''],
-            ['grupo_id' => 23, 'palavra_id' => ''],
-
-
-            #Pássaro
-            ['grupo_id' => 24, 'palavra_id' => ''],
-            ['grupo_id' => 24, 'palavra_id' => ''],
-            ['grupo_id' => 24, 'palavra_id' => ''],
-            ['grupo_id' => 24, 'palavra_id' => ''],
-
-
-            #Funções de modelo
-            ['grupo_id' => 25, 'palavra_id' => ''],
-            ['grupo_id' => 25, 'palavra_id' => ''],
-            ['grupo_id' => 25, 'palavra_id' => ''],
-            ['grupo_id' => 25, 'palavra_id' => ''],
-
-
-            #Típicos do Rio Grande do Su
-            ['grupo_id' => 26, 'palavra_id' => ''],
-            ['grupo_id' => 26, 'palavra_id' => ''],
-            ['grupo_id' => 26, 'palavra_id' => ''],
-            ['grupo_id' => 26, 'palavra_id' => ''],
-
-
-            #Sobremesas gelada
-            ['grupo_id' => 27, 'palavra_id' => ''],
-            ['grupo_id' => 27, 'palavra_id' => ''],
-            ['grupo_id' => 27, 'palavra_id' => ''],
-            ['grupo_id' => 27, 'palavra_id' => ''],
-
-
-            #Apóstolo
-            ['grupo_id' => 28, 'palavra_id' => ''],
-            ['grupo_id' => 28, 'palavra_id' => ''],
-            ['grupo_id' => 28, 'palavra_id' => ''],
-            ['grupo_id' => 28, 'palavra_id' => ''],
-
-
-            #Olívias famosa
-            ['grupo_id' => 29, 'palavra_id' => ''],
-            ['grupo_id' => 29, 'palavra_id' => ''],
-            ['grupo_id' => 29, 'palavra_id' => ''],
-            ['grupo_id' => 29, 'palavra_id' => ''],
-
-
-            #Critérios para apuração do carnava
-            ['grupo_id' => 30, 'palavra_id' => ''],
-            ['grupo_id' => 30, 'palavra_id' => ''],
-            ['grupo_id' => 30, 'palavra_id' => ''],
-            ['grupo_id' => 30, 'palavra_id' => ''],
-
-
-            #Marsupiai
-            ['grupo_id' => 31, 'palavra_id' => ''],
-            ['grupo_id' => 31, 'palavra_id' => ''],
-            ['grupo_id' => 31, 'palavra_id' => ''],
-            ['grupo_id' => 31, 'palavra_id' => ''],
-
-
-            #Instrumentos musicai
-            ['grupo_id' => 32, 'palavra_id' => ''],
-            ['grupo_id' => 32, 'palavra_id' => ''],
-            ['grupo_id' => 32, 'palavra_id' => ''],
-            ['grupo_id' => 32, 'palavra_id' => ''],
-
-
-            #Especiaria
-            ['grupo_id' => 33, 'palavra_id' => ''],
-            ['grupo_id' => 33, 'palavra_id' => ''],
-            ['grupo_id' => 33, 'palavra_id' => ''],
-            ['grupo_id' => 33, 'palavra_id' => ''],
-
-
-            #Reações comuns a picadas de inseto
-            ['grupo_id' => 34, 'palavra_id' => ''],
-            ['grupo_id' => 34, 'palavra_id' => ''],
-            ['grupo_id' => 34, 'palavra_id' => ''],
-            ['grupo_id' => 34, 'palavra_id' => ''],
-
-
-            #Órgãos do corpo human
-            ['grupo_id' => 35, 'palavra_id' => ''],
-            ['grupo_id' => 35, 'palavra_id' => ''],
-            ['grupo_id' => 35, 'palavra_id' => ''],
-            ['grupo_id' => 35, 'palavra_id' => ''],
-
-
-            #Relacionados a son
-            ['grupo_id' => 36, 'palavra_id' => ''],
-            ['grupo_id' => 36, 'palavra_id' => ''],
-            ['grupo_id' => 36, 'palavra_id' => ''],
-            ['grupo_id' => 36, 'palavra_id' => ''],
-
-
-            #Ratos de desenhos animado
-            ['grupo_id' => 37, 'palavra_id' => ''],
-            ['grupo_id' => 37, 'palavra_id' => ''],
-            ['grupo_id' => 37, 'palavra_id' => ''],
-            ['grupo_id' => 37, 'palavra_id' => ''],
-
-
-            #Quadrinho
-            ['grupo_id' => 38, 'palavra_id' => ''],
-            ['grupo_id' => 38, 'palavra_id' => ''],
-            ['grupo_id' => 38, 'palavra_id' => ''],
-            ['grupo_id' => 38, 'palavra_id' => ''],
-
-
-            #Realizados no hospita
-            ['grupo_id' => 39, 'palavra_id' => ''],
-            ['grupo_id' => 39, 'palavra_id' => ''],
-            ['grupo_id' => 39, 'palavra_id' => ''],
-            ['grupo_id' => 39, 'palavra_id' => ''],
-
-
-            #Os/As três __
-            ['grupo_id' => 40, 'palavra_id' => ''],
-            ['grupo_id' => 40, 'palavra_id' => ''],
-            ['grupo_id' => 40, 'palavra_id' => ''],
-            ['grupo_id' => 40, 'palavra_id' => ''],
-
-
-            #Procedimentos policiai
-            ['grupo_id' => 41, 'palavra_id' => ''],
-            ['grupo_id' => 41, 'palavra_id' => ''],
-            ['grupo_id' => 41, 'palavra_id' => ''],
-            ['grupo_id' => 41, 'palavra_id' => ''],
-
-
-            #Planeta
-            ['grupo_id' => 42, 'palavra_id' => ''],
-            ['grupo_id' => 42, 'palavra_id' => ''],
-            ['grupo_id' => 42, 'palavra_id' => ''],
-            ['grupo_id' => 42, 'palavra_id' => ''],
-
-
-            #Mitologia greg
-            ['grupo_id' => 43, 'palavra_id' => ''],
-            ['grupo_id' => 43, 'palavra_id' => ''],
-            ['grupo_id' => 43, 'palavra_id' => ''],
-            ['grupo_id' => 43, 'palavra_id' => ''],
-
-
-            #Variedades de banana
-            ['grupo_id' => 44, 'palavra_id' => ''],
-            ['grupo_id' => 44, 'palavra_id' => ''],
-            ['grupo_id' => 44, 'palavra_id' => ''],
-            ['grupo_id' => 44, 'palavra_id' => ''],
-
-
-            #Filmes da Disne
-            ['grupo_id' => 45, 'palavra_id' => ''],
-            ['grupo_id' => 45, 'palavra_id' => ''],
-            ['grupo_id' => 45, 'palavra_id' => ''],
-            ['grupo_id' => 45, 'palavra_id' => ''],
-
-
-            #Sinônimos de exposiçã
-            ['grupo_id' => 46, 'palavra_id' => ''],
-            ['grupo_id' => 46, 'palavra_id' => ''],
-            ['grupo_id' => 46, 'palavra_id' => ''],
-            ['grupo_id' => 46, 'palavra_id' => ''],
-
-
-            #Direitos humano
-            ['grupo_id' => 47, 'palavra_id' => ''],
-            ['grupo_id' => 47, 'palavra_id' => ''],
-            ['grupo_id' => 47, 'palavra_id' => ''],
-            ['grupo_id' => 47, 'palavra_id' => ''],
-
-
-            #Árvore
-            ['grupo_id' => 48, 'palavra_id' => ''],
-            ['grupo_id' => 48, 'palavra_id' => ''],
-            ['grupo_id' => 48, 'palavra_id' => ''],
-            ['grupo_id' => 48, 'palavra_id' => ''],
-
-
-            #Bairros de São Paul
-            ['grupo_id' => 49, 'palavra_id' => ''],
-            ['grupo_id' => 49, 'palavra_id' => ''],
-            ['grupo_id' => 49, 'palavra_id' => ''],
-            ['grupo_id' => 49, 'palavra_id' => ''],
-
-
-            #Letras grega
-            ['grupo_id' => 50, 'palavra_id' => ''],
-            ['grupo_id' => 50, 'palavra_id' => ''],
-            ['grupo_id' => 50, 'palavra_id' => ''],
-            ['grupo_id' => 50, 'palavra_id' => ''],
-
-
-            #Peixes de aquári
-            ['grupo_id' => 51, 'palavra_id' => ''],
-            ['grupo_id' => 51, 'palavra_id' => ''],
-            ['grupo_id' => 51, 'palavra_id' => ''],
-            ['grupo_id' => 51, 'palavra_id' => ''],
-
-
-            #Emite sons de animai
-            ['grupo_id' => 52, 'palavra_id' => ''],
-            ['grupo_id' => 52, 'palavra_id' => ''],
-            ['grupo_id' => 52, 'palavra_id' => ''],
-            ['grupo_id' => 52, 'palavra_id' => ''],
-
-
-            #Personagens de Pulp Fictio
-            ['grupo_id' => 53, 'palavra_id' => ''],
-            ['grupo_id' => 53, 'palavra_id' => ''],
-            ['grupo_id' => 53, 'palavra_id' => ''],
-            ['grupo_id' => 53, 'palavra_id' => ''],
-
-
-            #Tubérculo
-            ['grupo_id' => 54, 'palavra_id' => ''],
-            ['grupo_id' => 54, 'palavra_id' => ''],
-            ['grupo_id' => 54, 'palavra_id' => ''],
-            ['grupo_id' => 54, 'palavra_id' => ''],
-
-
-            #Indumentária rea
-            ['grupo_id' => 55, 'palavra_id' => ''],
-            ['grupo_id' => 55, 'palavra_id' => ''],
-            ['grupo_id' => 55, 'palavra_id' => ''],
-            ['grupo_id' => 55, 'palavra_id' => ''],
-
-
-            #Cargos auxiliare
-            ['grupo_id' => 56, 'palavra_id' => ''],
-            ['grupo_id' => 56, 'palavra_id' => ''],
-            ['grupo_id' => 56, 'palavra_id' => ''],
-            ['grupo_id' => 56, 'palavra_id' => ''],
-
-
-            #Cães de desenhos animado
-            ['grupo_id' => 57, 'palavra_id' => ''],
-            ['grupo_id' => 57, 'palavra_id' => ''],
-            ['grupo_id' => 57, 'palavra_id' => ''],
-            ['grupo_id' => 57, 'palavra_id' => ''],
-
-
-            #Jogos de baralh
-            ['grupo_id' => 58, 'palavra_id' => ''],
-            ['grupo_id' => 58, 'palavra_id' => ''],
-            ['grupo_id' => 58, 'palavra_id' => ''],
-            ['grupo_id' => 58, 'palavra_id' => ''],
-
-
-            #Marcas de alimento
-            ['grupo_id' => 59, 'palavra_id' => ''],
-            ['grupo_id' => 59, 'palavra_id' => ''],
-            ['grupo_id' => 59, 'palavra_id' => ''],
-            ['grupo_id' => 59, 'palavra_id' => ''],
-
-
-            #Quem tem boa saúd
-            ['grupo_id' => 60, 'palavra_id' => ''],
-            ['grupo_id' => 60, 'palavra_id' => ''],
-            ['grupo_id' => 60, 'palavra_id' => ''],
-            ['grupo_id' => 60, 'palavra_id' => ''],
-
-
-            #Calm
-            ['grupo_id' => 61, 'palavra_id' => ''],
-            ['grupo_id' => 61, 'palavra_id' => ''],
-            ['grupo_id' => 61, 'palavra_id' => ''],
-            ['grupo_id' => 61, 'palavra_id' => ''],
-
-
-            #Tem no circ
-            ['grupo_id' => 62, 'palavra_id' => ''],
-            ['grupo_id' => 62, 'palavra_id' => ''],
-            ['grupo_id' => 62, 'palavra_id' => ''],
-            ['grupo_id' => 62, 'palavra_id' => ''],
-
-
-            #Quadrilátero
-            ['grupo_id' => 63, 'palavra_id' => ''],
-            ['grupo_id' => 63, 'palavra_id' => ''],
-            ['grupo_id' => 63, 'palavra_id' => ''],
-            ['grupo_id' => 63, 'palavra_id' => ''],
-
-
-            #Tipos de torresm
-            ['grupo_id' => 64, 'palavra_id' => ''],
-            ['grupo_id' => 64, 'palavra_id' => ''],
-            ['grupo_id' => 64, 'palavra_id' => ''],
-            ['grupo_id' => 64, 'palavra_id' => ''],
-
-
-            #Símbolos dos naipes de baralh
-            ['grupo_id' => 65, 'palavra_id' => ''],
-            ['grupo_id' => 65, 'palavra_id' => ''],
-            ['grupo_id' => 65, 'palavra_id' => ''],
-            ['grupo_id' => 65, 'palavra_id' => ''],
-
-
-            #Unt
-            ['grupo_id' => 66, 'palavra_id' => ''],
-            ['grupo_id' => 66, 'palavra_id' => ''],
-            ['grupo_id' => 66, 'palavra_id' => ''],
-            ['grupo_id' => 66, 'palavra_id' => ''],
-
-
-            #Material escola
-            ['grupo_id' => 67, 'palavra_id' => ''],
-            ['grupo_id' => 67, 'palavra_id' => ''],
-            ['grupo_id' => 67, 'palavra_id' => ''],
-            ['grupo_id' => 67, 'palavra_id' => ''],
-
-
-            #Tipos de tinta
-            ['grupo_id' => 68, 'palavra_id' => ''],
-            ['grupo_id' => 68, 'palavra_id' => ''],
-            ['grupo_id' => 68, 'palavra_id' => ''],
-            ['grupo_id' => 68, 'palavra_id' => ''],
-
-
-            #Funções da química inorgânic
-            ['grupo_id' => 69, 'palavra_id' => ''],
-            ['grupo_id' => 69, 'palavra_id' => ''],
-            ['grupo_id' => 69, 'palavra_id' => ''],
-            ['grupo_id' => 69, 'palavra_id' => ''],
-
-
-            #Core
-            ['grupo_id' => 70, 'palavra_id' => ''],
-            ['grupo_id' => 70, 'palavra_id' => ''],
-            ['grupo_id' => 70, 'palavra_id' => ''],
-            ['grupo_id' => 70, 'palavra_id' => ''],
-
-
-            #Fruta
-            ['grupo_id' => 71, 'palavra_id' => ''],
-            ['grupo_id' => 71, 'palavra_id' => ''],
-            ['grupo_id' => 71, 'palavra_id' => ''],
-            ['grupo_id' => 71, 'palavra_id' => ''],
-
-
-            #Partes de uma jaquet
-            ['grupo_id' => 72, 'palavra_id' => ''],
-            ['grupo_id' => 72, 'palavra_id' => ''],
-            ['grupo_id' => 72, 'palavra_id' => ''],
-            ['grupo_id' => 72, 'palavra_id' => ''],
-
-
-            #Tipos de vinagr
-            ['grupo_id' => 73, 'palavra_id' => ''],
-            ['grupo_id' => 73, 'palavra_id' => ''],
-            ['grupo_id' => 73, 'palavra_id' => ''],
-            ['grupo_id' => 73, 'palavra_id' => ''],
-
-
-            #Alimentos ricos em proteína
-            ['grupo_id' => 74, 'palavra_id' => ''],
-            ['grupo_id' => 74, 'palavra_id' => ''],
-            ['grupo_id' => 74, 'palavra_id' => ''],
-            ['grupo_id' => 74, 'palavra_id' => ''],
-
-
-            #Produtos de higiene pessoa
-            ['grupo_id' => 75, 'palavra_id' => ''],
-            ['grupo_id' => 75, 'palavra_id' => ''],
-            ['grupo_id' => 75, 'palavra_id' => ''],
-            ['grupo_id' => 75, 'palavra_id' => ''],
-
-
-            #Bebidas quente
-            ['grupo_id' => 76, 'palavra_id' => ''],
-            ['grupo_id' => 76, 'palavra_id' => ''],
-            ['grupo_id' => 76, 'palavra_id' => ''],
-            ['grupo_id' => 76, 'palavra_id' => ''],
-
-
-            #___ em pó / Barra de __
-            ['grupo_id' => 77, 'palavra_id' => ''],
-            ['grupo_id' => 77, 'palavra_id' => ''],
-            ['grupo_id' => 77, 'palavra_id' => ''],
-            ['grupo_id' => 77, 'palavra_id' => ''],
-
-
-            #Pé de __
-            ['grupo_id' => 78, 'palavra_id' => ''],
-            ['grupo_id' => 78, 'palavra_id' => ''],
-            ['grupo_id' => 78, 'palavra_id' => ''],
-            ['grupo_id' => 78, 'palavra_id' => ''],
-
-
-            #Apoderaçã
-            ['grupo_id' => 79, 'palavra_id' => ''],
-            ['grupo_id' => 79, 'palavra_id' => ''],
-            ['grupo_id' => 79, 'palavra_id' => ''],
-            ['grupo_id' => 79, 'palavra_id' => ''],
-
-
-            #Pacote turístico
-            ['grupo_id' => 80, 'palavra_id' => ''],
-            ['grupo_id' => 80, 'palavra_id' => ''],
-            ['grupo_id' => 80, 'palavra_id' => ''],
-            ['grupo_id' => 80, 'palavra_id' => ''],
-
-
-            #Materiais elétricos
-            ['grupo_id' => 81, 'palavra_id' => ''],
-            ['grupo_id' => 81, 'palavra_id' => ''],
-            ['grupo_id' => 81, 'palavra_id' => ''],
-            ['grupo_id' => 81, 'palavra_id' => ''],
-
-
-            #Tabefe
-            ['grupo_id' => 82, 'palavra_id' => ''],
-            ['grupo_id' => 82, 'palavra_id' => ''],
-            ['grupo_id' => 82, 'palavra_id' => ''],
-            ['grupo_id' => 82, 'palavra_id' => ''],
-
-
-            #Estádio de futebol
-            ['grupo_id' => 83, 'palavra_id' => ''],
-            ['grupo_id' => 83, 'palavra_id' => ''],
-            ['grupo_id' => 83, 'palavra_id' => ''],
-            ['grupo_id' => 83, 'palavra_id' => ''],
-
-
-            #Guloseimas
-            ['grupo_id' => 84, 'palavra_id' => ''],
-            ['grupo_id' => 84, 'palavra_id' => ''],
-            ['grupo_id' => 84, 'palavra_id' => ''],
-            ['grupo_id' => 84, 'palavra_id' => ''],
-
-
-            #Produtos para pets
-            ['grupo_id' => 85, 'palavra_id' => ''],
-            ['grupo_id' => 85, 'palavra_id' => ''],
-            ['grupo_id' => 85, 'palavra_id' => ''],
-            ['grupo_id' => 85, 'palavra_id' => ''],
-
-
-            #Cidades Gaúchas
-            ['grupo_id' => 86, 'palavra_id' => ''],
-            ['grupo_id' => 86, 'palavra_id' => ''],
-            ['grupo_id' => 86, 'palavra_id' => ''],
-            ['grupo_id' => 86, 'palavra_id' => ''],
+            ['palavra_id' => 25, 'grupo_id' => 9],
+            ['palavra_id' => 26, 'grupo_id' => 9],
+            ['palavra_id' => 27, 'grupo_id' => 9],
+            ['palavra_id' => 28, 'grupo_id' => 9],
+            ['palavra_id' => 29, 'grupo_id' => 10],
+            ['palavra_id' => 30, 'grupo_id' => 10],
+            ['palavra_id' => 31, 'grupo_id' => 10],
+            ['palavra_id' => 32, 'grupo_id' => 10],
+            ['palavra_id' => 33, 'grupo_id' => 11],
+            ['palavra_id' => 34, 'grupo_id' => 11],
+            ['palavra_id' => 35, 'grupo_id' => 11],
+            ['palavra_id' => 36, 'grupo_id' => 11],
+            ['palavra_id' => 37, 'grupo_id' => 12],
+            ['palavra_id' => 38, 'grupo_id' => 12],
+            ['palavra_id' => 39, 'grupo_id' => 12],
+            ['palavra_id' => 40, 'grupo_id' => 12],
+            ['palavra_id' => 41, 'grupo_id' => 13],
+            ['palavra_id' => 42, 'grupo_id' => 13],
+            ['palavra_id' => 43, 'grupo_id' => 13],
+            ['palavra_id' => 44, 'grupo_id' => 13],
+            ['palavra_id' => 45, 'grupo_id' => 14],
+            ['palavra_id' => 46, 'grupo_id' => 14],
+            ['palavra_id' => 47, 'grupo_id' => 14],
+            ['palavra_id' => 48, 'grupo_id' => 14],
+            ['palavra_id' => 49, 'grupo_id' => 15],
+            ['palavra_id' => 50, 'grupo_id' => 15],
+            ['palavra_id' => 51, 'grupo_id' => 15],
+            ['palavra_id' => 52, 'grupo_id' => 15],
+            ['palavra_id' => 53, 'grupo_id' => 16],
+            ['palavra_id' => 54, 'grupo_id' => 16],
+            ['palavra_id' => 55, 'grupo_id' => 16],
+            ['palavra_id' => 56, 'grupo_id' => 16],
+            ['palavra_id' => 57, 'grupo_id' => 17],
+            ['palavra_id' => 58, 'grupo_id' => 17],
+            ['palavra_id' => 59, 'grupo_id' => 17],
+            ['palavra_id' => 60, 'grupo_id' => 17],
+            ['palavra_id' => 61, 'grupo_id' => 18],
+            ['palavra_id' => 62, 'grupo_id' => 18],
+            ['palavra_id' => 63, 'grupo_id' => 18],
+            ['palavra_id' => 64, 'grupo_id' => 18],
+            ['palavra_id' => 65, 'grupo_id' => 19],
+            ['palavra_id' => 66, 'grupo_id' => 19],
+            ['palavra_id' => 67, 'grupo_id' => 19],
+            ['palavra_id' => 68, 'grupo_id' => 19],
+            ['palavra_id' => 69, 'grupo_id' => 20],
+            ['palavra_id' => 70, 'grupo_id' => 20],
+            ['palavra_id' => 71, 'grupo_id' => 20],
+            ['palavra_id' => 72, 'grupo_id' => 20],
+            ['palavra_id' => 73, 'grupo_id' => 21],
+            ['palavra_id' => 74, 'grupo_id' => 21],
+            ['palavra_id' => 75, 'grupo_id' => 21],
+            ['palavra_id' => 76, 'grupo_id' => 21],
+            ['palavra_id' => 77, 'grupo_id' => 22],
+            ['palavra_id' => 78, 'grupo_id' => 22],
+            ['palavra_id' => 79, 'grupo_id' => 22],
+            ['palavra_id' => 80, 'grupo_id' => 22],
+            ['palavra_id' => 81, 'grupo_id' => 23],
+            ['palavra_id' => 82, 'grupo_id' => 23],
+            ['palavra_id' => 83, 'grupo_id' => 23],
+            ['palavra_id' => 84, 'grupo_id' => 23],
+            ['palavra_id' => 85, 'grupo_id' => 24],
+            ['palavra_id' => 86, 'grupo_id' => 24],
+            ['palavra_id' => 87, 'grupo_id' => 24],
+            ['palavra_id' => 88, 'grupo_id' => 24],
+            ['palavra_id' => 89, 'grupo_id' => 25],
+            ['palavra_id' => 90, 'grupo_id' => 25],
+            ['palavra_id' => 91, 'grupo_id' => 25],
+            ['palavra_id' => 92, 'grupo_id' => 25],
+            ['palavra_id' => 93, 'grupo_id' => 26],
+            ['palavra_id' => 94, 'grupo_id' => 26],
+            ['palavra_id' => 95, 'grupo_id' => 26],
+            ['palavra_id' => 96, 'grupo_id' => 26],
+            ['palavra_id' => 97, 'grupo_id' => 27],
+            ['palavra_id' => 98, 'grupo_id' => 27],
+            ['palavra_id' => 99, 'grupo_id' => 27],
+            ['palavra_id' => 100, 'grupo_id' => 27],
+            ['palavra_id' => 101, 'grupo_id' => 28],
+            ['palavra_id' => 102, 'grupo_id' => 28],
+            ['palavra_id' => 103, 'grupo_id' => 28],
+            ['palavra_id' => 104, 'grupo_id' => 28],
+            ['palavra_id' => 105, 'grupo_id' => 29],
+            ['palavra_id' => 106, 'grupo_id' => 29],
+            ['palavra_id' => 107, 'grupo_id' => 29],
+            ['palavra_id' => 108, 'grupo_id' => 29],
+            ['palavra_id' => 109, 'grupo_id' => 30],
+            ['palavra_id' => 110, 'grupo_id' => 30],
+            ['palavra_id' => 111, 'grupo_id' => 30],
+            ['palavra_id' => 112, 'grupo_id' => 30],
+            ['palavra_id' => 113, 'grupo_id' => 31],
+            ['palavra_id' => 114, 'grupo_id' => 31],
+            ['palavra_id' => 115, 'grupo_id' => 31],
+            ['palavra_id' => 116, 'grupo_id' => 31],
+            ['palavra_id' => 117, 'grupo_id' => 32],
+            ['palavra_id' => 118, 'grupo_id' => 32],
+            ['palavra_id' => 119, 'grupo_id' => 32],
+            ['palavra_id' => 120, 'grupo_id' => 32],
+            ['palavra_id' => 121, 'grupo_id' => 33],
+            ['palavra_id' => 122, 'grupo_id' => 33],
+            ['palavra_id' => 123, 'grupo_id' => 33],
+            ['palavra_id' => 124, 'grupo_id' => 33],
+            ['palavra_id' => 125, 'grupo_id' => 34],
+            ['palavra_id' => 126, 'grupo_id' => 34],
+            ['palavra_id' => 127, 'grupo_id' => 34],
+            ['palavra_id' => 128, 'grupo_id' => 34],
+            ['palavra_id' => 129, 'grupo_id' => 35],
+            ['palavra_id' => 130, 'grupo_id' => 35],
+            ['palavra_id' => 131, 'grupo_id' => 35],
+            ['palavra_id' => 132, 'grupo_id' => 35],
+            ['palavra_id' => 133, 'grupo_id' => 36],
+            ['palavra_id' => 134, 'grupo_id' => 36],
+            ['palavra_id' => 135, 'grupo_id' => 36],
+            ['palavra_id' => 136, 'grupo_id' => 36],
+            ['palavra_id' => 137, 'grupo_id' => 37],
+            ['palavra_id' => 138, 'grupo_id' => 37],
+            ['palavra_id' => 139, 'grupo_id' => 37],
+            ['palavra_id' => 140, 'grupo_id' => 37],
+            ['palavra_id' => 141, 'grupo_id' => 38],
+            ['palavra_id' => 142, 'grupo_id' => 38],
+            ['palavra_id' => 143, 'grupo_id' => 38],
+            ['palavra_id' => 144, 'grupo_id' => 38],
+            ['palavra_id' => 145, 'grupo_id' => 39],
+            ['palavra_id' => 146, 'grupo_id' => 39],
+            ['palavra_id' => 147, 'grupo_id' => 39],
+            ['palavra_id' => 148, 'grupo_id' => 39],
+            ['palavra_id' => 149, 'grupo_id' => 40],
+            ['palavra_id' => 150, 'grupo_id' => 40],
+            ['palavra_id' => 151, 'grupo_id' => 40],
+            ['palavra_id' => 152, 'grupo_id' => 40],
+            ['palavra_id' => 153, 'grupo_id' => 41],
+            ['palavra_id' => 154, 'grupo_id' => 41],
+            ['palavra_id' => 155, 'grupo_id' => 41],
+            ['palavra_id' => 156, 'grupo_id' => 41],
+            ['palavra_id' => 157, 'grupo_id' => 42],
+            ['palavra_id' => 158, 'grupo_id' => 42],
+            ['palavra_id' => 159, 'grupo_id' => 42],
+            ['palavra_id' => 160, 'grupo_id' => 42],
+            ['palavra_id' => 161, 'grupo_id' => 43],
+            ['palavra_id' => 162, 'grupo_id' => 43],
+            ['palavra_id' => 163, 'grupo_id' => 43],
+            ['palavra_id' => 164, 'grupo_id' => 43],
+            ['palavra_id' => 165, 'grupo_id' => 44],
+            ['palavra_id' => 166, 'grupo_id' => 44],
+            ['palavra_id' => 167, 'grupo_id' => 44],
+            ['palavra_id' => 168, 'grupo_id' => 44],
+            ['palavra_id' => 169, 'grupo_id' => 45],
+            ['palavra_id' => 170, 'grupo_id' => 45],
+            ['palavra_id' => 171, 'grupo_id' => 45],
+            ['palavra_id' => 172, 'grupo_id' => 45],
+            ['palavra_id' => 173, 'grupo_id' => 46],
+            ['palavra_id' => 174, 'grupo_id' => 46],
+            ['palavra_id' => 175, 'grupo_id' => 46],
+            ['palavra_id' => 176, 'grupo_id' => 46],
+            ['palavra_id' => 177, 'grupo_id' => 47],
+            ['palavra_id' => 178, 'grupo_id' => 47],
+            ['palavra_id' => 179, 'grupo_id' => 47],
+            ['palavra_id' => 180, 'grupo_id' => 47],
+            ['palavra_id' => 181, 'grupo_id' => 48],
+            ['palavra_id' => 182, 'grupo_id' => 48],
+            ['palavra_id' => 183, 'grupo_id' => 48],
+            ['palavra_id' => 184, 'grupo_id' => 48],
+            ['palavra_id' => 185, 'grupo_id' => 49],
+            ['palavra_id' => 186, 'grupo_id' => 49],
+            ['palavra_id' => 187, 'grupo_id' => 49],
+            ['palavra_id' => 188, 'grupo_id' => 49],
+            ['palavra_id' => 189, 'grupo_id' => 50],
+            ['palavra_id' => 190, 'grupo_id' => 50],
+            ['palavra_id' => 191, 'grupo_id' => 50],
+            ['palavra_id' => 192, 'grupo_id' => 50],
+            ['palavra_id' => 193, 'grupo_id' => 51],
+            ['palavra_id' => 194, 'grupo_id' => 51],
+            ['palavra_id' => 195, 'grupo_id' => 51],
+            ['palavra_id' => 196, 'grupo_id' => 51],
+            ['palavra_id' => 197, 'grupo_id' => 52],
+            ['palavra_id' => 198, 'grupo_id' => 52],
+            ['palavra_id' => 199, 'grupo_id' => 52],
+            ['palavra_id' => 200, 'grupo_id' => 52],
+            ['palavra_id' => 201, 'grupo_id' => 53],
+            ['palavra_id' => 202, 'grupo_id' => 53],
+            ['palavra_id' => 203, 'grupo_id' => 53],
+            ['palavra_id' => 204, 'grupo_id' => 53],
+            ['palavra_id' => 205, 'grupo_id' => 54],
+            ['palavra_id' => 206, 'grupo_id' => 54],
+            ['palavra_id' => 207, 'grupo_id' => 54],
+            ['palavra_id' => 208, 'grupo_id' => 54],
+            ['palavra_id' => 209, 'grupo_id' => 55],
+            ['palavra_id' => 210, 'grupo_id' => 55],
+            ['palavra_id' => 211, 'grupo_id' => 55],
+            ['palavra_id' => 212, 'grupo_id' => 55],
+            ['palavra_id' => 213, 'grupo_id' => 56],
+            ['palavra_id' => 214, 'grupo_id' => 56],
+            ['palavra_id' => 215, 'grupo_id' => 56],
+            ['palavra_id' => 216, 'grupo_id' => 56],
+            ['palavra_id' => 217, 'grupo_id' => 57],
+            ['palavra_id' => 218, 'grupo_id' => 57],
+            ['palavra_id' => 219, 'grupo_id' => 57],
+            ['palavra_id' => 220, 'grupo_id' => 57],
+            ['palavra_id' => 221, 'grupo_id' => 58],
+            ['palavra_id' => 222, 'grupo_id' => 58],
+            ['palavra_id' => 223, 'grupo_id' => 58],
+            ['palavra_id' => 224, 'grupo_id' => 58],
+            ['palavra_id' => 225, 'grupo_id' => 59],
+            ['palavra_id' => 226, 'grupo_id' => 59],
+            ['palavra_id' => 227, 'grupo_id' => 59],
+            ['palavra_id' => 228, 'grupo_id' => 59],
+            ['palavra_id' => 229, 'grupo_id' => 60],
+            ['palavra_id' => 230, 'grupo_id' => 60],
+            ['palavra_id' => 231, 'grupo_id' => 60],
+            ['palavra_id' => 232, 'grupo_id' => 60],
+            ['palavra_id' => 233, 'grupo_id' => 61],
+            ['palavra_id' => 234, 'grupo_id' => 61],
+            ['palavra_id' => 235, 'grupo_id' => 61],
+            ['palavra_id' => 236, 'grupo_id' => 61],
+            ['palavra_id' => 237, 'grupo_id' => 62],
+            ['palavra_id' => 238, 'grupo_id' => 62],
+            ['palavra_id' => 239, 'grupo_id' => 62],
+            ['palavra_id' => 240, 'grupo_id' => 62],
+            ['palavra_id' => 241, 'grupo_id' => 63],
+            ['palavra_id' => 242, 'grupo_id' => 63],
+            ['palavra_id' => 243, 'grupo_id' => 63],
+            ['palavra_id' => 244, 'grupo_id' => 63],
+            ['palavra_id' => 245, 'grupo_id' => 64],
+            ['palavra_id' => 246, 'grupo_id' => 64],
+            ['palavra_id' => 247, 'grupo_id' => 64],
+            ['palavra_id' => 248, 'grupo_id' => 64],
+            //04/05/24
+
+            //f1
+            ['palavra_id' => 273, 'grupo_id' => 65],
+            ['palavra_id' => 274, 'grupo_id' => 65],
+            ['palavra_id' => 275, 'grupo_id' => 65],
+            ['palavra_id' => 276, 'grupo_id' => 65],
+            //__vermelho
+            ['palavra_id' => 277, 'grupo_id' => 66],
+            ['palavra_id' => 278, 'grupo_id' => 66],
+            ['palavra_id' => 279, 'grupo_id' => 66],
+            ['palavra_id' => 280, 'grupo_id' => 66],
+            //chocolate garoto
+            ['palavra_id' => 281, 'grupo_id' => 67],
+            ['palavra_id' => 282, 'grupo_id' => 67],
+            ['palavra_id' => 283, 'grupo_id' => 67],
+            ['palavra_id' => 49, 'grupo_id' => 67],
+            //ilhas famosas
+            ['palavra_id' => 284, 'grupo_id' => 68],
+            ['palavra_id' => 285, 'grupo_id' => 68],
+            ['palavra_id' => 286, 'grupo_id' => 68],
+            ['palavra_id' => 287, 'grupo_id' => 68],
 
             
         ]);
