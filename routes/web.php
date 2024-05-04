@@ -24,6 +24,9 @@ Route::prefix('jogos')->group(function () {
     Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogos');
 });
 
+Route::get('login', 'App\Http\Controllers\ProfessorController@login')->name('login');
+Route::post('login', 'App\Http\Controllers\ProfessorController@fazerLogin');
+
 Route::prefix('professores')->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfessorController@index')->name('professores');
     Route::get('novo', 'App\Http\Controllers\ProfessorController@create')->name('professornovo');
