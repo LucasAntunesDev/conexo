@@ -6,10 +6,11 @@
     
     <div class="flex items-center grow">
         
-        <form action="" class="flex flex-col items-center gap-4 w-6/12">
+        <form action="{{ route('login')}} " class="flex flex-col items-center gap-4 w-6/12" method="POST">
+            @csrf
             <h1 class="my-8 text-violet-500 text-4xl 
             font-bold mx-auto w-fit">Login</h1>
-            
+
             <label for="login" class="text-violet-500">Login</label>
             <input type="text" name="login" id="login" class="p-3 rounded-xl bg-violet-100 outline-none">
 
