@@ -20,7 +20,7 @@
 
                    <div class="flex flex-col gap-2">
                     <label for="senha" class="text-violet-500">Senha</label>
-                    <input type="text" name="senha" id="senha" class="pr-7 pl-10 py-3 rounded-xl border-[1px] border-violet-200 outline-none">
+                    <input type="password" name="senha" id="senha" class="pr-7 pl-10 py-3 rounded-xl border-[1px] border-violet-200 outline-none">
                    </div>
 
                     <button type="submit" class="inline-flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-max">Entar</button>
