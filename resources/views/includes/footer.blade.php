@@ -1,5 +1,4 @@
-<footer
-    class="flex w-screen bg-white h-fit py-4 items-center pl-16 border-t-[1px] border-neutral-200 gap-x-20 mt-8">
+<footer class="flex w-screen bg-white h-fit py-4 items-center pl-16 border-t-[1px] border-neutral-200 gap-x-20 mt-8">
     <a href="{{ route('diario')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
@@ -43,4 +42,9 @@
 
         </ul>
     </nav>
+    <div>
+        <a href="{{route('logout')}}" class="inline-flex hover:text-violet-500 py-3 px-6 w-max">Sair</a>
+        <a href="{{route('login')}}"
+            class="inline-flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-max">Entar</a>
+    </div>
 </footer>
