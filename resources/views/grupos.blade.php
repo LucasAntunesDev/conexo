@@ -33,7 +33,7 @@
                             <div class=" flex items-center gap-x-2">Nome
     </div>
     </th>
-    <th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Id da Disciplina</th>
+    <th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Disciplina</th>
     <th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Ações</th>
     </tr>
     </thead>
@@ -48,7 +48,7 @@
                 </span>
                 {{ $grupo->nome }}
             </td>
-            <td class="pl-2 pr-1 w-fit"> {{ $grupo->professor_id }}</td>
+            <td class="pl-2 pr-1 w-fit"> {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome }}</td>
             <td class="flex pl-2 pr-1 w-fit py-5 flex-nowrap gap-x-2" scope="col">
                 <form method="POST" action="{{ route('grupodelete', ['id'=> $grupo->id]) }}">
                     <input type="hidden" name="_method" value="DELETE">

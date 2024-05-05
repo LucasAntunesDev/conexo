@@ -5,31 +5,38 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Grupo;
+use App\Models\Disciplina;
 use App\Http\Controllers\Controller;
 
 class GrupoController extends Controller {
 
     public function index() {
         $grupos = Grupo::all();
+        $disciplinas = Disciplina::all();
 
         return view('grupos', [
-            'grupos' => $grupos
+            'grupos' => $grupos,
+            'disciplinas' => $disciplinas,
         ]);
     }
 
     public function create() {
         $grupo = new Grupo();
+        $disciplinas = Disciplina::all();
 
         return view('grupo', [
-            'grupo' => $grupo
+            'grupo' => $grupo,
+            'disciplinas' => $disciplinas,
         ]);
     }
 
     public function edit($id) {
         $grupo = Grupo::find($id);
+        $disciplinas = Disciplina::all();
 
         return view('grupo', [
-            'grupo' => $grupo
+            'grupo' => $grupo,
+            'disciplinas' => $disciplinas,
         ]);
     }
 

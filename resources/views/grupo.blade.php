@@ -70,10 +70,15 @@
 
                 <div class="flex flex-col gap-y-1">
                     <label for="disciplina_id" class="label">Disciplina</label>
-                    <input type="text" id="disciplina_id" name="disciplina_id" value='{{ $grupo->disciplina_id }}'
+                    <select id="disciplina_id" name="disciplina_id" class="rounded-md border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300 focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                        @foreach($disciplinas as $disciplina)
+                            <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ? "selected" : ""}}>{{$disciplina->nome}} </option>
+                        @endforeach
+                    </select>
+                    {{-- <input type="text" id="disciplina_id" name="disciplina_id" value='{{ $grupo->disciplina_id }}'
                         class="rounded-md 
                     border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
-                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100"> --}}
                 </div>
 
             </fieldset>

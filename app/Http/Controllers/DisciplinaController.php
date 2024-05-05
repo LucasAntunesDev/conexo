@@ -13,7 +13,6 @@ class DisciplinaController extends Controller {
     public function index() {
         $disciplinas = Disciplina::all();
         $professores = Professor::all();
-        // return $diciplinas->professor_id;
 
         return view('disciplinas', [
             'disciplinas' => $disciplinas,
@@ -35,12 +34,12 @@ class DisciplinaController extends Controller {
 
     public function edit($id) {
         $disciplina = Disciplina::find($id);
-        $disciplinas = Disciplina::all();
+        // $disciplinas = Disciplina::all();
         $professores = Professor::all();
 
         return view('disciplina', [
             'disciplina' => $disciplina,
-            'disciplinas' => $disciplinas,
+            // 'disciplinas' => $disciplinas,
             'professores' => $professores,
         ]);
     }
