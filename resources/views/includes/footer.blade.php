@@ -43,8 +43,11 @@
         </ul>
     </nav>
     <div>
+        @auth('web')
         <a href="{{route('logout')}}" class="inline-flex hover:text-violet-500 py-3 px-6 w-max">Sair</a>
+        @else
         <a href="{{route('login')}}"
             class="inline-flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-max">Entar</a>
+    @endauth
     </div>
 </footer>

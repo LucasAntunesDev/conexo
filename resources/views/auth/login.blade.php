@@ -5,11 +5,6 @@
 
 
     <div class="flex items-center grow">
-        @auth('web')
-         O usuário está autenticado
-    @else
-        O usuário não está autenticado
-    @endauth
     
         <div class="flex flex-col items-center gap-4 w-6/12">
             <h2 class="my-8 text-violet-500 text-5xl 
