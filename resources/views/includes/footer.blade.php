@@ -27,9 +27,9 @@
                     <h3 class="leading-6 text-violet-500">Módulos</h3>
                 </li>
                 <ul class="inline-flex gap-x-8">
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('professores') }}" class="hover:text-violet-600 cursor-pointer hover:border-b-violet-600 hover:border-b-[1px] hover:border-b-violet-600 hover:border-b-[1px]">Professores</a>
-                    </li>
+                    </li> --}}
 
                     <li>
                         <a href="{{ route('disciplinas') }}" class="hover:text-violet-600 cursor-pointer hover:border-b-violet-600 hover:border-b-[1px] hover:border-b-violet-600 hover:border-b-[1px]">Disciplinas</a>
@@ -51,11 +51,11 @@
     </div>
 
     <div>
-        <div class="size-64 bg-violet-100 backdrop-blur z-20 absolute right-10 bottom-14 rounded-lg p-4 transition duration-300 ease-in-out hidden"
+        <div class="w-64 bg-violet-100 backdrop-blur z-20 absolute right-10 bottom-14 rounded-lg p-4 transition duration-300 ease-in-out hidden"
             id="modalConta">
-            <ul class="">
+            <ul class="flex flex-col gap-y-4">
                 <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
-                    <a href="{{route('professores')}}" class="inline-flex hover:text-violet-500 py-3 px-6 gap-x-4">
+                    <a href="{{ route('professorform', ['id' => auth()->user()->id]) }}" class="inline-flex hover:text-violet-500 py-3 px-6 gap-x-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-7 transition duration-300 ease-in-out">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -64,7 +64,7 @@
                         Fulano
                     </a>
                 </li>
-                <li class="*:transition *:duration-300 *:ease-in-out">
+                <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
                     <a href="{{route('logout')}}" class="inline-flex hover:text-red-500 py-3 px-6 w-max gap-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">

@@ -1,31 +1,49 @@
 @extends('layout')
 @section('content')
 
-<div class="flex flex-col justify-center items-center gap-2">
-    <div class="flex justify-around items-center gap-2">
+<div class="flex flex-col justify-center items-center gap-2 grow">
+    {{-- <div class="flex flex-col items-center gap-2 grow"> --}}
 
-        <div class="flex justify-start items-center gap-x-12">
+        {{-- <div class="flex flex-col justify-start items-center gap-x-12 grow"> --}}
 
-            <h1 class="text-violet-500 text-5xl font-bold inline-flex gap-x-2 mt-4 items-center">
-                professores
+            <h1 class="text-violet-500 text-5xl font-bold inline-flex gap-x-2 mt-4 items-center capitalize">
+                {{$professor->nome}}
             </h1>
 
-        </div>
-        <a href="{{ route('professornovo') }}" class="bg-emerald-500 rounded-md py-1 px-4 focus:bg-slate-50
-            text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 
-            focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
-            hover:bg-emerald-600 hover:border-emerald-600 self-baseline">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-            </svg>
-            Adicionar professor
-        </a>
+            <div class="flex flex-col items-center gap-4 rounded-xl bg-violet-100 p-4 my-4">
+                <a href="{{ route('professorform', ['id' => $professor->id]) }}"
+                    class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-emerald-600 hover:bg-violet-700 self-baseline">
+                    Alterar dados
+                </a>
 
-    </div>
+                <div class="inline-flex gap-4 justify-between items-center w-full px-4">
+                    <label class="font-bold text-violet-500">Id</label>
+                    <span>{{$professor->id}}</span>
+                </div>
+                <div class="inline-flex gap-4 justify-between items-center w-full px-4">
+                    <label class="font-bold text-violet-500">Nome</label>
+                    <span>{{$professor->nome}}</span>
+                </div>
+                <div class="inline-flex gap-4 justify-between items-center w-full px-4">
+                    <label class="font-bold text-violet-500">Login</label>
+                    <span>{{$professor->login}}</span>
+                </div>
+                <div class="inline-flex gap-4 justify-between items-center w-full px-4">
+                    <label class="font-bold text-violet-500">Disciplinas</label>
+                    @foreach($disciplinas as $disciplina)
+                    <span>{{$disciplina}}</span>
+                    @endforeach
+                </div>
+            </div>
 
-    <div class="relative overflow-x-auto max-w-11/12 rounded-xl">
+
+            {{--
+        </div> --}}
+
+
+        {{-- </div> --}}
+
+    {{-- <div class="relative overflow-x-auto max-w-11/12 rounded-xl">
         <table class="table-auto text-neutral-700 font-medium">
             <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100">
                 <tr class="table-row">
@@ -78,8 +96,9 @@
         </tr>
         @endforeach
     </tbody>
-    </table>
-</div>
+    </table> --}}
+    {{--
+</div> --}}
 </div>
 
 @endsection

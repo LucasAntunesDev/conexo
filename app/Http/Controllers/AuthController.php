@@ -23,14 +23,13 @@ class AuthController extends Controller {
             // Faz o login do usuário sem verificar o hash
             Auth::login($user);
     
-            return redirect()->intended('/diario');
+            return redirect()->intended('/');
         }
     
         return back()->withErrors([
             'login' => 'As credenciais fornecidas não correspondem aos nossos registros.',
         ]);
     }
-
 
     public function logout() {
         Auth::guard('web')->logout();

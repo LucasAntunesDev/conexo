@@ -30,7 +30,8 @@ Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logou
 
 
 Route::prefix('professores')->group(function () {
-    Route::get('/', 'App\Http\Controllers\ProfessorController@index')->name('professores');
+    // Route::get('/', 'App\Http\Controllers\ProfessorController@index')->name('professores');
+    Route::get('/', 'App\Http\Controllers\ProfessorController@showProfessor')->name('professores');
     Route::get('novo', 'App\Http\Controllers\ProfessorController@create')->name('professornovo');
     Route::get('{id}', 'App\Http\Controllers\ProfessorController@edit')->name('professorform');
     Route::post('/', 'App\Http\Controllers\ProfessorController@store')->name('professorinsert');
@@ -70,7 +71,7 @@ Route::middleware('auth')->group(function () {
     // Route::get('/diario', 'App\Http\Controllers\JogoController@jogo')->name('diario');
 
     Route::prefix('professores')->group(function () {
-        Route::get('/', 'App\Http\Controllers\ProfessorController@index')->name('professores');
+        Route::get('/', 'App\Http\Controllers\ProfessorController@showProfessor')->name('professores');
         Route::get('novo', 'App\Http\Controllers\ProfessorController@create')->name('professornovo');
         Route::get('{id}', 'App\Http\Controllers\ProfessorController@edit')->name('professorform');
         Route::post('/', 'App\Http\Controllers\ProfessorController@store')->name('professorinsert');

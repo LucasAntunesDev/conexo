@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Professor;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProfessorController extends Controller {
 
@@ -14,6 +16,19 @@ class ProfessorController extends Controller {
 
         return view('professores', [
             'professores' => $professores
+        ]);
+    }
+
+    public function showProfessor() {
+        $usuario = auth()->user();
+        $id = $usuario->id;
+
+        $professor = Professor::find($id);
+        $disciplinas =  DB::table('disciplinas')->where('professor_id', $id)->first();
+
+        return view('professorPerfil', [
+            'professor' => $professor,
+            'disciplinas' => $disciplinas
         ]);
     }
 
@@ -38,7 +53,7 @@ class ProfessorController extends Controller {
         $messages = [
             'nome.required' => 'O campo título deve ser preenchido',
             'login.required' => 'O login deve ser preenchido',
-            'senha.required' => 'A senha deve ser preenchido'
+            'senha.required' => 'A senha deve ser preenchida'
         ];
 
         $validator = Validator::make($request->all(), [
@@ -51,27 +66,31 @@ class ProfessorController extends Controller {
         else {
             $professor = new Professor();
             $professor->nome = $request->input('nome');
-            $professor->disciplina_id = $request->input('disciplina_id');
+            $professor->login = $request->input('login');
+            $professor->senha = $request->input('senha');
             $professor->save();
 
-            return redirect()->route('professores');
+            return redirect()->route('inicio');
         }
     }
 
     public function update($id, Request $request) {
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
-            'disciplina_id' => 'required'
+            'login' => 'required',
+            'senha' => 'required'
         ]);
 
-        if ($validator->fails()) return redirect()->route('professoresnovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return redirect()->route('professornovo')->withErrors($validator)->withInput();
         else {
             $professor = Professor::find($id);
             $professor->nome = $request->input('nome');
-            $professor->disciplina_id = $request->input('disciplina_id');
+            $professor->login = $request->input('login');
+            $professor->senha = $request->input('senha');
+            Auth::login($professor);
             $professor->save();
 
-            return redirect()->route('professores');
+            return redirect()->route('inicio');
         }
     }
 
@@ -79,6 +98,6 @@ class ProfessorController extends Controller {
         $professor = Professor::find($id);
         $professor->delete();
 
-        return redirect()->route('professores');
+        return redirect()->route('inicio');
     }
 }
