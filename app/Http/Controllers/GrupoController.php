@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class GrupoController extends Controller {
 
     public function index() {
-        $grupos = Grupo::all();
+        $grupos = Grupo::paginate(4);
         $disciplinas = Disciplina::all();
 
         return view('grupos', [

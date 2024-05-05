@@ -77,6 +77,7 @@
         @endforeach
     </tbody>
     </table>
+    {{ $palavras->links('vendor.pagination.tailwind') }}
 </div>
 </div>
 

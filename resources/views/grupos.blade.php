@@ -79,6 +79,7 @@
         @endforeach
     </tbody>
     </table>
+    {{ $grupos->links('vendor.pagination.tailwind') }}
 </div>
 </div>
 

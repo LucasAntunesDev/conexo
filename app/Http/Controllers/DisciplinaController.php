@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class DisciplinaController extends Controller {
 
     public function index() {
-        $disciplinas = Disciplina::all();
+        $disciplinas = Disciplina::paginate(4);
         $professores = Professor::all();
 
         return view('disciplinas', [

@@ -48,7 +48,7 @@
                 </span>
                 {{ $disciplina->nome }}
             </td>
-            <td class="pl-2 pr-1 w-fit"> 
+            <td class="pl-2 pr-1 w-fit">
                 {{App\Models\Professor::find($disciplina->professor_id)->nome}}
             </td>
             <td class="flex pl-2 pr-1 w-fit py-5 flex-nowrap gap-x-2" scope="col">
@@ -80,6 +80,7 @@
         @endforeach
     </tbody>
     </table>
+    {{ $disciplinas->links('vendor.pagination.tailwind') }}
 </div>
 </div>
 

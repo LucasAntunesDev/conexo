@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class PalavraController extends Controller {
 
     public function index() {
-        $palavras = Palavra::all();
+        $palavras = Palavra::paginate(4);
 
         return view('palavras', [
             'palavras' => $palavras
