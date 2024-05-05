@@ -1,4 +1,5 @@
 <?php
+use App\Models\Professor;
 
 return [
 
@@ -38,8 +39,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'professores',
+            'provider' => 'users',
         ],
+        // 'professor' => [
+        //     'driver' => 'session',
+        //     'provider' => 'professores',
+        // ],
     ],
 
     /*
@@ -59,6 +64,7 @@ return [
     |
     */
 
+    // 'providers' => [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',

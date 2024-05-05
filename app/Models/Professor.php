@@ -14,4 +14,15 @@ class Professor extends Model implements AuthenticatableContract
     protected $table = 'professores';
     protected $fillable = ['nome', 'login', 'senha'];
 
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
+    
+public function getAuthIdentifierName()
+{
+    return 'login';
+}
+
+
 }

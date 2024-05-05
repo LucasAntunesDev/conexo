@@ -26,7 +26,8 @@
                 <input type="number" name="disciplina" id="disciplina" class="rounded bg-violet-100 p-2 outline-none">
                 <button class="bg-emerald-600 rounded-full px-4 py-3 text-zinc-50">Procurar</button>
             </form> --}}
-            <form action="{{route('filtroDisciplina')}}" class="flex items-center gap-4">
+            <form action="" class="flex items-center gap-4">
+            {{-- <form action="{{route('filtroDisciplina')}}" class="flex items-center gap-4"> --}}
                 {{-- <label class="text-violet-500 font-bold" for="disciplina">
                     Disciplinas
                 </label> --}}
