@@ -12,7 +12,7 @@
 
         </div>
         <a href="{{ route('gruponovo') }}" class="bg-emerald-500 rounded-md py-1 px-4 focus:bg-slate-50
-            text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 
+            text-zinc-50 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 
             focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
             hover:bg-emerald-600 hover:border-emerald-600 self-baseline">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -54,7 +54,7 @@
                     <input type="hidden" name="_method" value="DELETE">
                     {{ csrf_field()}}
                     <a href="{{ route('grupoform', ['id' => $grupo->id]) }}" class='bg-emerald-500 rounded-full py-1 px-4 focus:bg-slate-50
-                        text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
+                        text-zinc-50 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
                         hover:bg-emerald-600 hover:border-emerald-600'>
 
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='w-4 h-4'>
@@ -64,7 +64,7 @@
                     </a>
 
                     <button type="submit" class='bg-red-500 rounded-full py-1 px-4 focus:bg-slate-50
-                        text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-red-500 focus:text-red-500 focus:border-red-500 transition duration-300 ease-in-out
+                        text-zinc-50 flex items-center mt-4 gap-x-2 justify-center border-2 border-red-500 focus:text-red-500 focus:border-red-500 transition duration-300 ease-in-out
                         hover:bg-red-3 hover:border-red-3'>
 
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='w-4 h-4'>

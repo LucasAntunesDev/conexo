@@ -12,11 +12,12 @@ class DisciplinaController extends Controller {
 
     public function index() {
         $disciplinas = Disciplina::all();
+        $professores = Professor::all();
         // return $diciplinas->professor_id;
-        // $professores = Professor::all();
 
         return view('disciplinas', [
-            'disciplinas' => $disciplinas
+            'disciplinas' => $disciplinas,
+            'professores' => $professores,
         ]);
     }
 
@@ -30,9 +31,11 @@ class DisciplinaController extends Controller {
 
     public function edit($id) {
         $disciplina = Disciplina::find($id);
+        $professores = Professor::all();
 
         return view('disciplina', [
-            'disciplina' => $disciplina
+            'disciplina' => $disciplina,
+            'professores' => $professores,
         ]);
     }
 
@@ -78,7 +81,6 @@ class DisciplinaController extends Controller {
 
     public function destroy($id) {
         $disciplina = Disciplina::find($id);
-        // return $disciplina->id;
         $disciplina->delete();
 
         return redirect()->route('disciplinas');

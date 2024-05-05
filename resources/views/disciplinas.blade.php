@@ -12,7 +12,7 @@
 
         </div>
         <a href="{{ route('disciplinanovo') }}" class="bg-emerald-500 rounded-md py-1 px-4 focus:bg-slate-50
-            text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 
+            text-zinc-50 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 
             focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
             hover:bg-emerald-600 hover:border-emerald-600 self-baseline">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -48,13 +48,15 @@
                 </span>
                 {{ $disciplina->nome }}
             </td>
-            <td class="pl-2 pr-1 w-fit"> {{ $disciplina->professor_id }}</td>
+            <td class="pl-2 pr-1 w-fit"> 
+                {{App\Models\Professor::find($disciplina->professor_id)->nome}}
+            </td>
             <td class="flex pl-2 pr-1 w-fit py-5 flex-nowrap gap-x-2" scope="col">
                 <form method="POST" action="{{ route('disciplinadelete', ['id'=> $disciplina->id]) }}">
                     <input type="hidden" name="_method" value="DELETE">
                     {{ csrf_field()}}
                     <a href="{{ route('disciplinaform', ['id' => $disciplina->id]) }}" class='bg-emerald-500 rounded-full py-1 px-4 focus:bg-slate-50
-                        text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
+                        text-zinc-50 flex items-center mt-4 gap-x-2 justify-center border-2 border-emerald-500 focus:text-emerald-500 focus:border-emerald-500 transition duration-300 ease-in-out
                         hover:bg-emerald-600 hover:border-emerald-600'>
 
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='w-4 h-4'>
@@ -64,7 +66,7 @@
                     </a>
 
                     <button type="submit" class='bg-red-500 rounded-full py-1 px-4 focus:bg-slate-50
-                        text-neutral-700 flex items-center mt-4 gap-x-2 justify-center border-2 border-red-500 focus:text-red-500 focus:border-red-500 transition duration-300 ease-in-out
+                        text-zinc-50 flex items-center mt-4 gap-x-2 justify-center border-2 border-red-500 focus:text-red-500 focus:border-red-500 transition duration-300 ease-in-out
                         hover:bg-red-3 hover:border-red-3'>
                         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='w-4 h-4'>
                             <path fill-rule='evenodd'

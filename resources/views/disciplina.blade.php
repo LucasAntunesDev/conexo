@@ -46,10 +46,13 @@
                     </div>
 
                     <div class="flex flex-col gap-y-1">
+
                         <label for="professor_id" class="label">Professor</label>
-                        <input type="text" id="professor_id" name="professor_id" value='{{ $disciplina->professor_id }}' class="rounded-md 
-                    border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
-                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                        <select id="professor_id" name="professor_id" value="professor_id" class="rounded-md border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300 focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                            @foreach($professores as $professor)
+                                <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id ? "selected" : ""}}>{{$professor->nome}} </option>
+                            @endforeach
+                        </select>
                     </div>
 
                 </fieldset>
