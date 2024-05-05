@@ -42,7 +42,7 @@
         @foreach($grupos as $grupo)
         <tr class="bg-violet-100 even:bg-violet-200">
             <td class="pl-2 pr-1 w-fit">
-                <span class="bg-violet-100 py-1 px-2 rounded-md hover:bg-violet-200 text-violet-700
+                <span class="bg-violet-500 py-1 px-2 rounded-md hover:bg-violet-200 text-violet-50
                             hover:cursor-pointer transition duration-300 ease-in-out font-medium text-sm mx-2">
                     {{ $grupo->id }}
                 </span>
@@ -73,7 +73,7 @@
                                 clip-rule='evenodd' />
                         </svg>
                     </button>
-
+                </form>
             </td>
         </tr>
         @endforeach

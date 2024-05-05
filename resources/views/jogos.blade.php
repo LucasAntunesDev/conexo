@@ -35,7 +35,7 @@
 
     <nav class="bg-violet-100 px-4 py-8 rounded-lg flex items-center gap-4 hidden w-4/5 mx-auto my-4" id="menu-disciplinas">
         <div class="flex gap-x-4 items-center w-8/12 flex-wrap mx-auto">
-            @for($i = 0; $i< (count($disciplinas)/2); $i++) <div value="{{$disciplinas[$i]->id}}"
+            @for($i = 0; $i< (count($disciplinas)); $i++) <div value="{{$disciplinas[$i]->id}}"
                 class="flex flex-col gap-4">
                 <a href="{{ route('jogos', ['disciplinaId' => $disciplinas[$i]->id]) }}"
                     class="bg-violet-500 rounded-lg p-3 text-violet-100"> {{$disciplinas[$i]->nome}}</a>

@@ -53,5 +53,7 @@
 </body>
 @endsection
 
-@section('scripts')
-@vite(['resources/js/app.js'])
+{{-- @section('scripts') --}}
+{{-- @vite(['resources/js/app.js']) --}}
+@vite(['resources/js/eventos.js'])
+@vite(['resources/js/script.js'])

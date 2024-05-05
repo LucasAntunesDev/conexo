@@ -82,5 +82,6 @@
 
         </form>
 
-        @section('scripts')
-        @vite(['resources/js/app.js'])
+        {{-- @section('scripts') --}}
+        @vite(['resources/js/eventos.js'])
+        @vite(['resources/js/script.js'])
