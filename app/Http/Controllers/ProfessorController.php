@@ -19,19 +19,6 @@ class ProfessorController extends Controller {
         ]);
     }
 
-    public function showProfessor() {
-        $usuario = auth()->user();
-        $id = $usuario->id;
-
-        $professor = Professor::find($id);
-        $disciplinas =  DB::table('disciplinas')->where('professor_id', $id)->first();
-
-        return view('professorPerfil', [
-            'professor' => $professor,
-            'disciplinas' => $disciplinas
-        ]);
-    }
-
     public function create() {
         $professor = new Professor();
 

@@ -71,7 +71,7 @@
                 </fieldset>
 
                 <div class="flex items-center gap-x-2 justify-center">
-                    <a href="{{ route('professores') }}"
+                    <a href="{{ route('inicio') }}"
                         class="hover:text-violet-500 rounded-lg py-2 px-4 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out self-baseline">
                         Cancelar
                     </a>
