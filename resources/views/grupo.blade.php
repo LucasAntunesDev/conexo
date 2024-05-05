@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<div class="flex flex-col justify-center pl-24 items-start gap-2">
+<div class="flex flex-col justify-center items-start gap-2 pt-4">
 
     <nav class="flex my-4" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -24,7 +24,7 @@
         </ol>
     </nav>
 
-    <h1 class="font-bold text-4xl text-violet-500 mb-4">
+    <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize">
         Gerenciar grupo
     </h1>
 
@@ -79,11 +79,11 @@
             </fieldset>
 
             <div class="flex items-center gap-x-2 justify-center">
-                <a href="{{ route('grupos') }}" class="btn outlined">
+                <a href="{{ route('grupos') }}" class="hover:text-violet-500 rounded-lg py-2 px-4 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out self-baseline">
                     Cancelar
                 </a>
 
-                <button type="submit" class="btn primary">
+                <button type="submit" class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline">
                     Salvar
                 </button>
             </div>

@@ -1,28 +1,9 @@
 @extends('layout')
 @section('content')
 
-    <div class="flex flex-col justify-center pl-24 items-start gap-2">
+    <div class="flex flex-col justify-center items-start gap-2 pt-4 h-screen">
 
-        <nav class="flex my-4" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-                <li>
-                    <div class="flex items-center">
-                        <a href="{{ route('disciplinas') }}" class="ms-1 text-sm font-medium 
-                        hover:text-violet-500 md:ms-2">disciplinas</a>
-                    </div>
-                </li>
-                <li aria-current="page">
-                    <div class="flex items-center">
-                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="ms-1 text-sm font-medium md:ms-2">Formulário</span>
-                    </div>
-                </li>
-            </ol>
-        </nav>
-
-        <h1 class="font-bold text-4xl text-violet-500 mb-4">
+        <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize mx-auto">
             Gerenciar disciplina
         </h1>
 
@@ -47,7 +28,7 @@
         @endif
 
         @if($disciplina->id)
-        <form action="{{ route('disciplinaaupdate', ['id' =>$disciplina->id]) }}" method="POST">
+        <form action="{{ route('disciplinaupdate', ['id' =>$disciplina->id]) }}" method="POST" class="mx-auto">
             <input type="hidden" name="_method" value="PUT">
             @else
             <form action="{{ route('disciplinainsert') }}" method="POST">
@@ -74,11 +55,11 @@
                 </fieldset>
 
                 <div class="flex items-center gap-x-2 justify-center">
-                    <a href="{{ route('disciplinas') }}" class="btn outlined">
+                    <a href="{{ route('disciplinas') }}" class="hover:text-violet-500 rounded-lg py-2 px-4 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out self-baseline">
                         Cancelar
                     </a>
 
-                    <button type="submit" class="btn primary">
+                    <button type="submit" class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline">
                         Salvar
                     </button>
                 </div>
