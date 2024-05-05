@@ -30,23 +30,27 @@
             </svg>
             CONEXO
         </h1>
-        
-        <p class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em comum</span>
-        
+
+        <p class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em
+            comum</span>
+
         <div class="flex border border-zinc-50 bg-violet-100 rounded-lg w-fit h-fit p-4 gap-x-4 items-center">
             <span class="font-bold">Jogo diário</span>
             <span>{{date('d/m/Y')}}</span>
-            <a href="{{ route('diario', ['dataJogo' => date('Y-m-d')] )}}" class="text-zinc-50 bg-violet-500 rounded-md py-2 px-3 hover:bg-violet-700">Jogar</a>
+            <a href="{{ route('diario', ['dataJogo' => date('Y-m-d')] )}}"
+                class="text-zinc-50 bg-violet-500 rounded-md py-2 px-3 hover:bg-violet-700">Jogar</a>
         </div>
 
         <div>
             {{-- {{ route('jogos')}} --}}
             <a href="{{ route('jogos') }}" class="inline-flex gap-x-2 my-4 px-4 py-2 rounded-lg hover:text-violet-600">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                  </svg>
-                  Jogos Anteriores
-                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                </svg>
+                Jogos Anteriores
+            </a>
         </div>
     </div>
     @include('includes.footer')
@@ -59,3 +63,6 @@
 @vite(['resources/js/app.js'])
 
 </html>
+
+@section('scripts')
+@vite(['resources/js/app.js'])

@@ -175,7 +175,7 @@ fetch(url)
                     document.querySelectorAll('button').forEach(botao => {
                         botao.disabled = false
                         if (botao.classList.contains('bg-violet-500')) {
-                            
+
                             botao.classList.remove('bg-violet-500')
                         }
                     })

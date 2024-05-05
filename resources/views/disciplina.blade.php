@@ -85,6 +85,5 @@
 
             </form>
 
-</body>
-
-</html>
+@section('scripts')
+@vite(['resources/js/app.js'])
