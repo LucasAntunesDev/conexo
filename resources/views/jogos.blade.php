@@ -22,56 +22,50 @@
     <main class="flex flex-col gap-2 w-screen justify-center items-center grow">
         <h3 class="mx-auto font-semibold text-xl">Todos os jogos</h3>
 
-        {{-- <form action="{{ route('diario', ['dataJogo' => $data->data]) }}" class="flex items-center gap-4">
-            <input type="number" name="disciplina" id="disciplina" class="rounded bg-violet-100 p-2 outline-none">
-            <button class="bg-emerald-600 rounded-full px-4 py-3 text-zinc-50">Procurar</button>
-        </form> --}}
-        <form action="" class="flex items-center gap-4">
-            {{-- <form action="{{route('filtroDisciplina')}}" class="flex items-center gap-4"> --}}
-                {{-- <label class="text-violet-500 font-bold" for="disciplina">
-                    Disciplinas
-                </label> --}}
-                <div class="flex gap-x-4 items-center w-8/12 flex-wrap mx-auto">
-                    {{-- <select name="disciplina" id="disciplina" class="bg-violet-100 rounded-xl px-4 py-3"> --}}
-                        @foreach($disciplinas as $disciplina)
-                        <div value="{{$disciplina->id}}" class="flex flex-col gap-4">
-                            {{-- <a href="{{''. $disciplina->id}}" {{$disciplina->nome}}></a> --}}
-                            <a href="{{ route('jogos', ['disciplinaId' => $disciplina->id]) }}"
-                                class="bg-violet-500 rounded-lg p-3 text-violet-100"> {{$disciplina->nome}}</a>
-                            <br>
-                        </div>
-                        @endforeach
-                        {{--
-                    </select> --}}
-                </div>
-                {{-- <button class="bg-emerald-600 rounded-full px-4 py-3 text-zinc-50">Procurar</button> --}}
-            </form>
+        <span
+            class="inline-flex gap-x-4 items-center bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 hover:cursor-pointer text-semibold"
+            id="buscarDisciplina">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </span>
+</div>
 
 
+    <nav class="bg-violet-100 px-4 py-8 rounded-lg flex items-center gap-4 hidden w-4/5 mx-auto my-4" id="menu-disciplinas">
+        <div class="flex gap-x-4 items-center w-8/12 flex-wrap mx-auto">
+            @for($i = 0; $i< (count($disciplinas)/2); $i++) <div value="{{$disciplinas[$i]->id}}"
+                class="flex flex-col gap-4">
+                <a href="{{ route('jogos', ['disciplinaId' => $disciplinas[$i]->id]) }}"
+                    class="bg-violet-500 rounded-lg p-3 text-violet-100"> {{$disciplinas[$i]->nome}}</a>
+                <br>
+        </div>
+        @endfor
+        </div>
+    </nav>
 
-            <div class="mx-auto px-4 w-6/12 my-4 grow">
-                <div class="grid grid-cols-4 gap-4 w-auto justify-items-center mb-4">
-                    @foreach ($datas as $data)
-                    <a href="{{ route('diario', ['dataJogo' => $data->data]) }}" target="_blank"
-                        class="text-center bg-violet-200 hover:bg-violet-400 text-violet-800 py-5 px-3 rounded-xl w-fit">
-                        {{ \Carbon\Carbon::parse($data->data)->format('d/m/Y') }}
-                    </a>
-                    @if ($loop->iteration % 4 == 0 && !$loop->last)
-                </div>
-                <div class="grid grid-cols-4 gap-4 w-auto justify-items-center mb-4">
-                    @endif
-                    @endforeach
-                </div>
-            </div>
+<div class="mx-auto px-4 w-6/12 my-4 grow">
+    <div class="grid grid-cols-4 gap-4 w-auto justify-items-center mb-4">
+        @foreach ($datas as $data)
+        <a href="{{ route('diario', ['dataJogo' => $data->data]) }}" target="_blank"
+            class="text-center bg-violet-200 hover:bg-violet-400 text-violet-800 py-5 px-3 rounded-xl w-fit">
+            {{ \Carbon\Carbon::parse($data->data)->format('d/m/Y') }}
+        </a>
+        @if ($loop->iteration % 4 == 0 && !$loop->last)
+    </div>
+    <div class="grid grid-cols-4 gap-4 w-auto justify-items-center mb-4">
+        @endif
+        @endforeach
+    </div>
+</div>
+
+<div class="mt-4">
+    {{ $datas->links('vendor.pagination.tailwind') }}
+</div>
 
 
-            <!-- Paginação -->
-            <div class="mt-4">
-                {{ $datas->links('vendor.pagination.tailwind') }}
-            </div>
-
-
-    </main>
+</main>
 </div>
 
 @section('scripts')
