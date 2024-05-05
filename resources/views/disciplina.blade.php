@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-    <div class="flex flex-col justify-center items-start gap-2 pt-4 h-screen">
+    <div class="flex flex-col justify-center items-start gap-2 pt-4 ">
 
         <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize mx-auto">
             Gerenciar disciplina
@@ -48,7 +48,7 @@
                     <div class="flex flex-col gap-y-1">
 
                         <label for="professor_id" class="label">Professor</label>
-                        <select id="professor_id" name="professor_id" value="professor_id" class="rounded-md border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300 focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                        <select id="professor_id" name="professor_id" class="rounded-md border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300 focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
                             @foreach($professores as $professor)
                                 <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id ? "selected" : ""}}>{{$professor->nome}} </option>
                             @endforeach

@@ -23,18 +23,24 @@ class DisciplinaController extends Controller {
 
     public function create() {
         $disciplina = new Disciplina();
+        $disciplinas = Disciplina::all();
+        $professores = Professor::all();
 
         return view('disciplina', [
-            'disciplina' => $disciplina
+            'disciplina' => $disciplina,
+            'disciplinas' => $disciplinas,
+            'professores' => $professores,
         ]);
     }
 
     public function edit($id) {
         $disciplina = Disciplina::find($id);
+        $disciplinas = Disciplina::all();
         $professores = Professor::all();
 
         return view('disciplina', [
             'disciplina' => $disciplina,
+            'disciplinas' => $disciplinas,
             'professores' => $professores,
         ]);
     }
@@ -72,6 +78,7 @@ class DisciplinaController extends Controller {
         else {
             $disciplina = Disciplina::find($id);
             $disciplina->nome = $request->input('nome');
+            $disciplina->professor_id = $request->input('professor_id');
             $disciplina->id = $request->input('id');
             $disciplina->save();
 
