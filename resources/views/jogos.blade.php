@@ -61,7 +61,7 @@
 </div>
 
 <div class="mt-4">
-    {{ $datas->links('vendor.pagination.tailwind') }}
+    {{ $datas->links('includes.pagination') }}
 </div>
 
 

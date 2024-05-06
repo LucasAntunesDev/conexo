@@ -69,7 +69,7 @@
     @endforeach
 </tbody>
 </table>
-{{ $palavras->links('vendor.pagination.tailwind') }}
+{{ $palavras->links('includes.pagination') }}
 </div>
 
 @endsection

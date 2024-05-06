@@ -72,7 +72,7 @@
     @endforeach
 </tbody>
 </table>
-{{ $disciplinas->links('vendor.pagination.tailwind') }}
+{{ $disciplinas->links('includes.pagination') }}
 </div>
 
 @endsection
