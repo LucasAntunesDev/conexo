@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GrupoPalavra extends Model
 {
+    protected $table = 'grupos_palavras';
+
     use HasFactory;
 }

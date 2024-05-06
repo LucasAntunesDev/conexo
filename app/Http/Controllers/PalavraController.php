@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Palavra;
+// use App\Models\GrupoPalavra;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class PalavraController extends Controller {
@@ -27,9 +29,13 @@ class PalavraController extends Controller {
 
     public function edit($id) {
         $palavra = Palavra::find($id);
-
+        // $grupos = Grupo::all()
+        // $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get()::paginate(5);
+        $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get();
+        
         return view('palavra', [
-            'palavra' => $palavra
+            'palavra' => $palavra,
+            'grupos_palavras' => $grupos_palavras,
         ]);
     }
 

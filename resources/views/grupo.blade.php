@@ -37,16 +37,16 @@
             @endif
             {{ csrf_field()}}
 
-            <fieldset class="flex flex-col items-center p-10 w-[40rem]">
+            <fieldset class="flex flex-col  p-10 w-[40rem] gap-4">
                 <input type="hidden" name="id" value='{{ $grupo->id }}'>
 
                 <div class="flex flex-col gap-y-1">
-                    <label for="nome" class="font-semibold text-violet-500">Nome</label>
+                    <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
                     <input type="text" id="nome" name="nome" value='{{ $grupo->nome }}' class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                 </div>
 
                 <div class="flex flex-col gap-y-1">
-                    <label for="disciplina_id" class="font-semibold text-violet-500">Disciplina</label>
+                    <label for="disciplina_id" class="font-semibold text-violet-500 capitalize">Disciplina</label>
                     <select id="disciplina_id" name="disciplina_id" class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                         @foreach($disciplinas as $disciplina)
                             <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ? "selected" : ""}}>{{$disciplina->nome}} </option>

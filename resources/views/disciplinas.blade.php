@@ -23,7 +23,7 @@
     <table class="table-auto text-neutral-700 font-medium mb-6">
         <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100">
             <tr class="table-row">
-                <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col"">
+                <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">
                             <div class=" flex items-center gap-x-2">Nome
 </div>
 </th>

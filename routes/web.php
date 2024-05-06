@@ -104,4 +104,13 @@ Route::middleware('auth')->group(function () {
         Route::put('{id}', 'App\Http\Controllers\PalavraController@update')->name('palavraupdate');
         Route::delete('{id}', 'App\Http\Controllers\PalavraController@destroy')->name('palavradelete');
     });
+
+    Route::prefix('grupospalavras')->group(function () {
+        Route::get('/', 'App\Http\Controllers\GrupoPalavraController@index')->name('grupospalavras');
+        Route::get('novo', 'App\Http\Controllers\GrupoPalavraController@create')->name('grupopalavranovo');
+        Route::get('{id}', 'App\Http\Controllers\GrupoPalavraController@edit')->name('grupopalavraform');
+        Route::post('/', 'App\Http\Controllers\GrupoPalavraController@store')->name('grupopalavrainsert');
+        Route::put('{id}', 'App\Http\Controllers\GrupoPalavraController@update')->name('grupopalavraupdate');
+        Route::delete('{id}', 'App\Http\Controllers\GrupoPalavraController@destroy')->name('grupopalavradelete');
+    });
 });

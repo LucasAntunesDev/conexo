@@ -8,6 +8,28 @@
             Palavras
         </h1>
 
+        @if($errors->any())
+    <div class="flex justify-center items-center">
+        <div>
+            <div class="bg-red-50 text-red-700 px-20 py-1 rounded-md mt-4">
+                <ul>
+                    <div class="inline-flex gap-x-2 items-center font-semibold">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Foram encontrados os seguintes erros:
+                    </div>
+                    @foreach($errors->all() as $error)
+                    <li class="list-disc">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </div>
+    @endif
+
         <a href="{{ route('palavranovo') }}"
             class="bg-emerald-500 hover:bg-emerald-700 rounded-lg py-2 px-5 focus:outline-none focus:ring focus:ring-emerald-300 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out font-semibold">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -23,7 +45,7 @@
     <table class="table-auto text-neutral-700 font-medium mb-6">
         <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100">
             <tr class="table-row">
-                <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col"">
+                <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">
                             <div class=" flex items-center gap-x-2">Nome
 </div>
 </th>
