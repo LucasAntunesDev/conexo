@@ -1,7 +1,7 @@
 @auth('web')
 <footer
     class="flex w-screen bg-white h-fit py-4 justify-between items-center px-16 border-t-[1px] border-neutral-200 gap-x-20 relative">
-    <a href="{{ route('diario')}}" class="gap-x-4">
+    <a href="{{ route('inicio')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
                 d="M2.25 15.9029C2.25 8.36262 8.36262 2.25 15.9029 2.25H176.097C183.637 2.25 189.75 8.36262 189.75 15.9029V37.2925C189.75 39.8059 187.712 41.8434 185.199 41.8434H6.80097C4.28754 41.8434 2.25 39.8059 2.25 37.2925V15.9029Z"
@@ -92,7 +92,7 @@
 @else
 <footer
     class="flex w-screen bg-white h-fit py-4 justify-between items-center px-16 border-t-[1px] border-neutral-200 gap-x-20 relative">
-    <a href="{{ route('diario')}}" class="gap-x-4">
+    <a href="{{ route('inicio')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
                 d="M2.25 15.9029C2.25 8.36262 8.36262 2.25 15.9029 2.25H176.097C183.637 2.25 189.75 8.36262 189.75 15.9029V37.2925C189.75 39.8059 187.712 41.8434 185.199 41.8434H6.80097C4.28754 41.8434 2.25 39.8059 2.25 37.2925V15.9029Z"
