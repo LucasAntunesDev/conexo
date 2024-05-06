@@ -1,10 +1,10 @@
 @extends('layout')
 @section('content')
 
-<div class="flex w-screen">
+<div class="flex w-screen h-screen">
     <main class="flex flex-col justify-center items-center gap-2 grow">
 
-        <h1 class="text-violet-500 text-5xl font-bold inline-flex gap-x-2 mt-4 items-center capitalize">
+        <h1 class="text-violet-500 text-5xl font-bold inline-flex gap-x-2 my-4 items-center capitalize">
             {{$professor->nome}}
         </h1>
 
@@ -40,10 +40,10 @@
                 {{ csrf_field()}}
 
                 <fieldset class="flex flex-col items-center gap-4 rounded-xl bg-violet-100 p-6">
-                    <div class="inline-flex gap-4 justify-between items-center w-full px-4">
+                    <div class="inline-flex gap-4 justify-start items-center w-full px-4">
                         <label class="font-bold text-violet-500">Id</label>
                         <span
-                            class="bg-violet-500 text-violet-50 size-6 rounded-md flex justify-center select-none hover:bg-violet-700">{{$professor->id}}</span>
+                            class="border-[1px] border-violet-500 text-violet-500 size-6 rounded-md flex items-center justify-center select-none hover:bg-violet-200">{{$professor->id}}</span>
                         <input type="hidden" name="id" value='{{ $professor->id }}'>
                     </div>
 
@@ -85,6 +85,7 @@
             </form>
     </main>
 </div>
+@endsection
 
 @section('scripts')
 @vite(['resources/js/app.js'])
