@@ -1,28 +1,7 @@
 @extends('layout')
 @section('content')
 
-<div class="flex flex-col justify-center items-start gap-2 pt-4">
-
-    <nav class="flex my-4" aria-label="Breadcrumb">
-        <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <li>
-                <div class="flex items-center">
-                    <a href="{{ route('palavras') }}" class="ms-1 text-sm font-medium 
-                        hover:text-violet-500 md:ms-2">Palavras</a>
-                </div>
-            </li>
-            <li aria-current="page">
-                <div class="flex items-center">
-                    <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 9 4-4-4-4" />
-                    </svg>
-                    <span class="ms-1 text-sm font-medium md:ms-2">Formulário</span>
-                </div>
-            </li>
-        </ol>
-    </nav>
+<div class="flex flex-col justify-center items-center gap-2 pt-4 grow">
 
     <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize">
         Gerenciar palavra
@@ -62,26 +41,29 @@
                 <input type="hidden" name="id" value='{{ $palavra->id }}'>
 
                 <div class="flex flex-col gap-y-1">
-                    <label for="nome" class="label">Nome</label>
-                    <input type="text" id="nome" name="nome" value='{{ $palavra->nome }}' class="rounded-md 
-                    border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
-                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                    <label for="nome" class="font-semibold text-violet-500">Nome</label>
+                    <input type="text" id="nome" name="nome" value='{{ $palavra->nome }}'
+                        class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                 </div>
 
             </fieldset>
 
             <div class="flex items-center gap-x-2 justify-center">
-                <a href="{{ route('palavras') }}" class="hover:text-violet-500 rounded-lg py-2 px-4 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out self-baseline">
+                <a href="{{ route('palavras') }}"
+                    class="hover:text-violet-500 rounded-lg py-2 px-4 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out self-baseline">
                     Cancelar
                 </a>
 
-                <button type="submit" class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline">
+                <button type="submit"
+                    class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline focus:outline-none focus:ring focus:ring-violet-400">
                     Salvar
                 </button>
             </div>
 
         </form>
 
-        {{-- @section('scripts') --}}
-        @vite(['resources/js/eventos.js'])
-        @vite(['resources/js/script.js'])
+</div>
+@endsection
+{{-- @section('scripts') --}}
+@vite(['resources/js/eventos.js'])
+@vite(['resources/js/script.js'])

@@ -1,9 +1,9 @@
 @extends('layout')
 @section('content')
 
-    <div class="flex flex-col justify-center items-start gap-2 pt-4 ">
+    <div class="flex flex-col justify-center items-center gap-2 pt-4 grow">
 
-        <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize mx-auto">
+        <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize">
             Gerenciar disciplina
         </h1>
 
@@ -39,16 +39,14 @@
                     <input type="hidden" name="id" value='{{ $disciplina->id }}'>
 
                     <div class="flex flex-col gap-y-1">
-                        <label for="nome" class="label">Nome</label>
-                        <input type="text" id="nome" name="nome" value='{{ $disciplina->nome }}' class="rounded-md 
-                    border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300
-                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                        <label for="nome" class="font-semibold text-violet-500">Nome</label>
+                        <input type="text" id="nome" name="nome" value='{{ $disciplina->nome }}' class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                     </div>
 
                     <div class="flex flex-col gap-y-1">
 
-                        <label for="professor_id" class="label">Professor</label>
-                        <select id="professor_id" name="professor_id" class="rounded-md border-none py-1.5 pr-7 pl-10 ring-1 ring-inset ring-neutral-300 focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-violet-100">
+                        <label for="professor_id" class="font-semibold text-violet-500">Professor</label>
+                        <select id="professor_id" name="professor_id" class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                             @foreach($professores as $professor)
                                 <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id ? "selected" : ""}}>{{$professor->nome}} </option>
                             @endforeach
@@ -62,12 +60,15 @@
                         Cancelar
                     </a>
 
-                    <button type="submit" class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline">
+                    <button type="submit" class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline focus:outline-none focus:ring focus:ring-violet-400">
                         Salvar
                     </button>
                 </div>
 
             </form>
+
+        </div>
+        @endsection
 
 @section('scripts')
 @vite(['resources/js/app.js'])
