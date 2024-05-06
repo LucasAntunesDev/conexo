@@ -4,7 +4,7 @@
 @include('includes.head')
 
 <body class="text-neutral-700">
-    <div class="flex flex-col justifycenter items-center  w-screen">
+    {{-- <div class="flex flex-col justify-center items-center h-screen w-screen"> --}}
         @yield('content')
         
         @include('includes.footer')

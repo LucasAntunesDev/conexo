@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
 
+<div class="flex flex-col justify-center items-center h-screen w-screen">
+
 <div class="w-screen grow">
 
     <div class="flex my-4 items-center w-6/12 mx-auto justify-between px-3">
@@ -47,6 +49,8 @@
             @endfor
 
     </main>
+
+</div>
 
 </div>
 
