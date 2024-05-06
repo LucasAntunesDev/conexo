@@ -1,88 +1,67 @@
 const dadosLocalStorage = JSON.parse(localStorage.getItem('conexoJogoStatus'))
 
-// console.log(dadosLocalStorage.grupoId == 20)
-// console.log(dadosLocalStorage)
-
 const data = document.querySelector("#dataAtual")
 const dataUrl = new URLSearchParams(window.location.search).get('dataJogo')
 data.innerHTML = dataUrl
 
 const criarTabuleiro = (max = 16) => {
-    const tab = [];
+    const tab = []
 
-    let k = 0;
+    let k = 0
     while (k < max) {
-        const n = Math.ceil(Math.random() * (max / 2));
-        if (tab.filter((x) => x === n).length >= 2) continue;
+        const n = Math.ceil(Math.random() * (max / 2))
+        if (tab.filter((x) => x === n).length >= 2) continue
 
-        tab.push(n);
-        k++;
+        tab.push(n)
+        k++
     }
 
-    return tab;
-};
+    return tab
+}
 
-// const trancarJogo = () => {
-//     document.querySelector('#tabuleiro').classList.add(hidden)
-// }
-
-const dataJogo = new URLSearchParams(window.location.search).get('dataJogo');
-const url = dataJogo ? `http://localhost:8000/api/diario?dataJogo=${dataJogo}` : 'http://localhost:8000/api/diario';
+const dataJogo = new URLSearchParams(window.location.search).get('dataJogo')
+const url = dataJogo ? `http://localhost:8000/api/diario?dataJogo=${dataJogo}` : 'http://localhost:8000/api/diario'
 
 fetch(url)
     .then((response) => {
         if (response.ok) {
-            return response.json();
+            return response.json()
         }
-        throw new Error("Algo deu errado na solicitação");
+        throw new Error("Algo deu errado na solicitação")
     })
     .then((data) => {
         const grupos = data
 
         const todasPalavras = grupos.reduce((acc, grupo) => {
-            const j = acc.concat(grupo.palavras);
-            return j.sort();
-        }, []);
+            const j = acc.concat(grupo.palavras)
+            return j.sort()
+        }, [])
 
         if (dadosLocalStorage.grupoId === grupos[0].jogo_id && dadosLocalStorage.finalizado === true) {
-            // return
-            // document
-            //     .querySelector("#acertou")
-            //     .setAttribute(
-            //         "class",
-            //         "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto")
-
-            // document
-            //     .querySelector("#tabuleiro")
-            //     .setAttribute(
-            //         "class",
-            //         "hidden")
 
         }
 
-        console.log(grupos);
+        console.log(grupos)
 
         console.log(dadosLocalStorage.grupoId)
         console.log(grupos[0].grupo_id)
-        // console.log(dadosLocalStorage.grupoId === grupos[0].jogo_id)
         console.log(dadosLocalStorage.finalizado === true)
 
+        let jogadas = []
 
-        let jogadas = [];
-
-        const tentativas = [];
+        const tentativas = []
 
         let tentativa = {
-            selecionado: jogadas,
-        };
+            selecionado: jogadas
+        }
 
-        const tab = criarTabuleiro();
-        const div = document.getElementById("tabuleiro");
+        const tab = criarTabuleiro()
+        const div = document.getElementById("tabuleiro")
 
         const verificarJogadas = (grupos, jogadas) => {
-            let numeroAcertosElement = document.querySelector('#numeroAcertos');
-            let numeroAcertos = parseInt(numeroAcertosElement.innerHTML);
-            const gruposAcertados = document.querySelector('#grupos');
+            let numeroAcertosElement = document.querySelector('#numeroAcertos')
+            let numeroAcertos = parseInt(numeroAcertosElement.innerHTML)
+            const gruposAcertados = document.querySelector('#grupos')
 
             for (const grupo of grupos) {
                 const palavrasGrupo = grupo.palavras
@@ -90,8 +69,8 @@ fetch(url)
 
                 if (todasPresentes) {
                     console.log(`Todas as palavras de 'jogadas' estão no grupo com tema "${grupo.grupo}" (Grupo ${grupo.numero}).`)
-                    numeroAcertos++;
-                    numeroAcertosElement.innerHTML = numeroAcertos;
+                    numeroAcertos++
+                    numeroAcertosElement.innerHTML = numeroAcertos
                     gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} 
                     <div class="flex flex-col uppercase bg-violet-300 px-4 py-6 rounded-md mb-2">
                         <span class="text-center font-bold">
@@ -109,10 +88,10 @@ fetch(url)
                     })
 
                 } else {
-                    console.log('Não!!');
+                    console.log('Não!!')
                 }
             }
-            console.log(numeroAcertos);
+            console.log(numeroAcertos)
             if (numeroAcertos === 4) {
                 let jogoDados = {
                     grupoId: grupos[0].jogo_id,
@@ -121,56 +100,46 @@ fetch(url)
 
                 localStorage.setItem('conexoJogoStatus', JSON.stringify(jogoDados))
 
-
-                // document
-                //     .querySelector("#tabuleiro")
-                //     .setAttribute("class", "hidden")
-                // document
-                //     .querySelector("#acertou")
-                //     .setAttribute(
-                //         "class",
-                //         "bg-violet-100 rounded-md p-3 flex-col justify-center gap-y-2 my-8 flex w-fit mx-auto"
-                //     );
                 document.querySelector("#acertouNumeroTentativas").innerHTML =
-                    document.querySelector("#numeroTentativas").innerHTML;
+                    document.querySelector("#numeroTentativas").innerHTML
                 console.log(
                     document.querySelector("numeroTentativas").innerHTML
-                );
+                )
             }
-        };
+        }
 
         for (let i = 0; i < 16; i++) {
-            const btn = document.createElement("button");
-            btn.setAttribute("type", "button");
+            const btn = document.createElement("button")
+            btn.setAttribute("type", "button")
             btn.setAttribute(
                 "class",
                 "bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase"
-            );
-            btn.innerHTML = todasPalavras[i];
+            )
+            btn.innerHTML = todasPalavras[i]
             btn.addEventListener("click", () => {
-                if (jogadas.some((j) => j === btn)) return;
-                btn.classList.add("bg-violet-500");
+                if (jogadas.some((j) => j === btn)) return
+                btn.classList.add("bg-violet-500")
                 btn.disabled = true
-                jogadas.push(btn.innerHTML);
+                jogadas.push(btn.innerHTML)
 
                 if (jogadas.length === 4) {
                     let numeroTentativasElement =
-                        document.querySelector("#numeroTentativas");
+                        document.querySelector("#numeroTentativas")
                     let numeroTentativas = parseInt(
                         document.querySelector("#numeroTentativas").innerHTML
-                    );
-                    numeroTentativas++;
-                    numeroTentativasElement.innerHTML = numeroTentativas;
+                    )
+                    numeroTentativas++
+                    numeroTentativasElement.innerHTML = numeroTentativas
 
                     tentativa = {
-                        selecionado: jogadas,
-                    };
+                        selecionado: jogadas
+                    }
 
-                    tentativas.push(tentativa);
+                    tentativas.push(tentativa)
 
-                    verificarJogadas(grupos, jogadas);
+                    verificarJogadas(grupos, jogadas)
 
-                    jogadas = [];
+                    jogadas = []
 
                     document.querySelectorAll('button').forEach(botao => {
                         botao.disabled = false
@@ -180,12 +149,12 @@ fetch(url)
                         }
                     })
                 }
-            });
+            })
 
             div.appendChild(btn)
         }
 
     })
     .catch((error) => {
-        console.error("Erro ao buscar dados:", error);
-    });
+        console.error("Erro ao buscar dados:", error)
+    })
