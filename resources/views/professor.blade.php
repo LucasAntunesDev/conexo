@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title', 'Professor - Conexo')
 @section('content')
 
 <div class="flex w-screen h-screen">

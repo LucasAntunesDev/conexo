@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title', 'Conexo')
 @section('content')
 
 <div class="flex flex-col justify-center items-center h-screen w-screen">

@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title', 'Jogos - Conexo')
 @section('content')
 
 <div class="flex flex-col">
