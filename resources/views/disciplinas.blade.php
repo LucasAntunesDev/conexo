@@ -24,54 +24,59 @@
         <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100">
             <tr class="table-row">
                 <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">
-                            <div class=" flex items-center gap-x-2">Nome
-</div>
-</th>
-<th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Professor</th>
-<th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Ações</th>
-</tr>
-</thead>
+                    <div class=" flex items-center gap-x-2">Nome
+                    </div>
+                </th>
+                <th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Professor</th>
+                <th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Ações</th>
+            </tr>
+        </thead>
 
-<tbody class="text-sm bg-gray-50/40">
-    @foreach($disciplinas as $disciplina)
-    <tr class="bg-violet-100 even:bg-violet-200">
-        <td class="pl-2 pr-1 w-fit">
-            <span class="bg-violet-500 py-1 px-2 rounded-md hover:bg-violet-200 text-violet-50
+        <tbody class="text-sm bg-gray-50/40">
+            @foreach($disciplinas as $disciplina)
+            <tr class="bg-violet-100 even:bg-violet-200">
+                <td class="pl-2 pr-1 w-fit">
+                    <span class="bg-violet-500 py-1 px-2 rounded-md hover:bg-violet-200 text-violet-50
                             hover:cursor-pointer transition duration-300 ease-in-out font-medium text-sm mx-2">
-                {{ $disciplina->id }}
-            </span>
-            {{ $disciplina->nome }}
-        </td>
-        <td class="pl-2 pr-1 w-fit">
-            {{App\Models\Professor::find($disciplina->professor_id)->nome}}
-        </td>
-        <td class="flex pl-2 pr-1 w-fit py-5 flex-nowrap gap-x-2" scope="col">
-            <form method="POST" action="{{ route('disciplinadelete', ['id'=> $disciplina->id]) }}">
-                <input type="hidden" name="_method" value="DELETE">
-                {{ csrf_field()}}
-                <a href="{{ route('disciplinaform', ['id' => $disciplina->id]) }}"
-                    class='bg-emerald-500 hover:bg-emerald-700 rounded-full py-2 px-5 focus:outline-none focus:ring focus:ring-emerald-300 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out'>
+                        {{ $disciplina->id }}
+                    </span>
+                    {{ $disciplina->nome }}
+                </td>
+                <td class="pl-2 pr-1 w-fit">
+                    {{App\Models\Professor::find($disciplina->professor_id)->nome}}
+                </td>
+                <td class="flex pl-2 pr-1 w-fit py-5 flex-nowrap gap-x-2" scope="col">
+                    <form method="POST" action="{{ route('disciplinadelete', ['id'=> $disciplina->id]) }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        {{ csrf_field()}}
 
-                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='w-4 h-4'>
-                        <path
-                            d='M2.695 14.763l-1.262 3.154a.5.5 0 00.65.65l3.155-1.262a4 4 0 001.343-.885L17.5 5.5a2.121 2.121 0 00-3-3L3.58 13.42a4 4 0 00-.885 1.343z' />
-                    </svg>
-                </a>
+                        <div class="flex gap-x-2 items-center">
+                            <a href="{{ route('disciplinaform', ['id' => $disciplina->id]) }}" class='text-current hover:text-emerald-600 hover:cursor-pointer transition duration-300 ease-in-out'>
 
-                <button type="submit" class='bg-red-500 hover:bg-red-700 rounded-full py-2 px-5 focus:outline-none focus:ring focus:ring-red-300 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-red-3 hover:border-red-3'>
-                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='w-4 h-4'>
-                        <path fill-rule='evenodd'
-                            d='M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z'
-                            clip-rule='evenodd' />
-                    </svg>
-                </button>
-            </form>
-        </td>
-    </tr>
-    @endforeach
-</tbody>
-</table>
-{{ $disciplinas->links('includes.pagination') }}
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                </svg>
+
+                            </a>
+
+                            <button type="submit"
+                                class='text-current hover:text-red-600 hover:cursor-pointer transition duration-300 ease-in-out'>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    {{ $disciplinas->links('includes.pagination') }}
 </div>
 
 @endsection
