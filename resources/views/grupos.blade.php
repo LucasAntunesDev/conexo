@@ -20,7 +20,7 @@
 
     </div>
 
-    <table class="table-auto text-neutral-700 font-medium mb-6">
+    <table class="table-auto text-gray-700 font-medium mb-6">
         <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100">
             <tr class="table-row">
                 <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">
@@ -32,7 +32,7 @@
 </tr>
 </thead>
 
-<tbody class="text-sm bg-neutral-50/40">
+<tbody class="text-sm bg-gray-50/40">
     @foreach($grupos as $grupo)
     <tr class="bg-violet-100 even:bg-violet-200">
         <td class="pl-2 pr-1 w-fit">

@@ -20,7 +20,7 @@
 
     </div>
 
-    <table class="table-auto text-neutral-700 font-medium mb-6">
+    <table class="table-auto text-gray-700 font-medium mb-6">
         <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100">
             <tr class="table-row">
                 <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">
@@ -32,7 +32,7 @@
 </tr>
 </thead>
 
-<tbody class="text-sm bg-neutral-50/40">
+<tbody class="text-sm bg-gray-50/40">
     @foreach($disciplinas as $disciplina)
     <tr class="bg-violet-100 even:bg-violet-200">
         <td class="pl-2 pr-1 w-fit">
@@ -58,8 +58,7 @@
                     </svg>
                 </a>
 
-                <button type="submit" class='bg-red-500 hover:bg-red-700 rounded-full py-2 px-5 focus:outline-none focus:ring focus:ring-red-300 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out
-                        hover:bg-red-3 hover:border-red-3'>
+                <button type="submit" class='bg-red-500 hover:bg-red-700 rounded-full py-2 px-5 focus:outline-none focus:ring focus:ring-red-300 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-red-3 hover:border-red-3'>
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='w-4 h-4'>
                         <path fill-rule='evenodd'
                             d='M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z'

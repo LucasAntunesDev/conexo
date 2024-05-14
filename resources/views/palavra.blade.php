@@ -42,7 +42,7 @@
     @if($palavra->id)
 
 
-    <table class="table-auto text-neutral-700 font-medium mb-6">
+    <table class="table-auto text-gray-700 font-medium mb-6">
         <div class="flex items-center justify-center gap-4">
             <span class="text-violet-500 mb-4 font-semibold">Grupos em que está:</caption>
                 <a href="{{ route('grupopalavranovo') }}"
@@ -62,7 +62,7 @@
             </tr>
         </thead>
 
-        <tbody class="text-sm bg-neutral-50/40">
+        <tbody class="text-sm bg-gray-50/40">
             @foreach($grupos_palavras as $grupo_palavra)
             <tr class="bg-violet-100 even:bg-violet-200">
                 <td class="pl-2 pr-1 w-fit capitalize">

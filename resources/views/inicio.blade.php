@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="./favicon.ico">
 </head>
 
-<body class="text-neutral-700 flex flex-col h-screen">
+<body class="text-gray-700 flex flex-col h-screen">
     <div class="flex flex-col justify-center items-center w-screen grow">
         {{-- @yield('content') --}}
 

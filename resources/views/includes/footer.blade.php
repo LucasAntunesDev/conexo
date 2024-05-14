@@ -1,6 +1,6 @@
 @auth('web')
 <footer
-    class="flex w-screen bg-white h-fit py-4 justify-between items-center px-16 border-t-[1px] border-neutral-200 gap-x-20 relative">
+    class="flex w-screen bg-white h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 gap-x-20 relative">
     <a href="{{ route('inicio')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
@@ -91,7 +91,7 @@
 </footer>
 @else
 <footer
-    class="flex w-screen bg-white h-fit py-4 justify-between items-center px-16 border-t-[1px] border-neutral-200 gap-x-20 relative">
+    class="flex w-screen bg-white h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 gap-x-20 relative">
     <a href="{{ route('inicio')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
