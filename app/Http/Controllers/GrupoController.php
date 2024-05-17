@@ -11,10 +11,12 @@ use App\Http\Controllers\Controller;
 class GrupoController extends Controller {
 
     public function index() {
+        $grupo = new Grupo();
         $grupos = Grupo::paginate(4);
         $disciplinas = Disciplina::all();
 
         return view('grupos', [
+            'grupo' => $grupo,
             'grupos' => $grupos,
             'disciplinas' => $disciplinas,
         ]);
