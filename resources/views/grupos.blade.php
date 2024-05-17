@@ -44,6 +44,17 @@
                                 class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                         </div>
 
+                        <div class="flex flex-col gap-y-1">
+                            <label for="disciplina_id" class="font-semibold text-violet-500 capitalize">Disciplina</label>
+                            <select id="disciplina_id" name="disciplina_id"
+                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
+                                @foreach($disciplinas as $disciplina)
+                                <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ? "selected" :
+                                    ""}}>{{$disciplina->nome}} </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <button type="submit"
                             class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline focus:outline-none focus:ring focus:ring-violet-400">
                             Salvar
