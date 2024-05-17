@@ -4,24 +4,24 @@
     <div class="flex justify-between flex-1 sm:hidden *:border-none">
         @if ($paginator->onFirstPage())
         <span
-            class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-violet-500 font-bold bg-violet-100 cursor-default leading-5 rounded-lg">
+            class="relative inline-flex items-center px-4 py-2 text-sm text-violet-500 font-bold bg-violet-100 cursor-default leading-5 rounded-lg">
             {!! __('pagination.previous') !!}
         </span>
         @else
         <a href="{{ $paginator->previousPageUrl() }}"
-            class="relative inline-flex items-center px-4 py-2 text-sm font-medium bg-violet-100 leading-5 rounded-lg hover:text-violet-500 font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 active: transition ease-in-out duration-300">
+            class="relative inline-flex items-center px-4 py-2 text-sm bg-violet-100 leading-5 rounded-lg font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 active: transition ease-in-out duration-300">
             {!! __('pagination.previous') !!}
         </a>
         @endif
 
         @if ($paginator->hasMorePages())
         <a href="{{ $paginator->nextPageUrl() }}"
-            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium  bg-violet-100 leading-5 rounded-lg hover:text-violet-500 font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 active: transition ease-in-out duration-300">
+            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm bg-violet-100 leading-5 rounded-lg font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 active: transition ease-in-out duration-300">
             {!! __('pagination.next') !!}
         </a>
         @else
         <span
-            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-violet-500 font-bold bg-violet-100 cursor-default leading-5 rounded-lg">
+            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm text-violet-500 font-bold bg-violet-100 cursor-default leading-5 rounded-lg">
             {!! __('pagination.next') !!}
         </span>
         @endif
@@ -104,7 +104,7 @@
                 @else
                 <span aria-disabled="true" aria-label="{{ __('pagination.next') }}">
                     <span
-                        class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-violet-500 font-bold bg-violet-100 cursor-default rounded-lg leading-5 "
+                        class="relative inline-flex items-center px-2 py-2 -ml-px text-sm text-violet-500 font-bold bg-violet-100 cursor-default rounded-lg leading-5 "
                         aria-hidden="true">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
