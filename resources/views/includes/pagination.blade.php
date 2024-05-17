@@ -29,21 +29,6 @@
     </div>
 
     <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between w-6/12 mx-auto *:border-none">
-        <div>
-            <p class="text-sm  leading-5">
-                {!! __('Mostrando entre') !!}
-                @if ($paginator->firstItem())
-                <span class="font-medium">{{ $paginator->firstItem() }}</span>
-                {!! __('e') !!}
-                <span class="font-medium">{{ $paginator->lastItem() }}</span>
-                @else
-                {{ $paginator->count() }}
-                @endif
-                {!! __('de') !!}
-                <span class="font-medium">{{ $paginator->total() }}</span>
-                {!! __('resultados') !!}
-            </p>
-        </div>
 
         <div class="ml-10 *:border-none">
             <span class="relative z-0 inline-flex rtl:flex-row-reverse shadow-sm rounded-lg gap-x-1.5">
