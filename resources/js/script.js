@@ -30,6 +30,8 @@ fetch(url)
         throw new Error("Algo deu errado na solicitação")
     })
     .then((data) => {
+        document.querySelector('#skeleton').classList.add('hidden')
+
         const grupos = data
 
         const todasPalavras = grupos.reduce((acc, grupo) => {
