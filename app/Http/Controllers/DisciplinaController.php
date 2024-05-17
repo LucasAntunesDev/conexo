@@ -11,10 +11,12 @@ use App\Http\Controllers\Controller;
 class DisciplinaController extends Controller {
 
     public function index() {
+        $disciplina = new Disciplina();
         $disciplinas = Disciplina::paginate(4);
         $professores = Professor::all();
 
         return view('disciplinas', [
+            'disciplina' => $disciplina,
             'disciplinas' => $disciplinas,
             'professores' => $professores,
         ]);
