@@ -26,7 +26,7 @@
                             Adicionar grupo
                         </h3>
                         <button type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                            class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
                             data-modal-toggle="crud-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
@@ -45,11 +45,13 @@
                         </div>
 
                         <div class="flex flex-col gap-y-1">
-                            <label for="disciplina_id" class="font-semibold text-violet-500 capitalize">Disciplina</label>
+                            <label for="disciplina_id"
+                                class="font-semibold text-violet-500 capitalize">Disciplina</label>
                             <select id="disciplina_id" name="disciplina_id"
                                 class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                                 @foreach($disciplinas as $disciplina)
-                                <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ? "selected" :
+                                <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ?
+                                    "selected" :
                                     ""}}>{{$disciplina->nome}} </option>
                                 @endforeach
                             </select>
@@ -84,7 +86,7 @@
                 @foreach($grupos as $grupo)
                 <tr class="border-b border-violet-100 bg-violet-50/60 even:bg-violet-50">
                     <td class="pl-2 pr-1 w-fit">
-                        <span class="bg-violet-200 py-1 px-2 inline-flex justify-center rounded-md hover:bg-violet-200 text-violet-50
+                        <span class="bg-violet-200 py-1 px-2 inline-flex justify-center rounded-md hover:bg-violet-200 text-violet-700
                             hover:cursor-pointer transition duration-300 ease-in-out font-medium text-sm mx-2">
                             {{ $grupo->id }}
                         </span>
@@ -131,5 +133,3 @@
 
 @section('scripts')
 @vite(['resources/js/app.js'])
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

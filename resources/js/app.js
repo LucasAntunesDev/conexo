@@ -1,6 +1,8 @@
+import 'flowbite';
 import './bootstrap';
 
 import './eventos';
 import './script';
 
-import '../css/app.css'
+// i1mport '../css/app.css'
+
