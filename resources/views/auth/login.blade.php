@@ -23,16 +23,24 @@
                     <form action="{{ route('login')}} " class="flex flex-col items-center gap-4" method="POST">
                         @csrf
 
-                        <div class="flex flex-col gap-2">
-                            <label for="login" class="text-violet-500 font-bold">Login</label>
+                        <div class="relative z-0">
                             <input type="text" name="login" id="login"
-                                class="border-b border-b-violet-500 pr-7 pl-10 py-1 outline-none bg-transparent focus:border-b-2 focus:border-b-violet-700">
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-b-violet-500 appearance-none focus:outline-none focus:border-b-violet-700 focus:ring-0 peer pr-7 pl-10"
+                                placeholder=" " />
+
+                            <label for="login"
+                                class="absolute text-sm text-violet-500 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Login
+                            </label>
                         </div>
 
-                        <div class="flex flex-col gap-2">
-                            <label for="senha" class="text-violet-500 font-bold">Senha</label>
-                            <input type="password" name="senha" id="senha"
-                                class="border-b border-b-violet-500 pr-7 pl-10 py-1 outline-none bg-transparent focus:border-b-2 focus:border-b-violet-700">
+                        <div class="relative z-0">
+                            <input type="text" name="senha" id="senha"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-b-violet-500 appearance-none focus:outline-none focus:border-b-violet-700 focus:ring-0 peer pr-7 pl-10"
+                                placeholder=" " />
+
+                            <label for="senha"
+                                class="absolute text-sm text-violet-500 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Senha
+                            </label>
                         </div>
 
                         <button type="submit"

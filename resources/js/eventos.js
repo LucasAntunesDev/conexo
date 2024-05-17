@@ -7,7 +7,6 @@ btnConta.addEventListener('click', (e) => {
   e.stopPropagation()
 })
 
-// Adiciona o ouvinte de evento ao documento inteiro
 document.addEventListener('click', (e) => {
   const modalConta = document.querySelector('#modalConta');
   const btnConta = document.querySelector('#conta')
