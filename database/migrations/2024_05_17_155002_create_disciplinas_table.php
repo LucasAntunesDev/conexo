@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('disciplinas', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 255)->nullable(false);
+            $table->string('nome', 255)->nullable(false)->unique();
             $table->unsignedBigInteger('professor_id')->unsigned()->nullable(false); 
             $table->foreign('professor_id')->references('id')->on('professores')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
