@@ -41,7 +41,7 @@
 
         <div id="grupos" class="flex flex-col gap-x-1 mx-auto w-6/12"></div>
 
-        <main id="tabuleiro1" class="grid grid-cols-4 gap-2 min-w-6/12 w-6/12 m-auto text-uppercase">
+        <main id="tabuleiro" class="grid grid-cols-4 gap-2 min-w-6/12 w-6/12 m-auto text-uppercase">
             <div id="skeleton" class="grid grid-cols-4 gap-2 m-auto text-uppercase w-[42.7rem] animate-pulse">
                 <button type="button"
                     class="bg-gradient-to-tr from-gray-100 via-gray-200 to-gray-100 p-6 rounded-md"><span class="invisible">'</span></button>
