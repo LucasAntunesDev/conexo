@@ -8,12 +8,12 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body class="text-gray-700 flex flex-col h-screen bg-violet-600">
+<body class="text-gray-700 flex flex-col h-screen bg-violet-100">
 
     <div class="w-screen h-screen">
 
-        <div class="flex flex-row ">
-            <div class="flex flex-col items-center gap-4 w-6/12 h-screen justify-center rounded-r-2xl bg-violet-100">
+        <div class="flex flex-row">
+            <div class="flex flex-col items-center gap-4 w-6/12 h-screen justify-center rounded-r-2xl">
 
                 <fieldset class="w-fit py-10 px-16">
                     <div class="flex flex-col gap-y-2 my-12">
@@ -64,10 +64,10 @@
 
             </div>
 
-            <div class="flex flex-col justify-center items-center gap-2 w-6/12 h-screen">
+            <div class="flex flex-col justify-center items-center gap-2 w-6/12 h-screen mx-auto">
 
-                <div class="bg-violet-600 h-[100%] w-[100%] flex justify-center items-center">
-                    <div class="flex flex-col mx-auto gap-2 w-fit text-white">
+                <div class="bg-violet-300 h-[97%] w-[97%] flex justify-center items-center rounded-lg">
+                    <div class="flex flex-col mx-auto gap-2 w-fit text-violet-700">
                         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="w-24 inline-flex m-auto fill-white">
                             <path

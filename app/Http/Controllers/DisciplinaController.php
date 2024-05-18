@@ -15,7 +15,7 @@ class DisciplinaController extends Controller {
         $disciplinas = Disciplina::paginate(4);
         $professores = Professor::all();
 
-        return view('disciplinas', [
+        return view('disciplina.disciplinas', [
             'disciplina' => $disciplina,
             'disciplinas' => $disciplinas,
             'professores' => $professores,
@@ -27,7 +27,7 @@ class DisciplinaController extends Controller {
         $disciplinas = Disciplina::all();
         $professores = Professor::all();
 
-        return view('disciplina', [
+        return view('disciplina.disciplina', [
             'disciplina' => $disciplina,
             'disciplinas' => $disciplinas,
             'professores' => $professores,
@@ -39,7 +39,7 @@ class DisciplinaController extends Controller {
         // $disciplinas = Disciplina::all();
         $professores = Professor::all();
 
-        return view('disciplina', [
+        return view('disciplina.disciplina', [
             'disciplina' => $disciplina,
             // 'disciplinas' => $disciplinas,
             'professores' => $professores,

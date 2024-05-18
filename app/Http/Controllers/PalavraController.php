@@ -14,7 +14,7 @@ class PalavraController extends Controller {
     public function index() {
         $palavras = Palavra::paginate(4);
 
-        return view('palavras', [
+        return view('palavra.palavras', [
             'palavras' => $palavras
         ]);
     }
@@ -22,7 +22,7 @@ class PalavraController extends Controller {
     public function create() {
         $palavra = new Palavra();
 
-        return view('palavra', [
+        return view('palavra.palavra', [
             'palavra' => $palavra
         ]);
     }
@@ -33,7 +33,7 @@ class PalavraController extends Controller {
         // $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get()::paginate(5);
         $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get();
         
-        return view('palavra', [
+        return view('palavra.palavra', [
             'palavra' => $palavra,
             'grupos_palavras' => $grupos_palavras,
         ]);
