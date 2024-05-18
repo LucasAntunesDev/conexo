@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+  input:-webkit-autofill {
+    filter: none; /* necessário para o Firefox! */
+    box-shadow: 0 0 0 100px #ede9fe inset;
+    background: transparent;
+}
+  input:-webkit-autofill:focus {
+    filter: none; /* necessário para o Firefox! */
+    box-shadow: 0 0 0 100px #ede9fe inset;
+    background: transparent;
+}

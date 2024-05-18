@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Conexo</title>
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
@@ -26,23 +25,24 @@
 
                         <div class="relative z-0">
                             <input type="text" name="login" id="login"
-                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-b-violet-500 appearance-none focus:outline-none focus:border-b-violet-700 focus:ring-0 peer pr-7 pl-10"
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none focus:ring-violet-500 autofill:bg-violet-100 focus:autofill:bg-violet-100""
                                 placeholder=" " />
 
-                            <label for="login"
-                                class="absolute text-sm text-violet-500 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Login
+                            <label for=" login"
+                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+                            Login
                             </label>
                         </div>
+
 
                         <div class="relative z-0">
-                            <input type="text" name="senha" id="senha"
-                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-b-violet-500 appearance-none focus:outline-none focus:border-b-violet-700 focus:ring-0 peer pr-7 pl-10"
+                            <input type="password" name="senha" id="senha"
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none focus:ring-violet-500 autofill:bg-violet-100 focus:autofill:bg-violet-100"
                                 placeholder=" " />
-
                             <label for="senha"
-                                class="absolute text-sm text-violet-500 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Senha
-                            </label>
+                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Senha</label>
                         </div>
+
 
                         <button type="submit"
                             class="flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-64 justify-center items-center gap-x-2 focus:outline-none focus:ring focus:ring-violet-400 font-semibold shadow-xl">
