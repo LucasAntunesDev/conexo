@@ -33,18 +33,6 @@
             <span class="relative z-0 inline-flex rtl:flex-row-reverse shadow-sm rounded-lg gap-x-1.5">
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
-                <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">
-                    <span
-                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 text-violet-500 h-10 px-4 py-2 gap-1 pr-2.5r"
-                        aria-hidden="true">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                clip-rule="evenodd" />
-                            Anterior
-                        </svg>
-                    </span>
-                </span>
                 @else
                 <a href="{{ $paginator->previousPageUrl() }}" rel="prev"
                     class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 text-violet-500 h-10 px-4 py-2 gap-1 pl-2.5r"
