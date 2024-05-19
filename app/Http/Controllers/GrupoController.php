@@ -12,7 +12,7 @@ class GrupoController extends Controller {
 
     public function index() {
         $grupo = new Grupo();
-        $grupos = Grupo::paginate(4);
+        $grupos = Grupo::paginate(16);
         $disciplinas = Disciplina::all();
 
         return view('grupo.grupos', [
