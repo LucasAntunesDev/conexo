@@ -44,37 +44,69 @@
         <main id="tabuleiro" class="grid grid-cols-4 gap-2 min-w-6/12 w-6/12 m-auto text-uppercase">
             <div id="skeleton" class="grid grid-cols-4 gap-2 m-auto text-uppercase w-[42.7rem] animate-pulse">
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
                 <button type="button"
-                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
+                    class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md">
+                    <div class="h-2 bg-gray-500/50 rounded"></div>
+                </button>
             </div>
 
         </main>
