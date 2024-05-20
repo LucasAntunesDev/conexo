@@ -20,8 +20,11 @@ if (document.querySelector('#conta')) {
 }
 
 if (document.querySelector('button.spin')) {
-  document.querySelector('button.spin').addEventListener('click', () => {
+  const btn = document.querySelector('button.spin')
+  btn.addEventListener('click', () => {
     if (document.querySelector('#login-icon')) document.querySelector('#login-icon').classList.add('hidden')
+    
+    if(document.querySelector('button>span')) document.querySelector('button>span').textContent = 'Salvando...'
 
     const spinner = document.querySelector("#spinner")
     spinner.classList.remove('hidden')

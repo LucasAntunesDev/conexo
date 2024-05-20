@@ -46,7 +46,7 @@
 
                         <button type="submit"
                             class="flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-64 justify-between items-center gap-x-2 focus:outline-none focus:ring focus:ring-violet-400 font-semibold shadow-xl spin">
-                            Entrar
+                            <span>Entrar</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" id="login-icon">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                               </svg>
