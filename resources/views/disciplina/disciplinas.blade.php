@@ -18,9 +18,9 @@
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
-                
+
                 <div class="relative bg-white rounded-lg shadow">
-                
+
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                         <h3 class=" text-lg font-semibold text-gray-900">
                             Adicionar disciplina
@@ -36,35 +36,40 @@
                         </button>
                     </div>
 
-                        <form action="{{ route('disciplinainsert') }}" method="POST" class="p-4 md:p-5">
-                            {{ csrf_field()}}
-                            <div class="flex flex-col gap-2 items-center">
-                                <div class="flex flex-col gap-y-1">
-                                    <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
-                                    <input type="text" id="nome" name="nome" 
-                                        class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
-                                </div>
-
-                                <div class="flex flex-col gap-y-1">
-
-                                    <label for="professor_id"
-                                        class="font-semibold text-violet-500 capitalize">Professor</label>
-                                    <select id="professor_id" name="professor_id"
-                                        class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
-                                        @foreach($professores as $professor)
-                                        <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id
-                                            ? "selected" :
-                                            ""}}>{{$professor->nome}} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
+                    <form action="{{ route('disciplinainsert') }}" method="POST" class="p-4 md:p-5">
+                        {{ csrf_field()}}
+                        <div class="flex flex-col gap-2 items-center">
+                            <div class="flex flex-col gap-y-1">
+                                <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
+                                <input type="text" id="nome" name="nome"
+                                    class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
                             </div>
-                            <button type="submit"
-                                class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline focus:outline-none focus:ring focus:ring-violet-400">
-                                Salvar
-                            </button>
-                        </form>
+
+                            <div class="flex flex-col gap-y-1">
+
+                                <label for="professor_id"
+                                    class="font-semibold text-violet-500 capitalize">Professor</label>
+                                <select id="professor_id" name="professor_id"
+                                    class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
+                                    @foreach($professores as $professor)
+                                    <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id
+                                        ? "selected" :
+                                        ""}}>{{$professor->nome}} </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                        </div>
+                        <button type="submit"
+                            class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline focus:outline-none focus:ring focus:ring-violet-400 spin">
+                            Salvar
+                            <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="animate-spin hidden">
+                                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                            </svg>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -27,20 +27,20 @@
                     <h3 class="leading-6 text-violet-500">Módulos</h3>
                 </li>
                 <ul class="inline-flex gap-x-8">
-                    {{-- <li>
-                        <a href="{{ route('professores') }}" class="hover:text-violet-600 cursor-pointer hover:border-b-violet-600 hover:border-b-[1px] hover:border-b-violet-600 hover:border-b-[1px]">Professores</a>
-                    </li> --}}
 
                     <li>
-                        <a href="{{ route('disciplinas') }}" class="hover:text-violet-600 cursor-pointer hover:border-b-violet-600 hover:border-b-[1px] hover:border-b-violet-600 hover:border-b-[1px]">Disciplinas</a>
+                        <a href="{{ route('disciplinas') }}"
+                            class="hover:text-violet-600 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Disciplinas</a>
                     </li>
 
                     <li>
-                        <a href="{{ route('grupos') }}" class="hover:text-violet-600 cursor-pointer hover:border-b-violet-600 hover:border-b-[1px] hover:border-b-violet-600 hover:border-b-[1px]">Grupos</a>
+                        <a href="{{ route('grupos') }}"
+                            class="hover:text-violet-600 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Grupos</a>
                     </li>
 
                     <li>
-                        <a href="{{ route('palavras') }}" class="hover:text-violet-600 cursor-pointer hover:border-b-violet-600 hover:border-b-[1px] hover:border-b-violet-600 hover:border-b-[1px]">Palavras</a>
+                        <a href="{{ route('palavras') }}"
+                            class="hover:text-violet-600 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Palavras</a>
                     </li>
 
                 </ul>
@@ -55,7 +55,8 @@
             id="modalConta">
             <ul class="flex flex-col gap-y-4">
                 <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
-                    <a href="{{ route('professorform', ['id' => auth()->user()->id]) }}" class="inline-flex hover:text-violet-500 py-3 px-6 gap-x-4 capitalize">
+                    <a href="{{ route('professorform', ['id' => auth()->user()->id]) }}"
+                        class="inline-flex hover:text-violet-500 py-3 px-6 gap-x-4 capitalize">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-7 transition duration-300 ease-in-out">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -91,7 +92,7 @@
 </footer>
 @else
 <footer
-    class="flex w-screen bg-white h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 gap-x-20 relative">
+    class="flex w-screen bg-violet-50 h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 gap-x-20 relative">
     <a href="{{ route('inicio')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
@@ -111,12 +112,15 @@
     </a>
 
     <a href="{{route('login')}}"
-        class="inline-flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-max focus:outline-none focus:ring focus:ring-violet-400 justify-center items-center gap-x-2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-            <path fill-rule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clip-rule="evenodd"></path>
-            <path fill-rule="evenodd" d="M6 10a.75.75 0 01.75-.75h9.546l-1.048-.943a.75.75 0 111.004-1.114l2.5 2.25a.75.75 0 010 1.114l-2.5 2.25a.75.75 0 11-1.004-1.114l1.048-.943H6.75A.75.75 0 016 10z" clip-rule="evenodd"></path>
-        </svg>
+        class="inline-flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-max focus:outline-none focus:ring focus:ring-violet-400 justify-between items-center gap-x-2">
         Entar
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd"
+                d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z"
+                clip-rule="evenodd" />
+        </svg>
+
+
     </a>
     </div>
 

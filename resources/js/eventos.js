@@ -19,6 +19,14 @@ if (document.querySelector('#conta')) {
 
 }
 
+if (document.querySelector('button.spin')) {
+  document.querySelector('button.spin').addEventListener('click', () => {
+    if (document.querySelector('#login-icon')) document.querySelector('#login-icon').classList.add('hidden')
+
+    const spinner = document.querySelector("#spinner")
+    spinner.classList.remove('hidden')
+  })
+}
 // const buscarDisciplina = document.querySelector('#buscarDisciplina')
 
 // buscarDisciplina.addEventListener('click', () => {
