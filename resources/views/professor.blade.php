@@ -5,9 +5,14 @@
 <div class="flex w-screen h-screen">
     <main class="flex flex-col justify-center items-center gap-2 grow">
 
+        <div class="space-y-0.5 w-[70rem] my-4 rounded-xl bg-violet-100 p-6">
+            <h2 class="text-2xl font-bold tracking-tight text-violet-500">Configurções de usuário</h2>
+            <p>Altere as configurações de sua conta.</p>
+        </div>
+{{-- 
         <h1 class="text-violet-500 text-5xl font-bold inline-flex gap-x-2 my-4 items-center capitalize">
             {{$professor->nome}}
-        </h1>
+        </h1> --}}
 
         @if($errors->any())
         <div class="flex justify-center items-center">
@@ -40,33 +45,44 @@
                 @endif
                 {{ csrf_field()}}
 
-                <fieldset class="flex flex-col items-center gap-4 rounded-xl bg-violet-100 p-6">
-                    <div class="inline-flex gap-4 justify-start items-center w-full px-4">
-                        <label class="font-bold text-violet-500">Id</label>
-                        <span
-                            class="border-[1px] border-violet-500 text-violet-500 size-6 rounded-md flex items-center justify-center select-none hover:bg-violet-200">{{$professor->id}}</span>
-                        <input type="hidden" name="id" value='{{ $professor->id }}'>
+                <fieldset class="flex flex-col items-stretch gap-4 rounded-xl bg-violet-100 p-6 w-[70rem]">
+                    <div class="space-y-2">
+                        <div class="relative z-0">
+                            <input type="text" id="nome" name="nome" value='{{ $professor->nome }}'
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 focus:autofill:bg-violet-100"
+                                placeholder=" " />
+
+                            <label for="nome"
+                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+                            Nome
+                            </label>
+                        </div>
                     </div>
 
-                    <div class="inline-flex gap-4 justify-between items-center w-full px-4">
-                        <label for="nome" class="font-bold text-violet-500">Nome</label>
-                        <input type="text" id="nome" name="nome" value='{{ $professor->nome }}' class="rounded-lg 
-                    border-none py-2 pr-7 pl-10 
-                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-white">
-                    </div>
+                    <div class="space-y-2">
+                        <div class="relative z-0">
+                            <input type="text" id="login" name="login" value='{{ $professor->login }}'
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 focus:autofill:bg-violet-100"
+                                placeholder=" " />
 
-                    <div class="inline-flex gap-4 justify-between items-center w-full px-4">
-                        <label for="login" class="font-bold text-violet-500">Login</label>
-                        <input type="text" id="login" name="login" value='{{ $professor->login }}' class="rounded-lg 
-                    border-none py-2 pr-7 pl-10 
-                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-white">
+                            <label for="login"
+                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+                            Login
+                            </label>
+                        </div>
                     </div>
+                    
+                    <div class="space-y-2">
+                        <div class="relative z-0">
+                            <input type="password" id="senha" name="senha" value='{{ $professor->senha }}'
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 focus:autofill:bg-violet-100"
+                                placeholder=" " />
 
-                    <div class="inline-flex gap-4 justify-between items-center w-full px-4">
-                        <label for="senha" class="font-bold text-violet-500">Senha</label>
-                        <input type="password" id="senha" name="senha" value='{{ $professor->senha }}' class="rounded-lg 
-                    border-none py-2 pr-7 pl-10 
-                    focus:ring-2 focus:ring-inset focus:ring-violet-400 outline-none bg-white">
+                            <label for="senha"
+                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+                            Senha
+                            </label>
+                        </div>
                     </div>
 
                 </fieldset>
