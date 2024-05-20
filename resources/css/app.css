@@ -12,3 +12,8 @@
     box-shadow: 0 0 0 100px #ede9fe inset;
     background: transparent;
 }
+@layer components {
+  .conexo-btn.bg-violet-500{
+    @apply text-violet-50;
+  }
+}

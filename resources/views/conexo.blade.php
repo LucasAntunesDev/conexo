@@ -77,12 +77,6 @@
                     class="bg-gradient-to-tr from-gray-200 to-gray-400/30 p-6 rounded-md"><span class="invisible">'</span></button>
             </div>
 
-            {{-- @for ($i = 0; $i < 16; $i++) <button type="button"
-                class=p-5 rounded-md hidden"
-                onClick="verficarJogo(this)">
-                </button>
-                @endfor --}}
-
         </main>
 
     </div>
@@ -91,8 +85,3 @@
 
 </body>
 @endsection
-
-{{-- @section('scripts') --}}
-{{-- @vite(['resources/js/app.js']) --}}
-{{-- @vite(['resources/js/eventos.js'])
-@vite(['resources/js/script.js']) --}}

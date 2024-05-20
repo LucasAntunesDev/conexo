@@ -115,7 +115,7 @@ fetch(url)
             btn.setAttribute("type", "button")
             btn.setAttribute(
                 "class",
-                "bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase"
+                "conexo-btn bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transition duration-300 ease-in-out uppercase"
             )
             btn.innerHTML = todasPalavras[i]
             btn.addEventListener("click", () => {
