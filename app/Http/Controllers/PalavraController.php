@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class PalavraController extends Controller {
 
     public function index() {
-        $palavras = Palavra::paginate(4);
+        $palavras = Palavra::paginate(24);
 
         return view('palavra.palavras', [
             'palavras' => $palavras
