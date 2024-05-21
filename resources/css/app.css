@@ -2,18 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-  input:-webkit-autofill {
-    filter: none; /* necessário para o Firefox! */
-    box-shadow: 0 0 0 100px #ede9fe inset;
-    background: transparent;
+input:-webkit-autofill {
+  filter: none;
+  /* necessário para o Firefox! */
+  box-shadow: 0 0 0 100px #ede9fe inset;
+  background: transparent;
 }
-  input:-webkit-autofill:focus {
-    filter: none; /* necessário para o Firefox! */
-    box-shadow: 0 0 0 100px #ede9fe inset;
-    background: transparent;
+
+input:-webkit-autofill:focus {
+  filter: none;
+  /* necessário para o Firefox! */
+  box-shadow: 0 0 0 100px #ede9fe inset;
+  background: transparent;
 }
+
 @layer components {
-  .conexo-btn.bg-violet-500{
+  .conexo-btn.bg-violet-500 {
     @apply text-violet-50;
+  }
+
+  .border-error {
+    @apply border-red-500 focus:border-red-500 !important;
+  }
+
+  .border-valid {
+    @apply border-emerald-500 focus:border-emerald-500 !important;
   }
 }

@@ -8,15 +8,22 @@ use App\Models\Professor;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\ProfessorResource;
 
 class ProfessorController extends Controller {
 
+    public function __construct(protected Professor $professoresRepository,){}
     public function index() {
         $professores = Professor::all();
 
         return view('professores', [
             'professores' => $professores
         ]);
+    }
+
+    public function api(){
+        $professores = $this->professoresRepository->paginate();
+        return ProfessorResource::collection($professores);
     }
 
     public function create() {

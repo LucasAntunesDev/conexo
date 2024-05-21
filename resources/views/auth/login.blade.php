@@ -13,7 +13,7 @@
     <div class="w-screen h-screen">
 
         <div class="flex flex-row">
-            <div class="flex flex-col items-center gap-4 w-6/12 h-screen justify-center rounded-r-2xl">
+            <div class="flex flex-col items-center gap-4 w-auto md:w-6/12 h-screen justify-center rounded-r-2xl">
 
                 <fieldset class="w-fit py-10 px-16">
                     <div class="flex flex-col gap-y-2 my-12">
@@ -25,19 +25,19 @@
 
                         <div class="relative z-0">
                             <input type="text" name="login" id="login"
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none focus:ring-violet-500 autofill:bg-violet-100 focus:autofill:bg-violet-100""
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none autofill:bg-violet-100 focus:autofill:bg-violet-100"
                                 placeholder=" " />
 
                             <label for=" login"
                                 class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                            Login
+                                Login
                             </label>
                         </div>
 
 
                         <div class="relative z-0">
                             <input type="password" name="senha" id="senha"
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none focus:ring-violet-500 autofill:bg-violet-100 focus:autofill:bg-violet-100"
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none autofill:bg-violet-100 focus:autofill:bg-violet-100"
                                 placeholder=" " />
                             <label for="senha"
                                 class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Senha</label>
@@ -45,12 +45,15 @@
 
 
                         <button type="submit"
-                            class="flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-64 justify-between items-center gap-x-2 focus:outline-none focus:ring focus:ring-violet-400 font-semibold shadow-xl spin">
+                            class="flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-64 justify-between items-center gap-x-2 focus:outline-none focus:ring focus:ring-violet-400 font-semibold shadow-xl spin disabled:bg-violet-600/50 disabled:cursor-not-allowed"
+                            disabled id="btn">
                             <span>Entrar</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" id="login-icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                              </svg>
-                              
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6" id="login-icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+
                             <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="animate-spin hidden">
@@ -64,7 +67,7 @@
 
             </div>
 
-            <div class="flex flex-col justify-center items-center gap-2 w-6/12 h-screen mx-auto">
+            <div class="hidden md:flex flex-col justify-center items-center gap-2 w-6/12 h-screen mx-auto">
 
                 <div class="bg-violet-300 h-[97%] w-[97%] flex justify-center items-center rounded-lg">
                     <div class="flex flex-col mx-auto gap-2 w-fit text-violet-700">
@@ -96,6 +99,9 @@
     </div>
 
     </div>
+    
+    @vite(['resources/js/verificarLogin.js'])
+
 </body>
 
 </html>
