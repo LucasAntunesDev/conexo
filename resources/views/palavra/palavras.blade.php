@@ -68,7 +68,7 @@
                         </div>
 
                         <button type="submit"
-                            class="btn-primary flex items-center mt-4 justify-center hover:bg-violet-700 self-baseline spin">
+                            class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                             <span>Salvar</span>
                             <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

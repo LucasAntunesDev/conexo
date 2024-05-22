@@ -72,12 +72,12 @@
 
             <div class="flex items-center gap-x-2 justify-center">
                 <a href="{{ route('disciplinas') }}"
-                    class="hover:text-violet-500 rounded-lg py-2 px-4 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out self-baseline">
+                    class="btn-link flex items-center mt-4 justify-center self-baseline">
                     Cancelar
                 </a>
 
                 <button type="submit"
-                    class="btn-primary flex items-center mt-4 justify-center hover:bg-violet-700 self-baseline spin">
+                    class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                     <span>Salvar</span>
                     <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
