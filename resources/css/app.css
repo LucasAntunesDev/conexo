@@ -28,4 +28,12 @@ input:-webkit-autofill:focus {
   .border-valid {
     @apply border-emerald-500 focus:border-emerald-500 !important;
   }
+
+  .transicao{
+    @apply transition duration-300 ease-in-out !important
+  }
+
+  .btn-primary{
+    @apply bg-violet-500 hover:bg-violet-700 focus:ring focus:ring-violet-300 disabled:bg-violet-500/50 text-zinc-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-violet-500/50 transicao
+  }
 }

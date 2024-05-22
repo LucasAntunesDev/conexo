@@ -10,7 +10,7 @@
         </h1>
 
         <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-            class="bg-violet-500 hover:bg-violet-700 rounded-lg py-2 px-5 focus:outline-none focus:ring focus:ring-violet-300 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out font-semibold"
+            class="btn-primary flex items-center justify-center font-semibold"
             type="button">
             Adicionar disciplina
         </button>
@@ -61,7 +61,7 @@
 
                         </div>
                         <button type="submit"
-                            class="bg-violet-500 rounded-lg py-2 px-4 text-zinc-50 flex items-center mt-4 gap-x-2 justify-center transition duration-300 ease-in-out hover:bg-violet-700 self-baseline focus:outline-none focus:ring focus:ring-violet-400 spin">
+                            class="btn-primary flex items-center mt-4 justify-center hover:bg-violet-700 self-baseline spin">
                             <span>Salvar</span>
                             <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

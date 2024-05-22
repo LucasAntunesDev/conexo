@@ -38,11 +38,10 @@
             <span class="font-bold">Jogo diário</span>
             <span>{{date('d/m/Y')}}</span>
             <a href="{{ route('diario', ['dataJogo' => date('Y-m-d')] )}}"
-                class="text-zinc-50 bg-violet-500 rounded-md py-2 px-3 hover:bg-violet-700">Jogar</a>
+                class="btn-primary">Jogar</a>
         </div>
 
         <div>
-            {{-- {{ route('jogos')}} --}}
             <a href="{{ route('jogos') }}" class="inline-flex gap-x-2 my-4 px-4 py-2 rounded-lg hover:text-violet-600">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">

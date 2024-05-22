@@ -45,7 +45,7 @@
 
 
                         <button type="submit"
-                            class="flex bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 w-64 justify-between items-center gap-x-2 focus:outline-none focus:ring focus:ring-violet-400 font-semibold shadow-xl spin disabled:bg-violet-600/50 disabled:cursor-not-allowed"
+                            class="btn-primary flex py-3 px-6 w-64 justify-between items-center font-semibold shadow-xl spin"
                             disabled id="btn">
                             <span>Entrar</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
