@@ -29,11 +29,27 @@ input:-webkit-autofill:focus {
     @apply border-emerald-500 focus:border-emerald-500 !important;
   }
 
-  .transicao{
+  .transicao {
     @apply transition duration-300 ease-in-out !important
   }
 
-  .btn-primary{
+  .btn-primary {
     @apply bg-violet-500 hover:bg-violet-700 focus:ring focus:ring-violet-300 disabled:bg-violet-500/50 text-zinc-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-violet-500/50 transicao
+  }
+
+  .btn-secundary {
+    @apply bg-violet-200/60 enabled:hover:bg-violet-200 focus:ring focus:ring-violet-300 text-violet-700 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed transicao
+  }
+
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-700 focus:ring focus:ring-red-300 disabled:bg-red-500/50 text-zinc-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-red-500/50 transicao
+  }
+
+  .btn-link {
+    @apply hover:text-violet-500 text-current py-2 px-5 gap-x-2 hover:cursor-pointer transicao
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-violet-200/60 text-current rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer transicao
   }
 }
