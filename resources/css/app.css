@@ -15,10 +15,23 @@ input:-webkit-autofill:focus {
   box-shadow: 0 0 0 100px #ede9fe inset;
   background: transparent;
 }
+@media (prefers-color-scheme: dark) {
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 100px #171717 inset;
+  }
+  
+  input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 100px #171717 inset;
+  }
+}
 
 @layer components {
   .conexo-btn.bg-violet-500 {
     @apply text-violet-50;
+  }
+
+  .conexo-btn{
+    @apply bg-violet-100 dark:bg-neutral-800 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transicao uppercase
   }
 
   .border-error {
@@ -38,7 +51,7 @@ input:-webkit-autofill:focus {
   }
 
   .btn-secundary {
-    @apply bg-violet-200/60 enabled:hover:bg-violet-200 focus:ring focus:ring-violet-300 text-violet-700 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed transicao
+    @apply bg-violet-200/60 enabled:hover:bg-violet-200 focus:ring focus:ring-violet-300 text-violet-700 dark:text-violet-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed transicao dark:bg-neutral-800 dark:enabled:hover:bg-neutral-700 dark:focus:ring-neutral-500
   }
 
   .btn-danger {

@@ -74,7 +74,7 @@ fetch(url)
                     numeroAcertos++
                     numeroAcertosElement.innerHTML = numeroAcertos
                     gruposAcertados.innerHTML = `${gruposAcertados.innerHTML} 
-                    <div class="flex flex-col uppercase bg-violet-300 px-4 py-6 rounded-md mb-2">
+                    <div class="flex flex-col uppercase bg-violet-300 dark:bg-violet-600 px-4 py-6 rounded-md mb-2">
                         <span class="text-center font-bold">
                             ${grupo.grupo}
                         </span>
@@ -115,7 +115,7 @@ fetch(url)
             btn.setAttribute("type", "button")
             btn.setAttribute(
                 "class",
-                "conexo-btn bg-violet-100 p-6 rounded-md flex items-center hover:cursor-pointer focus:scale-90 transicao uppercase"
+                "conexo-btn"
             )
             btn.innerHTML = todasPalavras[i]
             btn.addEventListener("click", () => {

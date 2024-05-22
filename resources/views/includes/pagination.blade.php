@@ -4,24 +4,24 @@
     <div class="flex justify-between flex-1 sm:hidden *:border-none">
         @if ($paginator->onFirstPage())
         <span
-            class="relative inline-flex items-center px-4 py-2 text-sm text-violet-500 font-bold bg-violet-100 cursor-default leading-5 rounded-lg">
+            class="relative inline-flex items-center px-4 py-2 text-sm text-violet-500 dark:text-violet-400 font-bold bg-violet-100 dark:bg-neutral-900 cursor-default leading-5 rounded-lg">
             {!! __('pagination.previous') !!}
         </span>
         @else
         <a href="{{ $paginator->previousPageUrl() }}"
-            class="relative inline-flex items-center px-4 py-2 text-sm bg-violet-100 leading-5 rounded-lg font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 active: transition ease-in-out duration-300">
+            class="relative inline-flex items-center px-4 py-2 text-sm bg-violet-100 dark:bg-neutral-900 leading-5 rounded-lg font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 dark:bg-neutral-900 active: transition ease-in-out duration-300">
             {!! __('pagination.previous') !!}
         </a>
         @endif
 
         @if ($paginator->hasMorePages())
         <a href="{{ $paginator->nextPageUrl() }}"
-            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm bg-violet-100 leading-5 rounded-lg font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 active: transition ease-in-out duration-300">
+            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm bg-violet-100 dark:bg-neutral-900 leading-5 rounded-lg font-bold focus:outline-none focus:ring ring-violet-300 focus:border-violet-300 hover:bg-violet-500 hover:text-zinc-50 focus:bg-violet-500 focus:text-zinc-50 active:bg-violet-100 dark:bg-neutral-900 active: transition ease-in-out duration-300">
             {!! __('pagination.next') !!}
         </a>
         @else
         <span
-            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm text-violet-500 font-bold bg-violet-100 cursor-default leading-5 rounded-lg">
+            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm text-violet-500 dark:text-violet-400 font-bold bg-violet-100 dark:bg-neutral-900 cursor-default leading-5 rounded-lg">
             {!! __('pagination.next') !!}
         </span>
         @endif
@@ -35,7 +35,7 @@
                 @if ($paginator->onFirstPage())
                 @else
                 <a href="{{ $paginator->previousPageUrl() }}" rel="prev"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 text-violet-500 h-10 px-4 py-2 gap-1 pl-2.5r"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 px-4 py-2 gap-1 pl-2.5r"
                     aria-label="{{ __('pagination.previous') }}">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
@@ -52,7 +52,7 @@
                 @if (is_string($element))
                 <span aria-disabled="true">
                     <span
-                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium  bg-violet-100 cursor-default leading-5 rounded-lg">{{
+                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium  bg-violet-100 dark:bg-neutral-900 cursor-default leading-5 rounded-lg">{{
                         $element }}</span>
                 </span>
                 @endif
@@ -63,12 +63,12 @@
                 @if ($page == $paginator->currentPage())
                 <span aria-current="page">
                     <span
-                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input  hover:bg-violet-100 text-violet-500 h-10 w-10 hover:cursor-pointer border-violet-200">{{
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input  hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 w-10 hover:cursor-pointer border-violet-200 dark:border-neutral-700">{{
                         $page }}</span>
                 </span>
                 @else
                 <a href="{{ $url }}"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 text-violet-500 h-10 w-10"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 w-10"
                     aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
                     {{ $page }}
                 </a>
@@ -80,7 +80,7 @@
                 {{-- Next Page Link --}}
                 @if ($paginator->hasMorePages())
                 <a href="{{ $paginator->nextPageUrl() }}" rel="next"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 text-violet-500 h-10 px-4 py-2 gap-1 pl-2.5r"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 px-4 py-2 gap-1 pl-2.5r"
                     aria-label="{{ __('pagination.next') }}">
                     Próximo
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -92,7 +92,7 @@
                 @else
                 <span aria-disabled="true" aria-label="{{ __('pagination.next') }}">
                     <span
-                        class="relative inline-flex items-center px-2 py-2 -ml-px text-sm text-violet-500 font-bold bg-violet-100 cursor-default rounded-lg leading-5 "
+                        class="relative inline-flex items-center px-2 py-2 -ml-px text-sm text-violet-500 dark:text-violet-400 font-bold bg-violet-100 dark:bg-neutral-900 cursor-default rounded-lg leading-5 "
                         aria-hidden="true">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"

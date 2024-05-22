@@ -45,7 +45,7 @@
 
     <div class="rounded-lg overflow-hidden mb-6">
 
-        <table class="table-auto text-gray-700 font-medium">
+        <table class="table-auto text-gray-700 dark:text-violet-50 font-medium">
 
             <div class="flex items-center justify-center gap-4 my-4">
                 <span class="font-bold text-2xl text-violet-500 mb-4 capitalize mx-auto">Grupos em que está:</span>
@@ -55,7 +55,7 @@
                 </a>
             </div>
 
-            <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100">
+            <thead class="pl-6 font-semibold text-sm text-left pr-3 py-3.5 text-violet-500 bg-violet-100 dark:bg-neutral-700">
                 <tr class="table-row">
                     <th class="w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Grupo</th>
                     <th class=" w-fit capitalize pl-2 pr-6 py-3 whitespace-nowrap" scope="col">Ações</th>
@@ -64,7 +64,7 @@
 
             <tbody class="text-sm bg-gray-50/40">
                 @foreach($grupos_palavras as $grupo_palavra)
-                <tr class="border-b border-violet-100 bg-violet-50/60 even:bg-violet-50">
+                <tr class="border-b border-violet-100 bg-violet-50 dark:bg-neutral-900 even:bg-violet-50 dark:even:bg-neutral-800">
                     <td class="pl-2 pr-1 w-fit capitalize">
                         {{ App\Models\Grupo::find($grupo_palavra->grupo_id)->nome }}
                     </td>
@@ -114,7 +114,7 @@
             <div class="flex flex-col gap-y-1">
                 <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
                 <input type="text" id="nome" name="nome" value='{{ $palavra->nome }}'
-                    class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
+                    class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
             </div>
 
         </fieldset>

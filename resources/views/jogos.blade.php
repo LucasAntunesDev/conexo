@@ -24,12 +24,12 @@
         <h3 class="mx-auto font-semibold text-xl">Todos os jogos</h3>
 
         <form action="#">
-            <select name="dia" id="dia">
+            <select name="dia" id="dia" class="btn-secundary border-none">
                 @for($i = 1; $i <= 31; $i++){ <option value={{$i}}>{{$i}}</option>
                     }
                     @endfor
             </select>
-            <select name="mes" id="mes">
+            <select name="mes" id="mes" class="btn-secundary border-none">
                 @php
                 $meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro",
                 "outubro", "novembro", "dezembro"];
@@ -53,7 +53,7 @@
 </div>
 
 
-<nav class="bg-violet-100 px-4 py-8 rounded-lg flex items-center gap-4 hidden w-4/5 mx-auto my-4" id="menu-disciplinas">
+<nav class="bg-violet-100  px-4 py-8 rounded-lg flex items-center gap-4 hidden w-4/5 mx-auto my-4" id="menu-disciplinas">
     <div class="flex gap-x-4 items-center w-8/12 flex-wrap mx-auto">
         @for($i = 0; $i< (count($disciplinas)); $i++) <div value="{{$disciplinas[$i]->id}}" class="flex flex-col gap-4">
             <a href="{{ route('jogos', ['disciplinaId' => $disciplinas[$i]->id]) }}"
@@ -68,7 +68,7 @@
     <div class="grid grid-cols-4 gap-4 w-auto justify-items-center mb-4">
         @foreach ($datas as $data)
         <a href="{{ route('diario', ['dataJogo' => $data->data]) }}" target="_blank"
-            class="text-center bg-violet-200 hover:bg-violet-400 text-violet-800 py-5 px-3 rounded-xl w-fit">
+            class="text-center bg-violet-200 hover:bg-violet-400 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-violet-800 dark:text-violet-50 py-5 px-3 rounded-xl w-fit transicao">
             {{ \Carbon\Carbon::parse($data->data)->format('d/m/Y') }}
         </a>
         @if ($loop->iteration % 4 == 0 && !$loop->last)

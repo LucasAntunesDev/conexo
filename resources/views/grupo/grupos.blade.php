@@ -19,14 +19,14 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-violet-50 rounded-lg shadow">
+                <div class="relative bg-violet-50 dark:bg-neutral-900 rounded-lg shadow">
 
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                        <h3 class=" text-lg font-semibold text-gray-900">
+                        <h3 class=" text-lg font-semibold">
                             Adicionar grupo
                         </h3>
                         <button type="button"
-                            class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                            class="text-violet-400 bg-transparent hover:bg-violet-100 dark:bg-neutral-800 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                             data-modal-toggle="crud-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
@@ -41,14 +41,14 @@
                         <div class="flex flex-col gap-y-1">
                             <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
                             <input type="text" id="nome" name="nome" value=''
-                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
+                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800 dark:bg-neutral-800">
                         </div>
 
                         <div class="flex flex-col gap-y-1">
                             <label for="disciplina_id"
                                 class="font-semibold text-violet-500 capitalize">Disciplina</label>
                             <select id="disciplina_id" name="disciplina_id"
-                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
+                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800 dark:bg-neutral-800">
                                 @foreach($disciplinas as $disciplina)
                                 <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ?
                                     "selected" :
@@ -77,11 +77,11 @@
 
         @foreach($grupos as $grupo)
 
-        <div class="bg-violet-100 w-fit p-6 rounded-lg h-auto">
+        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-lg h-auto">
 
             <div class="inline-flex flex-col gap-3">
-                <span class="text-violet-900 font-semibold w-56">{{ $grupo->nome }}</span>
-                <span class="text-gray-500 font-medium text-sm">
+                <span class="text-violet-900 dark:text-violet-300 font-semibold w-56">{{ $grupo->nome }}</span>
+                <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
                     {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome}}
                 </span>
             </div>

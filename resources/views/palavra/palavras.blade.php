@@ -42,10 +42,10 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-white rounded-lg shadow">
+                <div class="relative bg-violet-50 dark:bg-neutral-900 rounded-lg shadow">
 
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                        <h3 class=" text-lg font-semibold text-gray-900">
+                        <h3 class=" text-lg font-semibold ">
                             Adicionar palavra
                         </h3>
                         <button type="button"
@@ -64,7 +64,7 @@
                         <div class="flex flex-col gap-y-1">
                             <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
                             <input type="text" id="nome" name="nome" value=''
-                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100">
+                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800 dark:bg-neutral-800">
                         </div>
 
                         <button type="submit"
@@ -88,9 +88,9 @@
 
         @foreach($palavras as $palavra)
 
-        <div class="inline-flex items-center bg-violet-100 hover:bg-violet-200 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full">
+        <div class="inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full">
 
-            <span class="text-violet-900 font-semibold w-fit capitalize">{{ $palavra->nome }}</span>
+            <span class="text-violet-900 dark:text-violet-300 font-semibold w-fit capitalize">{{ $palavra->nome }}</span>
 
             <form method="POST" action="{{ route('palavradelete', ['id'=> $palavra->id]) }}" class="w-fit mx-auto pt-4">
                 <input type="hidden" name="_method" value="DELETE">

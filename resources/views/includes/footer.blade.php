@@ -1,6 +1,6 @@
 @auth('web')
 <footer
-    class="flex w-screen bg-violet-50 h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 gap-x-20 relative">
+    class="flex w-screen bg-violet-50 dark:bg-neutral-900 h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 dark:border-neutral-800 gap-x-20 relative">
     <a href="{{ route('inicio')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path
@@ -30,17 +30,17 @@
 
                     <li>
                         <a href="{{ route('disciplinas') }}"
-                            class="hover:text-violet-600 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Disciplinas</a>
+                            class="hover:text-violet-600 dark:hover:text-violet-400 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Disciplinas</a>
                     </li>
 
                     <li>
                         <a href="{{ route('grupos') }}"
-                            class="hover:text-violet-600 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Grupos</a>
+                            class="hover:text-violet-600 dark:hover:text-violet-400 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Grupos</a>
                     </li>
 
                     <li>
                         <a href="{{ route('palavras') }}"
-                            class="hover:text-violet-600 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Palavras</a>
+                            class="hover:text-violet-600 dark:hover:text-violet-400 cursor-pointer  hover:border-b-violet-600 hover:border-b-[1px]">Palavras</a>
                     </li>
 
                 </ul>
@@ -51,10 +51,10 @@
     </div>
 
     <div>
-        <div class="w-64 bg-violet-100 backdrop-blur z-20 absolute right-10 bottom-14 rounded-lg p-4 transition duration-300 ease-in-out hidden"
+        <div class="w-64 bg-violet-100 dark:bg-neutral-800 backdrop-blur z-20 absolute right-10 bottom-14 rounded-lg p-4 transition duration-300 ease-in-out hidden"
             id="modalConta">
             <ul class="flex flex-col gap-y-4">
-                <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
+                <li class="bg-violet-200 dark:bg-neutral-700 rounded-xl *:transition *:duration-300 *:ease-in-out">
                     <a href="{{ route('professorform', ['id' => auth()->user()->id]) }}"
                         class="inline-flex hover:text-violet-500 py-3 px-6 gap-x-4 capitalize">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -65,7 +65,7 @@
                         {{auth()->user()->nome}}
                     </a>
                 </li>
-                <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
+                <li class="bg-violet-200 dark:bg-neutral-700 rounded-xl *:transition *:duration-300 *:ease-in-out">
                     <a href="{{route('logout')}}" class="inline-flex hover:text-red-500 py-3 px-6 w-max gap-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -92,7 +92,7 @@
 </footer>
 @else
 <footer
-    class="flex w-screen bg-violet-50 h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 gap-x-20 relative">
+    class="flex w-screen bg-violet-50 dark:bg-neutral-900 h-fit py-4 justify-between items-center px-16 border-t-[1px] border-gray-200 dark:border-neutral-800 gap-x-20 relative">
     <a href="{{ route('inicio')}}" class="gap-x-4">
         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 inline-flex mr-4">
             <path

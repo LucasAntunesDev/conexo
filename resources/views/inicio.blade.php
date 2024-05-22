@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="./favicon.ico">
 </head>
 
-<body class="text-gray-700 flex flex-col h-screen bg-violet-50">
+<body class="text-gray-700 dark:text-violet-50 flex flex-col h-screen bg-violet-50 dark:bg-neutral-900">
     <div class="flex flex-col justify-center items-center w-screen grow">
         {{-- @yield('content') --}}
 
@@ -34,7 +34,7 @@
         <p class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em
             comum</span>
 
-        <div class="flex border border-zinc-50 bg-violet-100 rounded-lg w-fit h-fit p-4 gap-x-4 items-center">
+        <div class="flex bg-violet-100 dark:bg-neutral-800 rounded-lg w-fit h-fit p-4 gap-x-4 items-center">
             <span class="font-bold">Jogo diário</span>
             <span>{{date('d/m/Y')}}</span>
             <a href="{{ route('diario', ['dataJogo' => date('Y-m-d')] )}}"
@@ -42,7 +42,7 @@
         </div>
 
         <div>
-            <a href="{{ route('jogos') }}" class="inline-flex gap-x-2 my-4 px-4 py-2 rounded-lg hover:text-violet-600">
+            <a href="{{ route('jogos') }}" class="inline-flex gap-x-2 my-4 px-4 py-2 rounded-lg hover:text-violet-600 dark:hover:text-violet-400">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
