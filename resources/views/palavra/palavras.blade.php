@@ -85,112 +85,112 @@
 
     <div class="grid grid-cols-6 grid-rows-4 gap-2 pb-8" id="palavras-grid">
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
         <div
-            class="h-12 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full animate-pulse">
-            <div class="h-2 bg-violet-50 dark:bg-violet-300 rounded"></div>
+            class="h-12 w-44 inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full animate-pulse">
+            <div class="h-2 w-10/12 bg-violet-900 dark:bg-neutral-700 mx-auto rounded"></div>
         </div>
 
         <script>
@@ -214,7 +214,7 @@
                     // console.log(element.nome)
                     const teste = document.querySelector('#palavras-grid').innerHTML
                     document.querySelector('#palavras-grid').innerHTML= `${document.querySelector('#palavras-grid').innerHTML} <div
-            class="inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full">
+            class="inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full">
 
             <span class="text-violet-900 dark:text-violet-300 font-semibold w-fit capitalize">${element.nome}</span>
 
@@ -254,7 +254,7 @@
         {{-- @foreach($palavras as $palavra)
 
         <div
-            class="inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer w-auto px-4 gap-x-4 rounded-full">
+            class="inline-flex items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 gap-x-4 rounded-full">
 
             <span class="text-violet-900 dark:text-violet-300 font-semibold w-fit capitalize">{{ $palavra->nome
                 }}</span>
