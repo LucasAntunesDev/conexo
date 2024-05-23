@@ -72,6 +72,11 @@ class GruposSeeder extends Seeder {
             ['id' => 66, 'nome' => '__ vermelho', 'disciplina_id' => 1],
             ['id' => 67, 'nome' => 'Chocolates da Garoto 1', 'disciplina_id' => 1],
             ['id' => 68, 'nome' => 'Ilhas Famosas', 'disciplina_id' => 1],
+            ['id' => 69, 'nome' => 'Enfeite', 'disciplina_id' => 2], 
+            ['id' => 70, 'nome' => 'Reinos Biológicos', 'disciplina_id' => 2],
+            ['id' => 71, 'nome' => 'Sinônimos de Vínculo', 'disciplina_id' => 2],
+            ['id' => 72, 'nome' => 'RPG', 'disciplina_id' => 2],
+            ['id' => 73, 'nome' => 'Sociólogos', 'disciplina_id' => 2],
         ]);
     }
 }
