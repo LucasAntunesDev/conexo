@@ -53,7 +53,7 @@
                     <select id="palavra_id" name="palavra_id"
                         class="text-gray-700 dark:text-violet-50 rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
                         @foreach($palavras as $palavra)
-                        <option value='{{$palavra->id}}' {{$palavra->id == $grupo_palavra->palavra_id ? "selected" :
+                        <option value='{{$palavra->id}}' {{$palavra->id == $_GET['id'] ? "selected" :
                             ""}}>{{$palavra->nome}} </option>
                         @endforeach
                     </select>

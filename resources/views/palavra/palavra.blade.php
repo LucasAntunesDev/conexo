@@ -49,7 +49,7 @@
 
             <div class="flex items-center justify-center gap-4 my-4">
                 <span class="font-bold text-2xl text-violet-500 mb-4 capitalize mx-auto">Grupos em que está:</span>
-                <a href="{{ route('grupopalavranovo') }}"
+                <a href="{{ route('grupopalavranovo', ['id'=> $palavra->id]) }}"
                     class="bg-violet-500 hover:bg-violet-700 rounded-lg py-2 px-5 focus:outline-none focus:ring focus:ring-violet-300 text-zinc-50 inline-flex items-center gap-x-2 justify-center transition duration-300 ease-in-out font-semibold">
                     Adicionar novo grupo
                 </a>

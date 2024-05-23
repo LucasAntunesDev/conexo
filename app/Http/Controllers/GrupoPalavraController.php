@@ -24,7 +24,7 @@ class GrupoPalavraController extends Controller {
         $grupos = Grupo::all();
         $palavras = Palavra::all();
 
-        return view('grupo.grupo_palavra', [
+        return view('grupo_palavra', [
             'grupo_palavra' => $grupo_palavra,
             'grupos' => $grupos,
             'palavras' => $palavras,
@@ -35,7 +35,7 @@ class GrupoPalavraController extends Controller {
         $grupo_palavra = GrupoPalavra::find($id);
         $grupos = Grupo::all();
         
-        return view('grupo.grupo_palavra', [
+        return view('grupo_palavra', [
             'grupo_palavra' => $grupo_palavra,
             'grupos' => $grupos,
         ]);
@@ -61,7 +61,7 @@ class GrupoPalavraController extends Controller {
             $grupo_palavra->grupo_id = $request->input('grupo_id');
             $grupo_palavra->save();
 
-            return redirect()->route('palavras');
+            return back()->with('success', 'Palavra salva com sucesso!');
         }
     }
 

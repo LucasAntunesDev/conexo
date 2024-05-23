@@ -62,8 +62,9 @@ class PalavraController extends Controller {
             $palavra = new Palavra();
             $palavra->nome = $request->input('nome');
             $palavra->save();
-
-            return redirect()->route('palavras');
+            
+            return back()->with('success', 'Palavra salva com sucesso!');
+            // return redirect()->route('palavras');
         }
     }
 
