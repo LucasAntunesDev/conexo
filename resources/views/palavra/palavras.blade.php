@@ -63,7 +63,7 @@
                         <div class="flex flex-col gap-y-1">
                             <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
                             <input type="text" id="nome" name="nome" value=''
-                                class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800 dark:bg-neutral-800">
+                                class="input">
                         </div>
 
                         <button type="submit"

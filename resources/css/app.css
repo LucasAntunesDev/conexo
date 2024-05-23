@@ -10,16 +10,6 @@ input:-webkit-autofill:focus {
 -webkit-box-shadow: 0 0 0px 40rem #ede9fe inset;
 }
 @media (prefers-color-scheme: dark) {
-  /* input:-webkit-autofill {
-    box-shadow: 0 0 0 100px #171717 inset;
-    color: white !important;
-  }
-  
-  input:-webkit-autofill:focus {
-    box-shadow: 0 0 0 100px #171717 inset;
-    color: white !important
-  } */
-
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover, 
@@ -68,5 +58,9 @@ input:-webkit-autofill:focus {
 
   .btn-ghost {
     @apply bg-transparent hover:bg-violet-200/60 text-current rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer transicao
+  }
+
+  .input{
+    @apply rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800
   }
 }
