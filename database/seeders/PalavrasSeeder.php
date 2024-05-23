@@ -366,6 +366,23 @@ class PalavrasSeeder extends Seeder {
             ['id' => 385, 'nome' => 'ibiza'],
             ['id' => 386, 'nome' => 'maui'],
             ['id' => 387, 'nome' => 'noronha'],
+
+            ['id' => 389, 'nome' => 'Adorno'],
+            ['id' => 390, 'nome' => 'Ornato'],
+            ['id' => 391, 'nome' => 'Adereço'],
+            ['id' => 392, 'nome' => 'Bibelô'],
+            ['id' => 393, 'nome' => 'Animal'],
+            ['id' => 394, 'nome' => 'Vegetal'],
+            ['id' => 395, 'nome' => 'Monera'],
+            ['id' => 396, 'nome' => 'Protista'],
+            ['id' => 397, 'nome' => 'Liame'],
+            ['id' => 398, 'nome' => 'Elo'],
+            ['id' => 399, 'nome' => 'Conexão'],
+            ['id' => 400, 'nome' => 'Relação'],
+            ['id' => 401, 'nome' => 'Terreno'],
+            ['id' => 402, 'nome' => 'Criatura'],
+            ['id' => 403, 'nome' => 'Feitiço'],
+            ['id' => 404, 'nome' => 'Artefato'],
         ]);
     }
 }
