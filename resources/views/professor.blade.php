@@ -49,7 +49,7 @@
                     <div class="space-y-2">
                         <div class="relative z-0">
                             <input type="text" id="nome" name="nome" value='{{ $professor->nome }}'
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 dark:bg-neutral-800"
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 "
                                 placeholder=" " />
 
                             <label for="nome"
@@ -62,7 +62,7 @@
                     <div class="space-y-2">
                         <div class="relative z-0">
                             <input type="text" id="login" name="login" value='{{ $professor->login }}'
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 dark:bg-neutral-800"
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 "
                                 placeholder=" " />
 
                             <label for="login"
@@ -75,7 +75,7 @@
                     <div class="space-y-2">
                         <div class="relative z-0">
                             <input type="password" id="senha" name="senha" value='{{ $professor->senha }}'
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 dark:bg-neutral-800"
+                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 "
                                 placeholder=" " />
 
                             <label for="senha"

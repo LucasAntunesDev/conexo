@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('jogos', function (Blueprint $table) {
             $table->id();
+            $table->string('nome', 255)->unique();
             $table->unsignedBigInteger('grupo_1_id')->nullable();
             $table->unsignedBigInteger('grupo_2_id')->nullable();
             $table->unsignedBigInteger('grupo_3_id')->nullable();
