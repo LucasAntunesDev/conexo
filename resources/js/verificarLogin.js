@@ -7,16 +7,15 @@ fetch('http://localhost:8000/api/professores')
     })
     .then((data) => {
         const professores = data.data
-
         const form = document.querySelector('form')
 
         const verificarInput = (input, valido) => {
-            if (valido) {
+            if (!valido) {
+                if (input.classList.contains('border-error')) input.classList.remove('border-error')
+                input.classList.add('border-valid')
+            } else {
                 if (input.classList.contains('border-valid')) input.classList.remove('border-valid')
                 input.classList.add('border-error')
-            } else {
-                input.classList.remove('border-error')
-                input.classList.add('border-valid')
             }
         }
 
@@ -26,19 +25,17 @@ fetch('http://localhost:8000/api/professores')
             const professor = professores.find(prof => prof.login === loginInput.value)
 
             const condicoesLogin = professor && loginInput.value !== null && loginInput.value !== ""
-            console.log(professor.senha === senhaInput.value)
-            const condicoesSenha = professor.senha === senhaInput.value && senhaInput.value !== null && senhaInput.value !== ""
+            const condicoesSenha = professor && professor.senha === senhaInput.value && senhaInput.value !== null && senhaInput.value !== ""
 
+            verificarInput(loginInput, !condicoesLogin)
+            verificarInput(senhaInput, !condicoesSenha)
 
-            loginInput.addEventListener('keyup', verificarInput(loginInput, !condicoesLogin))
-            senhaInput.addEventListener('keyup', verificarInput(senhaInput, !condicoesSenha))
-
-            document.querySelector('#btn').disabled = (condicoesSenha && condicoesLogin) ? false : true
-
+            document.querySelector('#btn').disabled = !(condicoesSenha && condicoesLogin)
         }
 
-        form.addEventListener('keyup', verificarLogin)
+        form.addEventListener('input', verificarLogin)
+        verificarLogin()
     })
     .catch((error) => {
         console.error("Erro ao buscar dados:", error)
-    })
+    });
