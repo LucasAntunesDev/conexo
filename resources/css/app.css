@@ -2,27 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-input:-webkit-autofill {
-  filter: none;
-  /* necessário para o Firefox! */
-  box-shadow: 0 0 0 100px #ede9fe inset;
-  background: transparent;
-}
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus {
-  filter: none;
-  /* necessário para o Firefox! */
-  box-shadow: 0 0 0 100px #ede9fe inset;
-  background: transparent;
+-webkit-text-fill-color: #171717;
+-webkit-box-shadow: 0 0 0px 40rem #ede9fe inset;
 }
 @media (prefers-color-scheme: dark) {
-  input:-webkit-autofill {
+  /* input:-webkit-autofill {
     box-shadow: 0 0 0 100px #171717 inset;
+    color: white !important;
   }
   
   input:-webkit-autofill:focus {
     box-shadow: 0 0 0 100px #171717 inset;
-  }
+    color: white !important
+  } */
+
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f5f3ff;
+  -webkit-box-shadow: 0 0 0px 40rem #171717 inset;
+}
 }
 
 @layer components {
