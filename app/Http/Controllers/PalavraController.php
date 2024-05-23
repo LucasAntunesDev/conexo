@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Palavra;
+use App\Http\Resources\PalavraResource;
 // use App\Models\GrupoPalavra;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class PalavraController extends Controller {
+
+    public function __construct(protected Palavra $palavrasRepository){}
 
     public function index() {
         $palavras = Palavra::paginate(24);
@@ -17,6 +20,11 @@ class PalavraController extends Controller {
         return view('palavra.palavras', [
             'palavras' => $palavras
         ]);
+    }
+
+    public function api(){
+        $palavras = $this->palavrasRepository->paginate(24);
+        return PalavraResource::collection($palavras);
     }
 
     public function create() {
