@@ -15,7 +15,7 @@ class GrupoController extends Controller {
         $grupos = Grupo::paginate(16);
         $disciplinas = Disciplina::all();
         // return $grupos;
-        return view('grupo.grupos', [
+        return view('grupos.grupos', [
             'grupo' => $grupo,
             'grupos' => $grupos,
             'disciplinas' => $disciplinas,
@@ -26,7 +26,7 @@ class GrupoController extends Controller {
         $grupo = new Grupo();
         $disciplinas = Disciplina::all();
 
-        return view('grupo.grupo', [
+        return view('grupos.grupo', [
             'grupo' => $grupo,
             'disciplinas' => $disciplinas,
         ]);
@@ -36,7 +36,7 @@ class GrupoController extends Controller {
         $grupo = Grupo::find($id);
         $disciplinas = Disciplina::all();
 
-        return view('grupo.grupo', [
+        return view('grupos.grupo', [
             'grupo' => $grupo,
             'disciplinas' => $disciplinas,
         ]);

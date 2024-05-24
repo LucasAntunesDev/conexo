@@ -14,7 +14,7 @@ class GrupoPalavraController extends Controller {
     public function index() {
         $grupos_palavras = GrupoPalavra::paginate(4);
 
-        return view('grupo.grupos_palavras', [
+        return view('grupos_palavras.grupos_palavras', [
             'grupos_palavras' => $grupos_palavras
         ]);
     }
@@ -24,7 +24,7 @@ class GrupoPalavraController extends Controller {
         $grupos = Grupo::all();
         $palavras = Palavra::all();
 
-        return view('grupo_palavra', [
+        return view('grupos_palavras.grupo_palavra', [
             'grupo_palavra' => $grupo_palavra,
             'grupos' => $grupos,
             'palavras' => $palavras,
@@ -35,7 +35,7 @@ class GrupoPalavraController extends Controller {
         $grupo_palavra = GrupoPalavra::find($id);
         $grupos = Grupo::all();
         
-        return view('grupo_palavra', [
+        return view('grupos_palavras.grupo_palavra', [
             'grupo_palavra' => $grupo_palavra,
             'grupos' => $grupos,
         ]);
