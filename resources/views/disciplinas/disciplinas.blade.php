@@ -14,6 +14,23 @@
             Adicionar disciplina
         </button>
 
+        <div class="flex flex-col">
+            <label for="pesquisar" class="label">Pesquisar</label>
+            <div class="flex flex-col gap-2">
+                <div class="relative mt-2 rounded-md shadow-sm">
+                    <input type="text" name="pesquisar" id="pesquisar" class="input px-10">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path fill-rule="evenodd"
+                                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
@@ -76,11 +93,11 @@
 
         @foreach($disciplinas as $disciplina)
 
-        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto ">
+        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto lista-item">
 
             <div class="flex flex-col gap-3">
                 <a href="{{ route('disciplinaform', ['id' => $disciplina->id]) }}"
-                    class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg">{{
+                    class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{
                     $disciplina->nome
                     }}</a>
                 <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">

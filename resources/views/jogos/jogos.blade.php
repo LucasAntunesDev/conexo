@@ -21,12 +21,29 @@
     </div>
 
     <main class="flex flex-col gap-2 w-screen justify-center items-center grow">
-        <h3 class="mx-auto font-semibold text-xl">Todos os jogos</h3>
+        <div class="flex gap-2">
+            <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                class="btn-primary flex items-center justify-center font-semibold" type="button">
+                Criar jogo
+            </button>
+        </div>
 
-        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-            class="btn-primary flex items-center justify-center font-semibold" type="button">
-            Criar jogo
-        </button>
+        <div class="flex flex-col">
+            <label for="pesquisar" class="label">Pesquisar</label>
+            <div class="flex flex-col gap-2">
+                <div class="relative mt-2 rounded-md shadow-sm">
+                    <input type="text" name="pesquisar" id="pesquisar" class="input px-10">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path fill-rule="evenodd"
+                                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -82,25 +99,6 @@
             </div>
         </div>
 
-        <form action="#">
-            <select name="dia" id="dia" class="btn-secundary border-none">
-                @for($i = 1; $i <= 31; $i++){ <option value={{$i}}>{{$i}}</option>
-                    }
-                    @endfor
-            </select>
-            <select name="mes" id="mes" class="btn-secundary border-none">
-                @php
-                $meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro",
-                "outubro", "novembro", "dezembro"];
-                @endphp
-
-                @foreach($meses as $mes)
-                { <option value={{$mes}}>{{$mes}}</option>
-                }
-                @endforeach
-
-            </select>
-        </form>
         {{-- <span
             class="inline-flex gap-x-4 items-center bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 hover:cursor-pointer text-semibold"
             id="buscarDisciplina">
@@ -125,15 +123,17 @@
 
 <div class="grid grid-cols-4 grid-rows-4 gap-2 p-4 justify-items-center">
     @foreach ($jogos as $jogo)
-    <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto ">
+    <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto lista-item">
 
-        <div class="flex flex-col gap-3">
+        {{-- <div class="flex flex-col gap-3"> --}}
             <a href="{{ route('jogo', ['id' => $jogo->id]) }}"
-                class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg">{{ $jogo->nome }}</a>
+                class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{ $jogo->nome
+                }}</a>
             <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
                 {{$jogo->data}}
             </span>
-        </div>
+            {{--
+        </div> --}}
 
         <form method="POST" action="{{ route('jogodelete', ['id'=> $jogo->id]) }}" class="w-auto mx-auto pt-4">
             <input type="hidden" name="_method" value="DELETE">

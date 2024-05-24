@@ -10,10 +10,26 @@
         </h1>
 
         <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-            class="btn-primary flex items-center justify-center font-semibold"
-            type="button">
+            class="btn-primary flex items-center justify-center font-semibold" type="button">
             Adicionar grupo
         </button>
+
+        <div class="flex flex-col">
+            <label for="pesquisar" class="label">Pesquisar</label>
+            <div class="flex flex-col gap-2">
+                <div class="relative mt-2 rounded-md shadow-sm">
+                    <input type="text" name="pesquisar" id="pesquisar" class="input px-10">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path fill-rule="evenodd"
+                                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -40,14 +56,11 @@
                         {{ csrf_field()}}
                         <div class="flex flex-col gap-y-1">
                             <label for="nome" class="label capitalize">Nome</label>
-                            <input type="text" id="nome" name="nome" value=''
-                                class="input">
+                            <input type="text" id="nome" name="nome" value='' class="input">
                         </div>
                         <div class="flex flex-col gap-y-1">
-                            <label for="disciplina_id"
-                                class="label capitalize">Disciplina</label>
-                            <select id="disciplina_id" name="disciplina_id"
-                                class="input">
+                            <label for="disciplina_id" class="label capitalize">Disciplina</label>
+                            <select id="disciplina_id" name="disciplina_id" class="input">
                                 @foreach($disciplinas as $disciplina)
                                 <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ?
                                     "selected" :
@@ -76,14 +89,16 @@
 
         @foreach($grupos as $grupo)
 
-        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto ">
+        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto lista-item">
 
-            <div class="inline-flex flex-col gap-3">
-                <span class="text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg">{{ $grupo->nome }}</span>
+            {{-- <div class="inline-flex flex-col gap-3 lista-item"> --}}
+                <a class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{
+                    $grupo->nome }}</a>
                 <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
                     {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome}}
                 </span>
-            </div>
+                {{--
+            </div> --}}
 
             <form method="POST" action="{{ route('grupodelete', ['id'=> $grupo->id]) }}" class="w-auto mx-auto pt-4">
                 <input type="hidden" name="_method" value="DELETE">
