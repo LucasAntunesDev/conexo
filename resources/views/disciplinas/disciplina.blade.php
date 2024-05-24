@@ -53,14 +53,14 @@
                 <div class="flex flex-col gap-y-1">
                     <label for="nome" class="label capitalize">Nome</label>
                     <input type="text" id="nome" name="nome" value='{{ $disciplina->nome }}'
-                        class="rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
+                        class="input">
                 </div>
 
                 <div class="flex flex-col gap-y-1">
 
                     <label for="professor_id" class="label capitalize">Professor</label>
                     <select id="professor_id" name="professor_id"
-                        class="rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
+                        class="input">
                         @foreach($professores as $professor)
                         <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id ? "selected" :
                             ""}}>{{$professor->nome}} </option>
