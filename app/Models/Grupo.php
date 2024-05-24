@@ -11,6 +11,7 @@ class Grupo extends Model
 
     public function palavras() 
     {
-        return $this->hasMany(Palavra::class);
+        // return $this->hasMany(Palavra::class);
+        return $this->belongsToMany(Palavra::class, 'grupos_palavras', 'grupo_id', 'palavra_id');
     }
 }

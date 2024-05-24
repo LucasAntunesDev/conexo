@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('grupo_2_palavras', 255)->nullable();
             $table->string('grupo_3_palavras', 255)->nullable();
             $table->string('grupo_4_palavras', 255)->nullable();
-            $table->date('data')->unique();
+            $table->date('data');
             $table->timestamps();
         });
     }

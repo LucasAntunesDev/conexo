@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jogo extends Model {
     protected $fillable = [
+        'nome',
         'grupo_1_id',
         'grupo_2_id',
         'grupo_3_id',

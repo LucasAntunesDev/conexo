@@ -17,6 +17,7 @@
                 </a>
                 <span class="font-bold" id="dataAtual"></span>
                 <span class="capitalize">tentativas: <span class="font-bold" id="numeroTentativas">0</span></span>
+                <span class="capitalize">Jogo: <span class="font-bold" id="nomeJogo"></span></span>
                 <span class="capitalize invisible">acertos: <span class="font-bold" id="numeroAcertos">0</span></span>
             </div>
 

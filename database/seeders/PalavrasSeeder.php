@@ -313,11 +313,6 @@ class PalavrasSeeder extends Seeder {
             ['id' => 343, 'nome' => 'ocupação'],
             ['id' => 344, 'nome' => 'domínio'],
 
-            ['id' => 345, 'nome' => 'tomada'],
-            ['id' => 346, 'nome' => 'conquista'],
-            ['id' => 347, 'nome' => 'ocupação'],
-            ['id' => 348, 'nome' => 'domínio'],
-
             ['id' => 349, 'nome' => 'passagem'],
             ['id' => 350, 'nome' => 'hospedagem'],
             ['id' => 351, 'nome' => 'alimentação'],
@@ -340,7 +335,7 @@ class PalavrasSeeder extends Seeder {
 
             ['id' => 365, 'nome' => 'biscoito'],
             ['id' => 366, 'nome' => 'pipoca'],
-            ['id' => 367, 'nome' => 'sorvete'],
+
             ['id' => 368, 'nome' => 'jujuba'],
 
             ['id' => 369, 'nome' => 'petisco'],

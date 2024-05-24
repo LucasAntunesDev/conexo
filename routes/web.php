@@ -113,4 +113,13 @@ Route::middleware('auth')->group(function () {
         Route::put('{id}', 'App\Http\Controllers\GrupoPalavraController@update')->name('grupopalavraupdate');
         Route::delete('{id}', 'App\Http\Controllers\GrupoPalavraController@destroy')->name('grupopalavradelete');
     });
+
+    Route::prefix('jogo')->group(function () {
+        // Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogos');
+        Route::get('novo', 'App\Http\Controllers\JogoController@create')->name('jogonovo');
+        // Route::get('{id}', 'App\Http\Controllers\JogoController@edit')->name('jogoform');
+        Route::post('/', 'App\Http\Controllers\JogoController@store')->name('jogoinsert');
+        // Route::put('{id}', 'App\Http\Controllers\JogoController@update')->name('jogoupdate');
+        // Route::delete('{id}', 'App\Http\Controllers\JogoController@destroy')->name('jogodelete');
+    });
 });
