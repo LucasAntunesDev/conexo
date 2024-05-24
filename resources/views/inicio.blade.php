@@ -33,88 +33,68 @@
             CONEXO
         </h1>
 
-        <p class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em
+        <span class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em
             comum</span>
 
-        <div class="flex bg-violet-100 dark:bg-neutral-800 rounded-lg w-fit h-fit p-4 gap-x-4 items-center">
-            <span class="font-bold">Jogo diário</span>
-            <span>{{date('d/m/Y')}}</span>
-
-            <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-                class="btn-primary flex items-center justify-center font-semibold" type="button">
-                Criar jogo
-            </button>
-
-            <div id="crud-modal" tabindex="-1" aria-hidden="true"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative p-4 w-full max-w-md max-h-full">
-
-                    <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
-
-                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
-                            <h3 class=" text-lg font-semibold ">
-                                Criar jogo
-                            </h3>
-                            <button type="button"
-                                class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
-                                data-modal-toggle="crud-modal">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <form action="{{ route('palavrainsert') }}" method="POST" class="p-4 md:p-5">
-                            {{ csrf_field()}}
-                            <div class="flex flex-col gap-y-1">
-                                <label for="nome" class="label capitalize">Nome</label>
-                                <input type="text" id="nome" name="nome" value='' class="input">
-                            </div>
-
-                            <div class="flex flex-col gap-y-1">
-                                <label for="disciplina_id"
-                                    class="label capitalize">Disciplina</label>
-                                <select id="disciplina_id" name="disciplina_id"
-                                    class="input">
-                                    {{-- @php
-                                        $disciplinas = App\Models\Disciplinas::all();
-                                    @endphp
-                                    @foreach($disciplinas as $disciplina)
-                                    <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ?
-                                        "selected" :
-                                        ""}}>{{$disciplina->nome}} </option>
-                                    @endforeach --}}
-                                </select>
-                            </div>
-
-                            <button type="submit"
-                                class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
-                                <span>Salvar</span>
-                                <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="animate-spin hidden">
-                                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                </div>
+        <div class="p-4 flex gap-2">
+            <div class="inline-flex items-center p-4 btn-primary">
+                <a href="{{ route('jogos') }}" class="inline-flex gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-gamepad">
+                        <line x1="6" x2="10" y1="12" y2="12" />
+                        <line x1="8" x2="8" y1="10" y2="14" />
+                        <line x1="15" x2="15.01" y1="13" y2="13" />
+                        <line x1="18" x2="18.01" y1="11" y2="11" />
+                        <rect width="20" height="12" x="2" y="6" rx="2" />
+                    </svg>
+                    Jogos
+                </a>
             </div>
-            {{-- <a href="{{ route('diario', ['dataJogo' => date('Y-m-d')] )}}" class="btn-primary">Jogar</a> --}}
-        </div>
 
-        <div>
-            <a href="{{ route('jogos') }}"
-                class="inline-flex gap-x-2 my-4 px-4 py-2 rounded-lg hover:text-violet-600 dark:hover:text-violet-400">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                </svg>
-                Jogos Anteriores
-            </a>
+            <div class="inline-flex items-center p-4 btn-primary">
+                <a href="{{ route('disciplinas') }}" class="inline-flex gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-graduation-cap">
+                        <path
+                            d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                        <path d="M22 10v6" />
+                        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                    </svg>
+                    Disciplinas
+                </a>
+            </div>
+
+            <div class="inline-flex items-center p-4 btn-primary">
+                <a href="{{ route('grupos') }}" class="inline-flex gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-group">
+                        <path d="M3 7V5c0-1.1.9-2 2-2h2" />
+                        <path d="M17 3h2c1.1 0 2 .9 2 2v2" />
+                        <path d="M21 17v2c0 1.1-.9 2-2 2h-2" />
+                        <path d="M7 21H5c-1.1 0-2-.9-2-2v-2" />
+                        <rect width="7" height="5" x="7" y="7" rx="1" />
+                        <rect width="7" height="5" x="10" y="12" rx="1" />
+                    </svg>
+                    Grupos
+                </a>
+            </div>
+
+            <div class="inline-flex items-center p-4 btn-primary">
+                <a href="{{ route('palavras') }}" class="inline-flex gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-case-sensitive">
+                        <path d="m3 15 4-8 4 8" />
+                        <path d="M4 13h6" />
+                        <circle cx="18" cy="12" r="3" />
+                        <path d="M21 9v6" />
+                    </svg>
+                    Palavras
+                </a>
+            </div>
         </div>
     </div>
 
