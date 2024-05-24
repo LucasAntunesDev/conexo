@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
 
-Route::get('/diario', 'App\Http\Controllers\JogoController@jogo')->name('diario');
+// Route::get('/diario', 'App\Http\Controllers\JogoController@jogo')->name('diario');
 
 
 Route::prefix('jogos')->group(function () {
@@ -116,6 +116,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('jogo')->group(function () {
         // Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogos');
+        Route::get('/jogo', 'App\Http\Controllers\JogoController@jogo')->name('jogo');
         Route::get('novo', 'App\Http\Controllers\JogoController@create')->name('jogonovo');
         Route::get('{id}', 'App\Http\Controllers\JogoController@edit')->name('jogoform');
         Route::post('/', 'App\Http\Controllers\JogoController@store')->name('jogoinsert');

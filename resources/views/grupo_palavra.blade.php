@@ -46,12 +46,12 @@
                     @if($grupo_palavra->palavra_id)
                     <input type="hidden" id="palavra_id" name="palavra_id" value='{{$grupo_palavra->palavra_id}}'>
                     <div
-                        class="rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
+                        class="rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
                         {{App\Models\Palavra::find($grupo_palavra->palavra_id)->nome }}
                     </div>
                     @else
                     <select id="palavra_id" name="palavra_id"
-                        class="text-gray-700 dark:text-violet-50 rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
+                        class="text-gray-700 dark:text-violet-50 rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
                         @foreach($palavras as $palavra)
                         <option value='{{$palavra->id}}' {{$palavra->id == $_GET['id'] ? "selected" :
                             ""}}>{{$palavra->nome}} </option>
@@ -63,7 +63,7 @@
                 <div class="flex flex-col gap-y-1">
                     <label for="grupo_id" class="font-semibold text-violet-500 capitalize">grupo</label>
                     <select id="grupo_id" name="grupo_id"
-                        class="text-gray-700 dark:text-violet-50 rounded-md border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
+                        class="text-gray-700 dark:text-violet-50 rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
                         @foreach($grupos as $grupo)
                         <option value='{{$grupo->id}}' {{$grupo->id == $grupo_palavra->grupo_id ? "selected" :
                             ""}}>{{$grupo->nome}} </option>

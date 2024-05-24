@@ -1,11 +1,11 @@
 @extends('layout')
-@section('title', 'Disciplina - Conexo')
+@section('title', 'Jogo - Conexo')
 @section('content')
 
 <div class="flex flex-col justify-center items-center gap-2 pt-4 grow">
 
     <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize">
-        Gerenciar disciplina
+        Gerenciar jogo
     </h1>
 
     @if($errors->any())
@@ -24,54 +24,43 @@
                         Erro
                     </div>
                     <ul>
-                    @foreach($errors->all() as $error)
-                    <li class="inline-flex items-center gap-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
-                            <path
-                                d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
-                        </svg>
-                        {{ $error }}
-                    </li>
-                    @endforeach
-                </ul>
+                        @foreach($errors->all() as $error)
+                        <li class="inline-flex items-center gap-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                class="w-4 h-4">
+                                <path
+                                    d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
+                            </svg>
+                            {{ $error }}
+                        </li>
+                        @endforeach
+                    </ul>
             </div>
         </div>
     </div>
     @endif
 
-    @if($disciplina->id)
-    <form action="{{ route('disciplinaupdate', ['id' =>$disciplina->id]) }}" method="POST" class="mx-auto">
+    @if($jogo->id)
+    <form action="{{ route('jogoupdate', ['id' =>$jogo->id]) }}" method="POST">
         <input type="hidden" name="_method" value="PUT">
         @else
-        <form action="{{ route('disciplinainsert') }}" method="POST">
+        <form action="{{ route('jogoinsert') }}" method="POST">
             @endif
             {{ csrf_field()}}
 
             <fieldset class="flex flex-col  p-10 w-[40rem] gap-4">
-                <input type="hidden" name="id" value='{{ $disciplina->id }}'>
+                <input type="hidden" name="id" value='{{ $jogo->id }}'>
 
                 <div class="flex flex-col gap-y-1">
                     <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
-                    <input type="text" id="nome" name="nome" value='{{ $disciplina->nome }}'
+                    <input type="text" id="nome" name="nome" value='{{ $jogo->nome }}'
                         class="rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
-                </div>
-
-                <div class="flex flex-col gap-y-1">
-
-                    <label for="professor_id" class="font-semibold text-violet-500 capitalize">Professor</label>
-                    <select id="professor_id" name="professor_id"
-                        class="rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
-                        @foreach($professores as $professor)
-                        <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id ? "selected" :
-                            ""}}>{{$professor->nome}} </option>
-                        @endforeach
-                    </select>
                 </div>
 
             </fieldset>
 
             <div class="flex items-center gap-x-2 justify-center">
-                <a href="{{ route('disciplinas') }}"
+                <a href="{{ route('jogos') }}"
                     class="btn-link flex items-center mt-4 justify-center self-baseline">
                     Cancelar
                 </a>
@@ -88,7 +77,6 @@
             </div>
 
         </form>
-
 </div>
 @endsection
 

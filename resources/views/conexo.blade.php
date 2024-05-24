@@ -2,11 +2,12 @@
 @section('title', 'Conexo')
 @section('content')
 
-<div class="flex flex-col justify-center items-center h-screen w-screen">
+<div class="flex flex-col justify-center items-center grow w-screen">
 
-    <div class="w-screen grow">
+    <div class="w-screen">
 
-        <div class="flex my-4 items-center w-6/12 mx-auto justify-between px-3">
+        <div class="flex flex-col my-4 items-center w-6/12 mx-auto justify-between px-3">
+            <span class="capitalize mb-4 font-bold text-4xl text-violet-500 dark:text-violet-500" id="nomeJogo"></span>
             <div class="w-fit flex items-center gap-x-3">
                 <a href="{{ route('inicio')}}" class="inline-block hover:bg-violet-200 dark:hover:bg-neutral-800 rounded-full p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -17,13 +18,12 @@
                 </a>
                 <span class="font-bold" id="dataAtual"></span>
                 <span class="capitalize">tentativas: <span class="font-bold" id="numeroTentativas">0</span></span>
-                <span class="capitalize">Jogo: <span class="font-bold" id="nomeJogo"></span></span>
                 <span class="capitalize invisible">acertos: <span class="font-bold" id="numeroAcertos">0</span></span>
             </div>
 
         </div>
 
-        <div id="acertou" class="hidden">
+        <div id="acertou" class="hidden flex flex-col mx-auto my-4 gap-4 w-fit p-4 rounded-lg bg-violet-100 dark:bg-neutral-800 ">
             <span class="font-bold mx-auto inline-flex">Parabéns!</span>
             <p>
                 Você conseguiu em <span id="acertouNumeroTentativas"></span> tentativas.

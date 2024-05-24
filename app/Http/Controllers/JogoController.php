@@ -58,7 +58,7 @@ class JogoController extends Controller {
         }
 
 
-        return view('jogos', [
+        return view('jogos.jogos', [
             'jogos' => $jogos,
             'datas' => $datas,
             'disciplinas' => $disciplinas
@@ -88,7 +88,8 @@ class JogoController extends Controller {
                 'jogo_id' => $jogo['id'],
                 'grupo_id' => $grupoId,
                 'grupo' => $nomeDoGrupo,
-                'palavras' => $palavras
+                'palavras' => $palavras,
+                'data' => $jogo['data'],
             ];
         }
 
@@ -107,7 +108,7 @@ class JogoController extends Controller {
     public function edit($id) {
         $jogo = Jogo::find($id);
 
-        return view('jogo', [
+        return view('jogos.jogo', [
             'jogo' => $jogo
         ]);
     }
@@ -187,20 +188,18 @@ class JogoController extends Controller {
 
 
     public function update($id, Request $request) {
-        // $validator = Validator::make($request->all(), [
-        //     'nome' => 'required',
-        //     'disciplina_id' => 'required'
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required',
+        ]);
 
-        // if ($validator->fails()) return redirect()->route('jogosnovo')->withErrors($validator)->withInput();
-        // else {
-        //     $jogo = Jogo::find($id);
-        //     $jogo->nome = $request->input('nome');
-        //     $jogo->disciplina_id = $request->input('disciplina_id');
-        //     $jogo->save();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
+        else {
+            $jogo = Jogo::find($id);
+            $jogo->nome = $request->input('nome');
+            $jogo->save();
 
-        //     return redirect()->route('diario');
-        // }
+            return redirect()->route('jogos');
+        }
     }
 
     public function destroy($id) {

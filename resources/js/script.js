@@ -1,9 +1,5 @@
 const dadosLocalStorage = JSON.parse(localStorage.getItem('conexoJogoStatus'))
 
-const data = document.querySelector("#dataAtual")
-const dataUrl = new URLSearchParams(window.location.search).get('dataJogo')
-data.innerHTML = dataUrl
-
 const criarTabuleiro = (max = 16) => {
     const tab = []
 
@@ -20,7 +16,7 @@ const criarTabuleiro = (max = 16) => {
 }
 
 const id = new URLSearchParams(window.location.search).get('id')
-const url = id ? `http://localhost:8000/api/diario?id=${id}` : 'http://localhost:8000/api/diario'
+const url = id ? `http://localhost:8000/api/jogo?id=${id}` : 'http://localhost:8000/api/jogo'
 
 fetch(url)
     .then((response) => {
@@ -31,7 +27,9 @@ fetch(url)
     })
     .then((data) => {
         document.querySelector('#skeleton').classList.add('hidden')
+        console.log(data[0].data)
         
+        document.querySelector("#dataAtual").innerHTML = data[0].data
         document.querySelector('#nomeJogo').innerHTML = data[0].nome
 
         const grupos = data
@@ -104,8 +102,10 @@ fetch(url)
 
                 localStorage.setItem('conexoJogoStatus', JSON.stringify(jogoDados))
 
-                // document.querySelector("#acertouNumeroTentativas").innerHTML =
-                //     document.querySelector("#numeroTentativas").innerHTML
+                document.querySelector("#acertou").classList.remove('hidden')
+
+                document.querySelector("#acertouNumeroTentativas").innerHTML =
+                    document.querySelector("#numeroTentativas").innerHTML
                 // console.log(
                 //     document.querySelector("numeroTentativas").innerHTML
                 // )

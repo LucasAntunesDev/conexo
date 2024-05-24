@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/diario', 'App\Http\Controllers\JogoController@api');
+Route::get('/jogo', 'App\Http\Controllers\JogoController@api');
 Route::get('/professores', 'App\Http\Controllers\ProfessorController@api')->name('professores');
 // Route::get('/datas', 'App\Http\Controllers\JogoController@getDatas');
 Route::get('/grupos', 'App\Http\Controllers\JogoController@getGrupos');

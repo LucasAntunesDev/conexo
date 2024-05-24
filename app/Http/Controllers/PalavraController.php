@@ -30,7 +30,7 @@ class PalavraController extends Controller {
     public function create() {
         $palavra = new Palavra();
 
-        return view('palavra.palavra', [
+        return view('palavras.palavra', [
             'palavra' => $palavra
         ]);
     }
@@ -41,7 +41,7 @@ class PalavraController extends Controller {
         // $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get()::paginate(5);
         $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get();
         
-        return view('palavra.palavra', [
+        return view('palavras.palavra', [
             'palavra' => $palavra,
             'grupos_palavras' => $grupos_palavras,
         ]);
