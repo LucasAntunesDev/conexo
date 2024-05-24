@@ -10,9 +10,10 @@
 
 <body class="text-gray-700 dark:text-violet-50 flex flex-col h-screen bg-violet-50 dark:bg-neutral-900">
 
+    @include('includes.header')
+    
     @yield('content')
 
-    @include('includes.footer')
     </div>
 </body>
 

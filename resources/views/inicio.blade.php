@@ -10,6 +10,8 @@
 </head>
 
 <body class="text-gray-700 dark:text-violet-50 flex flex-col h-screen bg-violet-50 dark:bg-neutral-900">
+    @include('includes.header')
+
     <div class="flex flex-col justify-center items-center w-screen grow">
         {{-- @yield('content') --}}
 
@@ -115,14 +117,8 @@
             </a>
         </div>
     </div>
-    @include('includes.footer')
 
 </body>
-
-
-
-
-@vite(['resources/js/app.js'])
 
 </html>
 
