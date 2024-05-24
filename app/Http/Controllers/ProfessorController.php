@@ -36,9 +36,11 @@ class ProfessorController extends Controller {
 
     public function edit($id) {
         $professor = Professor::find($id);
+        $disciplinas = $professor->disciplinas;
 
         return view('professor', [
-            'professor' => $professor
+            'professor' => $professor,
+            'disciplinas' => $disciplinas,
         ]);
     }
 

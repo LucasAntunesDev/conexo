@@ -38,7 +38,7 @@ input:-webkit-autofill:focus {
   }
 
   .transicao {
-    @apply transition duration-300 ease-in-out !important
+    @apply transition duration-300 ease-in-out hover:cursor-pointer !important
   }
 
   .btn-primary {
