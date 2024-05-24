@@ -4,19 +4,20 @@
 
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
--webkit-text-fill-color: #171717;
--webkit-box-shadow: 0 0 0px 40rem #ede9fe inset;
+  -webkit-text-fill-color: #171717;
+  -webkit-box-shadow: 0 0 0px 40rem #ede9fe inset;
 }
+
 @media (prefers-color-scheme: dark) {
 
   input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:hover,
   input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #f5f3ff;
-  -webkit-box-shadow: 0 0 0px 40rem #171717 inset;
-}
+    -webkit-text-fill-color: #f5f3ff;
+    -webkit-box-shadow: 0 0 0px 40rem #171717 inset;
+  }
 }
 
 @layer components {
@@ -24,7 +25,7 @@ input:-webkit-autofill:focus {
     @apply text-violet-50;
   }
 
-  .conexo-btn{
+  .conexo-btn {
     @apply bg-violet-100 dark:bg-neutral-800 p-6 rounded-lg flex items-center hover:cursor-pointer focus:scale-90 transicao uppercase
   }
 
@@ -60,7 +61,15 @@ input:-webkit-autofill:focus {
     @apply bg-transparent hover:bg-violet-200/60 text-current rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer transicao
   }
 
-  .input{
-    @apply rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800
+  .input {
+    @apply rounded-xl border-none py-3 px-8 outline-none focus:ring-violet-500 border-0 ring-1 ring-inset ring-violet-300 dark:ring-neutral-600 focus:ring-2 focus:ring-inset bg-transparent shadow
+  }
+
+  select.input {
+    @apply bg-violet-100 dark:bg-neutral-900;
+  }
+
+  .label{
+    @apply block text-sm font-semibold capitalize leading-6 text-violet-500 dark:text-violet-50
   }
 }

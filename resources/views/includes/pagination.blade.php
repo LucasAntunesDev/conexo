@@ -35,7 +35,7 @@
                 @if ($paginator->onFirstPage())
                 @else
                 <a href="{{ $paginator->previousPageUrl() }}" rel="prev"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 px-4 py-2 gap-1 pl-2.5r"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 px-4 py-2 gap-1 pl-2.5r"
                     aria-label="{{ __('pagination.previous') }}">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
@@ -63,12 +63,12 @@
                 @if ($page == $paginator->currentPage())
                 <span aria-current="page">
                     <span
-                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input  hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 w-10 hover:cursor-pointer border-violet-200 dark:border-neutral-700">{{
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input  hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 w-10 hover:cursor-pointer border-violet-200 dark:border-neutral-700">{{
                         $page }}</span>
                 </span>
                 @else
                 <a href="{{ $url }}"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 w-10"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 w-10"
                     aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
                     {{ $page }}
                 </a>
@@ -80,7 +80,7 @@
                 {{-- Next Page Link --}}
                 @if ($paginator->hasMorePages())
                 <a href="{{ $paginator->nextPageUrl() }}" rel="next"
-                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 px-4 py-2 gap-1 pl-2.5r"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-violet-100 dark:hover:bg-neutral-800 dark:bg-neutral-900 text-violet-500 dark:text-violet-400 h-10 px-4 py-2 gap-1 pl-2.5r"
                     aria-label="{{ __('pagination.next') }}">
                     Próximo
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

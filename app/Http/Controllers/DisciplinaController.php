@@ -12,7 +12,7 @@ class DisciplinaController extends Controller {
 
     public function index() {
         $disciplina = new Disciplina();
-        $disciplinas = Disciplina::paginate(4);
+        $disciplinas = Disciplina::paginate(16);
         $professores = Professor::all();
 
         return view('disciplina.disciplinas', [

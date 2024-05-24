@@ -16,7 +16,7 @@ class JogoController extends Controller {
 
     public function index() {
         // $jogos = Jogo::all();
-        $jogos = Jogo::paginate(8);
+        $jogos = Jogo::paginate(16);
 
         // $disciplinas = Disciplina::all();
         // $disciplinas = DB::table('grupos')

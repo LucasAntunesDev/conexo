@@ -25,23 +25,23 @@
                         @csrf
 
                         <div class="relative z-0">
+                            <label for="login"
+                                class="label">
+                                Login
+                            </label>
                             <input type="text" name="login" id="login"
                                 class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-neutral-700 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none autofill:bg-violet-100 focus:autofill:bg-violet-100 dark:bg-transparent dark:focus:border-violet-400 "
                                 placeholder=" " />
 
-                            <label for=" login"
-                                class="absolute text-sm text-violet-500 dark:text-violet-50 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100 dark:bg-neutral-900 px-2 peer-focus:px-2 peer-focus:text-violet-700  dark:peer-focus:text-violet-50 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                Login
-                            </label>
                         </div>
 
 
                         <div class="relative z-0">
+                            <label for="senha" class="label">Senha</label>
+                            
                             <input type="password" name="senha" id="senha"
                                 class="block py-2.5 px-0 w-full text-sm bg-transparent  border-b-2 border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-2 outline-none autofill:bg-violet-100 focus:autofill:bg-violet-100 dark:bg-transparent dark:focus:border-violet-400 dark:text-violet-100"
                                 placeholder=" " />
-                            <label for="senha"
-                                class="absolute text-sm text-violet-500 dark:text-violet-50 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100 dark:bg-neutral-900 px-2 peer-focus:px-2 peer-focus:text-violet-700  dark:peer-focus:text-violet-50 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Senha</label>
                         </div>
 
 

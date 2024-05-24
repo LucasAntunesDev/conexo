@@ -11,7 +11,7 @@
     @if($errors->any())
     <div class="flex justify-center items-center">
         <div>
-            <div class="bg-red-50 text-red-700 px-20 py-1 rounded-md mt-4">
+            <div class="bg-red-50 text-red-700 px-20 py-1 rounded-xl mt-4">
                 <ul>
                     <div class="inline-flex gap-x-2 items-center font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
@@ -42,7 +42,7 @@
                 <input type="hidden" name="id" value='{{ $grupo_palavra->id }}'>
 
                 <div class="flex flex-col gap-y-1">
-                    <label for="palavra_id" class="font-semibold text-violet-500 capitalize">Palavra</label>
+                    <label for="palavra_id" class="label capitalize">Palavra</label>
                     @if($grupo_palavra->palavra_id)
                     <input type="hidden" id="palavra_id" name="palavra_id" value='{{$grupo_palavra->palavra_id}}'>
                     <div
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="flex flex-col gap-y-1">
-                    <label for="grupo_id" class="font-semibold text-violet-500 capitalize">grupo</label>
+                    <label for="grupo_id" class="label capitalize">grupo</label>
                     <select id="grupo_id" name="grupo_id"
                         class="text-gray-700 dark:text-violet-50 rounded-lg border-none py-3 px-8 outline-none focus:ring focus:ring-violet-500 bg-violet-100 dark:bg-neutral-800">
                         @foreach($grupos as $grupo)

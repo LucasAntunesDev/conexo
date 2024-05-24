@@ -9,7 +9,7 @@
             <h2 class="text-2xl font-bold tracking-tight text-violet-500">Configurções de usuário</h2>
             <p>Altere as configurações de sua conta.</p>
         </div>
-{{-- 
+        {{--
         <h1 class="text-violet-500 text-5xl font-bold inline-flex gap-x-2 my-4 items-center capitalize">
             {{$professor->nome}}
         </h1> --}}
@@ -45,43 +45,36 @@
                 @endif
                 {{ csrf_field()}}
 
-                <fieldset class="flex flex-col items-stretch gap-4 rounded-xl bg-violet-100 dark:bg-neutral-800 p-6 w-[70rem]">
+                <fieldset
+                    class="flex flex-col items-stretch gap-4 rounded-xl bg-violet-100 dark:bg-neutral-800 p-6 w-[70rem]">
                     <div class="space-y-2">
                         <div class="relative z-0">
-                            <input type="text" id="nome" name="nome" value='{{ $professor->nome }}'
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 "
-                                placeholder=" " />
-
-                            <label for="nome"
-                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100 dark:bg-neutral-800  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                            Nome
+                            <label for="nome" class="label">
+                                Nome
                             </label>
+                            
+                            <input type="text" id="nome" name="nome" value='{{ $professor->nome }}' class="input" placeholder=" " />
                         </div>
                     </div>
 
                     <div class="space-y-2">
                         <div class="relative z-0">
-                            <input type="text" id="login" name="login" value='{{ $professor->login }}'
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 "
-                                placeholder=" " />
-
-                            <label for="login"
-                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100 dark:bg-neutral-800  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                            Login
+                            <label for="login" class="label">
+                                Login
                             </label>
+
+                            <input type="text" id="login" name="login" value='{{ $professor->login }}' class="input"
+                                placeholder=" " />
                         </div>
                     </div>
-                    
+
                     <div class="space-y-2">
                         <div class="relative z-0">
-                            <input type="password" id="senha" name="senha" value='{{ $professor->senha }}'
-                                class="block py-2.5 px-0 w-full text-sm bg-transparent border-violet-500 appearance-none focus:outline-none focus:border-violet-700 focus:ring-0 peer pr-7 pl-10  rounded-lg border-[1.5px] outline-none focus:ring-violet-500 autofill:bg-violet-100 dark:bg-neutral-800 focus:autofill:bg-violet-100 "
-                                placeholder=" " />
-
-                            <label for="senha"
-                                class="absolute text-sm text-violet-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-violet-100 dark:bg-neutral-800  px-2 peer-focus:px-2 peer-focus:text-violet-700  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                            Senha
+                            <label for="senha" class="label">
+                                Senha
                             </label>
+                            
+                            <input type="password" id="senha" name="senha" value='{{ $professor->senha }}' class="input" placeholder=" " />
                         </div>
                     </div>
 
@@ -93,8 +86,7 @@
                         Cancelar
                     </a>
 
-                    <button type="submit"
-                        class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
+                    <button type="submit" class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                         <span>Salvar</span>
                         <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

@@ -17,7 +17,7 @@ class PalavraController extends Controller {
     public function index() {
         $palavras = Palavra::paginate(24);
 
-        return view('palavra.palavras', [
+        return view('palavras.palavras', [
             'palavras' => $palavras
         ]);
     }

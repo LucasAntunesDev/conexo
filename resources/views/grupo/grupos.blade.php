@@ -19,9 +19,9 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-violet-50 dark:bg-neutral-900 rounded-lg shadow">
+                <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
 
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
                         <h3 class=" text-lg font-semibold">
                             Adicionar grupo
                         </h3>
@@ -39,13 +39,13 @@
                     <form action="{{ route('grupoinsert') }}" method="POST" class="p-4 md:p-5">
                         {{ csrf_field()}}
                         <div class="flex flex-col gap-y-1">
-                            <label for="nome" class="font-semibold text-violet-500 capitalize">Nome</label>
+                            <label for="nome" class="label capitalize">Nome</label>
                             <input type="text" id="nome" name="nome" value=''
                                 class="input">
                         </div>
                         <div class="flex flex-col gap-y-1">
                             <label for="disciplina_id"
-                                class="font-semibold text-violet-500 capitalize">Disciplina</label>
+                                class="label capitalize">Disciplina</label>
                             <select id="disciplina_id" name="disciplina_id"
                                 class="input">
                                 @foreach($disciplinas as $disciplina)
@@ -72,14 +72,14 @@
 
     </div>
 
-    <div class="grid grid-cols-4 grid-rows-4 gap-2">
+    <div class="grid grid-cols-4 grid-rows-4 gap-4">
 
         @foreach($grupos as $grupo)
 
-        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-lg h-auto">
+        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto ">
 
             <div class="inline-flex flex-col gap-3">
-                <span class="text-violet-900 dark:text-violet-300 font-semibold w-56">{{ $grupo->nome }}</span>
+                <span class="text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg">{{ $grupo->nome }}</span>
                 <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
                     {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome}}
                 </span>
