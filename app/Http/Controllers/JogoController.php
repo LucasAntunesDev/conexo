@@ -15,7 +15,8 @@ use App\Http\Controllers\Controller;
 class JogoController extends Controller {
 
     public function index() {
-        $jogos = Jogo::all();
+        // $jogos = Jogo::all();
+        $jogos = Jogo::paginate(8);
 
         // $disciplinas = Disciplina::all();
         // $disciplinas = DB::table('grupos')
@@ -123,38 +124,11 @@ class JogoController extends Controller {
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
-            // $jogo = Jogo::whereDate('data', $data)->first();
-            // $jogo = new Jogo();
-            // $jogo->nome = $request->input('nome');
 
             $data = request()->has('dataJogo') ? request()->get('dataJogo') : now()->toDateString();
 
-            // $grupos = Grupo::all();
-            // $disciplina_id = (int) $request->input('disciplina_id');
-            // // echo '<pre>';
-            // // return var_dump($disciplina);
-            // // return $disciplina;
-            // $grupos = Grupo::where('disciplina_id', $disciplina_id)->get();
-            // echo '<pre>';
-            // return var_dump($grupos);
-            // $grupos = Grupo::all();
 
             $disciplina_id = (int) $request->input('disciplina_id');
-
-            // $grupos = Grupo::where('disciplina_id', $disciplina_id)
-            //     ->whereHas('palavras', function ($query) {
-            //         $query->havingRaw('COUNT(palavra_id) >= 4');
-            //     }, '>=', 4)
-            //     ->withCount('palavras')
-            //     ->get();
-
-            // $grupos = Grupo::where('disciplina_id', $disciplina_id)
-            //     ->whereHas('palavras', function ($query) {
-            //         $query->groupBy('grupo_id')
-            //             ->havingRaw('COUNT(*) >= 4');
-            //     })
-            //     ->get();
-
 
             $grupos = Grupo::where('disciplina_id', $disciplina_id)
                 ->whereHas('palavras', function ($query) {
@@ -163,17 +137,10 @@ class JogoController extends Controller {
                 })
                 ->get();
 
-            // echo '<pre>';
-            // return $grupos;
-
             $grupos_ids = $grupos->pluck('id')->random(4);
-            // echo '<pre>';
-            // return $grupos_ids;
-
 
             $palavras_selecionadas = [];
 
-            // $g = [];
             foreach ($grupos_ids as $grupo_id) {
                 $palavras = Palavra::whereHas('grupos', function ($query) use ($grupo_id) {
                     $query->where('grupo_id', $grupo_id);
@@ -187,7 +154,6 @@ class JogoController extends Controller {
                     ];
                 }
             }
-            // return $g;
 
             $todas_palavras = [];
 
@@ -200,27 +166,6 @@ class JogoController extends Controller {
             $grupos_palavras = array_map(function ($item) {
                 return implode(", ", $item);
             }, $grupos_palavras);
-
-            // return $grupos_palavras;
-
-            // $jogo = new Jogo();
-            // $jogo->nome = $request->input('nome');
-
-            $jogo = [
-                'jogo' => $request->input('nome'),
-                'grupo_1_id' => $grupos_ids[0],
-                'grupo_2_id' => $grupos_ids[1],
-                'grupo_3_id' => $grupos_ids[2],
-                'grupo_4_id' => $grupos_ids[3],
-                'grupo_1_palavras' => $grupos_palavras[0],
-                'grupo_2_palavras' => $grupos_palavras[1],
-                'grupo_3_palavras' => $grupos_palavras[2],
-                'grupo_4_palavras' => $grupos_palavras[3],
-                'data' => $data
-            ];
-
-            // return $jogo;
-            // return $request->input('nome');
 
             $jogo = Jogo::create([
                 'nome' => $request->input('nome'),

@@ -14,7 +14,7 @@ class GrupoController extends Controller {
         $grupo = new Grupo();
         $grupos = Grupo::paginate(16);
         $disciplinas = Disciplina::all();
-
+        // return $grupos;
         return view('grupo.grupos', [
             'grupo' => $grupo,
             'grupos' => $grupos,
