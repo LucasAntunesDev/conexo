@@ -17,7 +17,7 @@ class ProfessorController extends Controller {
     public function __construct(protected Professor $professoresRepository,){}
     public function index() {
         $professores = Professor::all();
-
+        
         return view('professores', [
             'professores' => $professores
         ]);
