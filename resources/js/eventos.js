@@ -63,6 +63,6 @@ const filtrar = () => {
   }
 }
 
-// if (document.querySelector('#pesquisar')) {
+if (document.querySelector('#pesquisar')) {
   document.querySelector('#pesquisar').addEventListener('input', filtrar)
-// }
+}
