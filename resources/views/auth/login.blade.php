@@ -46,8 +46,7 @@
 
 
                         <button type="submit"
-                            class="btn-primary flex py-3 px-6 w-64 justify-between items-center font-semibold shadow-xl spin"
-                            disabled id="btn">
+                            class="btn-primary flex py-3 px-6 w-64 justify-between items-center font-semibold shadow-xl spin" id="btn">
                             <span>Entrar</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6" id="login-icon">
