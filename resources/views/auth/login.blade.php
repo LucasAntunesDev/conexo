@@ -11,12 +11,12 @@
 <body
     class="text-gray-700 dark:text-violet-50 flex flex-col h-screen bg-violet-100 dark:bg-gradient-to-tr dark:bg-neutral-900">
 
-    <div class="w-screen h-screen">
+    <div class="w-screen md:h-screen">
 
-        <div class="flex flex-row">
+        <div class="flex flex-row justify-center md:justify-stretch">
             <div class="flex flex-col items-center gap-4 w-auto md:w-6/12 h-screen justify-center rounded-r-2xl">
 
-                <fieldset class="w-fit py-10 px-16">
+                <fieldset class="w-fit py-10 px-16 bg-violet-300 dark:bg-neutral-800 md:bg-transparent md:dark:bg-transparent rounded-2xl">
                     <div class="flex flex-col gap-y-2 my-12">
                         <h2 class="my-2 text-violet-500 dark:text-violet-50 text-5xl font-bold w-fit">Entrar</h2>
                         <span class="font-semibold">Entre com seu login e senha</span>
@@ -70,7 +70,7 @@
 
             <div class="hidden md:flex flex-col justify-center items-center gap-2 w-6/12 h-screen mx-auto">
 
-                <div class="bg-violet-300 dark:bg-neutral-800 h-[97%] w-[97%] flex justify-center items-center rounded-lg">
+                <div class="bg-violet-300 dark:bg-neutral-800 h-[97%] w-[97%] flex justify-center items-center rounded-2xl">
                     <div class="flex flex-col mx-auto gap-2 w-fit text-violet-700 dark:text-violet-50">
                         <svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="w-24 inline-flex m-auto fill-white">
