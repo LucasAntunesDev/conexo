@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\ProfessorResource;
+use Illuminate\Support\Facades\Hash;
+
 
 class ProfessorController extends Controller {
 
@@ -63,7 +65,8 @@ class ProfessorController extends Controller {
             $professor = new Professor();
             $professor->nome = $request->input('nome');
             $professor->login = $request->input('login');
-            $professor->senha = $request->input('senha');
+            $senha = $request->input('senha');
+            $professor->senha = Hash::make($senha);
             $professor->save();
 
             return redirect()->route('inicio');
@@ -82,7 +85,8 @@ class ProfessorController extends Controller {
             $professor = Professor::find($id);
             $professor->nome = $request->input('nome');
             $professor->login = $request->input('login');
-            $professor->senha = $request->input('senha');
+            $senha = $request->input('senha');
+            $professor->senha = Hash::make($senha);
             Auth::login($professor);
             $professor->save();
 
