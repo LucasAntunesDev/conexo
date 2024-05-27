@@ -26,29 +26,20 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
         <div class="md:mx-auto">
             <nav class="mr-10">
                 <ul class="inline-flex gap-x-8 items-center justify-center" role="list">
+                    @php
+                        {{$modulos = ['jogos', 'disciplinas', 'grupos', 'palavras'];}}
+                    @endphp
 
-                        <li class="hover:transicao">
-                            <a href="{{ route('jogos') }}"
-                                class="hover:text-violet-600 dark:hover:text-violet-400 transicao">Jogos</a>
+                    @foreach ($modulos as $modulo)
+
+                        <li class="hover:transicao {{(str_contains(url()->current(), strtolower($modulo))) ? 'bg-violet-200 dark:bg-neutral-700 rounded-xl py-2 px-5' : 'hover:text-violet-600 dark:hover:text-violet-400' }}">
+                            <a href="{{ route($modulo) }}"
+                                class=" transicao capitalize">
+                                {{$modulo}}
+                            </a>
                         </li>
 
-                        <li>
-                            <a href="{{ route('disciplinas') }}"
-                                class="hover:text-violet-600 dark:hover:text-violet-400 transicao">Disciplinas</a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('grupos') }}"
-                                class="hover:text-violet-600 dark:hover:text-violet-400 transicao">Grupos</a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('palavras') }}"
-                                class="hover:text-violet-600 dark:hover:text-violet-400 transicao">Palavras</a>
-                        </li>
-
-                        {{--
-                    </ul> --}}
+                    @endforeach
 
                 </ul>
             </nav>
@@ -135,7 +126,7 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
 
 
     </a>
-  
+
 
 </header>
 @endif
