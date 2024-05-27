@@ -71,14 +71,12 @@ class PalavraController extends Controller {
     public function update($id, Request $request) {
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
-            'disciplina_id' => 'required'
         ]);
 
-        if ($validator->fails()) return redirect()->route('palavrasnovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $palavra = Palavra::find($id);
             $palavra->nome = $request->input('nome');
-            $palavra->disciplina_id = $request->input('disciplina_id');
             $palavra->save();
 
             return redirect()->route('palavras');
