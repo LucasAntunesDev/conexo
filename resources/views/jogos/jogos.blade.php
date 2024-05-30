@@ -21,6 +21,11 @@
     </div>
 
     <main class="flex flex-col gap-2 w-screen justify-center items-center grow">
+        <div class="flex flex-col">
+            @include('includes.pesquisar')
+        </div>
+
+        @auth('web')
         <div class="flex gap-2">
             <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
                 class="btn-primary flex items-center justify-center font-semibold" type="button">
@@ -28,9 +33,6 @@
             </button>
         </div>
 
-        <div class="flex flex-col">
-            @include('includes.pesquisar')
-        </div>
 
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -63,9 +65,6 @@
                         <div class="flex flex-col gap-y-1">
                             <label for="disciplina_id" class="label capitalize">Disciplina</label>
                             <select id="disciplina_id" name="disciplina_id" class="input">
-                                {{-- @php
-                                $disciplinas = App\Models\Disciplinas::all();
-                                @endphp--}}
                                 @foreach($disciplinas as $disciplina)
                                 <option value='{{$disciplina->id}}'>{{$disciplina->nome}} </option>
                                 @endforeach
@@ -83,17 +82,10 @@
                         </button>
                     </form>
                 </div>
+                @endif
             </div>
         </div>
 
-        {{-- <span
-            class="inline-flex gap-x-4 items-center bg-violet-600 hover:bg-violet-700 text-violet-50 rounded-xl py-3 px-6 hover:cursor-pointer text-semibold"
-            id="buscarDisciplina">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-        </span> --}}
 </div>
 
 
@@ -112,16 +104,14 @@
     @foreach ($jogos as $jogo)
     <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto lista-item">
 
-        {{-- <div class="flex flex-col gap-3"> --}}
-            <a href="{{ route('jogo', ['id' => $jogo->id]) }}"
-                class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{ $jogo->nome
-                }}</a>
-            <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
-                {{$jogo->data}}
-            </span>
-            {{--
-        </div> --}}
+        <a href="{{ route('jogo', ['id' => $jogo->id]) }}"
+            class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{ $jogo->nome
+            }}</a>
+        <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
+            {{$jogo->data}}
+        </span>
 
+        @auth('web')
         <form method="POST" action="{{ route('jogodelete', ['id'=> $jogo->id]) }}" class="w-auto mx-auto pt-4">
             <input type="hidden" name="_method" value="DELETE">
             {{ csrf_field()}}
@@ -140,6 +130,7 @@
                 @include('includes.delete_btn')
             </div>
         </form>
+        @endif
 
     </div>
 
