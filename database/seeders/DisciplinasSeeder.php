@@ -14,11 +14,15 @@ class DisciplinasSeeder extends Seeder
     public function run(): void
     {
         DB::table('disciplinas')->insert([
-            ['nome' => 'Desenvolvimento de Sistemas', 'professor_Id' => 2],
-            ['nome' => 'Programação Web III', 'professor_Id' => 1],
-            ['nome' => 'Programação Web II', 'professor_Id' => 4],
-            ['nome' => 'Programação Web I', 'professor_Id' => 2],
-            ['nome' => 'Introdução a Computação', 'professor_Id' => 3],
+            ['nome' => 'Alogritmos', 'professor_id' => 1],
+            ['nome' => 'Programação Web I', 'professor_id' => 2],
+            ['nome' => 'Introdução a Computação', 'professor_id' => 3],
+            ['nome' => 'Programação Web II', 'professor_id' => 4],
+            ['nome' => 'Análise e Projeto De Sistemas Web', 'professor_id' => 7],
+            ['nome' => 'Banco de Dados', 'professor_id' => 5],
+            ['nome' => 'Programação Web III', 'professor_id' => 1],
+            ['nome' => 'Desenvolvimento de Sistemas', 'professor_id' => 2],
+            ['nome' => 'Fundamentos de Redes de Computadores', 'professor_id' => 8],
         ]);
     }
 }
