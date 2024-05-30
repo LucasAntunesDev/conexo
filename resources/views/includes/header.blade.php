@@ -58,7 +58,7 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
 
         </button>
 
-        <div class='z-50 hidden my-1 text-base list-none shadow w-64 bg-violet-100/60 dark:bg-neutral-800/60 backdrop-blur absolute right-10 bottom-14 rounded-xl p-4 gap-4'
+        <div class='z-50 hidden my-1 text-base list-none shadow w-64 bg-violet-100/60 dark:bg-neutral-800/60 backdrop-blur absolute right-10 bottom-14 rounded-xl p-4 gap-4 appear'
             id='user-dropdown'>
 
             <ul class="flex flex-col gap-y-4">
