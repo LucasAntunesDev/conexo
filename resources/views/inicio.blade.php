@@ -51,7 +51,8 @@
                     Jogos
                 </a>
             </div>
-
+            
+            @auth('web')
             <div class="inline-flex items-center p-4 btn-primary">
                 <a href="{{ route('disciplinas') }}" class="inline-flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -95,6 +96,7 @@
                     Palavras
                 </a>
             </div>
+            @endif
         </div>
     </div>
 
