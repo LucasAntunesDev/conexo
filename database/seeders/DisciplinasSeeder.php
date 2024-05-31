@@ -18,6 +18,7 @@ class DisciplinasSeeder extends Seeder
             ['nome' => 'Programação Web I', 'professor_id' => 2],
             ['nome' => 'Introdução a Computação', 'professor_id' => 3],
             ['nome' => 'Programação Web II', 'professor_id' => 4],
+            ['nome' => 'Interface Web', 'professor_id' => 4],
             ['nome' => 'Análise e Projeto De Sistemas Web', 'professor_id' => 7],
             ['nome' => 'Banco de Dados', 'professor_id' => 5],
             ['nome' => 'Programação Web III', 'professor_id' => 1],
