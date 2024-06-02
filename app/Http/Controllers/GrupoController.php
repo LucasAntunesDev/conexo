@@ -14,20 +14,10 @@ class GrupoController extends Controller {
         $grupo = new Grupo();
         $grupos = Grupo::paginate(16);
         $disciplinas = Disciplina::all();
-        // return $grupos;
+        
         return view('grupos.grupos', [
             'grupo' => $grupo,
             'grupos' => $grupos,
-            'disciplinas' => $disciplinas,
-        ]);
-    }
-
-    public function create() {
-        $grupo = new Grupo();
-        $disciplinas = Disciplina::all();
-
-        return view('grupos.grupo', [
-            'grupo' => $grupo,
             'disciplinas' => $disciplinas,
         ]);
     }
@@ -54,14 +44,14 @@ class GrupoController extends Controller {
             'disciplina_id' => 'required'
         ], $messages);
 
-        if ($validator->fails()) return redirect()->route('gruponovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $grupo = new Grupo();
             $grupo->nome = $request->input('nome');
             $grupo->disciplina_id = $request->input('disciplina_id');
             $grupo->save();
 
-            return redirect()->route('grupos');
+            return back();
         }
     }
 
@@ -71,14 +61,14 @@ class GrupoController extends Controller {
             'disciplina_id' => 'required'
         ]);
 
-        if ($validator->fails()) return redirect()->route('gruposnovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $grupo = Grupo::find($id);
             $grupo->nome = $request->input('nome');
             $grupo->disciplina_id = $request->input('disciplina_id');
             $grupo->save();
 
-            return redirect()->route('grupos');
+            return back();
         }
     }
 
@@ -86,6 +76,6 @@ class GrupoController extends Controller {
         $grupo = Grupo::find($id);
         $grupo->delete();
 
-        return redirect()->route('grupos');
+        return back();
     }
 }

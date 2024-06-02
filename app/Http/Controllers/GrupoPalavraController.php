@@ -53,7 +53,7 @@ class GrupoPalavraController extends Controller {
             'grupo_id' => 'required',
         ], $messages);
 
-        if ($validator->fails()) return redirect()->route('palavranovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $grupo_palavra = new GrupoPalavra();
             $grupo_palavra->id = $request->input('id');
@@ -71,7 +71,7 @@ class GrupoPalavraController extends Controller {
             'grupo_id' => 'required'
         ]);
 
-        if ($validator->fails()) return redirect()->route('palavras')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $grupo_palavra = GrupoPalavra::find($id);
             $grupo_palavra->palavra_id = $request->input('palavra_id');
@@ -86,6 +86,6 @@ class GrupoPalavraController extends Controller {
         $grupo_palavra = GrupoPalavra::find($id);
         $grupo_palavra->delete();
 
-        return redirect()->route('palavras');
+        return back();
     }
 }

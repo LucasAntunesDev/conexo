@@ -77,13 +77,18 @@
         @foreach($grupos as $grupo)
 
         <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto lista-item">
-
             {{-- <div class="inline-flex flex-col gap-3 lista-item"> --}}
                 <a class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{
                     $grupo->nome }}</a>
-                <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
-                    {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome}}
-                </span>
+                    {{-- @foreach ($grupo->disciplinas as $disciplina)
+                    <a class='text-current hover:text-emerald-600 hover:cursor-pointer 
+                    transition duration-300 ease-in-out mb-4 self-start'>
+                    <span class="rounded-2xl bg-violet-200 p-1 size-fit">{{$disciplina->nome}}</span>
+                    </a>
+                    @endforeach --}}
+                {{-- <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm"> --}}
+                    {{-- {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome}} --}}
+                {{-- </span> --}}
                 {{--
             </div> --}}
 

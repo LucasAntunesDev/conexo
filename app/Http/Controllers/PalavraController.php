@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Palavra;
 use App\Http\Resources\PalavraResource;
-// use App\Models\GrupoPalavra;
+use App\Models\GrupoPalavra;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -16,9 +16,11 @@ class PalavraController extends Controller {
 
     public function index() {
         $palavras = Palavra::paginate(24);
+        $grupos_palavras = GrupoPalavra::all();
 
         return view('palavras.palavras', [
-            'palavras' => $palavras
+            'palavras' => $palavras,
+            'grupos_palavras' => $grupos_palavras
         ]);
     }
 
@@ -27,18 +29,8 @@ class PalavraController extends Controller {
         return PalavraResource::collection($palavras);
     }
 
-    public function create() {
-        $palavra = new Palavra();
-
-        return view('palavras.palavra', [
-            'palavra' => $palavra
-        ]);
-    }
-
     public function edit($id) {
         $palavra = Palavra::find($id);
-        // $grupos = Grupo::all()
-        // $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get()::paginate(5);
         $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get();
         
         return view('palavras.palavra', [
@@ -57,14 +49,13 @@ class PalavraController extends Controller {
             'nome' => 'required',
         ], $messages);
 
-        if ($validator->fails()) return redirect()->route('palavranovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $palavra = new Palavra();
             $palavra->nome = $request->input('nome');
             $palavra->save();
             
             return back()->with('success', 'Palavra salva com sucesso!');
-            // return redirect()->route('palavras');
         }
     }
 
@@ -79,7 +70,7 @@ class PalavraController extends Controller {
             $palavra->nome = $request->input('nome');
             $palavra->save();
 
-            return redirect()->route('palavras');
+            return back();
         }
     }
 
@@ -87,6 +78,6 @@ class PalavraController extends Controller {
         $palavra = Palavra::find($id);
         $palavra->delete();
 
-        return redirect()->route('palavras');
+        return back();
     }
 }

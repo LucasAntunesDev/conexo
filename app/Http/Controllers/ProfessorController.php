@@ -28,14 +28,6 @@ class ProfessorController extends Controller {
         return ProfessorResource::collection($professores);
     }
 
-    public function create() {
-        $professor = new Professor();
-
-        return view('professor', [
-            'professor' => $professor
-        ]);
-    }
-
     public function edit($id) {
         $professor = Professor::find($id);
         $disciplinas = $professor->disciplinas;
@@ -60,7 +52,7 @@ class ProfessorController extends Controller {
             'senha' => 'required'
         ], $messages);
 
-        if ($validator->fails()) return redirect()->route('professornovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $professor = new Professor();
             $professor->nome = $request->input('nome');
@@ -69,7 +61,7 @@ class ProfessorController extends Controller {
             $professor->senha = Hash::make($senha);
             $professor->save();
 
-            return redirect()->route('inicio');
+            return back();
         }
     }
 
@@ -80,17 +72,18 @@ class ProfessorController extends Controller {
             'senha' => 'required'
         ]);
 
-        if ($validator->fails()) return redirect()->route('professornovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $professor = Professor::find($id);
             $professor->nome = $request->input('nome');
             $professor->login = $request->input('login');
             $senha = $request->input('senha');
+
             $professor->senha = Hash::make($senha);
             Auth::login($professor);
+            
             $professor->save();
-
-            return redirect()->route('inicio');
+            return back();
         }
     }
 
@@ -98,6 +91,6 @@ class ProfessorController extends Controller {
         $professor = Professor::find($id);
         $professor->delete();
 
-        return redirect()->route('inicio');
+        return back();
     }
 }

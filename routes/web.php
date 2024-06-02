@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
@@ -20,7 +19,6 @@ Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logou
 Route::middleware('auth')->group(function () {
 
     Route::prefix('professores')->group(function () {
-        Route::get('novo', 'App\Http\Controllers\ProfessorController@create')->name('professornovo');
         Route::get('{id}', 'App\Http\Controllers\ProfessorController@edit')->name('professorform');
         Route::post('/', 'App\Http\Controllers\ProfessorController@store')->name('professorinsert');
         Route::put('{id}', 'App\Http\Controllers\ProfessorController@update')->name('professorupdate');
@@ -29,7 +27,6 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('disciplinas')->group(function () {
         Route::get('/', 'App\Http\Controllers\DisciplinaController@index')->name('disciplinas');
-        Route::get('novo', 'App\Http\Controllers\DisciplinaController@create')->name('disciplinanovo');
         Route::get('{id}', 'App\Http\Controllers\DisciplinaController@edit')->name('disciplinaform');
         Route::post('/', 'App\Http\Controllers\DisciplinaController@store')->name('disciplinainsert');
         Route::put('{id}', 'App\Http\Controllers\DisciplinaController@update')->name('disciplinaupdate');
@@ -38,7 +35,6 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('grupos')->group(function () {
         Route::get('/', 'App\Http\Controllers\GrupoController@index')->name('grupos');
-        Route::get('novo', 'App\Http\Controllers\GrupoController@create')->name('gruponovo');
         Route::get('{id}', 'App\Http\Controllers\GrupoController@edit')->name('grupoform');
         Route::post('/', 'App\Http\Controllers\GrupoController@store')->name('grupoinsert');
         Route::put('{id}', 'App\Http\Controllers\GrupoController@update')->name('grupoupdate');
@@ -47,7 +43,6 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('palavras')->group(function () {
         Route::get('/', 'App\Http\Controllers\PalavraController@index')->name('palavras');
-        Route::get('novo', 'App\Http\Controllers\PalavraController@create')->name('palavranovo');
         Route::get('{id}', 'App\Http\Controllers\PalavraController@edit')->name('palavraform');
         Route::post('/', 'App\Http\Controllers\PalavraController@store')->name('palavrainsert');
         Route::put('{id}', 'App\Http\Controllers\PalavraController@update')->name('palavraupdate');
@@ -64,9 +59,6 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('jogo')->group(function () {
-        // Route::get('/', 'App\Http\Controllers\JogoController@index')->name('jogos');
-        Route::get('novo', 'App\Http\Controllers\JogoController@create')->name('jogonovo');
-        Route::get('{id}', 'App\Http\Controllers\JogoController@edit')->name('jogoform');
         Route::post('/', 'App\Http\Controllers\JogoController@store')->name('jogoinsert');
         Route::put('{id}', 'App\Http\Controllers\JogoController@update')->name('jogoupdate');
         Route::delete('{id}', 'App\Http\Controllers\JogoController@destroy')->name('jogodelete');

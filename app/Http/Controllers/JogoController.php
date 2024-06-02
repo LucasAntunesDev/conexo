@@ -8,37 +8,31 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Jogo;
 use App\Models\Grupo;
 use App\Models\GrupoPalavra;
+use App\Models\GrupoJogo;
+use App\Models\GrupoDisciplina;
 use App\Models\Palavra;
 use App\Models\Disciplina;
 use App\Http\Controllers\Controller;
 
 class JogoController extends Controller {
 
+    public function __construct(
+        protected Jogo $jogosRepository,
+        protected GrupoJogo $gruposJogosRepository,
+        protected GrupoDisciplina $gruposDisciplinasRepository,
+        protected GrupoPalavra $gruposPalavrasRepository,
+        protected Palavra $palavrasRepository,
+        protected Grupo $gruposRepository
+    ) {
+    }
+
     public function index() {
         $jogos = Jogo::paginate(16);
 
-        $disciplinas = Disciplina::withCount(['grupos' => function ($query) {
-            $query->has('palavras', '>=', 4);
-        }])->get()->filter(function ($disciplina) {
-            return $disciplina->grupos_count >= 4;
-        });
-
-
-        if (isset($_GET['disciplinaId'])) {
-            $disciplina_id = $_GET['disciplinaId'];
-
-            $datas = Jogo::join('grupos', 'jogos.grupo_1_id', '=', 'grupos.id')
-                ->where('grupos.disciplina_id', $disciplina_id)
-                ->select('jogos.data')
-                ->paginate(16);
-        } else {
-            $datas = Jogo::select('data')->paginate(16);
-        }
-
+        $disciplinas = Disciplina::all();
 
         return view('jogos.jogos', [
             'jogos' => $jogos,
-            'datas' => $datas,
             'disciplinas' => $disciplinas
         ]);
     }
@@ -48,120 +42,98 @@ class JogoController extends Controller {
     }
 
     public function api() {
-        $data = request()->has('id') ? request()->get('id') : 1;
-        $jogo = Jogo::where('id', $data)->first();
-
-        // $jogo = $jogo->toArray();
-
-        // $resposta = [];
-
-        for ($i = 1; $i <= 4; $i++) {
-            $grupoId = $jogo["grupo_{$i}_id"];
-            $palavras = explode(", ", $jogo["grupo_{$i}_palavras"]);
-
-            $nomeDoGrupo = Grupo::find($grupoId)->nome;
-
-            $resposta[] = [
-                'nome' => $jogo['nome'],
-                'jogo_id' => $jogo['id'],
-                'grupo_id' => $grupoId,
-                'grupo' => $nomeDoGrupo,
-                'palavras' => $palavras,
-                'data' => $jogo['data'],
-            ];
-        }
-
-        return response()->json($resposta);
-    }
-
-    public function create() {
-        $jogo = new Jogo();
-
-        // return view('jogo.jogo', [
-        //     'jogo' => $jogo
-        // ]);
-
-    }
-
-    public function edit($id) {
-        $jogo = Jogo::find($id);
-
-        return view('jogos.jogo', [
-            'jogo' => $jogo
-        ]);
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : (int) 1;
+        return Jogo::where('id', $id)->first();
     }
 
     public function store(Request $request) {
 
         $messages = [
-            'nome.required' => 'Você deve preencher o campo com algum nome'
+            'nome.required' => 'Você deve preencher o campo com algum nome',
+            'disciplina_id.required' => 'O jogo deve ter alguma disciplina',
         ];
 
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
+            'disciplina_id' => 'required'
         ], $messages);
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
-
+            $disciplina_id = $request->input('disciplina_id');
             $data = request()->has('dataJogo') ? request()->get('dataJogo') : now()->toDateString();
+            $grupos_ids = $this->gruposDisciplinasRepository->where('disciplina_id', $disciplina_id)->pluck('grupo_id')->toArray();
+            $palavras_ids = $this->palavrasRepository->join('grupos_palavras', 'palavras.id', '=', 'palavra_id')->whereIn('grupo_id', $grupos_ids)->pluck('palavra_id')->toArray();
 
-            $disciplina_id = (int) $request->input('disciplina_id');
+            $palavras_repetidas = array_count_values($palavras_ids);
+            uksort($palavras_repetidas, function () {
+                return rand() > rand();
+            });
 
-            $grupos = Grupo::where('disciplina_id', $disciplina_id)
-                ->whereHas('palavras', function ($query) {
-                    $query->groupBy('grupo_id')
-                        ->havingRaw('COUNT(palavra_id) >= 4');
-                })
-                ->get();
+            $grupos_inseridos_ids = [];
+            $palavras_inseridas_ids = [];
+            $jogo = [];
+            $grupos_ids = [];
+            $grupos_palavras = [];
 
-            $grupos_ids = $grupos->pluck('id')->random(4);
+            foreach ($palavras_repetidas as $id => $palavra_repetida) {
+                $grupos = $this->gruposPalavrasRepository->where('palavra_id', $id)->get()->toArray();
 
-            $palavras_selecionadas = [];
+                shuffle($grupos);
 
-            foreach ($grupos_ids as $grupo_id) {
-                $palavras_grupo = Palavra::whereHas('grupos', function ($query) use ($grupo_id) {
-                    $query->where('grupo_id', $grupo_id);
-                })
-                    ->whereNotIn('id', array_column($palavras_selecionadas, 'id'))
-                    ->inRandomOrder()
-                    ->limit(4)
-                    ->get();
+                foreach ($grupos as $grupo) {
+                    if (in_array($grupo['grupo_id'], $grupos_inseridos_ids)) continue;
+                    $grupos_inseridos_ids[] = $grupo['grupo_id'];
+                    $palavras_do_grupo = $this->gruposPalavrasRepository
+                        ->join('palavras', 'palavra_id', '=', 'palavras.id')
+                        ->where('grupo_id', $grupo['grupo_id'])
+                        ->get(['palavras.id', 'palavras.nome', 'grupo_id'])
+                        ->toArray();
 
-                foreach ($palavras_grupo as $palavra) {
-                    $palavras_selecionadas[] = [
-                        'id' => $palavra->id,
-                        'nome' => $palavra->nome,
-                        'grupo_id' => $grupo_id,
-                        'grupo' => $grupos->find($grupo_id)->nome,
-                    ];
+                    shuffle($palavras_do_grupo);
+
+                    $grupo_palavras = [];
+                    for ($contador = 0; $contador < count($palavras_do_grupo); $contador++) {
+                        if (in_array($palavras_do_grupo[$contador]['id'], $palavras_inseridas_ids))continue;
+
+                        $palavras_inseridas_ids[] = $palavras_do_grupo[$contador]['id'];
+                        $nome_do_grupo = $this->gruposRepository->where('id', $grupo['grupo_id'])->pluck('nome')[0];
+                        $palavras_do_grupo[$contador]['grupos_nome'] = $nome_do_grupo;
+                        $jogo[] = $palavras_do_grupo[$contador];
+                        $grupo_palavras[] = $palavras_do_grupo[$contador]['nome'];
+
+                        if (count($jogo) % 4 == 0) break;
+                    }
+
+                    $grupos_ids[] = $grupo['grupo_id'];
+                    $grupos_palavras[] = $grupo_palavras;
                 }
             }
 
-            $todas_palavras = [];
-
-            foreach ($palavras_selecionadas as $index => $palavra) {
-                array_push($todas_palavras, $palavra['nome']);
-            }
-
-            $grupos_palavras = array_chunk($todas_palavras, 4);
-
-            $grupos_palavras = array_map(function ($item) {
-                return implode(", ", $item);
-            }, $grupos_palavras);
-
+            return [
+                'nome' => $request->input('nome'),
+                'grupo_1_id' => $grupos_ids[0] ?? null,
+                'grupo_2_id' => $grupos_ids[1] ?? null,
+                'grupo_3_id' => $grupos_ids[2] ?? null,
+                'grupo_4_id' => $grupos_ids[3] ?? null,
+                'grupo_1_palavras' => implode(",", $grupos_palavras[0]) ?? [],
+                'grupo_2_palavras' => implode(",", $grupos_palavras[1]) ?? [],
+                'grupo_3_palavras' => implode(",", $grupos_palavras[2]) ?? [],
+                'grupo_4_palavras' => implode(",", $grupos_palavras[3]) ?? [],
+                'data' => $data
+            ];
 
             $jogo = Jogo::create([
                 'nome' => $request->input('nome'),
-                'grupo_1_id' => $grupos_ids[0],
-                'grupo_2_id' => $grupos_ids[1],
-                'grupo_3_id' => $grupos_ids[2],
-                'grupo_4_id' => $grupos_ids[3],
-                'grupo_1_palavras' => $grupos_palavras[0],
-                'grupo_2_palavras' => $grupos_palavras[1],
-                'grupo_3_palavras' => $grupos_palavras[2],
-                'grupo_4_palavras' => $grupos_palavras[3],
-                'data' => $data,
+                'grupo_1_id' => $grupos_ids[0] ?? null,
+                'grupo_2_id' => $grupos_ids[1] ?? null,
+                'grupo_3_id' => $grupos_ids[2] ?? null,
+                'grupo_4_id' => $grupos_ids[3] ?? null,
+                'grupo_1_palavras' => implode(",", $grupos_palavras[0]) ?? [],
+                'grupo_2_palavras' => implode(",", $grupos_palavras[1]) ?? [],
+                'grupo_3_palavras' => implode(",", $grupos_palavras[2]) ?? [],
+                'grupo_4_palavras' => implode(",", $grupos_palavras[3]) ?? [],
+                'data' => $data
             ]);
 
             $jogo->save();
@@ -181,7 +153,7 @@ class JogoController extends Controller {
             $jogo->nome = $request->input('nome');
             $jogo->save();
 
-            return redirect()->route('jogos');
+            return back();
         }
     }
 
@@ -189,6 +161,6 @@ class JogoController extends Controller {
         $jogo = Jogo::find($id);
         $jogo->delete();
 
-        return redirect()->route('diario');
+        return back();
     }
 }

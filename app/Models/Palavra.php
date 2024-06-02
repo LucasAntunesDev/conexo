@@ -13,11 +13,5 @@ class Palavra extends Model
     {
         return $this->belongsToMany(Grupo::class, 'grupos_palavras', 'palavra_id', 'grupo_id');
     }
-
-    // class Palavra extends Model {
-    //     public function grupos() {
-    //         return $this->belongsToMany(Grupo::class, 'grupos_palavras');
-    //     }
-    // }
     
 }

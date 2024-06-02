@@ -13,8 +13,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('grupo_id')->unsigned()->nullable(false); 
             $table->unsignedBigInteger('palavra_id')->unsigned()->nullable(false); 
-            $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('palavra_id')->references('id')->on('palavras')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('grupo_id')->references('id')->on('grupos');
+            $table->foreign('palavra_id')->references('id')->on('palavras');
             $table->timestamps();
         });
     }

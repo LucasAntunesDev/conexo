@@ -26,7 +26,7 @@ input:-webkit-autofill:focus {
   }
 
   .conexo-btn {
-    @apply bg-violet-100 dark:bg-neutral-800 p-6 rounded-xl flex items-center hover:cursor-pointer focus-within:scale-90 transicao uppercase
+    @apply bg-violet-100 dark:bg-neutral-800 p-6 rounded-xl flex items-center hover:cursor-pointer focus-within:scale-90 transicao uppercase h-auto
   }
 
   .border-error {
@@ -62,7 +62,7 @@ input:-webkit-autofill:focus {
   }
 
   .input {
-    @apply rounded-2xl border-none py-3 px-8 outline-none border-0 ring-1 ring-inset ring-violet-300 dark:ring-neutral-600 focus-within:ring-2 focus-within:ring-inset bg-transparent shadow
+    @apply rounded-2xl border-none py-3 px-8 outline-none border-0 ring-1 ring-inset ring-violet-300 dark:ring-neutral-600 focus:ring-2 focus:ring-violet-500 focus:ring-inset bg-transparent shadow
   }
 
   select.input {

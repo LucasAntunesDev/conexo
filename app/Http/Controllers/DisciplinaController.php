@@ -22,26 +22,12 @@ class DisciplinaController extends Controller {
         ]);
     }
 
-    public function create() {
-        $disciplina = new Disciplina();
-        $disciplinas = Disciplina::all();
-        $professores = Professor::all();
-
-        return view('disciplinas.disciplina', [
-            'disciplina' => $disciplina,
-            'disciplinas' => $disciplinas,
-            'professores' => $professores,
-        ]);
-    }
-
     public function edit($id) {
         $disciplina = Disciplina::find($id);
-        // $disciplinas = Disciplina::all();
         $professores = Professor::all();
 
         return view('disciplinas.disciplina', [
             'disciplina' => $disciplina,
-            // 'disciplinas' => $disciplinas,
             'professores' => $professores,
         ]);
     }
@@ -58,14 +44,14 @@ class DisciplinaController extends Controller {
             'professor_id' => 'required'
         ], $messages);
 
-        if ($validator->fails()) return redirect()->route('disciplinanovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $disciplina = new Disciplina();
             $disciplina->nome = $request->input('nome');
             $disciplina->professor_id = $request->input('professor_id');
             $disciplina->save();
 
-            return redirect()->route('disciplinas');
+            return back();
         }
     }
 
@@ -75,7 +61,7 @@ class DisciplinaController extends Controller {
             'professor_id' => 'required'
         ]);
 
-        if ($validator->fails()) return redirect()->route('disciplinanovo')->withErrors($validator)->withInput();
+        if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $disciplina = Disciplina::find($id);
             $disciplina->nome = $request->input('nome');
@@ -83,7 +69,7 @@ class DisciplinaController extends Controller {
             $disciplina->id = $request->input('id');
             $disciplina->save();
 
-            return redirect()->route('disciplinas');
+            return back();
         }
     }
 
@@ -91,6 +77,6 @@ class DisciplinaController extends Controller {
         $disciplina = Disciplina::find($id);
         $disciplina->delete();
 
-        return redirect()->route('disciplinas');
+        return back();
     }
 }

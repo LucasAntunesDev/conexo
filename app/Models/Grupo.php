@@ -15,16 +15,7 @@ class Grupo extends Model
     }
 
     public function disciplina() {
-        return $this->belongsTo(Disciplina::class);
+        return $this->belongsToMany(Disciplina::class, 'grupos_disciplinas', 'grupo_id', 'disciplina_id');
     }
 
 }
-// class Grupo extends Model {
-//     public function disciplina() {
-//         return $this->belongsTo(Disciplina::class);
-//     }
-
-//     public function palavras() {
-//         return $this->belongsToMany(Palavra::class, 'grupos_palavras');
-//     }
-// }

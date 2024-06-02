@@ -37,7 +37,7 @@
             </div>
 
             <div class="w-fit flex items-center gap-x-3">
-                <span class="font-bold" id="dataAtual"></span>
+                <span class="font-bold" id="dataJogo"></span>
                 <span class="capitalize">tentativas: <span class="font-bold" id="numeroTentativas">0</span></span>
                 <span class="capitalize invisible">acertos: <span class="font-bold" id="numeroAcertos">0</span></span>
             </div>
