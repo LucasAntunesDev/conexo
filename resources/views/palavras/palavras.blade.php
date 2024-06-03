@@ -38,7 +38,7 @@
         </button>
 
         <div class="flex flex-col">
-            @include('includes.pesquisar')
+            <x-pesquisar-input></x-pesquisar-input>
         </div>
 
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
@@ -96,12 +96,8 @@
 
                 <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
 
-
-
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
-                        <h3 class=" text-lg font-semibold ">
-                            Adicionar palavra
-                        </h3>
+                        <h3 class=" text-lg font-semibold ">Adicionar palavra</h3>
 
                         <button type="button"
                             class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
@@ -135,53 +131,8 @@
             </div>
         </div>
 
-        <div id="edit-modal{{$palavra->id}}" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 w-full max-w-md max-h-full">
-
-                <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
-
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
-                        <h3 class=" text-lg font-semibold ">
-                            Editar palavra
-                        </h3>
-
-                        <button type="button"
-                            class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
-                            data-modal-toggle="edit-modal{{$palavra->id}}">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <form action="{{ route('palavraupdate', ['id' => $palavra->id]) }}" method="POST"
-                        class="p-4 md:p-5">
-                        <input type="hidden" name="_method" value="PUT">
-                        {{ csrf_field()}}
-                        <div class="flex flex-col gap-y-1">
-                            <label for="nome" class="label capitalize">Nome</label>
-                            <input type="text" id="nome" name="nome" value='{{$palavra->nome}}' class="input">
-                        </div>
-
-                        <button type="submit"
-                            class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
-                            <span>Salvar</span>
-                            <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="animate-spin hidden">
-                                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <div
-            class="inline-flex flex-col items-center bg-violet-100 dark:bg-neutral-800 hover:bg-violet-200 dark:hover:bg-neutral-700 hover:cursor-pointer px-4 py-2 gap-x-4 rounded-2xl lista-item">
+            class="inline-flex flex-col items-center bg-violet-100 dark:bg-neutral-800 px-4 py-2 gap-x-4 rounded-2xl lista-item">
 
             <div class="inline-flex items-center gap-x-4">
                 <a class="text-violet-900 dark:text-violet-300 font-semibold w-fit capitalize lista-titulo">{{
@@ -193,17 +144,8 @@
                     <input type="hidden" name="_method" value="DELETE">
                     {{ csrf_field()}}
                     <div class="flex gap-x-2 items-center">
-                        <a href="{{ route('palavraform', ['id' => $palavra->id]) }}"
-                            class='text-current hover:text-emerald-600 hover:cursor-pointer transition duration-300 ease-in-out'>
-    
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="size-5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-                            </svg>
-                        </a>
-
-                        @include('includes.delete_btn')
+                        <x-edit-button link="{{ route('palavraform', ['id' => $palavra->id]) }}"></x-edit-button>
+                        <x-delete-button></x-delete-button>
                     </div>
                 </form>
             </div>
@@ -212,10 +154,12 @@
             {{-- <form method="POST" action="{{ route('grupopalavradelete', ['id'=> $grupo->id]) }}"> --}}
                 {{-- <input type="hidden" name="_method" value="DELETE"> --}}
                 {{-- {{ csrf_field()}} --}}
-                <a href="{{ route('grupopalavraform', ['id' => $grupo->id]) }}" class='text-current hover:text-emerald-600 hover:cursor-pointer transition duration-300 ease-in-out mb-4 self-start'>
+                <a href="{{ route('grupopalavraform', ['id' => $grupo->id]) }}"
+                    class='text-current hover:text-emerald-600 hover:cursor-pointer transition duration-300 ease-in-out mb-4 self-start'>
                     <span class="rounded-2xl bg-violet-200 p-1 size-fit">{{$grupo->nome}}</span>
                 </a>
-                    {{-- </form> --}}
+                {{--
+            </form> --}}
             @endforeach
 
         </div>

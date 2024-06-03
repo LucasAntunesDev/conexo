@@ -108,7 +108,7 @@
 
                 <div class="flex items-stretch justify-stretch flex-col w-fit gap-y-2 h-fit">
                     @foreach($disciplinas as $disciplina)
-                    <a class="inline-flex w-auto grow transicao hover:bg-violet-300 dark:hover:bg-neutral-500 font-semibold bg-violet-200 dark:bg-neutral-700 rounded-2xl px-4 py-2 mx-auto"
+                    <a class="inline-flex w-auto grow transicao hover:bg-violet-300 dark:hover:bg-neutral-500 bg-violet-200 dark:bg-neutral-700 rounded-2xl px-4 py-2 ml-0"
                         href="{{ route('disciplinaform', ['id' => $disciplina->id]) }}">{{$disciplina->nome}}</a>
                     @endforeach
                 </div>

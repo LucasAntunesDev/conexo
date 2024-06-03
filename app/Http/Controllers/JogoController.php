@@ -41,6 +41,14 @@ class JogoController extends Controller {
         return view('conexo');
     }
 
+    public function edit($id) {
+        $jogo = Jogo::find($id);
+
+        return view('jogos.editar_jogo', [
+            'jogo' => $jogo,
+        ]);
+    }
+
     public function api() {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : (int) 1;
         return Jogo::where('id', $id)->first();
@@ -94,7 +102,7 @@ class JogoController extends Controller {
 
                     $grupo_palavras = [];
                     for ($contador = 0; $contador < count($palavras_do_grupo); $contador++) {
-                        if (in_array($palavras_do_grupo[$contador]['id'], $palavras_inseridas_ids))continue;
+                        if (in_array($palavras_do_grupo[$contador]['id'], $palavras_inseridas_ids)) continue;
 
                         $palavras_inseridas_ids[] = $palavras_do_grupo[$contador]['id'];
                         $nome_do_grupo = $this->gruposRepository->where('id', $grupo['grupo_id'])->pluck('nome')[0];
@@ -153,7 +161,7 @@ class JogoController extends Controller {
             $jogo->nome = $request->input('nome');
             $jogo->save();
 
-            return back();
+            return redirect()->route('jogos');
         }
     }
 

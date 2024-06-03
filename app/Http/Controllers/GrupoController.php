@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Grupo;
 use App\Models\Disciplina;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class GrupoController extends Controller {
@@ -24,11 +25,11 @@ class GrupoController extends Controller {
 
     public function edit($id) {
         $grupo = Grupo::find($id);
-        $disciplinas = Disciplina::all();
-
+        $grupos_disciplinas = DB::table('grupos_disciplinas')->where('disciplina_id', $id)->get();
+        
         return view('grupos.grupo', [
             'grupo' => $grupo,
-            'disciplinas' => $disciplinas,
+            'grupos_disciplinas' => $grupos_disciplinas,
         ]);
     }
 
@@ -36,21 +37,18 @@ class GrupoController extends Controller {
 
         $messages = [
             'nome.required' => 'O campo título deve ser preenchido',
-            'disciplina_id.required' => 'O id da disciplina deve ser preenchido'
         ];
 
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
-            'disciplina_id' => 'required'
         ], $messages);
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $grupo = new Grupo();
             $grupo->nome = $request->input('nome');
-            $grupo->disciplina_id = $request->input('disciplina_id');
+            
             $grupo->save();
-
             return back();
         }
     }
@@ -58,16 +56,14 @@ class GrupoController extends Controller {
     public function update($id, Request $request) {
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
-            'disciplina_id' => 'required'
         ]);
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $grupo = Grupo::find($id);
             $grupo->nome = $request->input('nome');
-            $grupo->disciplina_id = $request->input('disciplina_id');
+            
             $grupo->save();
-
             return back();
         }
     }

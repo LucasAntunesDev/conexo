@@ -15,7 +15,7 @@
         </button>
 
         <div class="flex flex-col">
-            @include('includes.pesquisar')
+            <x-pesquisar-input></x-pesquisar-input>
         </div>
 
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
@@ -108,7 +108,7 @@
 
                     </a>
 
-                    @include('includes.delete_btn')
+                    <x-delete-button></x-delete-button>
                 </div>
             </form>
 

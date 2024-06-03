@@ -58,7 +58,17 @@ Route::middleware('auth')->group(function () {
         Route::delete('{id}', 'App\Http\Controllers\GrupoPalavraController@destroy')->name('grupopalavradelete');
     });
 
+    Route::prefix('gruposdisciplinas')->group(function () {
+        Route::get('/', 'App\Http\Controllers\GrupoDisciplinaController@index')->name('gruposdisciplinas');
+        Route::get('novo', 'App\Http\Controllers\GrupoDisciplinaController@create')->name('grupodisciplinanovo');
+        Route::get('{id}', 'App\Http\Controllers\GrupoDisciplinaController@edit')->name('grupodisciplinaform');
+        Route::post('/', 'App\Http\Controllers\GrupoDisciplinaController@store')->name('grupodisciplinainsert');
+        Route::put('{id}', 'App\Http\Controllers\GrupoDisciplinaController@update')->name('grupodisciplinaupdate');
+        Route::delete('{id}', 'App\Http\Controllers\GrupoDisciplinaController@destroy')->name('grupodisciplinadelete');
+    });
+
     Route::prefix('jogo')->group(function () {
+        Route::get('{id}', 'App\Http\Controllers\JogoController@edit')->name('jogoform');
         Route::post('/', 'App\Http\Controllers\JogoController@store')->name('jogoinsert');
         Route::put('{id}', 'App\Http\Controllers\JogoController@update')->name('jogoupdate');
         Route::delete('{id}', 'App\Http\Controllers\JogoController@destroy')->name('jogodelete');

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Grupo - Conexo')
+@section('title', 'Palavra - Conexo')
 @section('content')
 
 <div class="flex flex-col justify-center items-center gap-2 pt-4 grow">
@@ -40,59 +40,81 @@
     </div>
     @endif
 
-    @if($grupo->id)
-    <form action="{{ route('grupoupdate', ['id' =>$grupo->id]) }}" method="POST">
-        <input type="hidden" name="_method" value="PUT">
-        @else
-        <form action="{{ route('grupoinsert') }}" method="POST">
-            @endif
-            {{ csrf_field()}}
+    <main class="flex justify-stretch items-stretch gap-2 grow px-10 py-4">
 
-            <fieldset class="flex flex-col  p-10 w-[40rem] gap-4">
-                <input type="hidden" name="id" value='{{ $grupo->id }}'>
+        <section
+            class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-100 dark:bg-neutral-800">
 
-                <div class="flex flex-col gap-y-1">
-                    <label for="nome" class="label capitalize">Nome</label>
-                    <input type="text" id="nome" name="nome" value='{{ $grupo->nome }}'
-                        class="input">
+            <h2 class="p-4 text-2xl font-bold tracking-tight text-violet-500">Editar grupo</h2>
+
+            @if($grupo->id)
+            <form action="{{ route('grupoupdate' , ['id' =>$grupo->id]) }}" method="POST" class="w-auto">
+                <input type="hidden" name="_method" value="PUT">
+                @endif
+                {{ csrf_field()}}
+
+                <fieldset class="flex flex-col items-stretch gap-4 p-6 pt-1">
+                    <input type="hidden" name="id" value='{{ $grupo->id }}'>
+
+                    <div class="space-y-2">
+                        <label for="nome" class="label">Grupo</label>
+                        <input type="text" id="nome" name="nome" value='{{ $grupo->nome }}' class="input">
+                    </div>
+
+                </fieldset>
+
+                <div class="flex items-center gap-x-2 justify-center">
+                    <a href="{{ route('grupos') }}"
+                        class="btn-link flex items-center mt-4 justify-center self-baseline">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
+                        <span>Salvar</span>
+                        <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="animate-spin hidden">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        @if($grupo->id)
+        <section
+            class="flex flex-col gap-4 rounded-xl bg-violet-100 dark:bg-neutral-800 p-6 min-h-[95%] h-fit flex-auto">
+            <div class="flex flex-col mx-auto gap-y-4">
+                <div>
+                    <h3 class="text-2xl font-bold tracking-tight text-violet-500">Grupos</h3>
+                    <p>Disciplinas que contém o grupo <strong class="font-bold">{{$grupo->nome}}</strong></p>
                 </div>
 
-                <div class="flex flex-col gap-y-1">
-                    <label for="disciplina_id" class="label capitalize">Disciplina</label>
-                    <select id="disciplina_id" name="disciplina_id"
-                        class="input">
-                        @foreach($disciplinas as $disciplina)
-                        <option value='{{$disciplina->id}}' {{$disciplina->id == $grupo->disciplina_id ? "selected" :
-                            ""}}>{{$disciplina->nome}} </option>
-                        @endforeach
-                    </select>
-                    {{-- <input type="text" id="disciplina_id" name="disciplina_id" value='{{ $grupo->disciplina_id }}'
-                        class="input">
-                    --}}
+                <input type="hidden" name="_method" value="PUT">
+                <div class="flex items-stretch justify-stretch flex-col w-fit gap-y-2 h-fit">
+                    @foreach($grupos_disciplinas as $grupo_disciplina)
+                    <div
+                        class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300 dark:hover:bg-neutral-500 bg-violet-200 dark:bg-neutral-700 rounded-2xl px-4 py-2 ml-0 gap-x-2">
+
+                        <h4>{{ App\Models\Grupo::find($grupo_disciplina->grupo_id)->nome }}</h4>
+
+                        <div class="inline-flex gap-x-2 mr-0">
+                            <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupo_disciplina->id]) }}">
+                            </x-edit-button>
+                            <x-delete-button></x-delete-button>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
-
-            </fieldset>
-
-            <div class="flex items-center gap-x-2 justify-center">
-                <a href="{{ route('grupos') }}"
-                    class="btn-link flex items-center mt-4 justify-center self-baseline">
-                    Cancelar
-                </a>
-
-                <button type="submit"
-                    class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
-                    <span>Salvar</span>
-                    <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="animate-spin hidden">
-                        <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                    </svg>
-                </button>
             </div>
 
-        </form>
-</div>
-@endsection
+        </section>
+        @endif
 
-@section('scripts')
-@vite(['resources/js/app.js'])
+    </main>
+
+</div>
+
+@endsection
+@vite(['resources/js/eventos.js'])
+@vite(['resources/js/script.js'])
