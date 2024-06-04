@@ -2,9 +2,8 @@
 export default {
   darkMode : 'media',
   content: [
-    "./resources/**/*.blade.php",
+    "./resources/views/**/*.blade.php",
     "./resources/**/*.js",
-    "./resources/**/*.vue",
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
