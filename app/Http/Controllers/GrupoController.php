@@ -54,9 +54,14 @@ class GrupoController extends Controller {
     }
 
     public function update($id, Request $request) {
+
+        $messages = [
+            'nome.required' => 'O campo grupo deve ser preenchido',
+        ];
+
         $validator = Validator::make($request->all(), [
             'nome' => 'required',
-        ]);
+        ], $messages);
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {

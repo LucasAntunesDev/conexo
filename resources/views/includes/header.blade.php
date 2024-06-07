@@ -4,7 +4,7 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
 
     <a href="{{ route('inicio')}}" class="inline-flex gap-x-1 items-center">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>
-        <span class="text-xl font-bold">CONEXO</span>
+        <span class="text-xl font-bold uppercase">CONEXO</span>
     </a>
 
     <div class="flex items-center md:justify-between gap-x-4  md:gap-x-0 flex-row-reverse mx-auto">

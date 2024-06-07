@@ -19,7 +19,7 @@
     <div class="w-screen md:h-screen">
 
         <div class="flex flex-row justify-center md:justify-stretch">
-            <div class="flex flex-col items-center gap-4 w-auto md:w-6/12 h-screen justify-center rounded-r-2xl">
+            <section class="flex flex-col items-center gap-4 w-auto md:w-6/12 h-screen justify-center rounded-r-2xl">
                 
                 <fieldset
                     class="w-fit py-10 px-16 bg-violet-300 dark:bg-neutral-800 md:bg-transparent md:dark:bg-transparent rounded-2xl">
@@ -64,12 +64,12 @@
 
                 </form>
 
-            </div>
+            </section>
 
             <section class="hidden md:flex flex-col justify-center items-center gap-2 w-6/12 h-screen mx-auto">
 
                 <div
-                    class="bg-gradient-to-tr from-violet-700 to-violet-500 h-[97%] w-[97%] flex flex-col justify-center items-center rounded-2xl">
+                    class="bg-gradient-to-tr from-violet-700 to-violet-500 h-[97%] w-[97%] flex flex-col justify-center items-center rounded-3xl">
 
                     <img src="{{ Vite::asset('public/login.svg') }}" class="size-[28rem] my-auto">
                 </div>

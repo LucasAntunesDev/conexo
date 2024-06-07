@@ -44,7 +44,7 @@
                     {{ csrf_field()}}
 
                     <fieldset class="flex flex-col items-stretch gap-4 p-6 pt-1">
-                        <div class="space-y-2">
+                        <div class="flex flex-col gap-y-1">
                             <div class="relative z-0">
                                 <label for="nome" class="label">
                                     Nome
@@ -55,7 +55,7 @@
                             </div>
                         </div>
 
-                        <div class="space-y-2">
+                        <div class="flex flex-col gap-y-1">
                             <div class="relative z-0">
                                 <label for="login" class="label">
                                     Login
@@ -66,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div class="space-y-2">
+                        <div class="flex flex-col gap-y-1">
                             <div class="relative z-0">
                                 <label for="senha" class="label">
                                     Senha

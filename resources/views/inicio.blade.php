@@ -12,7 +12,7 @@
 <body class="text-gray-700 dark:text-violet-50 flex flex-col h-screen bg-violet-50 dark:bg-neutral-900">
     @include('includes.header')
 
-    <div class="flex flex-col justify-center items-center w-screen grow">
+    <main class="flex flex-col justify-center items-center w-[99vw] h-[84.5vh] bg-violet-100 py-2 m-auto  rounded-xl">
         
         <div class="text-5xl font-bold inline-flex flex-col gap-2 justify-center items-center mt-10">
             <x-conexo-logo></x-conexo-logo>
@@ -85,7 +85,7 @@
             </div>
             @endif
         </div>
-    </div>
+    </main>
 
 </body>
 

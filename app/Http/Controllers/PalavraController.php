@@ -60,9 +60,14 @@ class PalavraController extends Controller {
     }
 
     public function update($id, Request $request) {
+        
+        $messages = [
+            'nome.required' => 'Você deve preencher o campo com alguma palavra'
+        ];
+        
         $validator = Validator::make($request->all(), [
-            'nome' => 'required',
-        ]);
+            'nome' => 'required|max:255',
+        ], $messages);
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {

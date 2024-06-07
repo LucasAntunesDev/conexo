@@ -8,41 +8,9 @@
         Gerenciar palavra
     </h1>
 
-    @if($errors->any())
-    <div class="flex justify-center items-center">
-        <div>
-            <div
-                class="rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 border-red-500/50 text-red-500 dark:border-red-500 [&>svg]:text-red-500 w-full">
-                <ul>
-                    <div class="inline-flex gap-x-2 items-center font-semibold">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
-                        </svg>
+    <section class="flex justify-stretch items-stretch gap-2 grow px-10 py-4">
 
-                        Erro
-                    </div>
-                    <ul>
-                        @foreach($errors->all() as $error)
-                        <li class="inline-flex items-center gap-x-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                class="w-4 h-4">
-                                <path
-                                    d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
-                            </svg>
-                            {{ $error }}
-                        </li>
-                        @endforeach
-                    </ul>
-            </div>
-        </div>
-    </div>
-    @endif
-
-    <main class="flex justify-stretch items-stretch gap-2 grow px-10 py-4">
-
-        <section
+        <main
             class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-100 dark:bg-neutral-800">
 
             <h2 class="p-4 text-2xl font-bold tracking-tight text-violet-500">Editar palavra</h2>
@@ -56,9 +24,14 @@
                 <fieldset class="flex flex-col items-stretch gap-4 p-6 pt-1">
                     <input type="hidden" name="id" value='{{ $palavra->id }}'>
 
-                    <div class="space-y-2">
+                    <div class="flex flex-col gap-y-1">
                         <label for="nome" class="label">Palavra</label>
                         <input type="text" id="nome" name="nome" value='{{ $palavra->nome }}' class="input">
+                        @if ($errors->has('nome'))
+                            <x-error-message>
+                                {{ $errors->first('nome') }}
+                            </x-error-message>
+                        @endif
                     </div>
 
                 </fieldset>
@@ -79,10 +52,10 @@
                     </button>
                 </div>
             </form>
-        </section>
+        </main>
 
         @if($palavra->id)
-        <section
+        <aside
             class="flex flex-col gap-4 rounded-xl bg-violet-100 dark:bg-neutral-800 p-6 min-h-[95%] h-fit flex-auto">
             <div class="flex flex-col mx-auto gap-y-4">
                 <div>
@@ -108,10 +81,10 @@
                 </div>
             </div>
 
-        </section>
+        </aside>
         @endif
 
-    </main>
+    </section>
 
 </div>
 

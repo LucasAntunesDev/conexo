@@ -33,11 +33,14 @@ class GrupoPalavraController extends Controller {
 
     public function edit($id) {
         $grupo_palavra = GrupoPalavra::find($id);
+        // $disciplina = Grupo::find($grupo_disciplina->grupo_id)->nome;
         $grupos = Grupo::all();
+        $grupo = new Grupo();
         
         return view('grupos_palavras.grupo_palavra', [
             'grupo_palavra' => $grupo_palavra,
             'grupos' => $grupos,
+            'grupo' => $grupo,
         ]);
     }
 
@@ -66,10 +69,15 @@ class GrupoPalavraController extends Controller {
     }
 
     public function update($id, Request $request) {
+        $messages = [
+            'nome.required' => 'Você deve preencher o campo com alguma palavra',
+            'grupo_id.required' => 'Você deve preencher o campo com algum grupo'
+        ];
+
         $validator = Validator::make($request->all(), [
-            'palavra_id' => 'required',
+            'nome' => 'required',
             'grupo_id' => 'required'
-        ]);
+        ], $messages);
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
@@ -78,7 +86,7 @@ class GrupoPalavraController extends Controller {
             $grupo_palavra->grupo_id = $request->input('grupo_id');
             $grupo_palavra->save();
 
-            return redirect()->route('palavraform', ['id' =>  $grupo_palavra->palavra_id]);
+            return redirect()->back();
         }
     }
 
