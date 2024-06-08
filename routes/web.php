@@ -11,8 +11,8 @@ use App\Http\Controllers\PalavraController;
 use App\Http\Controllers\ProfessorController;
 
 Route::get('/', function () {
-    return view('inicio');
-})->name('inicio');
+    return view('index');
+})->name('index');
 
 
 Route::get('/jogo', [JogoController::class, 'jogo'])->name('jogo');
@@ -20,9 +20,9 @@ Route::prefix('jogos')->group(function () {
     Route::get('/', [JogoController::class, 'index'])->name('jogos');
 });
 
-Route::get('login', [AuthController::class ,'login'])->name('login');
-Route::post('login', [AuthController::class ,'fazerLogin'])->name('fazerLogin');
-Route::get('/logout', [AuthController::class ,'logout'])->name('logout');
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'fazerLogin'])->name('fazerLogin');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
 

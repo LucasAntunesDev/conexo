@@ -12,18 +12,17 @@
 <body class="text-gray-700 dark:text-violet-50 flex flex-col h-screen bg-violet-50 dark:bg-neutral-900">
     @include('includes.header')
 
-    <main class="flex flex-col justify-center items-center w-[99vw] h-[84.5vh] bg-violet-100 py-2 m-auto  rounded-xl">
-        
+    <main class="flex flex-col justify-center items-center w-screen grow">
+
         <div class="text-5xl font-bold inline-flex flex-col gap-2 justify-center items-center mt-10">
             <x-conexo-logo></x-conexo-logo>
-            <h1>CONEXO</h1>
+            <h1 class="uppercase">CONEXO</h1>
         </div>
 
-        <p class="font-semibold my-4 w-64 text-center mx-auto">
-            Forme 4 grupos de 4 palavras que tenham algo em comum
-        </p>
+        <p class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em comum</p>
 
-        <div class="p-4 flex gap-2">
+        <section class="p-4 flex gap-2">
+            
             <div class="inline-flex items-center p-4 btn-primary">
                 <a href="{{ route('jogos') }}" class="inline-flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -38,9 +37,9 @@
                     Jogos
                 </a>
             </div>
-            
+
             @auth('web')
-            <div class="inline-flex items-center p-4 btn-primary">
+            <div class="inline-flex items-center p-4 btn-ghost text-violet-500">
                 <a href="{{ route('disciplinas') }}" class="inline-flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -54,7 +53,7 @@
                 </a>
             </div>
 
-            <div class="inline-flex items-center p-4 btn-primary">
+            <div class="inline-flex items-center p-4 btn-ghost text-violet-500">
                 <a href="{{ route('grupos') }}" class="inline-flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -70,7 +69,7 @@
                 </a>
             </div>
 
-            <div class="inline-flex items-center p-4 btn-primary">
+            <div class="inline-flex items-center p-4 btn-ghost text-violet-500">
                 <a href="{{ route('palavras') }}" class="inline-flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -84,7 +83,7 @@
                 </a>
             </div>
             @endif
-        </div>
+        </section>
     </main>
 
 </body>
