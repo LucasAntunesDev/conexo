@@ -2,7 +2,7 @@
 <header class="flex flex-row justify-between items-center px-12 gap-x-4 
 h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
 
-    <a href="{{ route('inicio')}}" class="inline-flex gap-x-1 items-center">
+    <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>
         <span class="text-xl font-bold uppercase">CONEXO</span>
     </a>
@@ -14,17 +14,17 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
             <nav class="mr-10">
                 <ul class="inline-flex gap-x-8 items-center justify-center" role="list">
                     @php
-                        {{$modulos = ['jogos', 'disciplinas', 'grupos', 'palavras'];}}
+                    {{$modulos = ['jogos', 'disciplinas', 'grupos', 'palavras'];}}
                     @endphp
 
                     @foreach ($modulos as $modulo)
 
-                        <li class="hover:transicao {{(str_contains(url()->current(), strtolower($modulo))) ? 'bg-violet-200 dark:bg-neutral-700 rounded-xl py-2 px-5' : 'hover:text-violet-600 dark:hover:text-violet-400' }}">
-                            <a href="{{ route($modulo) }}"
-                                class=" transicao capitalize">
-                                {{$modulo}}
-                            </a>
-                        </li>
+                    <li
+                        class="hover:transicao {{(str_contains(url()->current(), strtolower($modulo))) ? 'bg-violet-200 dark:bg-neutral-700 rounded-xl py-2 px-5' : 'hover:text-violet-600 dark:hover:text-violet-400' }}">
+                        <a href="{{ route($modulo) }}" class=" transicao capitalize">
+                            {{$modulo}}
+                        </a>
+                    </li>
 
                     @endforeach
 
@@ -85,7 +85,7 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
 <header class="flex flex-row justify-between items-center px-12 gap-x-4 
 h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
 
-    <a href="{{ route('inicio')}}" class="inline-flex gap-x-1 items-center">
+    <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>
         <span class="text-xl font-bold">CONEXO</span>
     </a>

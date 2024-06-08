@@ -80,14 +80,9 @@
                     </fieldset>
 
                     <div class="flex items-center gap-x-2 justify-center">
-                        <a href="{{ route('inicio') }}"
-                            class="btn-link flex items-center mt-4 justify-center self-baseline">
-                            Cancelar
-                        </a>
-
                         <button type="submit"
                             class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
-                            <span>Salvar</span>
+                            <span>Atualizar</span>
                             <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="animate-spin hidden">

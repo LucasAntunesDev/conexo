@@ -8,7 +8,7 @@
 
         <div class="flex flex-col my-4 items-center w-6/12 mx-auto justify-between px-3">
             <div class="w-fit flex items-center gap-x-3">
-                <a href="{{ route('inicio')}}"
+                <a href="{{ route('index')}}"
                     class="inline-block hover:bg-violet-200 dark:hover:bg-neutral-800 rounded-full p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                         <path fill-rule="evenodd"

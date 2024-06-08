@@ -5,7 +5,7 @@
 <div class="flex flex-col">
     <div class="flex my-4 items-center w-6/12 mx-auto justify-between px-3">
         <div class="w-fit flex items-center gap-x-3">
-            <a href="{{ route('inicio')}}" class="inline-block hover:bg-violet-200 rounded-full p-1">
+            <a href="{{ route('index')}}" class="inline-block hover:bg-violet-200 rounded-full p-1">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                     <path fill-rule="evenodd"
                         d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"
