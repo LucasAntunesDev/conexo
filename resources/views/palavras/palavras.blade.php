@@ -150,17 +150,18 @@
                 </form>
             </div>
 
-            @foreach ($palavra->grupos as $grupo)
-            {{-- <form method="POST" action="{{ route('grupopalavradelete', ['id'=> $grupo->id]) }}"> --}}
-                {{-- <input type="hidden" name="_method" value="DELETE"> --}}
-                {{-- {{ csrf_field()}} --}}
-                <a href="{{ route('grupopalavraform', ['id' => $grupo->id]) }}"
-                    class='text-current hover:text-emerald-600 hover:cursor-pointer transition duration-300 ease-in-out mb-4 self-start'>
-                    <span class="rounded-2xl bg-violet-200 p-1 size-fit">{{$grupo->nome}}</span>
-                </a>
-                {{--
-            </form> --}}
-            @endforeach
+            <details class="hover:cursor-pointer inline-flex gap-2">
+                <summary class="text-violet-500 transicao">Grupos</summary>
+               
+                <div class="inline-flex flex-col gap-2">
+                    @foreach ($palavra->grupos as $grupo)
+                    <a href="{{ route('grupopalavraform', ['id' => $grupo->id]) }}">
+                        <span class="rounded-2xl bg-violet-200 hover:bg-violet-400/60 p-1 size-fit transicao">{{$grupo->nome}}</span>
+                    </a>
+                    @endforeach
+                </div>
+
+            </details>
 
         </div>
 
