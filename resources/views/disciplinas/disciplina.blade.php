@@ -12,7 +12,7 @@
     <div class="flex justify-center items-center">
         <div>
             <div
-                class="rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 border-red-500/50 text-red-500 dark:border-red-500 [&>svg]:text-red-500 w-full">
+                class="rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 border-red-500/50 text-red-500  [&>svg]:text-red-500 w-full">
                 <ul>
                     <div class="inline-flex gap-x-2 items-center font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -24,16 +24,17 @@
                         Erro
                     </div>
                     <ul>
-                    @foreach($errors->all() as $error)
-                    <li class="inline-flex items-center gap-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
-                            <path
-                                d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
-                        </svg>
-                        {{ $error }}
-                    </li>
-                    @endforeach
-                </ul>
+                        @foreach($errors->all() as $error)
+                        <li class="inline-flex items-center gap-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                class="w-4 h-4">
+                                <path
+                                    d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
+                            </svg>
+                            {{ $error }}
+                        </li>
+                        @endforeach
+                    </ul>
             </div>
         </div>
     </div>
@@ -52,15 +53,13 @@
 
                 <div class="flex flex-col gap-y-1">
                     <label for="nome" class="label capitalize">Nome</label>
-                    <input type="text" id="nome" name="nome" value='{{ $disciplina->nome }}'
-                        class="input">
+                    <input type="text" id="nome" name="nome" value='{{ $disciplina->nome }}' class="input">
                 </div>
 
                 <div class="flex flex-col gap-y-1">
 
                     <label for="professor_id" class="label capitalize">Professor</label>
-                    <select id="professor_id" name="professor_id"
-                        class="input">
+                    <select id="professor_id" name="professor_id" class="input">
                         @foreach($professores as $professor)
                         <option value='{{$professor->id}}' {{$professor->id == $disciplina->professor_id ? "selected" :
                             ""}}>{{$professor->nome}} </option>
@@ -76,8 +75,7 @@
                     Cancelar
                 </a>
 
-                <button type="submit"
-                    class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
+                <button type="submit" class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                     <span>Salvar</span>
                     <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

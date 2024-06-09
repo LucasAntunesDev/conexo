@@ -11,9 +11,9 @@ class ErrorMessage extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
-    {
-        //
+    public $class;
+    public function __construct($class = '') {
+        $this->class = $class;
     }
 
     /**

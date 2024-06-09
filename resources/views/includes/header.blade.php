@@ -1,6 +1,6 @@
 @auth('web')
 <header class="flex flex-row justify-between items-center px-12 gap-x-4 
-h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
+h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4 shadow">
 
     <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>
@@ -20,7 +20,7 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
                     @foreach ($modulos as $modulo)
 
                     <li
-                        class="hover:transicao {{(str_contains(url()->current(), strtolower($modulo))) ? 'bg-violet-200 dark:bg-neutral-700 rounded-xl py-2 px-5' : 'hover:text-violet-600 dark:hover:text-violet-400' }}">
+                        class="hover:transicao {{(str_contains(url()->current(), strtolower($modulo))) ? 'bg-violet-200 rounded-xl py-2 px-5' : 'hover:text-violet-600 ' }}">
                         <a href="{{ route($modulo) }}" class=" transicao capitalize">
                             {{$modulo}}
                         </a>
@@ -45,11 +45,11 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
 
         </button>
 
-        <div class='z-50 hidden my-1 text-base list-none shadow w-64 bg-violet-100/60 dark:bg-neutral-800/60 backdrop-blur absolute right-10 bottom-14 rounded-xl p-4 gap-4 appear'
+        <div class='z-50 hidden my-1 text-base list-none shadow w-64 bg-violet-100/60 backdrop-blur absolute right-10 bottom-14 rounded-xl p-4 gap-4 appear'
             id='user-dropdown'>
 
             <ul class="flex flex-col gap-y-4">
-                <li class="bg-violet-200 dark:bg-neutral-700 rounded-xl *:transition *:duration-300 *:ease-in-out">
+                <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
                     <a href="{{ route('professorform', ['id' => auth()->user()->id]) }}"
                         class="inline-flex hover:text-violet-500 py-3 px-6 gap-x-4 capitalize">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -60,7 +60,7 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
                         {{auth()->user()->nome}}
                     </a>
                 </li>
-                <li class="bg-violet-200 dark:bg-neutral-700 rounded-xl *:transition *:duration-300 *:ease-in-out">
+                <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
                     <a href="{{route('logout')}}" class="inline-flex hover:text-red-500 py-3 px-6 w-max gap-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -83,7 +83,7 @@ h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 ro
 </header>
 @else
 <header class="flex flex-row justify-between items-center px-12 gap-x-4 
-h-16 bg-violet-100 dark:bg-neutral-800 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
+h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4 shadow">
 
     <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>

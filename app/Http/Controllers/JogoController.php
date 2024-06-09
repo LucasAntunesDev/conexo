@@ -51,7 +51,34 @@ class JogoController extends Controller {
 
     public function api() {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : (int) 1;
-        return Jogo::where('id', $id)->first();
+        $jogo = Jogo::where('id', $id)->first();
+
+        for ($i = 1; $i <= 4; $i++) {
+            $grupo_id = $jogo["grupo_{$i}_id"];
+            $grupo_nome = Grupo::find($grupo_id)->nome;
+
+            $grupos_nomes[] = [
+                'grupo' => $grupo_nome,
+            ];
+        }
+        
+        return [
+            'id' => $jogo->id,
+            'nome' => $jogo->nome,
+            'grupo_1_id' => $jogo->grupo_1_id,
+            'grupo_2_id' => $jogo->grupo_2_id,
+            'grupo_3_id' => $jogo->grupo_3_id,
+            'grupo_4_id' => $jogo->grupo_4_id,
+            'grupo_1_nome' => $grupos_nomes[0]['grupo'],
+            'grupo_2_nome' => $grupos_nomes[1]['grupo'],
+            'grupo_3_nome' => $grupos_nomes[2]['grupo'],
+            'grupo_4_nome' => $grupos_nomes[3]['grupo'],
+            'grupo_1_palavras' => $jogo->grupo_1_palavras,
+            'grupo_2_palavras' => $jogo->grupo_2_palavras,
+            'grupo_3_palavras' => $jogo->grupo_3_palavras,
+            'grupo_4_palavras' => $jogo->grupo_4_palavras,
+            'data' => $jogo->data,
+        ];
     }
 
     public function store(Request $request) {
@@ -115,21 +142,26 @@ class JogoController extends Controller {
 
                     $grupos_ids[] = $grupo['grupo_id'];
                     $grupos_palavras[] = $grupo_palavras;
+                    $grupos_nomes[] = $nome_do_grupo;
                 }
             }
 
-            return [
-                'nome' => $request->input('nome'),
-                'grupo_1_id' => $grupos_ids[0] ?? null,
-                'grupo_2_id' => $grupos_ids[1] ?? null,
-                'grupo_3_id' => $grupos_ids[2] ?? null,
-                'grupo_4_id' => $grupos_ids[3] ?? null,
-                'grupo_1_palavras' => implode(",", $grupos_palavras[0]) ?? [],
-                'grupo_2_palavras' => implode(",", $grupos_palavras[1]) ?? [],
-                'grupo_3_palavras' => implode(",", $grupos_palavras[2]) ?? [],
-                'grupo_4_palavras' => implode(",", $grupos_palavras[3]) ?? [],
-                'data' => $data
-            ];
+            // return [
+            //     'nome' => $request->input('nome'),
+            //     'grupo_1_id' => $grupos_ids[0] ?? null,
+            //     'grupo_2_id' => $grupos_ids[1] ?? null,
+            //     'grupo_3_id' => $grupos_ids[2] ?? null,
+            //     'grupo_4_id' => $grupos_ids[3] ?? null,
+            //     'grupo_1_nome' => $grupos_nomes[0] ?? null,
+            //     'grupo_2_nome' => $grupos_nomes[1] ?? null,
+            //     'grupo_3_nome' => $grupos_nomes[2] ?? null,
+            //     'grupo_4_nome' => $grupos_nomes[3] ?? null,
+            //     'grupo_1_palavras' => implode(",", $grupos_palavras[0]) ?? [],
+            //     'grupo_2_palavras' => implode(",", $grupos_palavras[1]) ?? [],
+            //     'grupo_3_palavras' => implode(",", $grupos_palavras[2]) ?? [],
+            //     'grupo_4_palavras' => implode(",", $grupos_palavras[3]) ?? [],
+            //     'data' => $data
+            // ];
 
             $jogo = Jogo::create([
                 'nome' => $request->input('nome'),
@@ -137,6 +169,10 @@ class JogoController extends Controller {
                 'grupo_2_id' => $grupos_ids[1] ?? null,
                 'grupo_3_id' => $grupos_ids[2] ?? null,
                 'grupo_4_id' => $grupos_ids[3] ?? null,
+                'grupo_1_nome' => $grupos_nomes[0] ?? null,
+                'grupo_2_nome' => $grupos_nomes[1] ?? null,
+                'grupo_3_nome' => $grupos_nomes[2] ?? null,
+                'grupo_4_nome' => $grupos_nomes[3] ?? null,
                 'grupo_1_palavras' => implode(",", $grupos_palavras[0]) ?? [],
                 'grupo_2_palavras' => implode(",", $grupos_palavras[1]) ?? [],
                 'grupo_3_palavras' => implode(",", $grupos_palavras[2]) ?? [],

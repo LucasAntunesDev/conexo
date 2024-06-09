@@ -22,14 +22,14 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full appear">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
+                <div class="relative bg-violet-100 rounded-2xl shadow">
 
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
                         <h3 class=" text-lg font-semibold">
                             Adicionar grupo
                         </h3>
                         <button type="button"
-                            class="text-violet-400 bg-transparent hover:bg-violet-100 dark:bg-neutral-800 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                            class="text-violet-400 bg-transparent hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                             data-modal-toggle="crud-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
@@ -76,19 +76,19 @@
 
         @foreach($grupos as $grupo)
 
-        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto lista-item">
+        <div class="bg-violet-100 w-fit p-6 rounded-xl h-auto lista-item">
             {{-- <div class="inline-flex flex-col gap-3 lista-item"> --}}
-                <a class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{
+                <a class="flex text-violet-900  font-semibold w-56 text-lg lista-titulo">{{
                     $grupo->nome }}</a>
-                    {{-- @foreach ($grupo->disciplinas as $disciplina)
-                    <a class='text-current hover:text-emerald-600 hover:cursor-pointer 
+                {{-- @foreach ($grupo->disciplinas as $disciplina)
+                <a class='text-current hover:text-emerald-600 hover:cursor-pointer 
                     transition duration-300 ease-in-out mb-4 self-start'>
                     <span class="rounded-2xl bg-violet-200 p-1 size-fit">{{$disciplina->nome}}</span>
-                    </a>
-                    @endforeach --}}
-                {{-- <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm"> --}}
+                </a>
+                @endforeach --}}
+                {{-- <span class="text-gray-500 font-medium text-sm"> --}}
                     {{-- {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome}} --}}
-                {{-- </span> --}}
+                    {{-- </span> --}}
                 {{--
             </div> --}}
 

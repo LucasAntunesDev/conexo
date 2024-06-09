@@ -45,7 +45,7 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full appear">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
+                <div class="relative bg-violet-100 rounded-2xl shadow">
 
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
                         <h3 class=" text-lg font-semibold ">
@@ -53,7 +53,7 @@
                         </h3>
 
                         <button type="button"
-                            class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                            class="text-violet-400 bg-transparent hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
                             data-modal-toggle="crud-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
@@ -94,13 +94,13 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full appear">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
+                <div class="relative bg-violet-100 rounded-2xl shadow">
 
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
                         <h3 class=" text-lg font-semibold ">Adicionar palavra</h3>
 
                         <button type="button"
-                            class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                            class="text-violet-400 bg-transparent hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
                             data-modal-toggle="crud-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
@@ -131,11 +131,10 @@
             </div>
         </div>
 
-        <div
-            class="inline-flex flex-col items-center bg-violet-100 dark:bg-neutral-800 px-4 py-2 gap-x-4 rounded-2xl lista-item">
+        <div class="inline-flex flex-col items-center bg-violet-100 px-4 py-2 gap-x-4 rounded-2xl lista-item">
 
             <div class="inline-flex items-center gap-x-4">
-                <a class="text-violet-900 dark:text-violet-300 font-semibold w-fit capitalize lista-titulo">{{
+                <a class="text-violet-900  font-semibold w-fit capitalize lista-titulo">{{
                     $palavra->nome
                     }}</a>
 
@@ -152,11 +151,12 @@
 
             <details class="hover:cursor-pointer inline-flex gap-2">
                 <summary class="text-violet-500 transicao">Grupos</summary>
-               
+
                 <div class="inline-flex flex-col gap-2">
                     @foreach ($palavra->grupos as $grupo)
                     <a href="{{ route('grupopalavraform', ['id' => $grupo->id]) }}">
-                        <span class="rounded-2xl bg-violet-200 hover:bg-violet-400/60 p-1 size-fit transicao">{{$grupo->nome}}</span>
+                        <span
+                            class="rounded-2xl bg-violet-200 hover:bg-violet-400/60 p-1 size-fit transicao">{{$grupo->nome}}</span>
                     </a>
                     @endforeach
                 </div>

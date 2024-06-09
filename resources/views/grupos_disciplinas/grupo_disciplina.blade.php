@@ -50,7 +50,7 @@
                         {{App\Models\Disciplina::find($grupo_disciplina->disciplina_id)->nome }}
                     </div>
                     @else
-                    <select id="disciplina_id" name="disciplina_id" class="text-gray-700 dark:text-violet-50 input">
+                    <select id="disciplina_id" name="disciplina_id" class="text-gray-700 input">
                         @foreach($disciplinas as $disciplina)
                         <option value='{{$disciplina->id}}' {{$disciplina->id == $_GET['id'] ? "selected"
                             :""}}>{{$disciplina->nome}} </option>
@@ -61,7 +61,7 @@
 
                 <div class="flex flex-col gap-y-1">
                     <label for="grupo_id" class="label capitalize">grupo</label>
-                    <select id="grupo_id" name="grupo_id" class="text-gray-700 dark:text-violet-50 input">
+                    <select id="grupo_id" name="grupo_id" class="text-gray-700 input">
                         @foreach($grupos as $grupo)
                         <option value='{{$grupo->id}}' {{$grupo->id == $grupo_disciplina->grupo_id ? "selected" :
                             ""}}>{{$grupo->nome}} </option>

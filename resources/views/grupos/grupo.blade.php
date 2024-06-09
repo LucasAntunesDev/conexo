@@ -8,7 +8,7 @@
 
     <section class="flex justify-stretch items-stretch gap-2 grow px-10 py-4">
 
-        <main class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-100 dark:bg-neutral-800">
+        <main class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-100 ">
 
             <h2 class="p-4 text-2xl font-bold tracking-tight text-violet-500">Editar grupo</h2>
 
@@ -48,7 +48,7 @@
         </main>
 
         @if($grupo->id)
-        <aside class="flex flex-col gap-4 rounded-xl bg-violet-100 dark:bg-neutral-800 p-6 min-h-[95%] h-fit flex-auto">
+        <aside class="flex flex-col gap-4 rounded-xl bg-violet-100 p-6 min-h-[95%] h-fit flex-auto">
             <div class="flex flex-col mx-auto gap-y-4">
                 <div>
                     <h3 class="text-2xl font-bold tracking-tight text-violet-500">Disciplinas</h3>
@@ -59,7 +59,7 @@
                 <div class="flex items-stretch justify-stretch flex-col w-fit gap-y-2 h-fit">
                     @foreach($grupos_disciplinas as $grupo_disciplina)
                     <div
-                        class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300 dark:hover:bg-neutral-500 bg-violet-200 dark:bg-neutral-700 rounded-2xl px-4 py-2 ml-0 gap-x-2">
+                        class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300  bg-violet-200 rounded-2xl px-4 py-2 ml-0 gap-x-2">
 
                         {{-- <h4>{{ $grupo->disciplina($grupo_disciplina) }}</h4> --}}
                         <h4>{{ App\Models\Grupo::find($grupo_disciplina->grupo_id)->nome }}</h4>

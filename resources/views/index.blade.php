@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="./favicon.ico">
 </head>
 
-<body class="text-gray-700 dark:text-violet-50 flex flex-col h-screen bg-violet-50 dark:bg-neutral-900">
+<body class="text-gray-700 flex flex-col h-screen bg-violet-50">
     @include('includes.header')
 
     <main class="flex flex-col justify-center items-center w-screen grow">
@@ -22,7 +22,7 @@
         <p class="font-semibold my-4 w-64 text-center mx-auto">Forme 4 grupos de 4 palavras que tenham algo em comum</p>
 
         <section class="p-4 flex gap-2">
-            
+
             <div class="inline-flex items-center p-4 btn-primary">
                 <a href="{{ route('jogos') }}" class="inline-flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

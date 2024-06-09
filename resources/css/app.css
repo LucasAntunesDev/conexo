@@ -2,31 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #171717;
-  -webkit-box-shadow: 0 0 0px 40rem #ede9fe inset;
-}
-
-@media (prefers-color-scheme: dark) {
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus {
-    -webkit-text-fill-color: #f5f3ff;
-    -webkit-box-shadow: 0 0 0px 40rem #171717 inset;
-  }
-}
-
 @layer components {
   .conexo-btn.bg-violet-500 {
     @apply text-violet-50;
   }
 
   .conexo-btn {
-    @apply bg-violet-100 dark:bg-neutral-800 p-6 rounded-xl flex items-center hover:cursor-pointer focus-within:scale-90 transicao uppercase h-auto
+    @apply bg-violet-100 p-6 rounded-xl flex items-center hover:cursor-pointer focus-within:scale-90 transicao uppercase h-auto
   }
 
   .border-error {
@@ -46,8 +28,13 @@ input:-webkit-autofill:focus {
   }
 
   .btn-secundary {
-    @apply bg-violet-200/60 enabled:hover:bg-violet-200 text-violet-700 dark:text-violet-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed transicao dark:bg-neutral-800 dark:enabled:hover:bg-neutral-700
+    @apply bg-violet-200/60 enabled:hover:bg-violet-200 text-violet-700 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed transicao
   }
+
+  .btn-tertiary {
+    @apply bg-violet-50 hover:bg-violet-100 disabled:bg-violet-50/50 text-violet-500 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-violet-50/50 transicao
+  }
+
 
   .btn-danger {
     @apply bg-red-500 hover:bg-red-700 disabled:bg-red-500/50 text-zinc-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-red-500/50 transicao
@@ -62,22 +49,19 @@ input:-webkit-autofill:focus {
   }
 
   .input {
-    @apply rounded-2xl border-none py-3 px-8 outline-none border-0 ring-1 ring-inset ring-violet-300 dark:ring-neutral-600 focus:ring-2 focus:ring-violet-500 focus:ring-inset bg-transparent shadow
+    @apply rounded-2xl border-none py-3 px-8 outline-none border-0 ring-1 ring-inset ring-violet-300 focus:ring-2 focus:ring-violet-500 focus:ring-inset bg-transparent shadow
   }
 
-  .input.border {
-    @apply rounded-2xl border-2 border-violet-400 py-3 px-8 outline-none border-0 ring-1 ring-inset ring-violet-300 dark:ring-neutral-600 focus:ring-2 focus:ring-violet-500 focus:ring-inset bg-transparent shadow
-  }
 
   select.input {
-    @apply bg-violet-100 dark:bg-neutral-900;
+    @apply bg-violet-100;
   }
 
   .label {
-    @apply block text-sm font-semibold capitalize leading-6 text-violet-500 dark:text-violet-50
+    @apply block text-sm font-semibold capitalize leading-6 text-violet-500
   }
 
-  .appear{
+  .appear {
     animation-name: appear;
     animation-duration: 300ms;
   }

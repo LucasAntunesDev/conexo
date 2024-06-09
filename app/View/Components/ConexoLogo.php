@@ -8,7 +8,7 @@ use Illuminate\View\Component;
 
 class ConexoLogo extends Component {
     public $class;
-    public function __construct($class = '') {
+    public function __construct($class = 'inline-flex gap-x-1 max-w-48 text-red-700 text-sm mt-1') {
         $this->class = $class;
     }
 

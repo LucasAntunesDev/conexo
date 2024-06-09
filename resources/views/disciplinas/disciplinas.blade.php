@@ -22,14 +22,14 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full appear">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-violet-100 dark:bg-neutral-900 rounded-2xl shadow">
+                <div class="relative bg-violet-100 rounded-2xl shadow">
 
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
                         <h3 class=" text-lg font-semibold ">
                             Adicionar disciplina
                         </h3>
                         <button type="button"
-                            class="text-violet-400 bg-transparent hover:bg-violet-100 hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                            class="text-violet-400 bg-transparent hover:text-violet-700 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
                             data-modal-toggle="crud-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
@@ -80,14 +80,14 @@
 
         @foreach($disciplinas as $disciplina)
 
-        <div class="bg-violet-100 dark:bg-neutral-800 w-fit p-6 rounded-xl h-auto lista-item">
+        <div class="bg-violet-100 w-fit p-6 rounded-xl h-auto lista-item">
 
             <div class="flex flex-col gap-3">
                 <a href="{{ route('disciplinaform', ['id' => $disciplina->id]) }}"
-                    class="flex text-violet-900 dark:text-violet-300 font-semibold w-56 text-lg lista-titulo">{{
+                    class="flex text-violet-900  font-semibold w-56 text-lg lista-titulo">{{
                     $disciplina->nome
                     }}</a>
-                <span class="text-gray-500 dark:text-neutral-300 font-medium text-sm">
+                <span class="text-gray-500 font-medium text-sm">
                     {{App\Models\Professor::find($disciplina->professor_id)->nome}}
                 </span>
             </div>
@@ -117,7 +117,7 @@
         @endforeach
 
     </div>
-    
+
     {{ $disciplinas->links('includes.pagination') }}
 </div>
 

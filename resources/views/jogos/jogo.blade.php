@@ -12,7 +12,7 @@
     <div class="flex justify-center items-center">
         <div>
             <div
-                class="rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 border-red-500/50 text-red-500 dark:border-red-500 [&>svg]:text-red-500 w-full">
+                class="rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 border-red-500/50 text-red-500  [&>svg]:text-red-500 w-full">
                 <ul>
                     <div class="inline-flex gap-x-2 items-center font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -53,20 +53,17 @@
 
                 <div class="flex flex-col gap-y-1">
                     <label for="nome" class="label capitalize">Nome</label>
-                    <input type="text" id="nome" name="nome" value='{{ $jogo->nome }}'
-                        class="input">
+                    <input type="text" id="nome" name="nome" value='{{ $jogo->nome }}' class="input">
                 </div>
 
             </fieldset>
 
             <div class="flex items-center gap-x-2 justify-center">
-                <a href="{{ route('jogos') }}"
-                    class="btn-link flex items-center mt-4 justify-center self-baseline">
+                <a href="{{ route('jogos') }}" class="btn-link flex items-center mt-4 justify-center self-baseline">
                     Cancelar
                 </a>
 
-                <button type="submit"
-                    class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
+                <button type="submit" class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                     <span>Salvar</span>
                     <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

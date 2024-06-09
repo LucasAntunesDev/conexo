@@ -1,211 +1,228 @@
 if (document.querySelector("#tabuleiro")) {
   const criarTabuleiro = () => {
-    const tab = [];
+    const tabuleiro = []
 
-    let k = 0;
-    while (k < 16) {
-      const n = Math.ceil(Math.random() * (16 / 2));
-      if (tab.filter((x) => x === n).length >= 2) continue;
+    let contador = 0
+    while (contador < 16) {
+      const numero = Math.ceil(Math.random() * (16 / 2))
+      if (tabuleiro.filter((x) => x === numero).length >= 2) continue
 
-      tab.push(n);
-      k++;
+      tabuleiro.push(numero)
+      contador++
     }
 
-    return tab;
-  };
+    return tabuleiro
+  }
 
   if (!localStorage.getItem("conexoJogoStatus"))
-    localStorage.setItem("conexoJogoStatus", JSON.stringify({}));
-  const dadosLocalStorage = JSON.parse(
-    localStorage.getItem("conexoJogoStatus")
-  );
+    localStorage.setItem("conexoJogoStatus", JSON.stringify({}))
+  const dadosLocalStorage = JSON.parse(localStorage.getItem("conexoJogoStatus"))
 
-  const id = new URLSearchParams(window.location.search).get("id");
-  const url = id ? `http://localhost:8000/api/jogo?id=${id}` : 'http://localhost:8000/api/jogo'
-  // const url = id ? `http://localhost:8000/api/jogo_criar?id=${id}` : 'http://localhost:8000/api/jogo_criar'
-  // const url = `http://localhost:8000/api/jogo_criar`;
+  const id = new URLSearchParams(window.location.search).get("id")
+  const url = id
+    ? `http://localhost:8000/api/jogo?id=${id}`
+    : "http://localhost:8000/api/jogo"
 
   fetch(url)
     .then((response) => {
       if (response.ok) {
-        return response.json();
+        return response.json()
       }
-      throw new Error("Algo deu errado na solicitação");
+      throw new Error("Algo deu errado na solicitação")
     })
     .then((data) => {
-      console.log(data.data);
-      document.querySelector('#dataJogo').innerHTML = data.data
-      // Estrutura dos grupos baseando-se nos dados retornados pela API
+      const jogo = data
+      document.querySelector("#dataJogo").innerHTML = jogo.data
+
       const grupos = [
         {
-          grupo: "Grupo 1",
-          palavras: data.grupo_1_palavras.split(','),
-          jogo_id: data.grupo_1_id,
+          grupo: jogo.grupo_1_nome,
+          palavras: jogo.grupo_1_palavras.split(","),
+          jogo_id: jogo.grupo_1_id,
         },
         {
-          grupo: "Grupo 2",
-          palavras: data.grupo_2_palavras.split(','),
-          jogo_id: data.grupo_2_id,
+          grupo: jogo.grupo_2_nome,
+          palavras: jogo.grupo_2_palavras.split(","),
+          jogo_id: jogo.grupo_2_id,
         },
         {
-          grupo: "Grupo 3",
-          palavras: data.grupo_3_palavras.split(','),
-          jogo_id: data.grupo_3_id,
+          grupo: jogo.grupo_3_nome,
+          palavras: jogo.grupo_3_palavras.split(","),
+          jogo_id: jogo.grupo_3_id,
         },
         {
-          grupo: "Grupo 4",
-          palavras: data.grupo_4_palavras.split(','),
-          jogo_id: data.grupo_4_id,
+          grupo: jogo.grupo_4_nome,
+          palavras: jogo.grupo_4_palavras.split(","),
+          jogo_id: jogo.grupo_4_id,
         },
-      ];
+      ]
 
-      console.log(grupos);
-
-      document.querySelector("#skeleton").classList.add("hidden");
-      document.querySelector("#nomeJogo").innerHTML = data.nome;
+      document.querySelector("#skeleton").classList.add("hidden")
+      document.querySelector("#nomeJogo").innerHTML = jogo.nome
 
       const todasPalavras = grupos
         .reduce((acc, grupo) => {
-          return acc.concat(grupo.palavras);
+          return acc.concat(grupo.palavras)
         }, [])
-        .sort();
+        .sort()
 
-      const jogoId = grupos[0].jogo_id;
+      const jogoId = grupos[0].jogo_id
 
       if (dadosLocalStorage[jogoId] && dadosLocalStorage[jogoId].finalizado) {
-        document.querySelector("#acertou").classList.remove("hidden");
+        document.querySelector("#acertou").classList.remove("hidden")
 
-        const gruposDiv = document.querySelector("#grupos");
-        gruposDiv.classList.remove("hidden");
+        const gruposDiv = document.querySelector("#grupos")
+        gruposDiv.classList.remove("hidden")
 
         grupos.forEach((grupo) => {
           document.querySelector("#acertouNumeroTentativas").innerHTML =
-            dadosLocalStorage[jogoId].tentativas;
+            dadosLocalStorage[jogoId].tentativas
           document.querySelector("#numeroTentativas").innerHTML =
-            dadosLocalStorage[jogoId].tentativas;
+            dadosLocalStorage[jogoId].tentativas
 
           gruposDiv.innerHTML += `
-                <div class="flex flex-col uppercase bg-violet-300 dark:bg-violet-600 px-4 py-6 rounded-md mb-2">
-                    <span class="text-center font-bold">
-                        ${grupo.grupo}
-                    </span>
-                    <span class="text-center">
+                <div class="flex flex-col uppercase bg-violet-300 px-4 py-6 rounded-2xl mb-2 shadow-md">
+                    <h2 class="text-center font-bold text-violet-800">${
+                      grupo.grupo
+                    }</h2>
+                    <p class="text-center">
                         ${grupo.palavras.join(", ")}
-                    </span>
-                </div>`;
-        });
+                    </p>
+                </div>`
+        })
 
-        document.querySelector("#tabuleiro").classList.add("pb-4");
-        return;
+        document.querySelector("#tabuleiro").classList.add("pb-4")
+        return
       }
 
-      let jogadas = [];
-      let numeroTentativas = 0;
-      const tentativas = [];
+      let jogadas = []
+      let numeroTentativas = 0
+      const tentativas = []
       let tentativa = {
         selecionado: jogadas,
-      };
+      }
 
-      const tabuleiro = document.querySelector("#tabuleiro");
+      const tabuleiro = document.querySelector("#tabuleiro")
 
       const verificarJogadas = (grupos, jogadas) => {
-        let numeroAcertosElement = document.querySelector("#numeroAcertos");
-        let numeroAcertos = parseInt(numeroAcertosElement.innerHTML);
-        const gruposAcertados = document.querySelector("#grupos");
+        let numeroAcertosElement = document.querySelector("#numeroAcertos")
+        let numeroAcertos = parseInt(numeroAcertosElement.innerHTML)
+        const gruposAcertados = document.querySelector("#grupos")
 
-        for (const grupo of grupos) {
-          const palavrasGrupo = grupo.palavras;
+        grupos.forEach((grupo) => {
+          const palavrasGrupo = grupo.palavras
           const todasPresentes = jogadas.every((jogada) =>
             palavrasGrupo.includes(jogada)
-          );
+          )
 
           if (todasPresentes) {
-            numeroAcertos++;
-            numeroAcertosElement.innerHTML = numeroAcertos;
+            numeroAcertos++
+            numeroAcertosElement.innerHTML = numeroAcertos
             gruposAcertados.innerHTML += `
-                    <div class="flex flex-col uppercase bg-violet-300 dark:bg-violet-600 px-4 py-6 rounded-md mb-2">
+                    <div class="flex flex-col uppercase bg-violet-300  px-4 py-6 rounded-xl mb-2">
                         <span class="text-center font-bold">
                             ${grupo.grupo}
                         </span>
                         <span class="text-center">
                             ${jogadas.join(", ")}
                         </span>
-                    </div>`;
+                    </div>`
 
             jogadas.forEach((palavra) => {
               document.querySelectorAll("button").forEach((botao) => {
-                if (botao.textContent === palavra) botao.classList.add("hidden");
-              });
-            });
+                if (botao.textContent === palavra) botao.classList.add("hidden")
+              })
+            })
           }
-        }
+        })
 
         if (numeroAcertos === 4) {
           let jogoDados = {
             finalizado: true,
             tentativas: numeroTentativas,
-          };
+          }
 
-          dadosLocalStorage[jogoId] = jogoDados;
+          dadosLocalStorage[jogoId] = jogoDados
           localStorage.setItem(
             "conexoJogoStatus",
             JSON.stringify(dadosLocalStorage)
-          );
+          )
 
-          document.querySelector("#acertou").classList.remove("hidden");
+          document.querySelector("#acertou").classList.remove("hidden")
           document.querySelector("#acertouNumeroTentativas").innerHTML =
-            numeroTentativas;
+            numeroTentativas
         }
-      };
+      }
 
       for (let i = 0; i < 16; i++) {
-        const btn = document.createElement("button");
-        btn.setAttribute("type", "button");
-        btn.setAttribute("class", "conexo-btn");
-        btn.textContent = todasPalavras[i];
-        btn.addEventListener("click", () => {
-          if (jogadas.some((j) => j === btn.textContent)) return;
-          btn.classList.add("bg-violet-500");
-          btn.disabled = true;
-          jogadas.push(btn.textContent);
+        const botao = document.createElement("button")
+        botao.setAttribute("type", "button")
+        botao.setAttribute("class", "conexo-btn")
+        botao.textContent = todasPalavras[i]
+        botao.addEventListener("click", () => {
+          if (jogadas.some((j) => j === botao.textContent)) return
+          botao.classList.add("bg-violet-500")
+          botao.disabled = true
+          jogadas.push(botao.textContent)
 
           if (jogadas.length === 4) {
-            numeroTentativas++;
+            numeroTentativas++
             let numeroTentativasElement =
-              document.querySelector("#numeroTentativas");
-            numeroTentativasElement.innerHTML = numeroTentativas;
+              document.querySelector("#numeroTentativas")
+            numeroTentativasElement.innerHTML = numeroTentativas
 
-            tentativa = {
-              selecionado: jogadas,
-            };
+            tentativa = { selecionado: jogadas }
 
-            tentativas.push(tentativa);
-            verificarJogadas(grupos, jogadas);
+            tentativas.push(tentativa)
+            verificarJogadas(grupos, jogadas)
 
-            jogadas = [];
+            jogadas = []
 
             document.querySelectorAll("button").forEach((botao) => {
-              botao.disabled = false;
-              if (botao.classList.contains("bg-violet-500")) {
-                botao.classList.remove("bg-violet-500");
-              }
-            });
+              botao.disabled = false
+              if (botao.classList.contains("bg-violet-500"))
+                botao.classList.remove("bg-violet-500")
+            })
           }
-        });
+        })
 
-        tabuleiro.appendChild(btn);
+        tabuleiro.appendChild(botao)
       }
     })
     .catch((error) => {
-    //   console.log(error);
-    //   return;
       document
         .querySelector("#tabuleiro")
-        .setAttribute("class", "flex justify-center items-center m-auto");
+        .setAttribute("class", "flex justify-center items-center m-auto")
+
+      document.querySelector("#numeroTentativas").classList.add("hidden")
+      document
+        .querySelector("#numeroTentativas")
+        .parentElement.classList.add("hidden")
+      document.querySelector("#voltar").classList.add("hidden")
+
+      document.querySelector("body").classList.add("max-h-[100vh]")
+
       document.querySelector("#tabuleiro").innerHTML = `
-            <div class="py-4 w-fit flex flex-col justify-center items-center">
-                <span class="text-6xl mx-auto font-extrabold">OPS!</span>
-                <span class="text-2xl my-2 font-bold">Ocorreu algum erro ao buscar os dados 😔, tente novamente mais tarde</span>
-            </div>`;
-    });
+      <section class="flex gap-2 my-auto w-full max-w-[100vw]">
+        <div class="py-4 flex flex-col justify-center items-center w-6/12">
+          <p class="text-xl font-semibold ">404<p>
+          <h2 class="text-7xl mx-auto font-bold text-violet-500">Erro!</h2>
+          <div class='my-4 *:text-xl *:font-semibold'>
+            <p>Ocorreu algum erro ao buscar os dados,</p> 
+            <p>tente novamente mais tarde</p>
+          </div>
+          <button type='button' onClick="window.history.back()" class='btn-primary p-4 inline-flex items-center gap-x-2'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+              <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+            </svg>
+            Voltar
+          </button>
+        </div>
+
+        <figure class='w-6/12 flex justify-center'>  
+          <img src='error.svg' class='w-[30rem]'>
+        </figure>  
+        
+      </section>`
+    })
 }

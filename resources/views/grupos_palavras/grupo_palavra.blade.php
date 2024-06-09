@@ -22,17 +22,18 @@
                 <div class="flex flex-col gap-y-1">
                     @if($grupo_palavra->palavra_id)
                     <input type="hidden" id="palavra_id" name="palavra_id" value='{{$grupo_palavra->palavra_id}}'>
-                    
+
                     <label for="nome" class="label capitalize">Palavra</label>
-                    <input type="text" id="nome" name="nome" value='{{App\Models\Palavra::find($grupo_palavra->palavra_id)->nome }}' class="input">
+                    <input type="text" id="nome" name="nome"
+                        value='{{App\Models\Palavra::find($grupo_palavra->palavra_id)->nome }}' class="input">
                     @if ($errors->has('nome'))
-                            <x-error-message>
-                                {{ $errors->first('nome') }}
-                            </x-error-message>
+                    <x-error-message>
+                        {{ $errors->first('nome') }}
+                    </x-error-message>
                     @endif
 
                     @else
-                    <select id="palavra_id" name="palavra_id" class="text-gray-700 dark:text-violet-50 input">
+                    <select id="palavra_id" name="palavra_id" class="text-gray-700 input">
                         @foreach($palavras as $palavra)
                         <option value='{{$palavra->id}}' {{$palavra->id == $_GET['id'] ? "selected" :
                             ""}}>{{$palavra->nome}} </option>
@@ -43,7 +44,7 @@
 
                 <div class="flex flex-col gap-y-1">
                     <label for="grupo_id" class="label capitalize">grupo</label>
-                    <select id="grupo_id" name="grupo_id" class="text-gray-700 dark:text-violet-50 input">
+                    <select id="grupo_id" name="grupo_id" class="text-gray-700 input">
                         @foreach($grupos as $grupo)
                         <option value='{{$grupo->id}}' {{$grupo->id == $grupo_palavra->grupo_id ? "selected" :
                             ""}}>{{$grupo->nome}} </option>
