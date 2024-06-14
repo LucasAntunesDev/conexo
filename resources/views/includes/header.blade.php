@@ -1,6 +1,6 @@
 @auth('web')
 <header class="flex flex-row justify-between items-center px-12 gap-x-4 
-h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4 shadow">
+h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
 
     <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>
@@ -83,7 +83,7 @@ h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4 shadow
 </header>
 @else
 <header class="flex flex-row justify-between items-center px-12 gap-x-4 
-h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4 shadow">
+h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
 
     <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>

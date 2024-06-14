@@ -134,7 +134,7 @@
         </div>
     </div>
 
-    <div class="bg-violet-100 w-fit p-6 rounded-xl h-auto shadow-md lista-item">
+    <div class="bg-violet-100 w-fit p-6 rounded-xl h-auto lista-item">
 
         <a href="{{ route('jogo', ['id' => $jogo->id]) }}"
             class="flex text-violet-900  font-semibold w-56 text-lg lista-titulo">{{ $jogo->nome
