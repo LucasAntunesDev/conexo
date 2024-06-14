@@ -43,7 +43,7 @@
                     @endif
                     {{ csrf_field()}}
 
-                    <fieldset class="flex flex-col items-stretch gap-4 p-6 pt-1">
+                    <fieldset class="flex flex-col items-stretch gap-4 p-6 pt-1 bg-violet-100">
                         <div class="flex flex-col gap-y-1">
                             <div class="relative z-0">
                                 <label for="nome" class="label">
