@@ -31,10 +31,12 @@ class GrupoController extends Controller
             ->select('disciplinas.nome')
             ->where('grupos_disciplinas.grupo_id', '=', $id)
             ->get();
+        $grupos_disciplinas = DB::table('grupos_disciplinas')->where('disciplina_id', $id)->first();
 
         return view('grupos.grupo', [
             'grupo' => $grupo,
             'disciplinas' => $disciplinas,
+            'grupos_disciplinas' => $grupos_disciplinas,
         ]);
     }
 

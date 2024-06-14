@@ -72,8 +72,8 @@
                         <h4>{{ $disciplinas[$disciplina]->nome }}</h4>
 
                         <div class="inline-flex gap-x-2 mr-0">
-                            {{-- <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupo_disciplina->id]) }}">
-                            </x-edit-button> --}}
+                            <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupos_disciplinas->id]) }}">
+                            </x-edit-button>
                             <x-delete-button></x-delete-button>
                         </div>
                     </div>
