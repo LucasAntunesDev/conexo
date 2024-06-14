@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PalavrasSeeder::class,
             ProfessoresSeeder::class,
-            CommentSeeder::class,
             PalavrasSeeder::class,
             ProfessoresSeeder::class,
             DisciplinasSeeder::class,
