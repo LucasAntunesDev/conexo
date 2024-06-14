@@ -65,16 +65,15 @@
 
                 <input type="hidden" name="_method" value="PUT">
                 <div class="flex items-stretch justify-stretch flex-col w-fit gap-y-2 h-fit">
-                    @foreach($grupos_disciplinas as $grupo_disciplina)
+                    @foreach($disciplinas as $disciplina => $d)
                     <div
                         class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300  bg-violet-200 rounded-2xl px-4 py-2 ml-0 gap-x-2">
 
-                        {{-- <h4>{{ $grupo->disciplina($grupo_disciplina) }}</h4> --}}
-                        <h4>{{ App\Models\Grupo::find($grupo_disciplina->grupo_id)->nome }}</h4>
+                        <h4>{{ $disciplinas[$disciplina]->nome }}</h4>
 
                         <div class="inline-flex gap-x-2 mr-0">
-                            <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupo_disciplina->id]) }}">
-                            </x-edit-button>
+                            {{-- <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupo_disciplina->id]) }}">
+                            </x-edit-button> --}}
                             <x-delete-button></x-delete-button>
                         </div>
                     </div>

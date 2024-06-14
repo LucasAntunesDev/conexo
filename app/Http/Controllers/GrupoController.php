@@ -9,13 +9,14 @@ use App\Models\Disciplina;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class GrupoController extends Controller {
+class GrupoController extends Controller
+{
 
     public function index() {
         $grupo = new Grupo();
         $grupos = Grupo::paginate(16);
         $disciplinas = Disciplina::all();
-        
+
         return view('grupos.grupos', [
             'grupo' => $grupo,
             'grupos' => $grupos,
@@ -25,11 +26,15 @@ class GrupoController extends Controller {
 
     public function edit($id) {
         $grupo = Grupo::find($id);
-        $grupos_disciplinas = DB::table('grupos_disciplinas')->where('disciplina_id', $id)->get();
-        
+        $disciplinas = DB::table('grupos_disciplinas')
+            ->join('disciplinas', 'grupos_disciplinas.disciplina_id', '=', 'disciplinas.id')
+            ->select('disciplinas.nome')
+            ->where('grupos_disciplinas.grupo_id', '=', $id)
+            ->get();
+
         return view('grupos.grupo', [
             'grupo' => $grupo,
-            'grupos_disciplinas' => $grupos_disciplinas,
+            'disciplinas' => $disciplinas,
         ]);
     }
 
@@ -43,11 +48,12 @@ class GrupoController extends Controller {
             'nome' => 'required',
         ], $messages);
 
-        if ($validator->fails()) return back()->withErrors($validator)->withInput();
+        if ($validator->fails())
+            return back()->withErrors($validator)->withInput();
         else {
             $grupo = new Grupo();
             $grupo->nome = $request->input('nome');
-            
+
             $grupo->save();
             return back();
         }
@@ -63,11 +69,12 @@ class GrupoController extends Controller {
             'nome' => 'required',
         ], $messages);
 
-        if ($validator->fails()) return back()->withErrors($validator)->withInput();
+        if ($validator->fails())
+            return back()->withErrors($validator)->withInput();
         else {
             $grupo = Grupo::find($id);
             $grupo->nome = $request->input('nome');
-            
+
             $grupo->save();
             return back();
         }
