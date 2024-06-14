@@ -64,7 +64,7 @@ class GrupoPalavraController extends Controller {
             $grupo_palavra->grupo_id = $request->input('grupo_id');
             $grupo_palavra->save();
 
-            return back()->with('success', 'Palavra salva com sucesso!');
+            return view('index')->with('success', 'Palavra salva com sucesso!');
         }
     }
 

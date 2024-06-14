@@ -76,12 +76,18 @@
                         class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300  bg-violet-200 rounded-2xl px-4 py-2 ml-0 gap-x-2">
 
                         <h4>{{ App\Models\Grupo::find($grupo_palavra->grupo_id)->nome }}</h4>
-
-                        <div class="inline-flex gap-x-2 mr-0">
+{{-- 
+                        <form method="POST" action="{{ route('jogodelete', ['id'=> $jogo->id]) }}" class="w-auto mx-auto pt-4">
+                            <input type="hidden" name="_method" value="DELETE">
+                            {{ csrf_field()}} --}}
+                            
+                            <form class="inline-flex gap-x-2 mr-0" method="POST"  action="{{ route('grupopalavradelete', ['id' => $grupo_palavra->id]) }}">
+                                <input type="hidden" name="_method" value="DELETE">
+                            {{ csrf_field()}}
                             <x-edit-button link="{{ route('grupopalavraform', ['id' => $grupo_palavra->id]) }}">
                             </x-edit-button>
                             <x-delete-button></x-delete-button>
-                        </div>
+                        </form>
                     </div>
                     @endforeach
                 </div>
