@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Palavra - Conexo')
+@section('title', 'Grupo - Conexo')
 @section('content')
 
 <div class="flex flex-col justify-center items-center gap-2 pt-4 grow">
@@ -57,7 +57,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
-                        Adicionar disciplina
+                        Vincular disciplina
                     </a>
                     <h3 class="text-2xl font-bold tracking-tight text-violet-500">Disciplinas</h3>
                     <p>Disciplinas que contém o grupo <strong class="font-bold">{{$grupo->nome}}</strong></p>

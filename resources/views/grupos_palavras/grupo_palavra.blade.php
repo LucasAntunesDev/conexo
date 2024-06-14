@@ -16,7 +16,7 @@
             @endif
             {{ csrf_field()}}
 
-            <fieldset class="flex flex-col p-10 w-[40rem] gap-4">
+            <fieldset class="flex flex-col p-10 w-[40rem] gap-4 bg-violet-100 rounded-2xl">
                 <input type="hidden" name="id" value='{{ $grupo_palavra->id }}'>
 
                 <div class="flex flex-col gap-y-1">
@@ -33,6 +33,7 @@
                     @endif
 
                     @else
+                    <label for="nome" class="label capitalize">Palavra</label>
                     <select id="palavra_id" name="palavra_id" class="text-gray-700 input">
                         @foreach($palavras as $palavra)
                         <option value='{{$palavra->id}}' {{$palavra->id == $_GET['id'] ? "selected" :
