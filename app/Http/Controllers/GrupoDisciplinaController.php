@@ -42,15 +42,15 @@ class GrupoDisciplinaController extends Controller {
     }
 
     public function store(Request $request) {
-
+        // dd($request);
         $messages = [
             'disciplina_id.required' => 'Você deve preencher o campo com alguma disciplina',
             'grupo_id.required' => 'Você deve preencher o campo com algum grupo'
         ];
 
         $validator = Validator::make($request->all(), [
-            'disciplina_id' => 'required',
-            'grupo_id' => 'required',
+            'disciplina_id' => 'required|integer',
+            'grupo_id' => 'required|integer',
         ], $messages);
 
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
@@ -61,6 +61,8 @@ class GrupoDisciplinaController extends Controller {
             $grupo_disciplina->grupo_id = $request->input('grupo_id');
             $grupo_disciplina->save();
 
+            return redirect()->route('grupodisciplinadelete');
+            return redirect()->route('grupofrom', $id = $_GET['id']);
             return back()->with('success', 'Disciplina salva com sucesso!');
         }
     }
@@ -84,8 +86,10 @@ class GrupoDisciplinaController extends Controller {
 
     public function destroy($id) {
         $grupo_disciplina = GrupoDisciplina::find($id);
+        // dd($grupo_disciplina);
         $grupo_disciplina->delete();
 
         return back();
+        // return redirect()->route('grupos');
     }
 }

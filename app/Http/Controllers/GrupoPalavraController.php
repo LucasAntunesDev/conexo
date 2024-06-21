@@ -86,7 +86,7 @@ class GrupoPalavraController extends Controller {
             $grupo_palavra->grupo_id = $request->input('grupo_id');
             $grupo_palavra->save();
 
-            return redirect()->back();
+            return back();
         }
     }
 

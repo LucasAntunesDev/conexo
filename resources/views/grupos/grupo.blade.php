@@ -71,11 +71,21 @@
 
                         <h4>{{ $disciplinas[$disciplina]->nome }}</h4>
 
-                        <div class="inline-flex gap-x-2 mr-0">
+                        @php
+                        //  dd($grupos_disciplinas);
+                        @endphp
+
+                        @if ($grupos_disciplinas !== null)
+                            
+                        <form action="{{route('grupodisciplinadelete', $grupos_disciplinas->id) }}" method="POST"
+                            class="inline-flex gap-x-2 mr-0">
+                            <input type="hidden" name="_method" value="DELETE">
+                            {{ csrf_field()}}
                             <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupos_disciplinas->id]) }}">
                             </x-edit-button>
                             <x-delete-button></x-delete-button>
-                        </div>
+                        </form>
+                        @endif
                     </div>
                     @endforeach
                 </div>
