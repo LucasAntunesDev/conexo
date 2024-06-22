@@ -43,11 +43,7 @@
 
                     <button type="submit" class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                         <span>Salvar</span>
-                        <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="animate-spin hidden">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                        </svg>
+                        <div class="btn-loader hidden"></div>
                     </button>
                 </div>
             </form>
@@ -75,10 +71,11 @@
                     <div
                         class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300  bg-violet-200 rounded-2xl px-4 py-2 ml-0 gap-x-2">
 
-                        <h4>{{ App\Models\Grupo::find($grupo_palavra->grupo_id)->nome }}</h4>
-                            
-                            <form class="inline-flex gap-x-2 mr-0" method="POST"  action="{{ route('grupopalavradelete', ['id' => $grupo_palavra->id]) }}">
-                                <input type="hidden" name="_method" value="DELETE">
+                        <h4>{{ $palavra->grupo($grupo_palavra) }}</h4>
+
+                        <form class="inline-flex gap-x-2 mr-0" method="POST"
+                            action="{{ route('grupopalavradelete', ['id' => $grupo_palavra->id]) }}">
+                            <input type="hidden" name="_method" value="DELETE">
                             {{ csrf_field()}}
                             <x-edit-button link="{{ route('grupopalavraform', ['id' => $grupo_palavra->id]) }}">
                             </x-edit-button>

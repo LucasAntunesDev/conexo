@@ -1,5 +1,6 @@
 @extends('layout')
 @section('title', 'Grupo - Conexo')
+
 @section('content')
 
 <div class="flex flex-col justify-center items-center gap-2 pt-4 grow">
@@ -37,11 +38,7 @@
 
                     <button type="submit" class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                         <span>Salvar</span>
-                        <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="animate-spin hidden">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                        </svg>
+                        <div class="btn-loader hidden"></div>
                     </button>
                 </div>
             </form>
@@ -50,7 +47,7 @@
         @if($grupo->id)
         <aside class="flex flex-col gap-4 rounded-xl bg-violet-100 p-6 min-h-[95%] h-fit flex-auto">
             <div class="flex flex-col mx-auto gap-y-4">
-                <div>
+                <div class="mb-4">
                     <a href="{{ route('grupodisciplinanovo', ['id'=> $grupo->id]) }}"
                         class="btn-primary w-fit px-4 py-2 inline-flex"> <svg xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -71,17 +68,13 @@
 
                         <h4>{{ $disciplinas[$disciplina]->nome }}</h4>
 
-                        @php
-                        //  dd($grupos_disciplinas);
-                        @endphp
-
                         @if ($grupos_disciplinas !== null)
-                            
-                        <form action="{{route('grupodisciplinadelete', $grupos_disciplinas->id) }}" method="POST"
+
+                        <form action="{{route('grupodisciplinadelete', $grupo->id) }}" method="POST"
                             class="inline-flex gap-x-2 mr-0">
                             <input type="hidden" name="_method" value="DELETE">
                             {{ csrf_field()}}
-                            <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupos_disciplinas->id]) }}">
+                            <x-edit-button link="{{ route('grupodisciplinaform', ['id' => $grupo->id]) }}">
                             </x-edit-button>
                             <x-delete-button></x-delete-button>
                         </form>
@@ -99,5 +92,3 @@
 </div>
 
 @endsection
-{{-- @vite(['resources/js/eventos.js'])
-@vite(['resources/js/script.js']) --}}

@@ -33,7 +33,6 @@ class GrupoPalavraController extends Controller {
 
     public function edit($id) {
         $grupo_palavra = GrupoPalavra::find($id);
-        // $disciplina = Grupo::find($grupo_disciplina->grupo_id)->nome;
         $grupos = Grupo::all();
         $grupo = new Grupo();
         
@@ -64,7 +63,7 @@ class GrupoPalavraController extends Controller {
             $grupo_palavra->grupo_id = $request->input('grupo_id');
             $grupo_palavra->save();
 
-            return view('index')->with('success', 'Palavra salva com sucesso!');
+            return redirect()->route('palavras');
         }
     }
 
@@ -86,7 +85,7 @@ class GrupoPalavraController extends Controller {
             $grupo_palavra->grupo_id = $request->input('grupo_id');
             $grupo_palavra->save();
 
-            return back();
+            return redirect()->route('palavras');
         }
     }
 

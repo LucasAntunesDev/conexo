@@ -9,6 +9,7 @@ use App\Http\Resources\PalavraResource;
 use App\Models\GrupoPalavra;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Grupo;
 
 class PalavraController extends Controller {
 
@@ -29,7 +30,7 @@ class PalavraController extends Controller {
         return PalavraResource::collection($palavras);
     }
 
-    public function edit($id) {
+    public function edit($id,) {
         $palavra = Palavra::find($id);
         $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get();
         

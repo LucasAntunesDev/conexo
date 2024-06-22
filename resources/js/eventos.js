@@ -1,3 +1,4 @@
+
 if (document.querySelector('#conta')) {
 
   const btnConta = document.querySelector('#conta')
@@ -24,10 +25,10 @@ if (document.querySelector('button.spin')) {
   btn.addEventListener('click', () => {
     if (document.querySelector('#login-icon')) document.querySelector('#login-icon').classList.add('hidden')
 
-    if (document.querySelector('button>span')) document.querySelector('button>span').textContent = 'Salvando...'
+    if (document.querySelector('button>span')) document.querySelector('button>span').textContent = 'Salvando'
 
-    const spinner = document.querySelector("#spinner")
-    spinner.classList.remove('hidden')
+    const btnLoader = document.querySelector(".btn-loader")
+    btnLoader.classList.remove('hidden')
   })
 }
 

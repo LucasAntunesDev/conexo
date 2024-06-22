@@ -1,5 +1,6 @@
 @extends('layout')
 @section('title', 'Grupos - Conexo')
+
 @section('content')
 
 <div class="flex flex-col justify-center items-center gap-2 mb-8">

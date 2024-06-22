@@ -8,6 +8,7 @@ use App\Models\GrupoDisciplina;
 use App\Models\Disciplina;
 use App\Models\Grupo;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class GrupoDisciplinaController extends Controller {
 
@@ -42,7 +43,6 @@ class GrupoDisciplinaController extends Controller {
     }
 
     public function store(Request $request) {
-        // dd($request);
         $messages = [
             'disciplina_id.required' => 'Você deve preencher o campo com alguma disciplina',
             'grupo_id.required' => 'Você deve preencher o campo com algum grupo'
@@ -56,13 +56,11 @@ class GrupoDisciplinaController extends Controller {
         if ($validator->fails()) return back()->withErrors($validator)->withInput();
         else {
             $grupo_disciplina = new GrupoDisciplina();
-            $grupo_disciplina->id = $request->input('id');
             $grupo_disciplina->disciplina_id = $request->input('disciplina_id');
             $grupo_disciplina->grupo_id = $request->input('grupo_id');
             $grupo_disciplina->save();
 
-            return redirect()->route('grupodisciplinadelete');
-            return redirect()->route('grupofrom', $id = $_GET['id']);
+            return redirect()->route('grupos');
             return back()->with('success', 'Disciplina salva com sucesso!');
         }
     }
@@ -86,10 +84,8 @@ class GrupoDisciplinaController extends Controller {
 
     public function destroy($id) {
         $grupo_disciplina = GrupoDisciplina::find($id);
-        // dd($grupo_disciplina);
         $grupo_disciplina->delete();
 
         return back();
-        // return redirect()->route('grupos');
     }
 }

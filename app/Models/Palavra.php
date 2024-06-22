@@ -13,5 +13,9 @@ class Palavra extends Model
     {
         return $this->belongsToMany(Grupo::class, 'grupos_palavras', 'palavra_id', 'grupo_id');
     }
+
+    public function grupo($grupo_palavra){
+        return Grupo::find($grupo_palavra->grupo_id)->nome ;
+    }
     
 }

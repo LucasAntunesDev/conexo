@@ -32,6 +32,7 @@
 
     @if($grupo_disciplina->id)
     <form action="{{ route('grupodisciplinaupdate', ['id' =>$grupo_disciplina->id]) }}" method="POST">
+        {{ csrf_field()}}
         <input type="hidden" name="_method" value="PUT">
         @else
         <form action="{{ route('grupodisciplinainsert') }}" method="POST">
@@ -39,8 +40,6 @@
             {{ csrf_field()}}
 
             <fieldset class="flex flex-col p-10 w-[40rem] gap-4 bg-violet-100 rounded-2xl">
-                <input type="hidden" name="id" value='{{ $grupo_disciplina->id }}'>
-
                 <div class="flex flex-col gap-y-1">
                     <label for="grupo_id" class="label capitalize">grupo</label>
                     <select id="grupo_id" name="grupo_id" class="text-gray-700 input">
@@ -72,7 +71,7 @@
 
                 <div class="flex items-center gap-x-2 justify-center">
                     @if($grupo_disciplina->disciplina_id)
-                    <a href="{{ route('disciplinaform', ['id'=> App\Models\Palavra::find($grupo_disciplina->disciplina_id)->id]) }}"
+                    <a href="{{ route('disciplinaform', ['id'=> App\Models\Disciplina::find($grupo_disciplina->disciplina_id)->id]) }}"
                         class="btn-link flex items-center mt-4 justify-center self-baseline">
                         Cancelar
                     </a>
@@ -85,11 +84,7 @@
 
                     <button type="submit" class="btn-primary flex items-center mt-4 justify-center self-baseline spin">
                         <span>Salvar</span>
-                        <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="animate-spin hidden">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                        </svg>
+                        <div class="btn-loader hidden"></div>
                     </button>
                 </div>
             </fieldset>
