@@ -149,20 +149,6 @@
                 </form>
             </div>
 
-            <details class="hover:cursor-pointer inline-flex gap-2">
-                <summary class="text-violet-500 transicao">Grupos</summary>
-
-                <div class="inline-flex flex-col gap-2">
-                    @foreach ($palavra->grupos as $grupo)
-                    <a href="{{ route('grupopalavraform', ['id' => $grupo->id]) }}">
-                        <span
-                            class="rounded-2xl bg-violet-200 hover:bg-violet-400/60 p-1 size-fit transicao">{{$grupo->nome}}</span>
-                    </a>
-                    @endforeach
-                </div>
-
-            </details>
-
         </div>
 
         @endforeach
