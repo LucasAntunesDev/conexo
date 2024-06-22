@@ -77,31 +77,22 @@
 
         @foreach($grupos as $grupo)
 
-        <div class="bg-violet-100 w-fit p-6 rounded-xl h-auto lista-item">
-            {{-- <div class="inline-flex flex-col gap-3 lista-item"> --}}
-                <a class="flex text-violet-900  font-semibold w-56 text-lg lista-titulo">{{
-                    $grupo->nome }}</a>
-                {{-- @foreach ($grupo->disciplinas as $disciplina)
-                <a class='text-current hover:text-emerald-600 hover:cursor-pointer 
-                    transition duration-300 ease-in-out mb-4 self-start'>
-                    <span class="rounded-2xl bg-violet-200 p-1 size-fit">{{$disciplina->nome}}</span>
-                </a>
-                @endforeach --}}
-                {{-- <span class="text-gray-500 font-medium text-sm"> --}}
-                    {{-- {{ App\Models\Disciplina::find($grupo->disciplina_id)->nome}} --}}
-                    {{-- </span> --}}
-                {{--
-            </div> --}}
+        <div class="inline-flex flex-col bg-violet-100 px-4 py-2 gap-x-4 rounded-2xl lista-item">
+            
+            <div class="inline-flex items-center justify-between gap-x-4">
+                <p class="text-violet-900  font-semibold w-fit capitalize lista-titulo">{{
+                    $grupo->nome
+                    }}</p>
 
-            <form method="POST" action="{{ route('grupodelete', ['id'=> $grupo->id]) }}" class="w-auto mx-auto pt-4">
-                <input type="hidden" name="_method" value="DELETE">
-                {{ csrf_field()}}
-                <div class="flex gap-x-2 px-14 justify-between items-center">
-                    <x-edit-button link="{{ route('grupoform', ['id' => $grupo->id]) }}"></x-edit-button>
-                    <x-delete-button></x-delete-button>
-                </div>
-            </form>
-
+                <form method="POST" action="{{ route('grupodelete', ['id'=> $grupo->id]) }}" class="size-fit m-0">
+                    <input type="hidden" name="_method" value="DELETE">
+                    {{ csrf_field()}}
+                    <div class="flex gap-x-2 items-center">
+                        <x-edit-button link="{{ route('grupoform', ['id' => $grupo->id]) }}"></x-edit-button>
+                        <x-delete-button></x-delete-button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         @endforeach

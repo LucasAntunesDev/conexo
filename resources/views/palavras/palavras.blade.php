@@ -131,18 +131,18 @@
             </div>
         </div>
 
-        <div class="inline-flex flex-col items-center bg-violet-100 px-4 py-2 gap-x-4 rounded-2xl lista-item">
+        <div class="inline-flex flex-col bg-violet-100 px-4 py-2 gap-x-4 rounded-2xl lista-item">
 
-            <div class="inline-flex items-center gap-x-4">
-                <a class="text-violet-900  font-semibold w-fit capitalize lista-titulo">{{
+            <div class="inline-flex items-center justify-between gap-x-4">
+                <a class="text-violet-900 font-semibold w-fit capitalize lista-titulo">{{
                     $palavra->nome
                     }}</a>
 
                 <form method="POST" action="{{ route('palavradelete', ['id'=> $palavra->id]) }}"
-                    class="w-fit mx-auto pt-4">
+                    class="size-fit m-0">
                     <input type="hidden" name="_method" value="DELETE">
                     {{ csrf_field()}}
-                    <div class="flex gap-x-2 items-center">
+                    <div class="flex gap-x-2 items-center ">
                         <x-edit-button link="{{ route('palavraform', ['id' => $palavra->id]) }}"></x-edit-button>
                         <x-delete-button></x-delete-button>
                     </div>
