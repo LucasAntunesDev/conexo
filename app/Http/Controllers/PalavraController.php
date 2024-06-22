@@ -76,7 +76,7 @@ class PalavraController extends Controller {
             $palavra->nome = $request->input('nome');
             $palavra->save();
 
-            return back();
+            return back()->with('status', 'Palavra editada com sucesso!');
         }
     }
 

@@ -1,17 +1,16 @@
-@auth('web')
 <header class="flex flex-row justify-between items-center px-12 gap-x-4 
-h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
+h-16 bg-transparent min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
 
-    <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
+    <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center text-xl font-bold uppercase">
         <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>
-        <span class="text-xl font-bold uppercase">CONEXO</span>
+        conexo
     </a>
 
+    @auth('web')
     <div class="flex items-center md:justify-between gap-x-4  md:gap-x-0 flex-row-reverse mx-auto">
 
-
         <div class="md:mx-auto">
-            <nav class="mr-10">
+            <nav class="mr-10 bg-violet-100 px-8 rounded-3xl">
                 <ul class="inline-flex gap-x-8 items-center justify-center" role="list">
                     @php
                     {{$modulos = ['jogos', 'disciplinas', 'grupos', 'palavras'];}}
@@ -20,7 +19,7 @@ h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
                     @foreach ($modulos as $modulo)
 
                     <li
-                        class="hover:transicao {{(str_contains(url()->current(), strtolower($modulo))) ? 'bg-violet-200 rounded-xl py-2 px-5' : 'hover:text-violet-600 ' }}">
+                        class="hover:transicao py-4 px-5 rounded-xl {{(str_contains(url()->current(), strtolower($modulo))) ? 'font-semibold text-violet-500 hover:text-violet-600' : 'hover:text-violet-500 text-neutral-600' }}">
                         <a href="{{ route($modulo) }}" class=" transicao capitalize">
                             {{$modulo}}
                         </a>
@@ -74,33 +73,19 @@ h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
             </ul>
 
         </div>
+        @else
+        <a href="{{route('login')}}" class="inline-flex py-3 px-6 w-max justify-between items-center btn-primary">
+            Entrar
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd"
+                    d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z"
+                    clip-rule="evenodd" />
+            </svg>
 
+        </a>
+        @endif
     </div>
-
 
     </div>
 
 </header>
-@else
-<header class="flex flex-row justify-between items-center px-12 gap-x-4 
-h-16 bg-violet-100 min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
-
-    <a href="{{ route('index')}}" class="inline-flex gap-x-1 items-center">
-        <x-conexo-logo class="w-8 inline-flex mr-4"></x-conexo-logo>
-        <span class="text-xl font-bold">CONEXO</span>
-    </a>
-
-    <a href="{{route('login')}}" class="inline-flex py-3 px-6 w-max justify-between items-center btn-primary">
-        Entrar
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-            <path fill-rule="evenodd"
-                d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z"
-                clip-rule="evenodd" />
-        </svg>
-
-
-    </a>
-
-
-</header>
-@endif
