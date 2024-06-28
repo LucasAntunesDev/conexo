@@ -93,6 +93,6 @@ class GrupoPalavraController extends Controller {
         $grupo_palavra = GrupoPalavra::find($id);
         $grupo_palavra->delete();
 
-        return back();
+        return back()->with('remove', 'Grupo removido com sucesso!');
     }
 }

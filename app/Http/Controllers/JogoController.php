@@ -61,7 +61,7 @@ class JogoController extends Controller {
                 'grupo' => $grupo_nome,
             ];
         }
-        
+
         return [
             'id' => $jogo->id,
             'nome' => $jogo->nome,
@@ -205,6 +205,6 @@ class JogoController extends Controller {
         $jogo = Jogo::find($id);
         $jogo->delete();
 
-        return back();
+        return back()->with('delete', 'Jogo deletado com sucesso!');
     }
 }

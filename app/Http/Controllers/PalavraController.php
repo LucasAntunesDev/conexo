@@ -13,7 +13,8 @@ use App\Models\Grupo;
 
 class PalavraController extends Controller {
 
-    public function __construct(protected Palavra $palavrasRepository){}
+    public function __construct(protected Palavra $palavrasRepository) {
+    }
 
     public function index() {
         $palavras = Palavra::paginate(24);
@@ -25,7 +26,7 @@ class PalavraController extends Controller {
         ]);
     }
 
-    public function api(){
+    public function api() {
         $palavras = $this->palavrasRepository->paginate(24);
         return PalavraResource::collection($palavras);
     }
@@ -33,7 +34,7 @@ class PalavraController extends Controller {
     public function edit($id,) {
         $palavra = Palavra::find($id);
         $grupos_palavras = DB::table('grupos_palavras')->where('palavra_id', $id)->get();
-        
+
         return view('palavras.palavra', [
             'palavra' => $palavra,
             'grupos_palavras' => $grupos_palavras,
@@ -55,17 +56,17 @@ class PalavraController extends Controller {
             $palavra = new Palavra();
             $palavra->nome = $request->input('nome');
             $palavra->save();
-            
+
             return back()->with('success', 'Palavra salva com sucesso!');
         }
     }
 
     public function update($id, Request $request) {
-        
+
         $messages = [
             'nome.required' => 'Você deve preencher o campo com alguma palavra'
         ];
-        
+
         $validator = Validator::make($request->all(), [
             'nome' => 'required|max:255',
         ], $messages);
@@ -84,6 +85,6 @@ class PalavraController extends Controller {
         $palavra = Palavra::find($id);
         $palavra->delete();
 
-        return back();
+        return back()->with('delete', 'Palavra deletada com sucesso!');
     }
 }

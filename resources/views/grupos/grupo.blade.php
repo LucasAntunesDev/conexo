@@ -3,10 +3,11 @@
 
 @section('content')
 
+
 <div class="flex flex-col justify-center items-center gap-2 pt-4 grow">
 
-    <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize">Gerenciar grupo</h1>
 
+    <h1 class="font-bold text-4xl text-violet-500 mb-4 capitalize">Gerenciar grupo</h1>
     <section class="flex justify-stretch items-stretch gap-2 grow px-10 py-4">
 
         <main class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-100 ">
@@ -46,6 +47,11 @@
 
         @if($grupo->id)
         <aside class="flex flex-col gap-4 rounded-xl bg-violet-100 p-6 min-h-[95%] h-fit flex-auto">
+            @if (session('remove'))
+            <x-toast type='error'>
+                {{ session('remove') }}
+            </x-toast>
+            @endif
             <div class="flex flex-col mx-auto gap-y-4">
                 <div class="mb-4">
                     <a href="{{ route('grupodisciplinanovo', ['id'=> $grupo->id]) }}"
@@ -64,8 +70,8 @@
                 <div class="flex items-stretch justify-stretch flex-col w-fit gap-y-2 h-fit">
                     @foreach($disciplinas as $disciplina => $d)
                     <div
-                        class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300  bg-violet-200 rounded-2xl px-4 py-2 ml-0 gap-x-2">
-
+                    class="inline-flex justify-between items-center w-auto grow transicao hover:bg-violet-300  bg-violet-200 rounded-2xl px-4 py-2 ml-0 gap-x-2">
+                    
                         <h4>{{ $disciplinas[$disciplina]->nome }}</h4>
 
                         @if ($grupos_disciplinas !== null)

@@ -35,7 +35,7 @@ class GrupoDisciplinaController extends Controller {
     public function edit($id) {
         $grupo_disciplina = GrupoDisciplina::find($id);
         $grupos = Grupo::all();
-        
+
         return view('grupos_disciplinas.grupo_disciplina', [
             'grupo_disciplina' => $grupo_disciplina,
             'grupos' => $grupos,
@@ -86,6 +86,6 @@ class GrupoDisciplinaController extends Controller {
         $grupo_disciplina = GrupoDisciplina::find($id);
         $grupo_disciplina->delete();
 
-        return back();
+        return back()->with('remove', 'Disciplina removida com sucesso!');
     }
 }

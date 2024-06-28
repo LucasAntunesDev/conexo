@@ -61,9 +61,12 @@
     @apply block text-sm font-semibold capitalize leading-6 text-violet-500
   }
 
+  .toast {
+    @apply flex flex-row gap-2 items-center font-medium p-4 rounded-2xl shadow z-20 absolute bottom-[10];
+  }
+
   .appear {
-    animation-name: appear;
-    animation-duration: 300ms;
+    animation: appear 100ms ease forwards;
   }
 
   @keyframes appear {
@@ -73,29 +76,51 @@
 
     to {
       opacity: 1;
+      margin-top: 0.5rem;
     }
   }
-  
+
+  .disappear {
+    animation: disappear 300ms ease forwards;
+  }
+
+  @keyframes disappear {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+      scale: 90%;
+      display: none;
+    }
+  }
+
 }
 
 .btn-loader {
-  width:1.3rem;
-  height:1.3rem;
-  --c:radial-gradient(farthest-side,white 92%,#0000);
-  background: 
+  width: 1.3rem;
+  height: 1.3rem;
+  --c: radial-gradient(farthest-side, white 92%, #0000);
+  background:
     var(--c) 50% 0,
     var(--c) 50% 100%,
     var(--c) 100% 50%,
-    var(--c) 0    50%;
+    var(--c) 0 50%;
   background-size: 0.3rem 0.3rem;
-  background-repeat:no-repeat;
-  animation:s7 1s infinite;
+  background-repeat: no-repeat;
+  animation: s7 1s infinite;
 }
 
-.btn-loader.loader-white{
-  --c:radial-gradient(farthest-side,#8b5cf6 92%,#0000);
+
+.btn-loader.loader-white {
+  --c: radial-gradient(farthest-side, #8b5cf6 92%, #0000);
 }
 
-@keyframes s7 {to{transform: rotate(.5turn)}}
+@keyframes s7 {
+  to {
+    transform: rotate(.5turn)
+  }
+}
 
 /* .btn-loader{display: none;} */

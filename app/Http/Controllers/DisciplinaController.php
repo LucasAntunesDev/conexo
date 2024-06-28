@@ -77,6 +77,6 @@ class DisciplinaController extends Controller {
         $disciplina = Disciplina::find($id);
         $disciplina->delete();
 
-        return back();
+        return back()->with('delete', 'Disciplina deletada com sucesso!');
     }
 }

@@ -8,6 +8,12 @@
         Gerenciar palavra
     </h1>
 
+    @if (session('status'))
+    <x-toast type='success'>
+        {{ session('status') }}
+    </x-toast>
+    @endif
+
     <section class="flex justify-stretch items-stretch gap-2 grow px-10 py-4">
 
         <main class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-100 ">

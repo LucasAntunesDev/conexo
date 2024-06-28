@@ -9,8 +9,7 @@ use App\Models\Disciplina;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class GrupoController extends Controller
-{
+class GrupoController extends Controller {
 
     public function index() {
         $grupo = new Grupo();
@@ -86,6 +85,6 @@ class GrupoController extends Controller
         $grupo = Grupo::find($id);
         $grupo->delete();
 
-        return back();
+        return back()->with('delete', 'Grupo deletado com sucesso!');
     }
 }

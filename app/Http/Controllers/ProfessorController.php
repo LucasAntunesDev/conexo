@@ -14,16 +14,17 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfessorController extends Controller {
 
-    public function __construct(protected Professor $professoresRepository,){}
+    public function __construct(protected Professor $professoresRepository,) {
+    }
     public function index() {
         $professores = Professor::all();
-        
+
         return view('professores', [
             'professores' => $professores
         ]);
     }
 
-    public function api(){
+    public function api() {
         $professores = $this->professoresRepository->paginate();
         return ProfessorResource::collection($professores);
     }
@@ -81,7 +82,7 @@ class ProfessorController extends Controller {
 
             $professor->senha = Hash::make($senha);
             Auth::login($professor);
-            
+
             $professor->save();
             return back();
         }
@@ -91,6 +92,6 @@ class ProfessorController extends Controller {
         $professor = Professor::find($id);
         $professor->delete();
 
-        return back();
+        return back()->with('delete', 'Professor deletado com sucesso!');
     }
 }
