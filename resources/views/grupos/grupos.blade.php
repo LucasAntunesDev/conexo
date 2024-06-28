@@ -23,7 +23,7 @@
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full appear">
             <div class="relative p-4 w-full max-w-md max-h-full">
 
-                <div class="relative bg-violet-100 rounded-2xl shadow">
+                <div class="relative bg-violet-50 rounded-2xl shadow">
 
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t-2xl">
                         <h3 class=" text-lg font-semibold">
@@ -73,7 +73,7 @@
 
         @foreach($grupos as $grupo)
 
-        <div class="inline-flex flex-col bg-violet-100 px-4 py-2 gap-x-4 rounded-2xl lista-item">
+        <div class="inline-flex flex-col bg-violet-50 px-4 py-2 gap-x-4 rounded-2xl lista-item">
 
             <div class="inline-flex items-center justify-between gap-x-4">
                 <p class="text-violet-900  font-semibold w-fit capitalize lista-titulo">{{

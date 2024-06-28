@@ -39,7 +39,7 @@
             @endif
             {{ csrf_field()}}
 
-            <fieldset class="flex flex-col p-10 w-[40rem] gap-4 bg-violet-100 rounded-2xl">
+            <fieldset class="flex flex-col p-10 w-[40rem] gap-4 bg-violet-50 rounded-2xl">
                 <div class="flex flex-col gap-y-1">
                     <label for="grupo_id" class="label capitalize">grupo</label>
                     <select id="grupo_id" name="grupo_id" class="text-gray-700 input">

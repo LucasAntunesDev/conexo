@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body class="text-gray-700 flex flex-col h-lvh bg-violet-50">
+<body class="text-gray-700 flex flex-col h-lvh bg-zinc-50">
 
     <main
         class="flex items-center gap-4 w-auto min-w-[40%] max-h-fit justify-center rounded-2xl px-12 h-fit py-4 md:py-0 md:h-5/6 m-auto bg-gradient-to-tr from-violet-500 to-indigo-700">
@@ -43,7 +43,7 @@
                 </div>
 
                 <button type="submit"
-                    class="btn-tertiary bg-violet-50 flex py-3 px-6 w-64 justify-between items-center font-semibold spin"
+                    class="btn-tertiary bg-zinc-50 flex py-3 px-6 w-64 justify-between items-center font-semibold spin"
                     id="btn">
                     Entrar
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

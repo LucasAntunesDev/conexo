@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body class="text-gray-700 flex flex-col h-screen bg-violet-50">
+<body class="text-gray-700 flex flex-col h-screen bg-zinc-50">
 
     @include('includes.header')
 

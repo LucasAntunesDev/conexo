@@ -8,7 +8,7 @@
   }
 
   .conexo-btn {
-    @apply bg-violet-100 p-6 rounded-xl flex items-center hover:cursor-pointer focus-within:scale-90 transicao uppercase h-auto
+    @apply bg-violet-50 p-6 rounded-xl flex items-center hover:cursor-pointer focus-within:scale-90 transicao uppercase h-auto
   }
 
   .border-error {
@@ -32,7 +32,7 @@
   }
 
   .btn-tertiary {
-    @apply bg-violet-50 hover:bg-violet-100 disabled:bg-violet-50/50 text-violet-500 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-violet-50/50 transicao
+    @apply bg-zinc-50 hover:bg-violet-50 disabled:bg-zinc-50/50 text-violet-500 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-zinc-50/50 transicao
   }
 
 
@@ -54,7 +54,7 @@
 
 
   select.input {
-    @apply bg-violet-100;
+    @apply bg-violet-50;
   }
 
   .label {

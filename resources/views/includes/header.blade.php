@@ -10,7 +10,7 @@ h-16 bg-transparent min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
     <div class="flex items-center md:justify-between gap-x-4  md:gap-x-0 flex-row-reverse mx-auto">
 
         <div class="md:mx-auto">
-            <nav class="mr-10 bg-violet-100 px-8 rounded-3xl">
+            <nav class="mr-10 bg-violet-50 px-8 rounded-3xl">
                 <ul class="inline-flex gap-x-8 items-center justify-center" role="list">
                     @php
                     {{$modulos = ['jogos', 'disciplinas', 'grupos', 'palavras'];}}
@@ -44,7 +44,7 @@ h-16 bg-transparent min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
 
         </button>
 
-        <div class='z-50 hidden my-1 text-base list-none shadow w-64 bg-violet-100/60 backdrop-blur absolute right-10 bottom-14 rounded-xl p-4 gap-4 appear'
+        <div class='z-50 hidden my-1 text-base list-none shadow w-64 bg-violet-50/60 backdrop-blur absolute right-10 bottom-14 rounded-xl p-4 gap-4 appear'
             id='user-dropdown'>
 
             <ul class="flex flex-col gap-y-4">

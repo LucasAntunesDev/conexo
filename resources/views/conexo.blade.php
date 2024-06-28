@@ -18,7 +18,7 @@
                 <span class="capitalize font-bold text-4xl text-violet-500" id="nomeJogo"></span>
             </div>
             <div id="acertou"
-                class="hidden flex flex-col mx-auto my-4 gap-4 w-fit p-4 rounded-lg bg-violet-100 shadow-md">
+                class="hidden flex flex-col mx-auto my-4 gap-4 w-fit p-4 rounded-lg bg-violet-50 shadow-md">
                 <span class="font-bold mx-auto inline-flex">Parabéns!</span>
                 <h2>Você conseguiu em <span id="acertouNumeroTentativas"></span> tentativas.</h2>
 

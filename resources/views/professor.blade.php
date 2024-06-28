@@ -27,9 +27,9 @@
 
     <main class="flex justify-stretch items-stretch gap-2 grow px-10 py-4">
 
-        <div class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-100 ">
+        <div class="flex flex-col items-center w-3/5 min-h-[95%] h-fit rounded-xl bg-violet-50 ">
 
-            <div class="space-y-0.5 w-auto rounded-xl bg-violet-100 p-6">
+            <div class="space-y-0.5 w-auto rounded-xl bg-violet-50 p-6">
                 <h2 class="text-2xl font-bold tracking-tight text-violet-500">Configurções de usuário</h2>
                 <p>Altere as configurações de sua conta.</p>
             </div>
@@ -43,7 +43,7 @@
                     @endif
                     {{ csrf_field()}}
 
-                    <fieldset class="flex flex-col items-stretch gap-4 p-6 pt-1 bg-violet-100">
+                    <fieldset class="flex flex-col items-stretch gap-4 p-6 pt-1 bg-violet-50">
                         <div class="flex flex-col gap-y-1">
                             <div class="relative z-0">
                                 <label for="nome" class="label">
@@ -90,7 +90,7 @@
                 </form>
         </div>
 
-        <div class="flex flex-col gap-4 rounded-xl bg-violet-100 p-6 min-h-[95%] h-fit flex-auto">
+        <div class="flex flex-col gap-4 rounded-xl bg-violet-50 p-6 min-h-[95%] h-fit flex-auto">
             <div class="flex flex-col mx-auto gap-y-4">
                 <div>
                     <h3 class="text-2xl font-bold tracking-tight text-violet-500">Disciplinas</h3>

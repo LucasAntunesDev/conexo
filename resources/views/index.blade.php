@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="./favicon.ico">
 </head>
 
-<body class="text-gray-700 flex flex-col h-screen bg-violet-50">
+<body class="text-gray-700 flex flex-col h-screen bg-zinc-50">
     @include('includes.header')
 
     <main class="flex flex-col justify-center items-center w-screen grow">
