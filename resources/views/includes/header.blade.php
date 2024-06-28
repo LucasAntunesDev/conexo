@@ -44,11 +44,11 @@ h-16 bg-transparent min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
 
         </button>
 
-        <div class='z-50 hidden my-1 text-base list-none shadow w-64 bg-violet-50/60 backdrop-blur absolute right-10 bottom-14 rounded-xl p-4 gap-4 appear'
+        <div class='z-50 hidden my-1 text-base list-none shadow-lg shadow-violet-500/10 w-64 backdrop-blur absolute right-24 bottom-14 rounded-xl py-2 gap-1 appear'
             id='user-dropdown'>
 
             <ul class="flex flex-col gap-y-4">
-                <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
+                <li class="hover:bg-violet-50 px-2 rounded-xl">
                     <a href="{{ route('professorform', ['id' => auth()->user()->id]) }}"
                         class="inline-flex hover:text-violet-500 py-3 px-6 gap-x-4 capitalize">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -59,7 +59,7 @@ h-16 bg-transparent min-w-[99vw] max-w-[99vw] mx-auto mt-2 rounded-xl py-4">
                         {{auth()->user()->nome}}
                     </a>
                 </li>
-                <li class="bg-violet-200 rounded-xl *:transition *:duration-300 *:ease-in-out">
+                <li class="hover:bg-violet-50 px-2 rounded-xl">
                     <a href="{{route('logout')}}" class="inline-flex hover:text-red-500 py-3 px-6 w-max gap-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">

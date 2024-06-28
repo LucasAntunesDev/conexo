@@ -14,7 +14,7 @@
 
     <main class="flex flex-col justify-center items-center w-screen grow">
 
-        <div class="text-5xl font-bold inline-flex flex-col gap-2 justify-center items-center mt-10">
+        <div class="text-5xl font-bold inline-flex gap-2 justify-center items-center mt-10">
             <x-conexo-logo></x-conexo-logo>
             <h1 class="uppercase">CONEXO</h1>
         </div>
