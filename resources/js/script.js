@@ -1,11 +1,11 @@
-if (document.querySelector("#tabuleiro")) {
+if (document.querySelector('#tabuleiro')) {
   const criarTabuleiro = () => {
     const tabuleiro = []
 
     let contador = 0
     while (contador < 16) {
       const numero = Math.ceil(Math.random() * (16 / 2))
-      if (tabuleiro.filter((x) => x === numero).length >= 2) continue
+      if (tabuleiro.filter(x => x === numero).length >= 2) continue
 
       tabuleiro.push(numero)
       contador++
@@ -14,51 +14,51 @@ if (document.querySelector("#tabuleiro")) {
     return tabuleiro
   }
 
-  if (!localStorage.getItem("conexoJogoStatus"))
-    localStorage.setItem("conexoJogoStatus", JSON.stringify({}))
-  const dadosLocalStorage = JSON.parse(localStorage.getItem("conexoJogoStatus"))
+  if (!localStorage.getItem('conexoJogoStatus'))
+    localStorage.setItem('conexoJogoStatus', JSON.stringify({}))
+  const dadosLocalStorage = JSON.parse(localStorage.getItem('conexoJogoStatus'))
 
-  const id = new URLSearchParams(window.location.search).get("id")
+  const id = new URLSearchParams(window.location.search).get('id')
   const url = id
     ? `http://localhost:8000/api/jogo?id=${id}`
-    : "http://localhost:8000/api/jogo"
+    : 'http://localhost:8000/api/jogo'
 
   fetch(url)
-    .then((response) => {
+    .then(response => {
       if (response.ok) {
         return response.json()
       }
-      throw new Error("Algo deu errado na solicitação")
+      throw new Error('Algo deu errado na solicitação')
     })
-    .then((data) => {
+    .then(data => {
       const jogo = data
-      document.querySelector("#dataJogo").innerHTML = jogo.data
+      document.querySelector('#dataJogo').innerHTML = jogo.data
 
       const grupos = [
         {
           grupo: jogo.grupo_1_nome,
-          palavras: jogo.grupo_1_palavras.split(","),
+          palavras: jogo.grupo_1_palavras.split(','),
           jogo_id: jogo.grupo_1_id,
         },
         {
           grupo: jogo.grupo_2_nome,
-          palavras: jogo.grupo_2_palavras.split(","),
+          palavras: jogo.grupo_2_palavras.split(','),
           jogo_id: jogo.grupo_2_id,
         },
         {
           grupo: jogo.grupo_3_nome,
-          palavras: jogo.grupo_3_palavras.split(","),
+          palavras: jogo.grupo_3_palavras.split(','),
           jogo_id: jogo.grupo_3_id,
         },
         {
           grupo: jogo.grupo_4_nome,
-          palavras: jogo.grupo_4_palavras.split(","),
+          palavras: jogo.grupo_4_palavras.split(','),
           jogo_id: jogo.grupo_4_id,
         },
       ]
 
-      document.querySelector("#skeleton").classList.add("hidden")
-      document.querySelector("#nomeJogo").innerHTML = jogo.nome
+      document.querySelector('#skeleton').classList.add('hidden')
+      document.querySelector('#nomeJogo').innerHTML = jogo.nome
 
       const todasPalavras = grupos
         .reduce((acc, grupo) => {
@@ -69,15 +69,15 @@ if (document.querySelector("#tabuleiro")) {
       const jogoId = grupos[0].jogo_id
 
       if (dadosLocalStorage[jogoId] && dadosLocalStorage[jogoId].finalizado) {
-        document.querySelector("#acertou").classList.remove("hidden")
+        document.querySelector('#acertou').classList.remove('hidden')
 
-        const gruposDiv = document.querySelector("#grupos")
-        gruposDiv.classList.remove("hidden")
+        const gruposDiv = document.querySelector('#grupos')
+        gruposDiv.classList.remove('hidden')
 
-        grupos.forEach((grupo) => {
-          document.querySelector("#acertouNumeroTentativas").innerHTML =
+        grupos.forEach(grupo => {
+          document.querySelector('#acertouNumeroTentativas').innerHTML =
             dadosLocalStorage[jogoId].tentativas
-          document.querySelector("#numeroTentativas").innerHTML =
+          document.querySelector('#numeroTentativas').innerHTML =
             dadosLocalStorage[jogoId].tentativas
 
           gruposDiv.innerHTML += `
@@ -86,12 +86,12 @@ if (document.querySelector("#tabuleiro")) {
                       grupo.grupo
                     }</h2>
                     <p class="text-center">
-                        ${grupo.palavras.join(", ")}
+                        ${grupo.palavras.join(', ')}
                     </p>
                 </div>`
         })
 
-        document.querySelector("#tabuleiro").classList.add("pb-4")
+        document.querySelector('#tabuleiro').classList.add('pb-4')
         return
       }
 
@@ -102,17 +102,17 @@ if (document.querySelector("#tabuleiro")) {
         selecionado: jogadas,
       }
 
-      const tabuleiro = document.querySelector("#tabuleiro")
+      const tabuleiro = document.querySelector('#tabuleiro')
 
       const verificarJogadas = (grupos, jogadas) => {
-        let numeroAcertosElement = document.querySelector("#numeroAcertos")
+        let numeroAcertosElement = document.querySelector('#numeroAcertos')
         let numeroAcertos = parseInt(numeroAcertosElement.innerHTML)
-        const gruposAcertados = document.querySelector("#grupos")
+        const gruposAcertados = document.querySelector('#grupos')
 
-        grupos.forEach((grupo) => {
+        grupos.forEach(grupo => {
           const palavrasGrupo = grupo.palavras
-          const todasPresentes = jogadas.every((jogada) =>
-            palavrasGrupo.includes(jogada)
+          const todasPresentes = jogadas.every(jogada =>
+            palavrasGrupo.includes(jogada),
           )
 
           if (todasPresentes) {
@@ -124,13 +124,13 @@ if (document.querySelector("#tabuleiro")) {
                             ${grupo.grupo}
                         </span>
                         <span class="text-center">
-                            ${jogadas.join(", ")}
+                            ${jogadas.join(', ')}
                         </span>
                     </div>`
 
-            jogadas.forEach((palavra) => {
-              document.querySelectorAll("button").forEach((botao) => {
-                if (botao.textContent === palavra) botao.classList.add("hidden")
+            jogadas.forEach(palavra => {
+              document.querySelectorAll('button').forEach(botao => {
+                if (botao.textContent === palavra) botao.classList.add('hidden')
               })
             })
           }
@@ -144,44 +144,44 @@ if (document.querySelector("#tabuleiro")) {
 
           dadosLocalStorage[jogoId] = jogoDados
           localStorage.setItem(
-            "conexoJogoStatus",
-            JSON.stringify(dadosLocalStorage)
+            'conexoJogoStatus',
+            JSON.stringify(dadosLocalStorage),
           )
 
-          document.querySelector("#acertou").classList.remove("hidden")
-          document.querySelector("#acertouNumeroTentativas").innerHTML =
+          document.querySelector('#acertou').classList.remove('hidden')
+          document.querySelector('#acertouNumeroTentativas').innerHTML =
             numeroTentativas
         }
       }
 
       for (let i = 0; i < 16; i++) {
-        const botao = document.createElement("button")
-        botao.setAttribute("type", "button")
-        botao.setAttribute("class", "conexo-btn")
+        const botao = document.createElement('button')
+        botao.setAttribute('type', 'button')
+        botao.setAttribute('class', 'conexo-btn')
         botao.textContent = todasPalavras[i]
-        botao.addEventListener("click", () => {
-          if (jogadas.some((j) => j === botao.textContent)) return
-          botao.classList.add("bg-violet-500")
+        botao.addEventListener('click', () => {
+          if (jogadas.some(j => j === botao.textContent)) return
+          botao.classList.add('bg-violet-500')
           botao.disabled = true
           jogadas.push(botao.textContent)
 
           if (jogadas.length === 4) {
             numeroTentativas++
             let numeroTentativasElement =
-              document.querySelector("#numeroTentativas")
+              document.querySelector('#numeroTentativas')
             numeroTentativasElement.innerHTML = numeroTentativas
 
-            tentativa = { selecionado: jogadas }
+            tentativa = {selecionado: jogadas}
 
             tentativas.push(tentativa)
             verificarJogadas(grupos, jogadas)
 
             jogadas = []
 
-            document.querySelectorAll("button").forEach((botao) => {
+            document.querySelectorAll('button').forEach(botao => {
               botao.disabled = false
-              if (botao.classList.contains("bg-violet-500"))
-                botao.classList.remove("bg-violet-500")
+              if (botao.classList.contains('bg-violet-500'))
+                botao.classList.remove('bg-violet-500')
             })
           }
         })
@@ -189,20 +189,20 @@ if (document.querySelector("#tabuleiro")) {
         tabuleiro.appendChild(botao)
       }
     })
-    .catch((error) => {
+    .catch(error => {
       document
-        .querySelector("#tabuleiro")
-        .setAttribute("class", "flex justify-center items-center m-auto")
+        .querySelector('#tabuleiro')
+        .setAttribute('class', 'flex justify-center items-center m-auto')
 
-      document.querySelector("#numeroTentativas").classList.add("hidden")
+      document.querySelector('#numeroTentativas').classList.add('hidden')
       document
-        .querySelector("#numeroTentativas")
-        .parentElement.classList.add("hidden")
-      document.querySelector("#voltar").classList.add("hidden")
+        .querySelector('#numeroTentativas')
+        .parentElement.classList.add('hidden')
+      document.querySelector('#voltar').classList.add('hidden')
 
-      document.querySelector("body").classList.add("max-h-[100vh]")
+      document.querySelector('body').classList.add('max-h-[100vh]')
 
-      document.querySelector("#tabuleiro").innerHTML = `
+      document.querySelector('#tabuleiro').innerHTML = `
       <section class="flex gap-2 my-auto w-full max-w-[100vw]">
         <div class="py-4 flex flex-col justify-center items-center w-6/12">
           <p class="text-xl font-semibold ">404<p>

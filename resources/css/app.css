@@ -8,7 +8,7 @@
   }
 
   .conexo-btn {
-    @apply bg-violet-50 p-6 rounded-xl flex items-center hover:cursor-pointer focus-within:scale-90 transicao uppercase h-auto
+    @apply transicao flex h-auto items-center rounded-xl bg-violet-50 p-6 uppercase focus-within:scale-90 hover:cursor-pointer;
   }
 
   .border-error {
@@ -20,49 +20,47 @@
   }
 
   .transicao {
-    @apply transition duration-300 ease-in-out hover:cursor-pointer !important
+    @apply transition duration-300 ease-in-out hover:cursor-pointer !important;
   }
 
   .btn-primary {
-    @apply bg-violet-500 hover:bg-violet-700 disabled:bg-violet-500/50 text-zinc-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-violet-500/50 transicao
+    @apply transicao gap-x-2 rounded-xl bg-violet-500 px-5 py-2 text-zinc-50 hover:cursor-pointer hover:bg-violet-700 disabled:cursor-not-allowed disabled:bg-violet-500/50 hover:disabled:bg-violet-500/50;
   }
 
   .btn-secundary {
-    @apply bg-violet-200/60 enabled:hover:bg-violet-200 text-violet-700 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed transicao
+    @apply transicao gap-x-2 rounded-xl bg-violet-200/60 px-5 py-2 text-violet-700 hover:cursor-pointer enabled:hover:bg-violet-200 disabled:cursor-not-allowed;
   }
 
   .btn-tertiary {
-    @apply bg-zinc-50 hover:bg-violet-50 disabled:bg-zinc-50/50 text-violet-500 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-zinc-50/50 transicao
+    @apply transicao gap-x-2 rounded-xl bg-zinc-50 px-5 py-2 text-violet-500 hover:cursor-pointer hover:bg-violet-50 disabled:cursor-not-allowed disabled:bg-zinc-50/50 hover:disabled:bg-zinc-50/50;
   }
 
-
   .btn-danger {
-    @apply bg-red-500 hover:bg-red-700 disabled:bg-red-500/50 text-zinc-50 rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer disabled:cursor-not-allowed hover:disabled:bg-red-500/50 transicao
+    @apply transicao gap-x-2 rounded-xl bg-red-500 px-5 py-2 text-zinc-50 hover:cursor-pointer hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-red-500/50 hover:disabled:bg-red-500/50;
   }
 
   .btn-link {
-    @apply hover:text-violet-500 text-current py-2 px-5 gap-x-2 hover:cursor-pointer transicao
+    @apply transicao gap-x-2 px-5 py-2 text-current hover:cursor-pointer hover:text-violet-500;
   }
 
   .btn-ghost {
-    @apply bg-transparent hover:bg-violet-200/60 text-current rounded-xl py-2 px-5 gap-x-2 hover:cursor-pointer transicao
+    @apply transicao gap-x-2 rounded-xl bg-transparent px-5 py-2 text-current hover:cursor-pointer hover:bg-violet-200/60;
   }
 
   .input {
-    @apply rounded-2xl border-none py-3 px-8 outline-none border-0 ring-1 ring-inset ring-violet-300 focus:ring-2 focus:ring-violet-500 focus:ring-inset bg-transparent shadow
+    @apply rounded-2xl border-0 border-none bg-transparent px-8 py-3 shadow outline-none ring-1 ring-inset ring-violet-300 focus:ring-2 focus:ring-inset focus:ring-violet-500;
   }
-
 
   select.input {
     @apply bg-violet-50;
   }
 
   .label {
-    @apply block text-sm font-semibold capitalize leading-6 text-violet-500
+    @apply block text-sm font-semibold capitalize leading-6 text-violet-500;
   }
 
   .toast {
-    @apply flex flex-row gap-2 items-center font-medium p-4 rounded-2xl shadow z-20 absolute bottom-[10];
+    @apply absolute bottom-[10] z-20 flex flex-row items-center gap-2 rounded-2xl p-4 font-medium shadow;
   }
 
   .appear {
@@ -95,7 +93,6 @@
       display: none;
     }
   }
-
 }
 
 .btn-loader {
@@ -112,14 +109,13 @@
   animation: s7 1s infinite;
 }
 
-
 .btn-loader.loader-white {
   --c: radial-gradient(farthest-side, #8b5cf6 92%, #0000);
 }
 
 @keyframes s7 {
   to {
-    transform: rotate(.5turn)
+    transform: rotate(0.5turn);
   }
 }
 
