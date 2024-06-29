@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,4 +20,9 @@ class Jogo extends Model {
         'data'
     ];
     use HasFactory;
+
+    public function formatarData($data, $formato = 'd/m/Y'){
+        return Carbon::parse($data)->format($formato);
+        //  {{ Carbon\Carbon::parse($jogo->data)->format('d/m/Y')}} 
+    }
 }

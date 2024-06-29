@@ -31,37 +31,6 @@ if (document.querySelector("button.spin")) {
   })
 }
 
-const filtrar = () => {
-  const items = document.querySelectorAll(".lista-item")
-
-  const pesquisarBtn = document.querySelector("#pesquisar")
-
-  if (pesquisarBtn.value != "") {
-    for (let item of items) {
-      let titulo = item.querySelector("a")
-      // console.log(titulo.textContent)
-      // let titulo = document.querySelectorAll('.lista-titulo')
-      titulo = titulo.innerHTML.toLowerCase()
-      // titulo = titulo.textContent.toLowerCase()
-      // alert(titulo.innerHTML)
-
-      let filtrarTexto = pesquisarBtn.value.toLowerCase()
-
-      if (!titulo.includes(filtrarTexto)) {
-        item.classList.add("hidden")
-      } else {
-        item.classList.remove("hidden")
-        // item.classList.add('hidden')
-      }
-    }
-  } else {
-    for (let item of items) {
-      // item.classList.add('hidden')
-      item.classList.remove("hidden")
-    }
-  }
-}
-
 if (document.querySelector("#pesquisar")) {
   document.querySelector("#pesquisar").addEventListener("input", filtrar)
 }

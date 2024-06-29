@@ -22,7 +22,24 @@
 
     <main class="flex flex-col gap-2 w-screen justify-center items-center grow">
         <div class="flex flex-col">
-            <x-pesquisar-input></x-pesquisar-input>
+            {{-- <x-pesquisar-input></x-pesquisar-input> --}}
+            {{-- <label for="pesquisar" class="label">Pesquisar</label>
+            <div class="flex flex-col gap-2">
+                <form class="relative mt-2 rounded-md shadow-sm" action="">
+                    <input type="text" name="search" id="search" class="input px-10"
+                        value="{{isset($search) ? $search : ''}}">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    </div>
+
+                    <button type="submit" class="btn-primary">Manda Bala!</button>
+                </form>
+            </div> --}}
+            <form method="GET" action="{{ url('/jogos') }}" class="mb-4">
+                <input type="text" name="nome" placeholder="Nome do jogo" value="{{ request('nome') }}" class="input">
+                <input type="date" name="data" placeholder="Data do jogo" value="{{ request('data') }}" class="input">
+                <button type="submit" class="btn-primary">Buscar</button>
+            </form>
+
         </div>
 
         @auth('web')
@@ -129,11 +146,12 @@
     <div class="bg-violet-50 w-fit p-6 rounded-xl h-auto lista-item">
 
         <a href="{{ route('jogo', ['id' => $jogo->id]) }}"
-            class="flex text-violet-900  font-semibold w-56 text-lg lista-titulo">{{ $jogo->nome
-            }}</a>
-        <span class="text-gray-500 font-medium text-sm">
-            {{$jogo->data}}
-        </span>
+            class="flex text-violet-900  font-semibold w-56 text-lg lista-titulo">
+            {{ $jogo->nome}}
+        </a>
+        <time class="text-gray-500 font-medium text-sm">
+            {{$jogo->formatarData($jogo->data)}}
+        </time>
 
         @auth('web')
         <form method="POST" action="{{ route('jogodelete', ['id'=> $jogo->id]) }}" class="w-auto mx-auto pt-4">

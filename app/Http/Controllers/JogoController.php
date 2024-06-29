@@ -26,11 +26,17 @@ class JogoController extends Controller {
     ) {
     }
 
-    public function index() {
-        $jogos = Jogo::paginate(16);
+    public function index(Request $request) {
+        $query = Jogo::query();
 
+        
         $disciplinas = Disciplina::all();
+        
+        if ($request->filled('nome')) $query->where('nome', 'like', '%' . $request->nome . '%');
+        if ($request->filled('data')) $query->where('data', $request->data);
 
+        $jogos = $query->paginate(16);
+        
         return view('jogos.jogos', [
             'jogos' => $jogos,
             'disciplinas' => $disciplinas
@@ -146,23 +152,6 @@ class JogoController extends Controller {
                 }
             }
 
-            // return [
-            //     'nome' => $request->input('nome'),
-            //     'grupo_1_id' => $grupos_ids[0] ?? null,
-            //     'grupo_2_id' => $grupos_ids[1] ?? null,
-            //     'grupo_3_id' => $grupos_ids[2] ?? null,
-            //     'grupo_4_id' => $grupos_ids[3] ?? null,
-            //     'grupo_1_nome' => $grupos_nomes[0] ?? null,
-            //     'grupo_2_nome' => $grupos_nomes[1] ?? null,
-            //     'grupo_3_nome' => $grupos_nomes[2] ?? null,
-            //     'grupo_4_nome' => $grupos_nomes[3] ?? null,
-            //     'grupo_1_palavras' => implode(",", $grupos_palavras[0]) ?? [],
-            //     'grupo_2_palavras' => implode(",", $grupos_palavras[1]) ?? [],
-            //     'grupo_3_palavras' => implode(",", $grupos_palavras[2]) ?? [],
-            //     'grupo_4_palavras' => implode(",", $grupos_palavras[3]) ?? [],
-            //     'data' => $data
-            // ];
-
             $jogo = Jogo::create([
                 'nome' => $request->input('nome'),
                 'grupo_1_id' => $grupos_ids[0] ?? null,
@@ -207,4 +196,5 @@ class JogoController extends Controller {
 
         return back()->with('delete', 'Jogo deletado com sucesso!');
     }
+
 }
