@@ -20,6 +20,7 @@ class ProfessoresSeeder extends Seeder
             ['id' => 6,  'nome' =>'Maurico Rosito', 'login' => 'Maurico Rosito', 'senha' => bcrypt('Maurico Rosito')],
             ['id' => 7,  'nome' =>'Lissandra', 'login' => 'Lissandra', 'senha' => bcrypt('Lissandra')],
             ['id' => 8,  'nome' =>'Sandro', 'login' => 'Sandro', 'senha' => bcrypt('Sandro')],
+            ['id' => 9, 'nome' => 'admin', 'login' => 'admin', 'senha' => bcrypt('admin')],
         ]);
     }
 }

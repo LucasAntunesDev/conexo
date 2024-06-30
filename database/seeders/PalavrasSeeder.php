@@ -151,6 +151,28 @@ class PalavrasSeeder extends Seeder {
             ['id' => 114, 'nome' => 'Objeto'],
             ['id' => 115, 'nome' => 'Interface'],
 
+            //frontend
+            ['id' => '116', 'nome' => 'vue'],
+            ['id' => '117', 'nome' => 'angular'],
+            ['id' => '118', 'nome' => 'svelte'],
+            ['id' => '119', 'nome' => 'node'],
+
+            ['id' => '120', 'nome' => 'mysql'],
+            ['id' => '121', 'nome' => 'PostgreSQL'],
+            ['id' => '122', 'nome' => 'Oracle'],
+
+            ['id' => '123', 'nome' => 'telnet'],
+            ['id' => '124', 'nome' => 'bittorrent'],
+
+            //diagramas de análise
+            ['id' => '125', 'nome' => 'caso de uso'],
+            ['id' => '126', 'nome' => 'atividade'],
+            ['id' => '127', 'nome' => 'interação'],
+            ['id' => '128', 'nome' => 'classe'],
+
+            #modelo
+            // ['id' => 'id', 'nome' => 'nome'],
+
         ]);
     }
 }

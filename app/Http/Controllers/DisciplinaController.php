@@ -69,7 +69,7 @@ class DisciplinaController extends Controller {
             $disciplina->id = $request->input('id');
             $disciplina->save();
 
-            return back();
+            return redirect()->route('disciplinas')->with('status', 'Palavra editada com sucesso!');
         }
     }
 
